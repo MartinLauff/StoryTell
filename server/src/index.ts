@@ -12,7 +12,7 @@ const start = async () => {
     process.exit(1);
   });
 
-  dotenv.config({ path: path.join(__dirname, 'config.env') });
+  dotenv.config({ path: path.join(__dirname, '../config.env') });
 
   if (!process.env.DATABASE) {
     throw new Error('DATABASE must be defined');

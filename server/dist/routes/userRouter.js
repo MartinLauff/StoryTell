@@ -1,0 +1,33 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.userRouter = void 0;
+const express_1 = __importDefault(require("express"));
+const express_validator_1 = require("express-validator");
+const require_auth_1 = require("../middleware/require-auth");
+const validate_request_1 = require("../middleware/validate-request");
+const current_user_1 = require("../middleware/current-user");
+const show_1 = __importDefault(require("../controllers/users/show"));
+const my_profile_1 = __importDefault(require("../controllers/users/my-profile"));
+const follow_1 = __importDefault(require("../controllers/users/follow"));
+const unfollow_1 = __importDefault(require("../controllers/users/unfollow"));
+const save_1 = __importDefault(require("../controllers/users/save"));
+const unsave_1 = __importDefault(require("../controllers/users/unsave"));
+const edit_profile_1 = __importDefault(require("../controllers/users/edit-profile"));
+const update_password_1 = __importDefault(require("../controllers/users/update-password"));
+const activities_1 = __importDefault(require("../controllers/users/activities"));
+const router = express_1.default.Router();
+exports.userRouter = router;
+router.use(current_user_1.currentUserMiddleware, require_auth_1.requireAuth, validate_request_1.validateRequest);
+router.get('/activities', activities_1.default);
+router.get('/my-profile', my_profile_1.default);
+router.put('/update-my-profile', edit_profile_1.default);
+router.put('/update-password', [express_validator_1.body('newPassword').isEmpty().withMessage('New password must by valid')], update_password_1.default);
+router.get('/:id', show_1.default);
+router.put('/follow/:id', follow_1.default);
+router.put('/unfollow/:id', unfollow_1.default);
+router.put('/save/:id', save_1.default);
+router.put('/unsave/:id', unsave_1.default);
+//# sourceMappingURL=userRouter.js.map

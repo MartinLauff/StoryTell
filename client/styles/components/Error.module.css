@@ -1,0 +1,9 @@
+.errorBanner {
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  color: #000;
+  border: #ff0000;
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"topicRouter.js","sourceRoot":"","sources":["../../src/routes/topicRouter.ts"],"names":[],"mappings":";;;;;;AAAA,sDAA8B;AAC9B,6DAAyD;AACzD,qEAAiE;AACjE,6DAAmE;AACnE,0EAAiD;AAEjD,MAAM,MAAM,GAAG,iBAAO,CAAC,MAAM,EAAE,CAAC;AAOb,6BAAW;AAJ9B,MAAM,CAAC,GAAG,CAAC,oCAAqB,EAAE,0BAAW,EAAE,kCAAe,CAAC,CAAC;AAEhE,MAAM,CAAC,GAAG,CAAC,QAAQ,EAAE,gBAAK,CAAC,CAAC"}
