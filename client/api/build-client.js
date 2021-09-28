@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export default ({ req }) => {
+const buildClient = ({ req }) => {
   if (typeof window === 'undefined') {
     // We are on the server
 
@@ -11,7 +11,8 @@ export default ({ req }) => {
   } else {
     // We must be on the browser
     return axios.create({
-      baseURL: '/',
+      baseURL: 'http://localhost:8000/',
     });
   }
 };
+export default buildClient;

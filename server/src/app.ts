@@ -1,6 +1,7 @@
 import express from 'express';
 import 'express-async-errors';
 import cookieSession from 'cookie-session';
+import cors from 'cors';
 import { errorHandler } from './middleware/error-handler';
 import { NotFoundError } from './errors/not-found-error';
 
@@ -12,7 +13,11 @@ import { userRouter } from './routes/userRouter';
 import { topicRouter } from './routes/topicRouter';
 
 const app = express();
+
 app.set('trust proxy', true);
+app.use(cors());
+//@ts-ignore
+app.options('*', cors());
 app.use(express.json());
 app.use(
   cookieSession({

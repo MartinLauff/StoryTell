@@ -1,12 +1,13 @@
 import Link from 'next/link';
-import buttonStyles from '../styles/components/Buttons.module.css';
+import buttonStyles from '../styles/Components.module.css';
 
-export default ({ style, route, content, color }) => {
+const SingleButton = ({ style, route, content, color }) => {
   return (
     <div>
       <Link href={route}>
         <a>
           <button
+            type='submit'
             style={style}
             className={`${buttonStyles.button} ${buttonStyles[color]}`}
           >
@@ -17,3 +18,4 @@ export default ({ style, route, content, color }) => {
     </div>
   );
 };
+export default SingleButton;

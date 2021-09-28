@@ -7,17 +7,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.indexImg {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url('../public/img/indexPic.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
+.signinImg {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url('../public/img/signinPic.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .heading {
-  margin: 7rem 0 1rem;
-  color: #fff;
+  margin: 15rem 0 1rem;
 }
 .indexSpan {
-  color: #fff;
   text-align: center;
   width: 85%;
 }

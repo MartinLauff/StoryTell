@@ -1,0 +1,31 @@
+.button {
+  width: 14rem;
+  height: 4.6rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 1rem;
+  border: none;
+}
+.whiteButton {
+  color: #000;
+  background: #fff;
+}
+.redButton {
+  color: #fff;
+  background: #ff2f2f;
+}
+.textInput {
+  border-radius: 1rem;
+  width: 29rem;
+  height: 5rem;
+  padding: 0 2rem;
+  font-size: 1.4rem;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+  margin-bottom: 2rem;
+  outline: none;
+  border: none;
+}
+.textInput::placeholder {
+  color: #a2a5b5;
+}
