@@ -3,15 +3,66 @@
   top: 0;
   bottom: 0;
   left: 0;
-  right: 20%;
+  right: 25%;
   z-index: 5;
   background-color: #fff;
+  display: grid;
+  grid-template-rows: repeat(12, 1fr);
+  transition: 1s all;
+}
+.sidebar span {
+  margin-left: 1rem;
+  color: #000;
+}
+.sidebar h3 {
+  margin-left: 1.5rem;
+}
+.sidebar a,
+.sidebar div {
+  padding-left: 1rem;
+  margin-left: 2rem;
+  text-decoration: none;
+}
+.sidebar a:focus {
+  background-color: rgb(218, 218, 218);
+  width: 40%;
+  border-radius: 1rem;
+}
+.sidebar * {
+  display: flex;
+  align-items: center;
 }
 .bar {
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   height: 5.4rem;
   display: flex;
   align-items: center;
+}
+.toggle {
+  position: relative;
+  width: 5.4rem;
+  height: 2.2rem;
+  border: 2px solid #000;
+  border-radius: 5rem;
+  cursor: pointer;
+}
+.toggle div {
+  position: absolute;
+  top: 6%;
+  border-radius: 5rem;
+  height: 1.55rem;
+  width: 1.55rem;
+  background-color: #000;
+  transition: 0.3s all;
+}
+.hide {
+  display: none;
+}
+.dark {
+  right: 65%;
+}
+.white {
+  right: 4%;
 }
 .between {
   justify-content: space-between;
@@ -34,7 +85,7 @@
   transition: 1s all;
   cursor: pointer;
 }
-.circle:hover {
+.circleRotate {
   transform: rotate(90deg);
 }
 .groupDots {
@@ -54,4 +105,14 @@
   margin: auto;
   width: 0.6rem;
   height: 0.6rem;
+}
+.layer {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.9s all;
 }

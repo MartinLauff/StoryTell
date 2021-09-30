@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { GlobalProvider } from '../context/GlobalCtx';
 import '../styles/global.css';
 import buildClient from '../api/build-client';
 
@@ -29,7 +30,9 @@ const AppComponent = ({ Component, pageProps }) => {
         />
         <link rel='shortcut icon' href='/favicon.jpg' />
       </Head>
-      <Component {...pageProps} />
+      <GlobalProvider>
+        <Component {...pageProps} />
+      </GlobalProvider>
     </div>
   );
 };

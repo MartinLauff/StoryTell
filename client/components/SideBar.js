@@ -1,9 +1,13 @@
 import Link from 'next/link';
+import { useState, useContext } from 'react';
+import { GlobalContext } from '../context/GlobalCtx';
 import BarStyles from '../styles/Bar.module.css';
 
 const SideBar = () => {
+  const [toggle, setToggle] = useState(false);
+  const { sidebar } = useContext(GlobalContext);
   return (
-    <div className={BarStyles.sidebar}>
+    <div className={sidebar ? BarStyles.sidebar : BarStyles.hide}>
       <h3>Storytell</h3>
       <Link href='/posts'>
         <a>
@@ -70,8 +74,11 @@ const SideBar = () => {
           />
         </svg>
         <span>Dark mode</span>
-        <div>
-          <div></div>
+        <div
+          onClick={() => setToggle((oldState) => !oldState)}
+          className={BarStyles.toggle}
+        >
+          <div className={toggle ? BarStyles.dark : BarStyles.white}></div>
         </div>
       </div>
       <Link href='/auth/signout'>
@@ -92,38 +99,38 @@ const SideBar = () => {
               fill='#FF4040'
             />
           </svg>
-          <span>Log out</span>
+          <span style={{ color: '#FF4040' }}>Log out</span>
         </a>
       </Link>
       <h3>Popular topics</h3>
       <Link href='/topics/fitness'>
         <a>
-          <img />
-          s/Fitness
+          <img src='/fitness.jpg' alt='fitness' />
+          <span>s/Fitness</span>
         </a>
       </Link>
       <Link href='/topics/startups'>
         <a>
-          <img />
-          s/Startups
+          <img src='/startups.jpg' alt='startups' />
+          <span>s/Startups</span>
         </a>
       </Link>
       <Link href='/topics/languages'>
         <a>
-          <img />
-          s/Languages
+          <img src='/language.jpg' alt='languages' />
+          <span>s/Languages</span>
         </a>
       </Link>
       <Link href='/topics/school'>
         <a>
-          <img />
-          s/School
+          <img src='/school.jpg' alt='school' />
+          <span>s/School</span>
         </a>
       </Link>
       <Link href='/topics/traveling'>
         <a>
-          <img />
-          s/Traveling
+          <img src='/traveling.jpg' alt='traveling' />
+          <span>s/Traveling</span>
         </a>
       </Link>
     </div>
