@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
 import { User } from '../../models/user';
+import { catchAsync } from '../../errors/catchAsync';
 
-const unfollow = async (req: Request, res: Response) => {
+const unfollow = catchAsync(async (req: Request, res: Response) => {
   const givingUnfollow = await User.findByIdAndUpdate(
     req.params.id,
     {
@@ -24,6 +25,6 @@ const unfollow = async (req: Request, res: Response) => {
     follower: givingUnfollow,
     following: getttingUnfollow,
   });
-};
+});
 
 export default unfollow;

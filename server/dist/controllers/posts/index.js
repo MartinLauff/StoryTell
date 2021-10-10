@@ -1,12 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const user_1 = require("../../models/user");
 const post_1 = require("../../models/post");
 const index = async (req, res) => {
-    const user = await user_1.User.findById(req.user._id);
+    var _a;
     const posts = await post_1.Post.find({
-        postedBy: { $in: user === null || user === void 0 ? void 0 : user.following },
-    }).sort('-createdAt');
+        postedBy: { $in: (_a = req.user) === null || _a === void 0 ? void 0 : _a.following },
+    })
+        .populate({
+        path: 'postedBy',
+        select: 'photo username',
+    })
+        .sort('-createdAt');
     res.status(200).send({
         results: posts.length,
         data: posts,

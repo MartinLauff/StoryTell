@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const user_1 = require("../../models/user");
-const unfollow = async (req, res) => {
+const catchAsync_1 = require("../../errors/catchAsync");
+const unfollow = (0, catchAsync_1.catchAsync)(async (req, res) => {
     const givingUnfollow = await user_1.User.findByIdAndUpdate(req.params.id, {
         $pull: { followers: req.user._id },
     }, {
@@ -14,6 +15,6 @@ const unfollow = async (req, res) => {
         follower: givingUnfollow,
         following: getttingUnfollow,
     });
-};
+});
 exports.default = unfollow;
 //# sourceMappingURL=unfollow.js.map

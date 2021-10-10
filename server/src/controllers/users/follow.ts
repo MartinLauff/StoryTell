@@ -1,19 +1,26 @@
 import { Request, Response } from 'express';
 import { User } from '../../models/user';
 import { Activity } from '../../models/activity';
+import { catchAsync } from '../../errors/catchAsync';
 
-const follow = async (req: Request, res: Response) => {
-  const givingFollow = await User.updateOne(
-    { _id: req.params.id },
+const follow = catchAsync(async (req: Request, res: Response) => {
+  const givingFollow = await User.findByIdAndUpdate(
+    req.params.id,
     {
       $addToSet: { followers: req.user._id },
+    },
+    {
+      new: true,
     }
   ).select('-password');
 
-  const getttingFollow = await User.updateOne(
-    { _id: req.user._id },
+  const getttingFollow = await User.findByIdAndUpdate(
+    req.user._id,
     {
       $addToSet: { following: req.params.id },
+    },
+    {
+      new: true,
     }
   ).select('-password');
 
@@ -27,6 +34,6 @@ const follow = async (req: Request, res: Response) => {
     follower: givingFollow,
     following: getttingFollow,
   });
-};
+});
 
 export default follow;

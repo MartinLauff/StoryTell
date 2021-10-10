@@ -2,12 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const user_1 = require("../../models/user");
 const activity_1 = require("../../models/activity");
-const follow = async (req, res) => {
-    const givingFollow = await user_1.User.updateOne({ _id: req.params.id }, {
+const catchAsync_1 = require("../../errors/catchAsync");
+const follow = (0, catchAsync_1.catchAsync)(async (req, res) => {
+    const givingFollow = await user_1.User.findByIdAndUpdate(req.params.id, {
         $addToSet: { followers: req.user._id },
+    }, {
+        new: true,
     }).select('-password');
-    const getttingFollow = await user_1.User.updateOne({ _id: req.user._id }, {
+    const getttingFollow = await user_1.User.findByIdAndUpdate(req.user._id, {
         $addToSet: { following: req.params.id },
+    }, {
+        new: true,
     }).select('-password');
     await activity_1.Activity.create({
         type: 'started following you',
@@ -18,6 +23,6 @@ const follow = async (req, res) => {
         follower: givingFollow,
         following: getttingFollow,
     });
-};
+});
 exports.default = follow;
 //# sourceMappingURL=follow.js.map
