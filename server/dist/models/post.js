@@ -37,6 +37,7 @@ const postSchema = new mongoose_1.default.Schema({
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
 });
+postSchema.index({ slug: 1 });
 postSchema.virtual('comments', {
     ref: 'Comment',
     foreignField: 'post',

@@ -28,6 +28,7 @@ const commentSchema = new mongoose_1.default.Schema({
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
 });
+commentSchema.index({ postedBy: 1, post: 1 });
 commentSchema.statics.build = (attrs) => {
     return new Comment(attrs);
 };

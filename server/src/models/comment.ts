@@ -49,6 +49,8 @@ const commentSchema = new mongoose.Schema<CommentDoc, CommentModel>(
   }
 );
 
+commentSchema.index({ postedBy: 1, post: 1 });
+
 commentSchema.statics.build = (attrs: CommentAttrs) => {
   return new Comment(attrs);
 };

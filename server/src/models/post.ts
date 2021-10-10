@@ -64,6 +64,8 @@ const postSchema = new mongoose.Schema<PostDoc, PostModel>(
   }
 );
 
+postSchema.index({ slug: 1 });
+
 // Virtual populate
 postSchema.virtual('comments', {
   ref: 'Comment',
