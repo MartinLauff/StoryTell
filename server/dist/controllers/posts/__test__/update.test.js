@@ -9,7 +9,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 it('returns a 404 if the provided id does not exist', async () => {
     const id = new mongoose_1.default.Types.ObjectId().toHexString();
     const token = await global.signin();
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put(`/api/posts/${id}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -19,7 +19,7 @@ it('returns a 404 if the provided id does not exist', async () => {
 });
 it('returns a 401 if the user is not authenticated', async () => {
     const id = new mongoose_1.default.Types.ObjectId().toHexString();
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put(`/api/posts/${id}`)
         .send({
         content: 'qweqweqweq',
@@ -29,7 +29,7 @@ it('returns a 401 if the user is not authenticated', async () => {
 it('returns a 401 if the user does not own the post', async () => {
     const token = await global.signin();
     const token2 = await global.signin('test2@test.com', 'password', 'testuser1234');
-    const response = await supertest_1.default(app_1.default)
+    const response = await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -38,7 +38,7 @@ it('returns a 401 if the user does not own the post', async () => {
         content: 'qweqweqweq',
     })
         .expect(201);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put(`/api/posts/${response.body._id}`)
         .set('Authorization', `Bearer ${token2}`)
         .send({
@@ -48,7 +48,7 @@ it('returns a 401 if the user does not own the post', async () => {
 });
 it('returns a 400 if the user provides title,topic and coverImage', async () => {
     const token = await global.signin();
-    const response = await supertest_1.default(app_1.default)
+    const response = await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -56,21 +56,21 @@ it('returns a 400 if the user provides title,topic and coverImage', async () => 
         topic: 'bussiness',
         content: 'qweqweqweq',
     });
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put(`/api/posts/${response.body._id}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
         title: 'incorrect',
     })
         .expect(400);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put(`/api/posts/${response.body._id}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
         topic: 'incorrect',
     })
         .expect(400);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put(`/api/posts/${response.body._id}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -80,7 +80,7 @@ it('returns a 400 if the user provides title,topic and coverImage', async () => 
 });
 it('updates the post provided valid inputs', async () => {
     const token = await global.signin();
-    const response = await supertest_1.default(app_1.default)
+    const response = await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -88,14 +88,14 @@ it('updates the post provided valid inputs', async () => {
         topic: 'business',
         content: 'qweqweqweq',
     });
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put(`/api/posts/${response.body._id}`)
         .set('Authorization', `Bearer ${token}`)
         .send({
         content: 'updated text',
     })
         .expect(200);
-    const postResponse = await supertest_1.default(app_1.default)
+    const postResponse = await (0, supertest_1.default)(app_1.default)
         .get(`/api/posts/${response.body._id}`)
         .set('Authorization', `Bearer ${token}`)
         .send();

@@ -8,11 +8,11 @@ const app_1 = __importDefault(require("../../../app"));
 const mongoose_1 = __importDefault(require("mongoose"));
 it('returns a 401 if the user is not authenticated', async () => {
     const id = new mongoose_1.default.Types.ObjectId().toHexString();
-    await supertest_1.default(app_1.default).put(`/api/users/save/${id}`).send().expect(401);
+    await (0, supertest_1.default)(app_1.default).put(`/api/users/save/${id}`).send().expect(401);
 });
 it('checks if post is saved correctly', async () => {
     const token = await global.signin();
-    const post = await supertest_1.default(app_1.default)
+    const post = await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -20,12 +20,12 @@ it('checks if post is saved correctly', async () => {
         topic: 'bussiness',
         content: 'qweqweqweq',
     });
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put(`/api/users/save/${post.body._id}`)
         .set('Authorization', `Bearer ${token}`)
         .send()
         .expect(200);
-    const res = await supertest_1.default(app_1.default)
+    const res = await (0, supertest_1.default)(app_1.default)
         .get('/api/users/my-profile')
         .set('Authorization', `Bearer ${token}`)
         .send();

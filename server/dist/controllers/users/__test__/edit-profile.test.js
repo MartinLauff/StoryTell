@@ -6,25 +6,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../../../app"));
 it('returns a 401 if the user is not authenticated', async () => {
-    await supertest_1.default(app_1.default).put('/api/users/update-my-profile').send().expect(401);
+    await (0, supertest_1.default)(app_1.default).put('/api/users/update-my-profile').send().expect(401);
 });
 it('returns a 400 if the user provides password,newPassword and currentPassword', async () => {
     const token = await global.signin();
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put('/api/users/update-my-profile')
         .set('Authorization', `Bearer ${token}`)
         .send({
         password: 'incorrect',
     })
         .expect(400);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put('/api/users/update-my-profile')
         .set('Authorization', `Bearer ${token}`)
         .send({
         newPassword: 'incorrect',
     })
         .expect(400);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put('/api/users/update-my-profile')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -34,7 +34,7 @@ it('returns a 400 if the user provides password,newPassword and currentPassword'
 });
 it('updates the user provided valid inputs', async () => {
     const token = await global.signin();
-    const res = await supertest_1.default(app_1.default)
+    const res = await (0, supertest_1.default)(app_1.default)
         .get('/api/users/my-profile')
         .set('Authorization', `Bearer ${token}`)
         .send();
@@ -42,7 +42,7 @@ it('updates the user provided valid inputs', async () => {
     expect(res.body.email).toEqual('test@test.com');
     expect(res.body.photo).toEqual('default.jpg');
     expect(res.body.hobby).toEqual('Your hobby');
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put('/api/users/update-my-profile')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -52,7 +52,7 @@ it('updates the user provided valid inputs', async () => {
         hobby: 'New hobby',
     })
         .expect(200);
-    const res2 = await supertest_1.default(app_1.default)
+    const res2 = await (0, supertest_1.default)(app_1.default)
         .get('/api/users/my-profile')
         .set('Authorization', `Bearer ${token}`)
         .send()

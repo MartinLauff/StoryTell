@@ -21,14 +21,14 @@ router.get('/saved', saved_1.default);
 router.get('/:id', show_1.default);
 router.delete('/:id', delete_1.default);
 router.put('/:id', [
-    express_validator_1.body('topic').isEmpty().withMessage('You cannot update topic'),
-    express_validator_1.body('title').isEmpty().withMessage('You cannot update title'),
-    express_validator_1.body('coverImage').isEmpty().withMessage('You cannot update post image'),
+    (0, express_validator_1.body)('topic').isEmpty().withMessage('You cannot update topic'),
+    (0, express_validator_1.body)('title').isEmpty().withMessage('You cannot update title'),
+    (0, express_validator_1.body)('coverImage').isEmpty().withMessage('You cannot update post image'),
 ], update_1.default);
 router.post('/', [
-    express_validator_1.body('topic').not().isEmpty().withMessage('Please select a topic'),
-    express_validator_1.body('title').not().isEmpty().withMessage('Title is required'),
-    express_validator_1.body('content').not().isEmpty().withMessage('Content is required'),
+    (0, express_validator_1.body)('topic').not().isEmpty().withMessage('Please select a topic'),
+    (0, express_validator_1.body)('title').not().isEmpty().withMessage('Title is required'),
+    (0, express_validator_1.body)('content').not().isEmpty().withMessage('Content is required'),
 ], create_1.default);
 router.get('/', index_1.default);
 //# sourceMappingURL=postRoutes.js.map

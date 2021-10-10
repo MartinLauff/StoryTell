@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../../../app"));
 it('returns a 201 on successful signup', async () => {
-    return supertest_1.default(app_1.default)
+    return (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'test@test.com',
@@ -16,7 +16,7 @@ it('returns a 201 on successful signup', async () => {
         .expect(201);
 });
 it('returns a 400 with an invalid email', async () => {
-    return supertest_1.default(app_1.default)
+    return (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'alskdflaskjfd',
@@ -26,7 +26,7 @@ it('returns a 400 with an invalid email', async () => {
         .expect(400);
 });
 it('returns a 400 with an invalid password', async () => {
-    return supertest_1.default(app_1.default)
+    return (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'alskdflaskjfd',
@@ -36,19 +36,19 @@ it('returns a 400 with an invalid password', async () => {
         .expect(400);
 });
 it('returns a 400 with missing email, password and username', async () => {
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'test@test.com',
     })
         .expect(400);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         password: 'alskjdf',
     })
         .expect(400);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         username: 'testuser123',
@@ -56,7 +56,7 @@ it('returns a 400 with missing email, password and username', async () => {
         .expect(400);
 });
 it('disallows duplicate emails', async () => {
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'test@test.com',
@@ -64,7 +64,7 @@ it('disallows duplicate emails', async () => {
         username: 'testuser123',
     })
         .expect(201);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'test@test.com',
@@ -74,7 +74,7 @@ it('disallows duplicate emails', async () => {
         .expect(400);
 });
 it('disallows duplicate usernames', async () => {
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'test@test.com',
@@ -82,7 +82,7 @@ it('disallows duplicate usernames', async () => {
         username: 'testuser123',
     })
         .expect(201);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'test@test1.com',
@@ -92,7 +92,7 @@ it('disallows duplicate usernames', async () => {
         .expect(400);
 });
 it('sets a cookie after successful signup', async () => {
-    const response = await supertest_1.default(app_1.default)
+    const response = await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'test@test.com',

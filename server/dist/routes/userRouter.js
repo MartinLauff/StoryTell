@@ -23,7 +23,7 @@ router.use(protect_1.protect, validate_request_1.validateRequest);
 router.get('/activities', activities_1.default);
 router.get('/my-profile', my_profile_1.default);
 router.put('/update-my-profile', edit_profile_1.default);
-router.put('/update-password', [express_validator_1.body('newPassword').isEmpty().withMessage('New password must by valid')], update_password_1.default);
+router.put('/update-password', [(0, express_validator_1.body)('newPassword').isEmpty().withMessage('New password must by valid')], update_password_1.default);
 router.get('/:id', show_1.default);
 router.put('/follow/:id', follow_1.default);
 router.put('/unfollow/:id', unfollow_1.default);

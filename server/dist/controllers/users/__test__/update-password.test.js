@@ -6,11 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../../../app"));
 it('returns a 401 if the user is not authenticated', async () => {
-    await supertest_1.default(app_1.default).put('/api/users/update-password').send().expect(401);
+    await (0, supertest_1.default)(app_1.default).put('/api/users/update-password').send().expect(401);
 });
 it('returns a 400 if the user provides empty newPassword', async () => {
     const token = await global.signin();
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put('/api/users/update-password')
         .set('Authorization', `Bearer ${token}`)
         .send()
@@ -18,7 +18,7 @@ it('returns a 400 if the user provides empty newPassword', async () => {
 });
 it("doesn't update the password if provided wrong password", async () => {
     const token = await global.signin();
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put('/api/users/update-password')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -29,7 +29,7 @@ it("doesn't update the password if provided wrong password", async () => {
 });
 it('updates the password if provided correct password', async () => {
     const token = await global.signin();
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .put('/api/users/update-password')
         .set('Authorization', `Bearer ${token}`)
         .send({

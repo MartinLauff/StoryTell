@@ -1,6 +1,11 @@
 import express from 'express';
 import 'express-async-errors';
 import cookieParser from 'cookie-parser';
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet';
+import ExpressMongoSanitize from 'express-mongo-sanitize';
+import xss from 'xss-clean';
+import compression from 'compression';
 import cors from 'cors';
 import { errorHandler } from './middleware/error-handler';
 import { NotFoundError } from './errors/not-found-error';
@@ -25,10 +30,30 @@ app.use(
 app.options('*', cors());
 app.use(express.json());
 
+// Set security HTTP headers
+app.use(helmet());
+
+// Limit requests from same API
+const limiter = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: 'Too many requests from this IP, please try again in an hour.',
+});
+app.use('/api', limiter);
+
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
+
+// Data sanitization against NoSQL query injection
+app.use(ExpressMongoSanitize());
+
+// Data sanitization against XSS
+app.use(xss());
+
+// Compress all responses
+app.use(compression());
 
 // ROUTES
 app.use('/api/auth', authRouter);

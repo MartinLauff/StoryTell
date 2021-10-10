@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../../../app"));
 it('fails when a email that does not exist is provided', async () => {
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signin')
         .send({
         email: 'test@test.com',
@@ -15,7 +15,7 @@ it('fails when a email that does not exist is provided', async () => {
         .expect(400);
 });
 it('fails when an incorrect password is supplied', async () => {
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'test@test.com',
@@ -23,7 +23,7 @@ it('fails when an incorrect password is supplied', async () => {
         username: 'testuser123',
     })
         .expect(201);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signin')
         .send({
         email: 'test@test.com',
@@ -32,7 +32,7 @@ it('fails when an incorrect password is supplied', async () => {
         .expect(400);
 });
 it('response with a cookie when given valid credentials', async () => {
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'test@test.com',
@@ -40,7 +40,7 @@ it('response with a cookie when given valid credentials', async () => {
         username: 'testuser123',
     })
         .expect(201);
-    const response = await supertest_1.default(app_1.default)
+    const response = await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signin')
         .send({
         email: 'test@test.com',

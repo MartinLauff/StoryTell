@@ -43,7 +43,7 @@ postSchema.virtual('comments', {
     localField: '_id',
 });
 postSchema.pre('save', function (next) {
-    this.slug = slugify_1.default(this.topic, { lower: true });
+    this.slug = (0, slugify_1.default)(this.topic, { lower: true });
     next();
 });
 postSchema.statics.build = (attrs) => {

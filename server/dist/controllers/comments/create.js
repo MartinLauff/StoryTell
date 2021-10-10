@@ -5,7 +5,7 @@ const bad_request_error_1 = require("../../errors/bad-request-error");
 const activity_1 = require("../../models/activity");
 const post_1 = require("../../models/post");
 const catchAsync_1 = require("../../errors/catchAsync");
-const createComment = catchAsync_1.catchAsync(async (req, res, next) => {
+const createComment = (0, catchAsync_1.catchAsync)(async (req, res, next) => {
     const { content } = req.body;
     const post = await post_1.Post.findById(req.params.id);
     if (!content) {

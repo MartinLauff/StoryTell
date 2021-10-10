@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../../../app"));
 it('clears the cookie after signing out', async () => {
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email: 'test@test.com',
@@ -14,7 +14,7 @@ it('clears the cookie after signing out', async () => {
         username: 'testuser123',
     })
         .expect(201);
-    const response = await supertest_1.default(app_1.default)
+    const response = await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signout')
         .send({})
         .expect(200);

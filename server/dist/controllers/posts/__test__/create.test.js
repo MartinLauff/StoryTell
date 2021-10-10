@@ -7,15 +7,15 @@ const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../../../app"));
 const post_1 = require("../../../models/post");
 it('has a route handler listening to /api/posts for post requests', async () => {
-    const response = await supertest_1.default(app_1.default).post('/api/posts').send({});
+    const response = await (0, supertest_1.default)(app_1.default).post('/api/posts').send({});
     expect(response.status).not.toEqual(404);
 });
 it('can only be accessed if the user is signed in', async () => {
-    await supertest_1.default(app_1.default).post('/api/posts').send({}).expect(401);
+    await (0, supertest_1.default)(app_1.default).post('/api/posts').send({}).expect(401);
 });
 it('returns a status other than 401 if the user is signed in', async () => {
     const token = await global.signin();
-    const response = await supertest_1.default(app_1.default)
+    const response = await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({});
@@ -23,7 +23,7 @@ it('returns a status other than 401 if the user is signed in', async () => {
 });
 it('returns an error if an invalid title is provided', async () => {
     const token = await global.signin();
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -32,7 +32,7 @@ it('returns an error if an invalid title is provided', async () => {
         content: 'text',
     })
         .expect(400);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -43,7 +43,7 @@ it('returns an error if an invalid title is provided', async () => {
 });
 it('returns an error if an invalid content is provided', async () => {
     const token = await global.signin();
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -52,7 +52,7 @@ it('returns an error if an invalid content is provided', async () => {
         title: 'title',
     })
         .expect(400);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -63,7 +63,7 @@ it('returns an error if an invalid content is provided', async () => {
 });
 it('returns an error if an invalid topic is provided', async () => {
     const token = await global.signin();
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -72,7 +72,7 @@ it('returns an error if an invalid topic is provided', async () => {
         content: 'text',
     })
         .expect(400);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({
@@ -85,7 +85,7 @@ it('creates a post with valid inputs', async () => {
     const token = await global.signin();
     let posts = await post_1.Post.find({});
     expect(posts.length).toEqual(0);
-    await supertest_1.default(app_1.default)
+    await (0, supertest_1.default)(app_1.default)
         .post('/api/posts')
         .set('Authorization', `Bearer ${token}`)
         .send({

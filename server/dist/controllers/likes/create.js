@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const post_1 = require("../../models/post");
 const activity_1 = require("../../models/activity");
 const catchAsync_1 = require("../../errors/catchAsync");
-const createLike = catchAsync_1.catchAsync(async (req, res) => {
+const createLike = (0, catchAsync_1.catchAsync)(async (req, res) => {
     try {
         const post = await post_1.Post.findById(req.params.id);
         const like = await post_1.Post.updateOne({

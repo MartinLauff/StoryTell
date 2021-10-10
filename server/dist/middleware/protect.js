@@ -20,7 +20,7 @@ const protect = async (req, _res, next) => {
     if (!token) {
         return next(new not_authorized_error_1.NotAuthorizedError('You are not logged in! Please log in to get access.'));
     }
-    const decoded = await util_1.promisify(jsonwebtoken_1.default.verify)(token, process.env.JWT_KEY);
+    const decoded = await (0, util_1.promisify)(jsonwebtoken_1.default.verify)(token, process.env.JWT_KEY);
     const currentUser = await user_1.User.findById(decoded._id);
     if (!currentUser) {
         return next(new not_authorized_error_1.NotAuthorizedError('The user belonging to this token does no longer exist.'));

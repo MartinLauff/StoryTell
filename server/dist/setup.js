@@ -27,7 +27,7 @@ afterAll(async () => {
     await mongoose_1.default.connection.close();
 });
 global.signin = async (email = 'test@test.com', password = 'password', username = 'testuser123') => {
-    const response = await supertest_1.default(app_1.default)
+    const response = await (0, supertest_1.default)(app_1.default)
         .post('/api/auth/signup')
         .send({
         email,
