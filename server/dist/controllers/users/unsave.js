@@ -4,7 +4,7 @@ const user_1 = require("../../models/user");
 const unsave = async (req, res) => {
     try {
         const unsaved = await user_1.User.updateOne({
-            _id: req.currentUser._id,
+            _id: req.user._id,
         }, {
             $pull: { savedPosts: req.params.id },
         });

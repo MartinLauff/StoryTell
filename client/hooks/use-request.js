@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react';
-import generalError from '../styles/components/Error.module.css';
+import generalError from '../styles/Error.module.css';
 
 export default ({ url, method, body, onSuccess }) => {
   const [errors, setErrors] = useState(null);

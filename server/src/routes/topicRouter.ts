@@ -1,14 +1,10 @@
 import express from 'express';
-import { requireAuth } from '../middleware/require-auth';
+import { protect } from '../middleware/protect';
 import { validateRequest } from '../middleware/validate-request';
-import { currentUserMiddleware } from '../middleware/current-user';
 import index from '../controllers/topics/topics';
 
 const router = express.Router();
 
-// Protect all routes after this middleware
-router.use(currentUserMiddleware, requireAuth, validateRequest);
-
-router.get('/:slug', index);
+router.get('/:slug', protect, validateRequest, index);
 
 export { router as topicRouter };

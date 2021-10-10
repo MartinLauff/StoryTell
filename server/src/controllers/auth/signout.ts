@@ -1,9 +1,12 @@
 import { Request, Response } from 'express';
 
-const signout = (req: Request, res: Response) => {
-  req.session = null;
+const signout = (_req: Request, res: Response) => {
+  res.cookie('jwt', 'loggedout', {
+    expires: new Date(Date.now() + 10 * 1000),
+    httpOnly: true,
+  });
 
-  res.send({});
+  res.status(200).send();
 };
 
 export default signout;

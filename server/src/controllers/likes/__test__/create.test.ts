@@ -15,23 +15,23 @@ it('can only be accessed if the user is signed in', async () => {
 });
 
 it('returns a status other than 401 if the user is signed in', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
   const id = new mongoose.Types.ObjectId().toHexString();
 
   const response = await request(app)
     .put(`/api/upvotes/${id}/like`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({});
 
   expect(response.status).not.toEqual(401);
 });
 
 it('creates a like', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   const response = await request(app)
     .post('/api/posts')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       topic: 'extras',
       title: 'My first client',
@@ -44,13 +44,13 @@ it('creates a like', async () => {
 
   await request(app)
     .put(`/api/upvotes/${response.body._id}/like`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(201);
 
   const response2 = await request(app)
     .get(`/api/posts/${response.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send();
 
   expect(response2.body.likes.length).toEqual(1);

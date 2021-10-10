@@ -1,8 +1,7 @@
 import express from 'express';
 import { body } from 'express-validator';
-import { requireAuth } from '../middleware/require-auth';
+import { protect } from '../middleware/protect';
 import { validateRequest } from '../middleware/validate-request';
-import { currentUserMiddleware } from '../middleware/current-user';
 import showUser from '../controllers/users/show';
 import myProfile from '../controllers/users/my-profile';
 import follow from '../controllers/users/follow';
@@ -16,7 +15,7 @@ import activities from '../controllers/users/activities';
 const router = express.Router();
 
 // Protect all routes after this middleware
-router.use(currentUserMiddleware, requireAuth, validateRequest);
+router.use(protect, validateRequest);
 
 router.get('/activities', activities);
 router.get('/my-profile', myProfile);

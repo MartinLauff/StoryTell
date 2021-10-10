@@ -2,22 +2,15 @@ import request from 'supertest';
 import app from '../../../app';
 
 it('responds with details about the current user', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
-  const response = await request(app)
+  await request(app)
     .get('/api/auth/currentuser')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(200);
-
-  expect(response.body.currentUser.email).toEqual('test@test.com');
 });
 
-it('responds with null if not authenticaed', async () => {
-  const response = await request(app)
-    .get('/api/auth/currentuser')
-    .send()
-    .expect(200);
-
-  expect(response.body.currentUser).toEqual(null);
+it('responds with 401 if not authenticaed', async () => {
+  await request(app).get('/api/auth/currentuser').send().expect(401);
 });

@@ -6,11 +6,11 @@ it('returns a 401 if the user is not authenticated', async () => {
 });
 
 it('returns a 400 if the user provides password,newPassword and currentPassword', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   await request(app)
     .put('/api/users/update-my-profile')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       password: 'incorrect',
     })
@@ -18,7 +18,7 @@ it('returns a 400 if the user provides password,newPassword and currentPassword'
 
   await request(app)
     .put('/api/users/update-my-profile')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       newPassword: 'incorrect',
     })
@@ -26,7 +26,7 @@ it('returns a 400 if the user provides password,newPassword and currentPassword'
 
   await request(app)
     .put('/api/users/update-my-profile')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       currentPassword: 'incorrect',
     })
@@ -34,11 +34,11 @@ it('returns a 400 if the user provides password,newPassword and currentPassword'
 });
 
 it('updates the user provided valid inputs', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   const res = await request(app)
     .get('/api/users/my-profile')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send();
 
   expect(res.body.username).toEqual('testuser123');
@@ -48,7 +48,7 @@ it('updates the user provided valid inputs', async () => {
 
   await request(app)
     .put('/api/users/update-my-profile')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       username: 'New Name',
       email: 'newg@gmai.com',
@@ -59,7 +59,7 @@ it('updates the user provided valid inputs', async () => {
 
   const res2 = await request(app)
     .get('/api/users/my-profile')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(200);
 

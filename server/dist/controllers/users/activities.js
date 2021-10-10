@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const activity_1 = require("../../models/activity");
 const activities = async (req, res) => {
     const activities = await activity_1.Activity.find({
-        linkToUser: req.currentUser._id,
+        linkToUser: req.user._id,
     })
         .populate({
         path: 'user',

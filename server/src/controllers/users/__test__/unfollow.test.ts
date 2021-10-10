@@ -8,8 +8,8 @@ it('returns a 401 if the user is not authenticated', async () => {
 });
 
 it('unfollows the users if the user exist', async () => {
-  const cookie = await global.signin();
-  const cookie2 = await global.signin(
+  const token = await global.signin();
+  const token2 = await global.signin(
     'test2@test.com',
     'password',
     'testuser1234'
@@ -17,31 +17,31 @@ it('unfollows the users if the user exist', async () => {
 
   const res = await request(app)
     .get('/api/users/my-profile')
-    .set('Cookie', cookie2)
+    .set('Authorization', `Bearer ${token2}`)
     .send();
 
   await request(app)
     .put(`/api/users/follow/${res.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(200);
 
   const res2 = await request(app)
     .get('/api/users/my-profile')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send();
 
   expect(res2.body.following.length).toEqual(1);
 
   await request(app)
     .put(`/api/users/unfollow/${res.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(200);
 
   const res3 = await request(app)
     .get('/api/users/my-profile')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(200);
 

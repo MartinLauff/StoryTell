@@ -5,7 +5,7 @@ const save = async (req: Request, res: Response) => {
   try {
     const saved = await User.updateOne(
       {
-        _id: req.currentUser!._id,
+        _id: req.user._id,
       },
       {
         $addToSet: { savedPosts: req.params.id },

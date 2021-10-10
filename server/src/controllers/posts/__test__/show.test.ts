@@ -3,12 +3,12 @@ import app from '../../../app';
 import mongoose from 'mongoose';
 
 it('returns a 404 if the post is not found', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
   const id = new mongoose.Types.ObjectId().toHexString();
 
   await request(app)
     .get(`/api/posts/${id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(404);
 });
@@ -19,7 +19,7 @@ it('can only be accessed if the user is signed in', async () => {
 });
 
 it('returns the post if the post is found', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   const title = 'concert';
   const topic = 'lifeStyle';
@@ -27,7 +27,7 @@ it('returns the post if the post is found', async () => {
 
   const response = await request(app)
     .post('/api/posts')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       title,
       topic,
@@ -37,7 +37,7 @@ it('returns the post if the post is found', async () => {
 
   const postResponse = await request(app)
     .get(`/api/posts/${response.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(200);
 

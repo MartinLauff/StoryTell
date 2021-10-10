@@ -6,21 +6,21 @@ it('returns a 401 if the user is not authenticated', async () => {
 });
 
 it('returns a 400 if the user provides empty newPassword', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   await request(app)
     .put('/api/users/update-password')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(400);
 });
 
 it("doesn't update the password if provided wrong password", async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   await request(app)
     .put('/api/users/update-password')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       currentPassword: 'passwordd',
       newPassword: 'newpassword',
@@ -29,11 +29,11 @@ it("doesn't update the password if provided wrong password", async () => {
 });
 
 it('updates the password if provided correct password', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   await request(app)
     .put('/api/users/update-password')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       currentPassword: 'password',
       newPassword: 'newpassword',

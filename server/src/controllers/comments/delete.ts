@@ -1,22 +1,25 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { NotAuthorizedError } from '../../errors/not-authorized-error';
 import { NotFoundError } from '../../errors/not-found-error';
 import { Comment } from '../../models/comment';
+import { catchAsync } from '../../errors/catchAsync';
 
-const deleteComment = async (req: Request, res: Response) => {
-  const comment = await Comment.findById(req.params.id);
+const deleteComment = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const comment = await Comment.findById(req.params.id);
 
-  if (!comment) {
-    throw new NotFoundError('Comment');
+    if (!comment) {
+      return next(new NotFoundError('Comment'));
+    }
+
+    if (comment.postedBy.toString() !== req.user._id.toString()) {
+      return next(new NotAuthorizedError("Can't update foreign post"));
+    }
+
+    await Comment.deleteOne({ _id: comment._id });
+    // SEND RESPONSE
+    res.status(204).send(null);
   }
-
-  if (comment.postedBy.toString() !== req.currentUser!._id.toString()) {
-    throw new NotAuthorizedError();
-  }
-
-  await Comment.deleteOne({ _id: comment._id });
-  // SEND RESPONSE
-  res.status(204).send(null);
-};
+);
 
 export default deleteComment;

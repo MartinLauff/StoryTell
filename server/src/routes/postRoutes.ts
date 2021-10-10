@@ -1,8 +1,7 @@
 import express from 'express';
 import { body } from 'express-validator';
-import { requireAuth } from '../middleware/require-auth';
+import { protect } from '../middleware/protect';
 import { validateRequest } from '../middleware/validate-request';
-import { currentUserMiddleware } from '../middleware/current-user';
 import showPost from '../controllers/posts/show';
 import createPost from '../controllers/posts/create';
 import destroyPost from '../controllers/posts/delete';
@@ -13,7 +12,7 @@ import saved from '../controllers/posts/saved';
 const router = express.Router();
 
 // Protect all routes after this middleware
-router.use(currentUserMiddleware, requireAuth, validateRequest);
+router.use(protect, validateRequest);
 
 router.get('/saved', saved);
 router.get('/:id', showPost);

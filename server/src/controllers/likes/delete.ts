@@ -1,14 +1,15 @@
 import { Request, Response } from 'express';
 import { Post } from '../../models/post';
+import { catchAsync } from '../../errors/catchAsync';
 
-const deleteLike = async (req: Request, res: Response) => {
+const deleteLike = catchAsync(async (req: Request, res: Response) => {
   try {
     const unlike = await Post.updateOne(
       {
         _id: req.params.id,
       },
       {
-        $pull: { likes: req.currentUser?._id },
+        $pull: { likes: req.user._id },
       }
     );
 
@@ -16,6 +17,6 @@ const deleteLike = async (req: Request, res: Response) => {
   } catch (err) {
     res.send({ error: err });
   }
-};
+});
 
 export default deleteLike;

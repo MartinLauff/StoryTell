@@ -9,15 +9,17 @@ declare global {
     email?: string,
     password?: string,
     username?: string
-  ) => Promise<string[]>;
+  ) => Promise<string>;
 }
 declare global {
-  var login: () => string[];
+  var login: () => string;
 }
 
 let mongod: any;
 beforeAll(async () => {
   process.env.JWT_KEY = 'qwwerttzuuiioplkjg';
+  process.env.JWT_EXPIRES_IN = '90d';
+  // process.env.JWT_COOKIE_EXPIRES_IN = '90';
 
   mongod = await MongoMemoryServer.create();
   const mongoUri = mongod.getUri();
@@ -52,30 +54,22 @@ global.signin = async (
     })
     .expect(201);
 
-  const cookie = response.get('Set-Cookie');
+  const { token } = response.body;
 
-  return cookie;
+  return token;
 };
 
 global.login = () => {
-  // Build a JWT payload.  { id, email }
-  const payload = {
-    id: new mongoose.Types.ObjectId().toHexString(),
-    email: 'test@gmail.com',
-  };
-
   // Create the JWT!
-  const token = jwt.sign(payload, process.env.JWT_KEY!);
+  const token = jwt.sign(
+    {
+      _id: new mongoose.Types.ObjectId().toHexString(),
+    },
+    process.env.JWT_KEY!,
+    {
+      expiresIn: process.env.JWT_EXPIRES_IN,
+    }
+  );
 
-  // Build session Object. { jwt: MY_JWT }
-  const session = { jwt: token };
-
-  // Turn that session into JSON
-  const sessionJSON = JSON.stringify(session);
-
-  // Take JSON and encode it as base64
-  const base64 = Buffer.from(sessionJSON).toString('base64');
-
-  // return a string thats the cookie with the encoded data
-  return [`express:sess=${base64}`];
+  return token;
 };

@@ -6,12 +6,12 @@ const follow = async (req: Request, res: Response) => {
   const givingFollow = await User.updateOne(
     { _id: req.params.id },
     {
-      $addToSet: { followers: req.currentUser!._id },
+      $addToSet: { followers: req.user._id },
     }
   ).select('-password');
 
   const getttingFollow = await User.updateOne(
-    { _id: req.currentUser!._id },
+    { _id: req.user._id },
     {
       $addToSet: { following: req.params.id },
     }
@@ -19,7 +19,7 @@ const follow = async (req: Request, res: Response) => {
 
   await Activity.create({
     type: 'started following you',
-    user: req.currentUser!._id,
+    user: req.user._id,
     linkToUser: req.params.id,
   });
 

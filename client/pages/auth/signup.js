@@ -1,19 +1,30 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 import SingleButton from '../../components/SingleButton';
 import indexStyles from '../../styles/Index.module.css';
 import errorStyles from '../../styles/Error.module.css';
 import componenStyles from '../../styles/Components.module.css';
+import useRequest from '../../hooks/use-request';
 
 const signup = () => {
-  const router = useRouter();
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [active, setActive] = useState(false);
 
-  const submit = (e) => {
+  const { doRequest, errors } = useRequest({
+    url: 'http://localhost:8000/api/auth/signup',
+    method: 'post',
+    body: {
+      username,
+      email,
+      password,
+    },
+    onSuccess: () => Router.push('/posts'),
+  });
+
+  const submit = async (e) => {
     e.preventDefault();
 
     if (!username || !email || !password || !passwordConfirm) {
@@ -23,7 +34,7 @@ const signup = () => {
       return setActive(true);
     }
 
-    router.push('/posts');
+    await doRequest();
   };
 
   return (
@@ -69,6 +80,7 @@ const signup = () => {
         <span className={!active ? errorStyles.hide : errorStyles.errMessage}>
           Please confirm your password
         </span>
+        {errors}
         <SingleButton content='Register' color='redButton' />
       </form>
     </div>

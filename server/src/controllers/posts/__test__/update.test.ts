@@ -4,11 +4,11 @@ import mongoose from 'mongoose';
 
 it('returns a 404 if the provided id does not exist', async () => {
   const id = new mongoose.Types.ObjectId().toHexString();
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   await request(app)
     .put(`/api/posts/${id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       content: 'qweqweqweq',
     })
@@ -26,8 +26,8 @@ it('returns a 401 if the user is not authenticated', async () => {
 });
 
 it('returns a 401 if the user does not own the post', async () => {
-  const cookie = await global.signin();
-  const cookie2 = await global.signin(
+  const token = await global.signin();
+  const token2 = await global.signin(
     'test2@test.com',
     'password',
     'testuser1234'
@@ -35,7 +35,7 @@ it('returns a 401 if the user does not own the post', async () => {
 
   const response = await request(app)
     .post('/api/posts')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       title: 'weqweqw',
       topic: 'bussiness',
@@ -45,7 +45,7 @@ it('returns a 401 if the user does not own the post', async () => {
 
   await request(app)
     .put(`/api/posts/${response.body._id}`)
-    .set('Cookie', cookie2)
+    .set('Authorization', `Bearer ${token2}`)
     .send({
       content: 'qweqweqweqq',
     })
@@ -53,11 +53,11 @@ it('returns a 401 if the user does not own the post', async () => {
 });
 
 it('returns a 400 if the user provides title,topic and coverImage', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   const response = await request(app)
     .post('/api/posts')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       title: 'weqweqw',
       topic: 'bussiness',
@@ -66,7 +66,7 @@ it('returns a 400 if the user provides title,topic and coverImage', async () => 
 
   await request(app)
     .put(`/api/posts/${response.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       title: 'incorrect',
     })
@@ -74,7 +74,7 @@ it('returns a 400 if the user provides title,topic and coverImage', async () => 
 
   await request(app)
     .put(`/api/posts/${response.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       topic: 'incorrect',
     })
@@ -82,7 +82,7 @@ it('returns a 400 if the user provides title,topic and coverImage', async () => 
 
   await request(app)
     .put(`/api/posts/${response.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       coverImage: 'incorrect',
     })
@@ -90,11 +90,11 @@ it('returns a 400 if the user provides title,topic and coverImage', async () => 
 });
 
 it('updates the post provided valid inputs', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   const response = await request(app)
     .post('/api/posts')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       title: 'same title',
       topic: 'business',
@@ -103,7 +103,7 @@ it('updates the post provided valid inputs', async () => {
 
   await request(app)
     .put(`/api/posts/${response.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       content: 'updated text',
     })
@@ -111,7 +111,7 @@ it('updates the post provided valid inputs', async () => {
 
   const postResponse = await request(app)
     .get(`/api/posts/${response.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send();
 
   expect(postResponse.body.title).toEqual('same title');

@@ -3,7 +3,7 @@ import { User } from '../../models/user';
 import { Post } from '../../models/post';
 
 const saved = async (req: Request, res: Response) => {
-  const user = await User.findById(req.currentUser!._id);
+  const user = await User.findById(req.user._id);
   const posts = await Post.find({
     _id: { $in: user?.savedPosts },
   });

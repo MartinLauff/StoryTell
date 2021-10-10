@@ -16,12 +16,12 @@ it('can only be accessed if the user is signed in', async () => {
 });
 
 it('returns a status other than 401 if the user is signed in', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
   const id = new mongoose.Types.ObjectId().toHexString();
 
   const response = await request(app)
     .delete(`/api/comments/${id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({});
 
   expect(response.status).not.toEqual(401);
@@ -29,8 +29,8 @@ it('returns a status other than 401 if the user is signed in', async () => {
 
 it('returns a 401 if the user does not own the comment and 204 if does', async () => {
   /// f signups
-  const cookie = await global.signin();
-  const cookie2 = await global.signin(
+  const token = await global.signin();
+  const token2 = await global.signin(
     'test2@test.com',
     'password',
     'testuser1234'
@@ -39,7 +39,7 @@ it('returns a 401 if the user does not own the comment and 204 if does', async (
   /// Creating post
   const response = await request(app)
     .post('/api/posts')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       title: 'weqweqw',
       topic: 'bussiness',
@@ -53,7 +53,7 @@ it('returns a 401 if the user does not own the comment and 204 if does', async (
   /// Creating comment
   const comment = await request(app)
     .post(`/api/comments/${response.body._id}`)
-    .set('Cookie', cookie2)
+    .set('Authorization', `Bearer ${token2}`)
     .send({
       content: 'test comment',
     })
@@ -62,7 +62,7 @@ it('returns a 401 if the user does not own the comment and 204 if does', async (
   // Attempt to delete post
   await request(app)
     .delete(`/api/comments/${comment.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({})
     .expect(401);
 
@@ -73,7 +73,7 @@ it('returns a 401 if the user does not own the comment and 204 if does', async (
   // Deletes a comment
   await request(app)
     .delete(`/api/comments/${comment.body._id}`)
-    .set('Cookie', cookie2)
+    .set('Authorization', `Bearer ${token2}`)
     .send({})
     .expect(204);
 

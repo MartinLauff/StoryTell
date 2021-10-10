@@ -12,22 +12,22 @@ it('returns a 401 if the user is not authenticated', async () => {
 });
 it('returns a 404 if the user does not exist', async () => {
     const id = new mongoose_1.default.Types.ObjectId().toHexString();
-    const cookie = await global.signin();
+    const token = await global.signin();
     await supertest_1.default(app_1.default)
         .get(`/api/users/${id}`)
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send()
         .expect(404);
 });
 it('returns a user if authenticated', async () => {
-    const cookie = await global.signin();
+    const token = await global.signin();
     const res = await supertest_1.default(app_1.default)
         .get('/api/users/my-profile')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send();
     await supertest_1.default(app_1.default)
         .get(`/api/users/${res.body._id}`)
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send()
         .expect(200);
 });

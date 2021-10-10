@@ -11,30 +11,30 @@ it('returns a 401 if the user is not authenticated', async () => {
     await supertest_1.default(app_1.default).put(`/api/users/unfollow/${id}`).send().expect(401);
 });
 it('unfollows the users if the user exist', async () => {
-    const cookie = await global.signin();
-    const cookie2 = await global.signin('test2@test.com', 'password', 'testuser1234');
+    const token = await global.signin();
+    const token2 = await global.signin('test2@test.com', 'password', 'testuser1234');
     const res = await supertest_1.default(app_1.default)
         .get('/api/users/my-profile')
-        .set('Cookie', cookie2)
+        .set('Authorization', `Bearer ${token2}`)
         .send();
     await supertest_1.default(app_1.default)
         .put(`/api/users/follow/${res.body._id}`)
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send()
         .expect(200);
     const res2 = await supertest_1.default(app_1.default)
         .get('/api/users/my-profile')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send();
     expect(res2.body.following.length).toEqual(1);
     await supertest_1.default(app_1.default)
         .put(`/api/users/unfollow/${res.body._id}`)
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send()
         .expect(200);
     const res3 = await supertest_1.default(app_1.default)
         .get('/api/users/my-profile')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send()
         .expect(200);
     expect(res3.body.following.length).toEqual(0);

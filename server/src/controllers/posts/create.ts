@@ -1,13 +1,15 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import { Post } from '../../models/post';
 import { BadRequestError } from '../../errors/bad-request-error';
 import { User } from '../../models/user';
 
-const createPost = async (req: Request, res: Response) => {
+const createPost = async (req: Request, res: Response, next: NextFunction) => {
   const { topic, title, content, coverImage } = req.body;
 
   if (!topic || !title || !content) {
-    throw new BadRequestError('A post must have a title, topic and text');
+    return next(
+      new BadRequestError('A post must have a title, topic and text')
+    );
   }
 
   // CREATE POST
@@ -15,13 +17,13 @@ const createPost = async (req: Request, res: Response) => {
     title,
     topic,
     content,
-    postedBy: req.currentUser!._id,
+    postedBy: req.user._id,
     coverImage,
   });
 
   await User.updateOne(
     {
-      _id: req.currentUser!._id,
+      _id: req.user._id,
     },
     {
       $addToSet: { posts: post._id },

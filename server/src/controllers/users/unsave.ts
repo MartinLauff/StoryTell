@@ -5,7 +5,7 @@ const unsave = async (req: Request, res: Response) => {
   try {
     const unsaved = await User.updateOne(
       {
-        _id: req.currentUser!._id,
+        _id: req.user._id,
       },
       {
         $pull: { savedPosts: req.params.id },

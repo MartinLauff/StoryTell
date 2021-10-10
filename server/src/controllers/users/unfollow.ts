@@ -5,7 +5,7 @@ const unfollow = async (req: Request, res: Response) => {
   const givingUnfollow = await User.findByIdAndUpdate(
     req.params.id,
     {
-      $pull: { followers: req.currentUser!._id },
+      $pull: { followers: req.user._id },
     },
     {
       new: true,
@@ -13,7 +13,7 @@ const unfollow = async (req: Request, res: Response) => {
   ).select('-password');
 
   const getttingUnfollow = await User.findByIdAndUpdate(
-    req.currentUser!._id,
+    req.user._id,
     {
       $pull: { following: req.params.id },
     },

@@ -14,18 +14,18 @@ it('can only be accessed if the user is signed in', async () => {
     await supertest_1.default(app_1.default).post('/api/posts').send({}).expect(401);
 });
 it('returns a status other than 401 if the user is signed in', async () => {
-    const cookie = await global.signin();
+    const token = await global.signin();
     const response = await supertest_1.default(app_1.default)
         .post('/api/posts')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send({});
     expect(response.status).not.toEqual(401);
 });
 it('returns an error if an invalid title is provided', async () => {
-    const cookie = await global.signin();
+    const token = await global.signin();
     await supertest_1.default(app_1.default)
         .post('/api/posts')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send({
         title: '',
         topic: 'business',
@@ -34,7 +34,7 @@ it('returns an error if an invalid title is provided', async () => {
         .expect(400);
     await supertest_1.default(app_1.default)
         .post('/api/posts')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send({
         topic: 'fitness',
         content: 'text',
@@ -42,10 +42,10 @@ it('returns an error if an invalid title is provided', async () => {
         .expect(400);
 });
 it('returns an error if an invalid content is provided', async () => {
-    const cookie = await global.signin();
+    const token = await global.signin();
     await supertest_1.default(app_1.default)
         .post('/api/posts')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send({
         content: '',
         topic: 'fitness',
@@ -54,7 +54,7 @@ it('returns an error if an invalid content is provided', async () => {
         .expect(400);
     await supertest_1.default(app_1.default)
         .post('/api/posts')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send({
         topic: 'fitness',
         title: 'title',
@@ -62,10 +62,10 @@ it('returns an error if an invalid content is provided', async () => {
         .expect(400);
 });
 it('returns an error if an invalid topic is provided', async () => {
-    const cookie = await global.signin();
+    const token = await global.signin();
     await supertest_1.default(app_1.default)
         .post('/api/posts')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send({
         topic: '',
         title: 'title',
@@ -74,7 +74,7 @@ it('returns an error if an invalid topic is provided', async () => {
         .expect(400);
     await supertest_1.default(app_1.default)
         .post('/api/posts')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send({
         title: 'The title',
         content: 'text',
@@ -82,12 +82,12 @@ it('returns an error if an invalid topic is provided', async () => {
         .expect(400);
 });
 it('creates a post with valid inputs', async () => {
-    const cookie = await global.signin();
+    const token = await global.signin();
     let posts = await post_1.Post.find({});
     expect(posts.length).toEqual(0);
     await supertest_1.default(app_1.default)
         .post('/api/posts')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send({
         topic: 'extras',
         title: 'My first client',

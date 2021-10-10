@@ -4,7 +4,7 @@ const user_1 = require("../../models/user");
 const save = async (req, res) => {
     try {
         const saved = await user_1.User.updateOne({
-            _id: req.currentUser._id,
+            _id: req.user._id,
         }, {
             $addToSet: { savedPosts: req.params.id },
         });

@@ -4,12 +4,12 @@ import mongoose from 'mongoose';
 import { Post } from '../../../models/post';
 
 it('returns a 404 if the provided id does not exist', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   const id = new mongoose.Types.ObjectId().toHexString();
   await request(app)
     .delete(`/api/posts/${id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({})
     .expect(404);
 });
@@ -22,8 +22,8 @@ it('returns a 401 if the user is not authenticated', async () => {
 
 it('returns a 401 if the user does not own the post', async () => {
   /// f signups
-  const cookie = await global.signin();
-  const cookie2 = await global.signin(
+  const token = await global.signin();
+  const token2 = await global.signin(
     'test2@test.com',
     'password',
     'testuser1234'
@@ -32,7 +32,7 @@ it('returns a 401 if the user does not own the post', async () => {
   /// Creating post
   const response = await request(app)
     .post('/api/posts')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       title: 'weqweqw',
       topic: 'bussiness',
@@ -47,7 +47,7 @@ it('returns a 401 if the user does not own the post', async () => {
   /// Deleting post
   await request(app)
     .delete(`/api/posts/${response.body._id}`)
-    .set('Cookie', cookie2)
+    .set('Authorization', `Bearer ${token2}`)
     .send({})
     .expect(401);
 
@@ -57,11 +57,11 @@ it('returns a 401 if the user does not own the post', async () => {
 });
 
 it('deletes the post if user owns a post', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
 
   const response = await request(app)
     .post('/api/posts')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({
       title: 'weqweqw',
       topic: 'bussiness',
@@ -72,7 +72,7 @@ it('deletes the post if user owns a post', async () => {
 
   await request(app)
     .delete(`/api/posts/${response.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send({})
     .expect(204);
 

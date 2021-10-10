@@ -1,16 +1,16 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { BadRequestError } from '../../errors/bad-request-error';
 
 import { Password } from './password';
 import { User } from '../../models/user';
 
-const signin = async (req: Request, res: Response) => {
+const signin = async (req: Request, res: Response, next: NextFunction) => {
   const { email, password } = req.body;
 
   const existingUser = await User.findOne({ email }).select('+password');
   if (!existingUser) {
-    throw new BadRequestError('Invalid credentials');
+    return next(new BadRequestError('Invalid credentials'));
   }
 
   const passwordsMatch = await Password.compare(
@@ -18,22 +18,40 @@ const signin = async (req: Request, res: Response) => {
     password
   );
   if (!passwordsMatch) {
-    throw new BadRequestError('Invalid Credentials');
+    return next(new BadRequestError('Invalid Credentials'));
   }
 
   // Generate JWT
-  const userJwt = jwt.sign(
+  const token = jwt.sign(
     {
       _id: existingUser._id,
-      email: existingUser.email,
     },
-    process.env.JWT_KEY!
+    process.env.JWT_KEY!,
+    {
+      expiresIn: process.env.JWT_EXPIRES_IN,
+    }
   );
 
-  // Store it on session object
-  req.session = { jwt: userJwt };
+  res.cookie('jwt', token, {
+    expires: new Date(
+      Date.now() +
+        Number(process.env.JWT_COOKIE_EXPIRES_IN!) * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true,
+    secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
+  });
 
-  res.status(200).send(existingUser);
+  // Remove password from output
+  //@ts-ignore
+  existingUser.password = undefined;
+
+  res.status(200).json({
+    status: 'success',
+    token,
+    data: {
+      existingUser,
+    },
+  });
 };
 
 export default signin;

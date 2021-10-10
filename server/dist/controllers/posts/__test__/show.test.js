@@ -7,11 +7,11 @@ const supertest_1 = __importDefault(require("supertest"));
 const app_1 = __importDefault(require("../../../app"));
 const mongoose_1 = __importDefault(require("mongoose"));
 it('returns a 404 if the post is not found', async () => {
-    const cookie = await global.signin();
+    const token = await global.signin();
     const id = new mongoose_1.default.Types.ObjectId().toHexString();
     await supertest_1.default(app_1.default)
         .get(`/api/posts/${id}`)
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send()
         .expect(404);
 });
@@ -20,13 +20,13 @@ it('can only be accessed if the user is signed in', async () => {
     await supertest_1.default(app_1.default).get(`/api/posts/${id}`).send().expect(401);
 });
 it('returns the post if the post is found', async () => {
-    const cookie = await global.signin();
+    const token = await global.signin();
     const title = 'concert';
     const topic = 'lifeStyle';
     const content = 'lorem ispusm';
     const response = await supertest_1.default(app_1.default)
         .post('/api/posts')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send({
         title,
         topic,
@@ -35,7 +35,7 @@ it('returns the post if the post is found', async () => {
         .expect(201);
     const postResponse = await supertest_1.default(app_1.default)
         .get(`/api/posts/${response.body._id}`)
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send()
         .expect(200);
     expect(postResponse.body.title).toEqual(title);

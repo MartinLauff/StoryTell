@@ -9,24 +9,24 @@ it('returns a 401 if the user is not authenticated', async () => {
 });
 it('returns a 404 if the user does not exist', async () => {
   const id = new mongoose.Types.ObjectId().toHexString();
-  const cookie = await global.signin();
+  const token = await global.signin();
   await request(app)
     .get(`/api/users/${id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(404);
 });
 
 it('returns a user if authenticated', async () => {
-  const cookie = await global.signin();
+  const token = await global.signin();
   const res = await request(app)
     .get('/api/users/my-profile')
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send();
 
   await request(app)
     .get(`/api/users/${res.body._id}`)
-    .set('Cookie', cookie)
+    .set('Authorization', `Bearer ${token}`)
     .send()
     .expect(200);
 });

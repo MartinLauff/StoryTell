@@ -1,22 +1,31 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 import SingleButton from '../../components/SingleButton';
 import indexStyles from '../../styles/Index.module.css';
 import componenStyles from '../../styles/Components.module.css';
+import useRequest from '../../hooks/use-request';
 
 const signin = () => {
-  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { doRequest, errors } = useRequest({
+    url: 'http://localhost:8000/api/auth/signin',
+    method: 'post',
+    body: {
+      email,
+      password,
+    },
+    onSuccess: () => Router.push('/posts'),
+  });
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
       return;
     }
 
-    router.push('/posts');
+    await doRequest();
   };
   return (
     <div className={`${indexStyles.mybackground} ${indexStyles.signinImg}`}>
@@ -38,6 +47,7 @@ const signin = () => {
           maxLength='20'
           required
         />
+        {errors}
         <SingleButton content='Login' color='redButton' />
       </form>
     </div>

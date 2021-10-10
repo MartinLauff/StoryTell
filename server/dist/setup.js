@@ -11,6 +11,7 @@ const app_1 = __importDefault(require("./app"));
 let mongod;
 beforeAll(async () => {
     process.env.JWT_KEY = 'qwwerttzuuiioplkjg';
+    process.env.JWT_EXPIRES_IN = '90d';
     mongod = await mongodb_memory_server_1.MongoMemoryServer.create();
     const mongoUri = mongod.getUri();
     await mongoose_1.default.connect(mongoUri);
@@ -34,18 +35,15 @@ global.signin = async (email = 'test@test.com', password = 'password', username 
         username,
     })
         .expect(201);
-    const cookie = response.get('Set-Cookie');
-    return cookie;
+    const { token } = response.body;
+    return token;
 };
 global.login = () => {
-    const payload = {
-        id: new mongoose_1.default.Types.ObjectId().toHexString(),
-        email: 'test@gmail.com',
-    };
-    const token = jsonwebtoken_1.default.sign(payload, process.env.JWT_KEY);
-    const session = { jwt: token };
-    const sessionJSON = JSON.stringify(session);
-    const base64 = Buffer.from(sessionJSON).toString('base64');
-    return [`express:sess=${base64}`];
+    const token = jsonwebtoken_1.default.sign({
+        _id: new mongoose_1.default.Types.ObjectId().toHexString(),
+    }, process.env.JWT_KEY, {
+        expiresIn: process.env.JWT_EXPIRES_IN,
+    });
+    return token;
 };
 //# sourceMappingURL=setup.js.map

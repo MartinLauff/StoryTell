@@ -11,21 +11,21 @@ it('returns a 401 if the user is not authenticated', async () => {
     await supertest_1.default(app_1.default).put(`/api/users/follow/${id}`).send().expect(401);
 });
 it('follows the users if the user exist', async () => {
-    const cookie = await global.signin();
-    const cookie2 = await global.signin('test2@test.com', 'password', 'testuser1234');
+    const token = await global.signin();
+    const token2 = await global.signin('test2@test.com', 'password', 'testuser1234');
     const res = await supertest_1.default(app_1.default)
         .get('/api/users/my-profile')
-        .set('Cookie', cookie2)
+        .set('Authorization', `Bearer ${token2}`)
         .send()
         .expect(200);
     await supertest_1.default(app_1.default)
         .put(`/api/users/follow/${res.body._id}`)
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send()
         .expect(200);
     const res2 = await supertest_1.default(app_1.default)
         .get('/api/users/my-profile')
-        .set('Cookie', cookie)
+        .set('Authorization', `Bearer ${token}`)
         .send()
         .expect(200);
     expect(res2.body.following.length).toEqual(1);

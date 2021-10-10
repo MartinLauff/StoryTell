@@ -3,7 +3,7 @@ import { Activity } from '../../models/activity';
 
 const activities = async (req: Request, res: Response) => {
   const activities = await Activity.find({
-    linkToUser: req.currentUser!._id,
+    linkToUser: req.user._id,
   })
     .populate({
       path: 'user',
