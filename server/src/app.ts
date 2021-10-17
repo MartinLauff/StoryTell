@@ -2,7 +2,7 @@ import express from 'express';
 import 'express-async-errors';
 import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
-import helmet from 'helmet';
+// import helmet from 'helmet';
 import ExpressMongoSanitize from 'express-mongo-sanitize';
 import xss from 'xss-clean';
 import compression from 'compression';
@@ -31,7 +31,7 @@ app.options('*', cors());
 app.use(express.json());
 
 // Set security HTTP headers
-app.use(helmet());
+// app.use(helmet());
 
 // Limit requests from same API
 const limiter = rateLimit({

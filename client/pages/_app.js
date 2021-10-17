@@ -27,7 +27,7 @@ const AppComponent = ({ Component, pageProps }) => {
           href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap'
           rel='stylesheet'
         />
-        <link rel='shortcut icon' href='/favicon.jpg' />
+        <link rel='shortcut icon' href='/favicon.png' />
       </Head>
       <GlobalProvider>
         <Component {...pageProps} />

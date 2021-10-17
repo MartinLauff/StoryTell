@@ -18,7 +18,6 @@ it('clears the cookie after signing out', async () => {
         .post('/api/auth/signout')
         .send({})
         .expect(200);
-    console.log(response.get('Set-Cookie')[0]);
     expect(response.get('Set-Cookie')[0].startsWith('jwt=loggedout'));
 });
 //# sourceMappingURL=signout.test.js.map

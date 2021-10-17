@@ -1,27 +1,30 @@
-import TopBar from '../../components/TopBar';
-import SideBar from '../../components/SideBar';
-import BottomBar from '../../components/BottomBar';
-import axios from 'axios';
+import TopBar from '../../components/bars/TopBar';
+import SideBar from '../../components/bars/SideBar';
+import BottomBar from '../../components/bars/BottomBar';
+import PostList from '../../components/PostList';
+import buildClient from '../../api/build-client';
 
-const index = ({ posts }) => {
-  if (!posts) {
-    console.log(posts + ' no posts');
-  }
-  console.log(posts);
+const LatestPosts = ({ data }) => {
   return (
     <div>
       <TopBar />
       <SideBar />
-      <h2>Latest posts</h2>
+      <h2 style={{ margin: '1rem 0 0 4rem' }}>Latest posts</h2>
+      <PostList posts={data} />
       <BottomBar />
     </div>
   );
 };
 
-export const getServerSideProps = async () => {
-  const { data } = await axios.get('http://localhost:8000/api/posts/');
+export const getServerSideProps = async (ctx) => {
+  const client = buildClient(ctx);
+  const { data } = await client.get('/api/posts/');
 
-  return { posts: data };
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
-export default index;
+export default LatestPosts;

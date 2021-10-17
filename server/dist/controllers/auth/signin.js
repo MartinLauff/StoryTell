@@ -19,6 +19,7 @@ const signin = async (req, res, next) => {
     }
     const token = jsonwebtoken_1.default.sign({
         _id: existingUser._id,
+        role: existingUser.role,
     }, process.env.JWT_KEY, {
         expiresIn: process.env.JWT_EXPIRES_IN,
     });
@@ -26,7 +27,6 @@ const signin = async (req, res, next) => {
         expires: new Date(Date.now() +
             Number(process.env.JWT_COOKIE_EXPIRES_IN) * 24 * 60 * 60 * 1000),
         httpOnly: true,
-        secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
     });
     existingUser.password = undefined;
     res.status(200).json({

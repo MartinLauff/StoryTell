@@ -25,6 +25,7 @@ const signin = async (req: Request, res: Response, next: NextFunction) => {
   const token = jwt.sign(
     {
       _id: existingUser._id,
+      role: existingUser.role,
     },
     process.env.JWT_KEY!,
     {
@@ -38,7 +39,7 @@ const signin = async (req: Request, res: Response, next: NextFunction) => {
         Number(process.env.JWT_COOKIE_EXPIRES_IN!) * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
+    // secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
   });
 
   // Remove password from output

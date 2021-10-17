@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import BarStyles from '../styles/Bar.module.css';
-import NotificationIcon from './Icons/NotifitcationIcon';
-import NewPostIcon from './Icons/NewPostIcon';
-import ProfileIcon from './Icons/ProfileIcon';
+import BarStyles from '../../styles/Bar.module.css';
+import NotificationIcon from '../Icons/NotifitcationIcon';
+import NewPostIcon from '../Icons/NewPostIcon';
+import ProfileIcon from '../Icons/ProfileIcon';
 
 const BottomBar = () => {
   return (

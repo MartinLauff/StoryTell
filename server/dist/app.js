@@ -7,7 +7,6 @@ const express_1 = __importDefault(require("express"));
 require("express-async-errors");
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const express_rate_limit_1 = __importDefault(require("express-rate-limit"));
-const helmet_1 = __importDefault(require("helmet"));
 const express_mongo_sanitize_1 = __importDefault(require("express-mongo-sanitize"));
 const xss_clean_1 = __importDefault(require("xss-clean"));
 const compression_1 = __importDefault(require("compression"));
@@ -28,7 +27,6 @@ app.use((0, cors_1.default)({
 }));
 app.options('*', (0, cors_1.default)());
 app.use(express_1.default.json());
-app.use((0, helmet_1.default)());
 const limiter = (0, express_rate_limit_1.default)({
     max: 100,
     windowMs: 60 * 60 * 1000,

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useState, useContext } from 'react';
-import { GlobalContext } from '../context/GlobalCtx';
-import BarStyles from '../styles/Bar.module.css';
-import LogoIcon from './Icons/LogoIcon';
+import { GlobalContext } from '../../context/GlobalCtx';
+import BarStyles from '../../styles/Bar.module.css';
+import LogoIcon from '../Icons/LogoIcon';
 
 const TopBar = () => {
   const [active, setActive] = useState(false);

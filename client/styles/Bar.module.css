@@ -82,7 +82,7 @@
   border-radius: 5rem;
   position: relative;
   margin-right: 1rem;
-  transition: 1s all;
+  transition: 0.4s all;
   cursor: pointer;
 }
 .circleRotate {
