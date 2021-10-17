@@ -5,10 +5,14 @@ import BarStyles from '../../styles/Bar.module.css';
 
 const SideBar = () => {
   const [toggle, setToggle] = useState(false);
-  const { sidebar } = useContext(GlobalContext);
+  const { sidebar, setSidebar } = useContext(GlobalContext);
 
   return (
-    <div className={sidebar ? BarStyles.sidebar : BarStyles.hide}>
+    <div
+      className={`${BarStyles.sidebar} ${
+        sidebar ? BarStyles.open : BarStyles.close
+      }`}
+    >
       <h3>Storytell</h3>
       <Link href='/posts'>
         <a>
@@ -83,7 +87,7 @@ const SideBar = () => {
         </div>
       </div>
       <Link href='/auth/signout'>
-        <a>
+        <a onClick={() => setSidebar(false)}>
           <svg
             width='18'
             height='18'

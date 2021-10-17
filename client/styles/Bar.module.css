@@ -2,13 +2,19 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
-  right: 25%;
   z-index: 5;
   background-color: #fff;
   display: grid;
   grid-template-rows: repeat(12, 1fr);
-  transition: 1s all;
+  transition: 0.4s all;
+}
+.open {
+  left: 0;
+  right: 25%;
+}
+.close {
+  left: -100%;
+  right: 100%;
 }
 .sidebar span {
   margin-left: 1rem;
@@ -69,6 +75,8 @@
 }
 .evenly {
   justify-content: space-evenly;
+  background-color: #fff;
+  z-index: 10;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -117,7 +125,7 @@
   transition: 0.9s all;
 }
 @media only screen and (min-width: 62.5rem) {
-  .sidebar {
+  .open {
     right: 75%;
   }
 }

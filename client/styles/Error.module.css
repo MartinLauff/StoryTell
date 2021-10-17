@@ -8,8 +8,8 @@
   z-index: 9999;
   color: #fff;
   background-color: #eb4d4b;
-  font-size: 1.8rem;
-  font-weight: 400;
+  font-size: var(--fs-mid);
+  font-weight: var(--fw-slim);
   text-align: center;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
