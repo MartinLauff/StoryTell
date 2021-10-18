@@ -16,6 +16,15 @@ const signout = () => {
     Cookies.remove('jwt');
   }, []);
 
-  return <div>Signing you out...</div>;
+  const style = {
+    fontSize: '4rem',
+    fontWeight: '700',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  };
+
+  return <div style={style}>Signing you out...</div>;
 };
 export default signout;

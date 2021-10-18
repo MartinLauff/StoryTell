@@ -6,7 +6,7 @@ import ProfileIcon from '../Icons/ProfileIcon';
 
 const BottomBar = () => {
   return (
-    <div className={`${BarStyles.bar} ${BarStyles.evenly}`}>
+    <div className={`${BarStyles.bar} ${BarStyles.bottomBar}`}>
       <Link href='/user/notifications'>
         <a style={{ height: '2.7rem' }}>
           <NotificationIcon />

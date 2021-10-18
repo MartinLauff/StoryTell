@@ -1,8 +1,8 @@
 .sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
-  z-index: 5;
+  z-index: 50;
   background-color: #fff;
   display: grid;
   grid-template-rows: repeat(12, 1fr);
@@ -70,14 +70,20 @@
 .white {
   right: 4%;
 }
-.between {
+.topBar {
   justify-content: space-between;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  background-color: #fff;
+  z-index: 10;
 }
-.evenly {
+.bottomBar {
   justify-content: space-evenly;
   background-color: #fff;
   z-index: 10;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -115,8 +121,8 @@
   height: 0.6rem;
 }
 .layer {
-  position: absolute;
-  z-index: 2;
+  position: fixed;
+  z-index: 30;
   top: 0;
   bottom: 0;
   left: 0;
