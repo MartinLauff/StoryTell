@@ -6,6 +6,9 @@ import BarStyles from '../../styles/Bar.module.css';
 const SideBar = () => {
   const [toggle, setToggle] = useState(false);
   const { sidebar, setSidebar } = useContext(GlobalContext);
+  const close = () => {
+    setSidebar(false);
+  };
 
   return (
     <div
@@ -108,32 +111,32 @@ const SideBar = () => {
         </a>
       </Link>
       <h3>Popular topics</h3>
-      <Link href='/topics/fitness'>
-        <a>
+      <Link href='/topics/[topicSlug]' as={'/topics/fitness'}>
+        <a onClick={close}>
           <img src='/fitness.jpg' alt='fitness' />
           <span>s/Fitness</span>
         </a>
       </Link>
-      <Link href='/topics/startups'>
-        <a>
+      <Link href='/topics/[topicSlug]' as={'/topics/startups'}>
+        <a onClick={close}>
           <img src='/startups.jpg' alt='startups' />
           <span>s/Startups</span>
         </a>
       </Link>
-      <Link href='/topics/languages'>
-        <a>
+      <Link href='/topics/[topicSlug]' as={'/topics/language'}>
+        <a onClick={close}>
           <img src='/language.jpg' alt='languages' />
           <span>s/Languages</span>
         </a>
       </Link>
-      <Link href='/topics/school'>
-        <a>
+      <Link href='/topics/[topicSlug]' as={'/topics/school'}>
+        <a onClick={close}>
           <img src='/school.jpg' alt='school' />
           <span>s/School</span>
         </a>
       </Link>
-      <Link href='/topics/traveling'>
-        <a>
+      <Link href='/topics/[topicSlug]' as={'/topics/traveling'}>
+        <a onClick={close}>
           <img src='/traveling.jpg' alt='traveling' />
           <span>s/Traveling</span>
         </a>

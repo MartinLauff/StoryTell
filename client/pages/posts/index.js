@@ -11,7 +11,7 @@ const LatestPosts = ({ data }) => {
       <TopBar />
       <SideBar />
       <Layer />
-      <h2 style={{ margin: '1rem 0 0 4rem' }}>Latest posts</h2>
+      <h2 style={{ margin: '6rem 0 0 4rem' }}>Latest posts</h2>
       <PostList posts={data} />
       <BottomBar />
     </div>
