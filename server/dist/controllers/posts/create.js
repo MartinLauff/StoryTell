@@ -20,7 +20,11 @@ const createPost = async (req, res, next) => {
     }, {
         $addToSet: { posts: post._id },
     });
-    res.status(201).send(post);
+    res.status(201).send({
+        data: {
+            post,
+        },
+    });
 };
 exports.default = createPost;
 //# sourceMappingURL=create.js.map

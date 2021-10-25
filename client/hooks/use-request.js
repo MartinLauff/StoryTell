@@ -2,16 +2,19 @@ import axios from 'axios';
 import { useState } from 'react';
 import generalError from '../styles/Error.module.css';
 
-const useRequest = ({ url, method, body, onSuccess }) => {
+const useRequest = ({ url, method, headers, body, onSuccess }) => {
   const [errors, setErrors] = useState(null);
 
   const doRequest = async (props = {}) => {
     try {
       setErrors(null);
-      const response = await axios[method](url, {
-        ...body,
-        ...props,
-      });
+      const response = await axios[method](
+        url,
+        { ...body, ...props },
+        {
+          headers,
+        }
+      );
 
       if (onSuccess) {
         onSuccess(response.data);

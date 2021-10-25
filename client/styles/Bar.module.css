@@ -31,12 +31,14 @@
 }
 .sidebar a:focus {
   background-color: rgb(218, 218, 218);
-  width: 40%;
   border-radius: 1rem;
 }
 .sidebar * {
   display: flex;
   align-items: center;
+}
+.sidebar a {
+  width: 30rem;
 }
 .bar {
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
@@ -89,6 +91,10 @@
   right: 0;
   border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
+.bottomBar a:focus {
+  outline: 2px solid #33a5e7;
+  border-radius: 0.3rem;
+}
 .circle {
   width: 3.6rem;
   height: 3.6rem;
@@ -129,6 +135,14 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   transition: 0.9s all;
+}
+.arrowBar a,
+.arrowBar h2 {
+  margin-left: 2rem;
+}
+.arrowBar a:focus {
+  outline: 2px solid #33a5e7;
+  border-radius: 0.3rem;
 }
 @media only screen and (min-width: 62.5rem) {
   .open {

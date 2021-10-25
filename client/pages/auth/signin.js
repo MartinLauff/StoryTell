@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Router from 'next/router';
 import SingleButton from '../../components/SingleButton';
 import indexStyles from '../../styles/Index.module.css';
-import componenStyles from '../../styles/Components.module.css';
+import componentStyles from '../../styles/Components.module.css';
 import useRequest from '../../hooks/use-request';
 
 const signin = () => {
@@ -36,14 +36,14 @@ const signin = () => {
       <h1 className={indexStyles.heading}>Storytell</h1>
       <form className={indexStyles.flexCenter} onSubmit={submit}>
         <input
-          className={componenStyles.textInput}
+          className={componentStyles.textInput}
           onChange={(e) => setEmail(e.target.value)}
           type='email'
           placeholder='Email'
           required
         />
         <input
-          className={componenStyles.textInput}
+          className={componentStyles.textInput}
           onChange={(e) => setPassword(e.target.value)}
           type='password'
           placeholder='Password'

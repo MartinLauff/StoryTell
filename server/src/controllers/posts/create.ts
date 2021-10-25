@@ -31,7 +31,11 @@ const createPost = async (req: Request, res: Response, next: NextFunction) => {
   );
 
   // SEND RESPONSE
-  res.status(201).send(post);
+  res.status(201).send({
+    data: {
+      post,
+    },
+  });
 };
 
 export default createPost;

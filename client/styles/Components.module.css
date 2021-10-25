@@ -29,3 +29,29 @@
 .textInput::placeholder {
   color: #a2a5b5;
 }
+.btnWrapper {
+  width: 85%;
+  margin: 1rem auto 0;
+  display: flex;
+  justify-content: center;
+}
+.cancelBtn {
+  background-color: #fff;
+  color: #ff2f2f;
+  border: 2px solid #ff2f2f;
+}
+.applyBtn {
+  border: 2px solid #ff2f2f;
+  background-color: #ff2f2f;
+  margin-left: 1rem;
+  color: #fff;
+  border: none;
+}
+.applyBtn,
+.cancelBtn {
+  font-size: var(--fs-mid);
+  font-weight: var(--fw-normal);
+  width: 12rem;
+  height: 4rem;
+  border-radius: 1rem;
+}

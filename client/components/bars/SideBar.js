@@ -125,8 +125,8 @@ const SideBar = () => {
       </Link>
       <Link href='/topics/[topicSlug]' as={'/topics/language'}>
         <a onClick={close}>
-          <img src='/language.jpg' alt='languages' />
-          <span>s/Languages</span>
+          <img src='/language.jpg' alt='language' />
+          <span>s/Language</span>
         </a>
       </Link>
       <Link href='/topics/[topicSlug]' as={'/topics/school'}>
