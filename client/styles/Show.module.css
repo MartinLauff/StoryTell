@@ -1,0 +1,11 @@
+.showWrap {
+  margin-top: 6rem;
+}
+.showWrap span {
+  color: #878a8c;
+}
+.showLikes {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}

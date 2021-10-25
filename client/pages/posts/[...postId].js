@@ -1,24 +1,26 @@
 import TopBar from '../../components/bars/TopBar';
 import SideBar from '../../components/bars/SideBar';
+import LikeIcon from '../../components/Icons/LikeIcon';
+import DisLikeIcon from '../../components/Icons/DisLikeIcon';
 import BottomBar from '../../components/bars/BottomBar';
+import showStyles from '../../styles/Show.module.css';
 import Layer from '../../components/bars/Layer';
-import Post from '../../components/Post';
 import buildClient from '../../api/build-client';
-import topicStyles from '../../styles/Topic.module.css';
 
-const PostShow = ({ data, postId }) => {
-  console.log(data);
+const PostShow = ({ data }) => {
+  const { post } = data;
   return (
     <div>
       <TopBar />
       <SideBar />
       <Layer />
-      <div className={topicStyles.topicStripe}>
-        <div>
-          <h2>{postId}</h2>
+      <div className={showStyles.showWrap}>
+        <div className={showStyles.showLikes}>
+          <LikeIcon />
+          <span>{post.likes.length}</span>
+          <DisLikeIcon />
         </div>
       </div>
-      <Post post={data} />
       <BottomBar />
     </div>
   );
@@ -31,7 +33,7 @@ export const getServerSideProps = async (ctx) => {
 
   return {
     props: {
-      data,
+      ...data,
       postId,
     },
   };

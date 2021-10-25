@@ -10,7 +10,7 @@ const Post = ({ post }) => {
   return (
     <div style={{ margin: '1rem 0' }} className={postStyles.post}>
       <Link href='/posts/[...postId]' as={`/posts/${post._id}`}>
-        <a>
+        <a style={{ textDecoration: 'none' }}>
           <div className={postStyles.postTop}>
             <div style={{ display: 'flex', aligItems: 'center' }}>
               <img

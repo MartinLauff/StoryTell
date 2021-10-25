@@ -9,7 +9,10 @@ const showPost = async (req: Request, res: Response, next: NextFunction) => {
       path: 'comments',
       select: '-__v',
     })
-    .populate('postedBy');
+    .populate({
+      path: 'postedBy',
+      select: 'photo username',
+    });
 
   if (!post) {
     return next(new NotFoundError('Post'));
