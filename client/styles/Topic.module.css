@@ -28,4 +28,7 @@
   .topicStripe div {
     left: 15%;
   }
+  .topicStripe {
+    background: linear-gradient(0.25turn, #000 80%, #fff);
+  }
 }

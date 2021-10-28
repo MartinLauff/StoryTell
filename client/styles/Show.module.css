@@ -5,7 +5,19 @@
   color: #878a8c;
 }
 .showLikes {
-  display: inline-flex;
-  flex-direction: column;
+  display: flex;
   align-items: center;
+}
+.postTop {
+  display: flex;
+  align-items: center;
+}
+.post {
+  width: 25rem;
+  margin: 0 auto;
+  position: relative;
+}
+.postCore > *,
+.postTop > * {
+  color: #000;
 }
