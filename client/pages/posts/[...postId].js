@@ -1,5 +1,6 @@
 import TopBar from '../../components/bars/TopBar';
 import SideBar from '../../components/bars/SideBar';
+import CommentList from '../../components/CommentList';
 import LikeIcon from '../../components/Icons/LikeIcon';
 import CommentIcon from '../../components/Icons/CommentIcon';
 import DisLikeIcon from '../../components/Icons/DisLikeIcon';
@@ -35,15 +36,15 @@ const PostShow = ({ data: { post } }) => {
             </div>
             <div className={showStyles.comments}>
               <CommentIcon />
-              <span>{`${post.comments.length} ${
-                post.comments.length === 1 ? 'Comment' : 'Comments'
-              }`}</span>
+              <span className={showStyles.count}>{post.comments.length}</span>
+              <span>{post.comments.length === 1 ? 'Comment' : 'Comments'}</span>
             </div>
             <div>
               <MoreIcon />
             </div>
           </div>
         </div>
+        <CommentList comments={post.comments} />
       </div>
       <BottomBar />
     </div>

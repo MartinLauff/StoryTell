@@ -14,13 +14,13 @@
   border-radius: 10rem;
 }
 .showLikes span {
-  margin: 0 0.5rem;
+  margin: 0 1rem;
 }
-.comments span {
-  margin: 0 0.5rem;
+.count {
+  margin: 0 1rem;
 }
 .post {
-  width: 25rem;
+  width: 27rem;
   margin: 0 auto;
   position: relative;
 }
@@ -29,6 +29,7 @@
   color: #000;
 }
 .postTop span {
+  text-align: center;
   font-size: var(--fs-small);
   color: #000;
 }
@@ -37,8 +38,10 @@
   font-weight: var(--fw-bold);
 }
 .title {
-  font-weight: var(--fw-normal);
-  font-size: var(--fs-mid);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-big);
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 .content {
   font-weight: var(--fw-slim);
@@ -48,8 +51,10 @@
   margin-top: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  font-size: var(--fs-tiny);
+  justify-content: space-between;
+}
+.actions span {
+  font-size: var(--fs-small);
   font-weight: var(--fw-normal);
 }
 .actions div {

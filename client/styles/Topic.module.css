@@ -28,6 +28,8 @@
   .topicStripe div {
     left: 15%;
   }
+}
+@media only screen and (min-width: 28rem) {
   .topicStripe {
     background: linear-gradient(0.25turn, #000 80%, #fff);
   }

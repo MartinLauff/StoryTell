@@ -1,10 +1,13 @@
-import React from 'react';
 import Post from './Post';
 import postStyles from '../styles/Post.module.css';
 
 const PostList = ({ posts }) => {
-  if (!posts) {
-    return <div>Let's discover new inspirations on topics tab</div>;
+  if (!posts.data || posts.data.length === 0) {
+    return (
+      <div className={postStyles.noPosts}>
+        Let's discover new inspirations in topics tab
+      </div>
+    );
   }
 
   const renderedList = posts.data.map((post) => (
