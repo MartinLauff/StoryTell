@@ -1,16 +1,23 @@
 .showWrap {
-  margin-top: 6rem;
+  margin-top: 7.5rem;
 }
 .showWrap span {
   color: #878a8c;
 }
-.showLikes {
-  display: flex;
-  align-items: center;
-}
 .postTop {
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+.postTop img {
+  border-radius: 10rem;
+}
+.showLikes span {
+  margin: 0 0.5rem;
+}
+.comments span {
+  margin: 0 0.5rem;
 }
 .post {
   width: 25rem;
@@ -20,4 +27,32 @@
 .postCore > *,
 .postTop > * {
   color: #000;
+}
+.postTop span {
+  font-size: var(--fs-small);
+  color: #000;
+}
+.topic,
+.name {
+  font-weight: var(--fw-bold);
+}
+.title {
+  font-weight: var(--fw-normal);
+  font-size: var(--fs-mid);
+}
+.content {
+  font-weight: var(--fw-slim);
+  font-size: var(--fs-small);
+}
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: var(--fs-tiny);
+  font-weight: var(--fw-normal);
+}
+.actions div {
+  display: inline-flex;
+  align-items: center;
 }

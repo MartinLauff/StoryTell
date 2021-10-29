@@ -7,6 +7,7 @@ import BottomBar from '../../components/bars/BottomBar';
 import showStyles from '../../styles/Show.module.css';
 import Layer from '../../components/bars/Layer';
 import buildClient from '../../api/build-client';
+import MoreIcon from '../../components/Icons/MoreIcon';
 
 const PostShow = ({ data: { post } }) => {
   return (
@@ -20,23 +21,26 @@ const PostShow = ({ data: { post } }) => {
             <img alt={post.title} src={`/${post.slug}.jpg`} />
             <span className={showStyles.topic}>{`s/${post.topic}`}</span>
             <span>posted by</span>
-            <span>{post.postedBy.username}</span>
+            <span className={showStyles.name}>{post.postedBy.username}</span>
           </div>
           <div className={showStyles.postCore}>
-            <h1>{post.title}</h1>
-            <p>{post.content}</p>
+            <h1 className={showStyles.title}>{post.title}</h1>
+            <p className={showStyles.content}>{post.content}</p>
           </div>
-          <div className={showStyles.postBottom}>
+          <div className={showStyles.actions}>
             <div className={showStyles.showLikes}>
               <LikeIcon />
               <span>{post.likes.length}</span>
               <DisLikeIcon />
             </div>
-            <div>
+            <div className={showStyles.comments}>
               <CommentIcon />
               <span>{`${post.comments.length} ${
                 post.comments.length === 1 ? 'Comment' : 'Comments'
               }`}</span>
+            </div>
+            <div>
+              <MoreIcon />
             </div>
           </div>
         </div>
