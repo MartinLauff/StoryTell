@@ -12,8 +12,9 @@ import useRequest from '../../hooks/use-request';
 const CreatePost = () => {
   const [topic, setTopic] = useState('Fitness');
   const [title, setTitle] = useState('');
-  const [coverImage, setCoverImage] = useState('');
   const [content, setContent] = useState('');
+  const [fileName, setFileName] = useState('(optional)');
+  const [url, setUrl] = useState('');
 
   const { doRequest, errors } = useRequest({
     url: 'http://localhost:8000/api/posts/',
@@ -22,7 +23,7 @@ const CreatePost = () => {
     body: {
       topic,
       title,
-      coverImage,
+      coverImage: url,
       content,
     },
     onSuccess: () => Router.push('/posts'),
@@ -42,7 +43,7 @@ const CreatePost = () => {
       <ArrowBar title='Create a post' />
       <SideBar />
       <Layer />
-      <div className={createStyles.wrap}>
+      <form className={createStyles.wrap}>
         <select
           className={componentStyles.textInput}
           value={topic}
@@ -64,14 +65,37 @@ const CreatePost = () => {
         />
         <div className={createStyles.wrapper}>
           <input
-            onChange={(e) => setCoverImage(e.target.value)}
+            onChange={(e) => setFileName(e.target.files[0])}
             id='image'
             accept='image/*'
             type='file'
             name='image'
           />
           <label htmlFor='image'>Choose an image</label>
-          <span>{'(optional)'}</span>
+          <span style={{ position: 'relative' }}>
+            {fileName.name ? fileName.name : fileName}
+            <div
+              onClick={() => setFileName('(optional)')}
+              className={
+                fileName.name ? createStyles.delPic : createStyles.hide
+              }
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='24'
+                height='24'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='#ff2f2f'
+                strokeWidth='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+              >
+                <line x1='18' y1='6' x2='6' y2='18'></line>
+                <line x1='6' y1='6' x2='18' y2='18'></line>
+              </svg>
+            </div>
+          </span>
         </div>
         <textarea
           required
@@ -86,18 +110,22 @@ const CreatePost = () => {
           placeholder='Text'
           className={componentStyles.textInput}
         />
-      </div>
-      <div className={componentStyles.btnWrapper}>
-        <button
-          onClick={() => Router.push('/posts')}
-          className={componentStyles.cancelBtn}
-        >
-          Cancel
-        </button>
-        <button onClick={submit} className={componentStyles.applyBtn}>
-          Post
-        </button>
-      </div>
+        <div className={componentStyles.btnWrapper}>
+          <button
+            onClick={() => Router.push('/posts')}
+            className={componentStyles.cancelBtn}
+          >
+            Cancel
+          </button>
+          <button
+            type='submit'
+            onSubmit={submit}
+            className={componentStyles.applyBtn}
+          >
+            Post
+          </button>
+        </div>
+      </form>
       {errors}
       <BottomBar />
     </div>
