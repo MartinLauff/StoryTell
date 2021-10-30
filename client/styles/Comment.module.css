@@ -10,3 +10,30 @@
   display: flex;
   justify-content: center;
 }
+.commentWrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 28rem;
+}
+.name {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-small);
+  color: #000;
+}
+.time {
+  font-size: var(--fs-tiny);
+  color: #b9b9b9;
+  margin-left: 1rem;
+}
+.content {
+  font-weight: var(--fw-slim);
+  font-size: var(--fs-small);
+  color: #000;
+}
+.pic {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 25rem;
+  margin-right: 1.5rem;
+}

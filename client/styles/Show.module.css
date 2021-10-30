@@ -1,13 +1,10 @@
 .showWrap {
   margin-top: 7.5rem;
 }
-.showWrap span {
-  color: #878a8c;
-}
 .postTop {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-bottom: 1rem;
 }
 .postTop img {
@@ -22,7 +19,6 @@
 .post {
   width: 27rem;
   margin: 0 auto;
-  position: relative;
 }
 .postCore > *,
 .postTop > * {
@@ -31,7 +27,6 @@
 .postTop span {
   text-align: center;
   font-size: var(--fs-small);
-  color: #000;
 }
 .topic,
 .name {
@@ -54,6 +49,7 @@
   justify-content: space-between;
 }
 .actions span {
+  color: #878a8c;
   font-size: var(--fs-small);
   font-weight: var(--fw-normal);
 }

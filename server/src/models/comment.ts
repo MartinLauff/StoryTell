@@ -51,6 +51,15 @@ const commentSchema = new mongoose.Schema<CommentDoc, CommentModel>(
 
 commentSchema.index({ postedBy: 1, post: 1 });
 
+commentSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'postedBy',
+    select: 'username photo',
+  });
+
+  next();
+});
+
 commentSchema.statics.build = (attrs: CommentAttrs) => {
   return new Comment(attrs);
 };

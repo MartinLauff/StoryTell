@@ -1,14 +1,17 @@
 import Link from 'next/link';
+import commentStyles from '../styles/Comment.module.css';
 import formatDistance from 'date-fns/formatDistance';
 
 const Comment = ({ comment }) => {
   return (
-    <div>
-      <img />
+    <div className={commentStyles.commentWrap}>
+      <img className={commentStyles.pic} src='/default.png' />
       <div>
         <div>
-          <span>{}</span>
-          <span>
+          <span className={commentStyles.name}>
+            {comment.postedBy.username}
+          </span>
+          <span className={commentStyles.time}>
             {formatDistance(new Date(comment.createdAt), new Date(), {
               addSuffix: true,
             })
@@ -17,7 +20,7 @@ const Comment = ({ comment }) => {
           </span>
         </div>
         <div>
-          <span>{comment.content}</span>
+          <span className={commentStyles.content}>{comment.content}</span>
         </div>
       </div>
     </div>
