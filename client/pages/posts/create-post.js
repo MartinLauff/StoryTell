@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Router from 'next/router';
 import Cookies from 'js-cookie';
 import componentStyles from '../../styles/Components.module.css';
@@ -7,27 +8,30 @@ import ArrowBar from '../../components/bars/ArrowBar';
 import SideBar from '../../components/bars/SideBar';
 import BottomBar from '../../components/bars/BottomBar';
 import Layer from '../../components/bars/Layer';
-import useRequest from '../../hooks/use-request';
 
 const CreatePost = () => {
   const [topic, setTopic] = useState('Fitness');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [fileName, setFileName] = useState('(optional)');
+  const [err, setErr] = useState(null);
   const [url, setUrl] = useState('');
 
-  const { doRequest, errors } = useRequest({
-    url: 'http://localhost:8000/api/posts/',
-    method: 'post',
-    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
-    body: {
-      topic,
-      title,
-      coverImage: url,
-      content,
-    },
-    onSuccess: () => Router.push('/posts'),
-  });
+  useEffect(() => {
+    if (url) {
+      axios({
+        method: 'post',
+        url: 'http://localhost:8000/api/posts/',
+        data: {
+          topic,
+          title,
+          coverImage: url || '',
+          content,
+        },
+        headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+      }).then(Router.push(`/topics/${topic.toLowerCase()}`));
+    }
+  }, [url]);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -35,15 +39,28 @@ const CreatePost = () => {
     if (!topic || !title || !content) {
       return;
     }
-    const res = await doRequest();
-    console.log(res);
+
+    const data = new FormData();
+    data.append('file', fileName);
+    data.append('upload_preset', 'storytell');
+
+    if (fileName !== '(optional)') {
+      const res = await axios({
+        method: 'post',
+        url: 'https://api.cloudinary.com/v1_1/ekoeko/image/upload',
+        data,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      setUrl(res.data.url);
+    }
   };
+
   return (
     <div>
       <ArrowBar title='Create a post' />
       <SideBar />
       <Layer />
-      <form className={createStyles.wrap}>
+      <form onSubmit={submit} className={createStyles.wrap}>
         <select
           className={componentStyles.textInput}
           value={topic}
@@ -72,8 +89,8 @@ const CreatePost = () => {
             name='image'
           />
           <label htmlFor='image'>Choose an image</label>
-          <span style={{ position: 'relative' }}>
-            {fileName.name ? fileName.name : fileName}
+          <div className={createStyles.name}>
+            <span>{fileName.name ? fileName.name : fileName}</span>
             <div
               onClick={() => setFileName('(optional)')}
               className={
@@ -95,7 +112,7 @@ const CreatePost = () => {
                 <line x1='6' y1='6' x2='18' y2='18'></line>
               </svg>
             </div>
-          </span>
+          </div>
         </div>
         <textarea
           required
@@ -117,16 +134,12 @@ const CreatePost = () => {
           >
             Cancel
           </button>
-          <button
-            type='submit'
-            onSubmit={submit}
-            className={componentStyles.applyBtn}
-          >
+          <button type='submit' className={componentStyles.applyBtn}>
             Post
           </button>
         </div>
       </form>
-      {errors}
+      {err}
       <BottomBar />
     </div>
   );

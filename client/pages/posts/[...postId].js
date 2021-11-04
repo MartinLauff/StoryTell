@@ -28,6 +28,7 @@ const PostShow = ({ data: { post } }) => {
             <h1 className={showStyles.title}>{post.title}</h1>
             <p className={showStyles.content}>{post.content}</p>
           </div>
+          <img src={post.coverImage} />
           <div className={showStyles.actions}>
             <div className={showStyles.showLikes}>
               <LikeIcon />

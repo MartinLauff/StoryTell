@@ -38,7 +38,7 @@
   align-items: center;
 }
 .sidebar a {
-  width: 30rem;
+  width: 20rem;
 }
 .bar {
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
@@ -147,5 +147,10 @@
 @media only screen and (min-width: 62.5rem) {
   .open {
     right: 75%;
+  }
+}
+@media only screen and (min-width: 28rem) {
+  .sidebar a {
+    width: 30rem;
   }
 }

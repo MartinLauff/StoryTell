@@ -59,6 +59,10 @@
 .hide {
   display: none;
 }
+.name {
+  position: relative;
+  display: inline;
+}
 @media only screen and (min-width: 62.5rem) {
   .wrap {
     margin: 10rem auto 0;

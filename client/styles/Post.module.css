@@ -13,6 +13,8 @@
   align-items: center;
 }
 .post {
+  position: relative;
+  margin: 1rem 0;
   width: 28rem;
   min-height: 10rem;
   background-color: #fff;
@@ -21,6 +23,9 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+}
+.post :not(.coverImage) {
+  z-index: 10;
 }
 .post p,
 .post span {
@@ -78,4 +83,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.coverImage {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }

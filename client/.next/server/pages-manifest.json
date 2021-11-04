@@ -3,6 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/posts/[...postId]": "pages/posts/[...postId].js",
+  "/topics/[topicSlug]": "pages/topics/[topicSlug].js",
   "/posts": "pages/posts.js",
-  "/posts/create-post": "pages/posts/create-post.js"
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js"
 }

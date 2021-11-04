@@ -8,7 +8,7 @@ import MoreIcon from '../components/Icons/MoreIcon';
 
 const Post = ({ post }) => {
   return (
-    <div style={{ margin: '1rem 0' }} className={postStyles.post}>
+    <div className={postStyles.post}>
       <Link href='/posts/[...postId]' as={`/posts/${post._id}`}>
         <a style={{ textDecoration: 'none' }}>
           <div className={postStyles.postTop}>
@@ -33,21 +33,29 @@ const Post = ({ post }) => {
           <div className={postStyles.postContent}>
             <p>{post.title}</p>
           </div>
-          <div className={postStyles.postBottom}>
-            <div>
-              <LikeIcon />
-              <span style={{ margin: '0 0.8rem' }}>{post.likes.length}</span>
-              <DisLikeIcon />
+          {!post.coverImage && (
+            <div className={postStyles.postBottom}>
+              <div>
+                <LikeIcon />
+                <span style={{ margin: '0 0.8rem' }}>{post.likes.length}</span>
+                <DisLikeIcon />
+              </div>
+              <div>
+                <CommentIcon />
+                <span style={{ marginLeft: '0.8rem' }}>Comments</span>
+              </div>
+              <div>
+                <MoreIcon />
+              </div>
             </div>
-            <div>
-              <CommentIcon />
-              <span style={{ marginLeft: '0.8rem' }}>Comments</span>
-            </div>
-            <div>
-              <MoreIcon />
-            </div>
-          </div>
-          {post.coverImage && <img alt={post.title} />}
+          )}
+          {post.coverImage && (
+            <img
+              className={postStyles.coverImage}
+              src={post.coverImage}
+              alt={post.title}
+            />
+          )}
         </a>
       </Link>
     </div>
