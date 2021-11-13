@@ -9,6 +9,24 @@ const SideBar = () => {
   const close = () => {
     setSidebar(false);
   };
+  const scrollStyle = `
+    html::-webkit-scrollbar {
+      width: 1.6rem;
+    }
+    html::-webkit-scrollbar-track {
+      background: hsl(0, 0%, 100%);
+      border-radius: 100vw;
+    }
+    html::-webkit-scrollbar-thumb {
+      background: hsl(0, 0%, 33%);
+      border: 0.4em solid #fff;
+      border-radius: 100vw;
+      transition: all 0.3s;
+    }
+    html::-webkit-scrollbar-thumb:hover {
+      background: hsl(0, 0%, 43%);
+    }
+    `;
 
   return (
     <div
@@ -16,6 +34,15 @@ const SideBar = () => {
         sidebar ? BarStyles.open : BarStyles.close
       }`}
     >
+      <style style={{ display: 'none' }}>
+        {sidebar
+          ? `
+      body {
+        overflow: hidden;
+      }
+    `
+          : scrollStyle}
+      </style>
       <h3>Storytell</h3>
       <Link href='/posts'>
         <a>

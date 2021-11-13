@@ -24,10 +24,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/posts/[...postId]": [
+    "/posts": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/posts/[...postId].js"
+      "static/chunks/pages/posts.js"
     ],
     "/topics/[topicSlug]": [
       "static/chunks/webpack.js",

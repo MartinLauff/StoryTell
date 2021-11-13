@@ -17,7 +17,13 @@ const Post = ({ post }) => {
     >
       <Link href='/posts/[...postId]' as={`/posts/${post._id}`}>
         <a style={{ textDecoration: 'none' }}>
-          <div className={post.coverImage ? postStyles.imagePosition : ''}>
+          <div
+            className={
+              post.coverImage
+                ? postStyles.imagePosition
+                : postStyles.textPosition
+            }
+          >
             <div
               style={post.coverImage ? { paddingTop: '1.5rem' } : null}
               className={postStyles.postTop}
@@ -55,26 +61,32 @@ const Post = ({ post }) => {
             </div>
             {post.coverImage && (
               <div>
-                <p className={postStyles.text}>{post.content}</p>
+                <p className={postStyles.text}>
+                  {post.content.slice(0, 50)}...
+                </p>
+              </div>
+            )}
+            {!post.coverImage && (
+              <div className={postStyles.postBottom}>
+                <div>
+                  <LikeIcon />
+                  <span style={{ margin: '0 0.8rem', ...greyColor }}>
+                    {post.likes.length}
+                  </span>
+                  <DisLikeIcon />
+                </div>
+                <div>
+                  <CommentIcon />
+                  <span style={{ marginLeft: '0.8rem', ...greyColor }}>
+                    Comments
+                  </span>
+                </div>
+                <div>
+                  <MoreIcon />
+                </div>
               </div>
             )}
           </div>
-          {!post.coverImage && (
-            <div style={greyColor} className={postStyles.postBottom}>
-              <div>
-                <LikeIcon />
-                <span style={{ margin: '0 0.8rem' }}>{post.likes.length}</span>
-                <DisLikeIcon />
-              </div>
-              <div>
-                <CommentIcon />
-                <span style={{ marginLeft: '0.8rem' }}>Comments</span>
-              </div>
-              <div>
-                <MoreIcon />
-              </div>
-            </div>
-          )}
           {post.coverImage && (
             <img
               className={postStyles.coverImage}
