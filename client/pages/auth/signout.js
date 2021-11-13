@@ -1,9 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import Router from 'next/router';
+import { GlobalContext } from '../../context/GlobalCtx';
 import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 
 const signout = () => {
+  const { setCurrentUser, currentUser } = useContext(GlobalContext);
   const { doRequest } = useRequest({
     url: 'http://localhost:8000/api/auth/signout',
     method: 'post',
@@ -14,6 +16,7 @@ const signout = () => {
   useEffect(async () => {
     await doRequest();
     Cookies.remove('jwt');
+    setCurrentUser(null);
   }, []);
 
   const style = {

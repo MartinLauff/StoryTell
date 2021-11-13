@@ -31,7 +31,7 @@ const PostShow = ({ data: { post } }) => {
           <img className={showStyles.image} src={post.coverImage} />
           <div className={showStyles.actions}>
             <div className={showStyles.showLikes}>
-              <LikeIcon />
+              <LikeIcon postID={post._id} />
               <span>{post.likes.length}</span>
               <DisLikeIcon />
             </div>

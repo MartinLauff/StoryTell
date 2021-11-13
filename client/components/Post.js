@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { useContext } from 'react';
+import { GlobalContext } from '../context/GlobalCtx';
 import postStyles from '../styles/Post.module.css';
 import formatDistance from 'date-fns/formatDistance';
 import LikeIcon from '../components/Icons/LikeIcon';
@@ -7,9 +9,11 @@ import CommentIcon from '../components/Icons/CommentIcon';
 import MoreIcon from '../components/Icons/MoreIcon';
 
 const Post = ({ post }) => {
+  const { currentUser } = useContext(GlobalContext);
   const blackColor = { color: '#000' };
   const whiteColor = { color: '#fff' };
   const greyColor = { color: '#878a8c' };
+
   return (
     <div
       style={!post.coverImage ? { border: '2px solid #000' } : null}

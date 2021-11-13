@@ -149,7 +149,7 @@
     right: 75%;
   }
 }
-@media only screen and (min-width: 28rem) {
+@media only screen and (min-width: 28rem) and (max-width: 62rem) {
   .sidebar a {
     width: 30rem;
   }

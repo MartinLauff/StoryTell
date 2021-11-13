@@ -66,3 +66,6 @@ textarea::placeholder {
   font-family: Roboto;
   font-weight: var(--fw-super-slim);
 }
+svg:hover {
+  cursor: pointer;
+}

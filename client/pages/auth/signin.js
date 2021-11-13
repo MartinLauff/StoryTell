@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { GlobalContext } from '../../context/GlobalCtx';
 import Router from 'next/router';
 import SingleButton from '../../components/SingleButton';
 import indexStyles from '../../styles/Index.module.css';
@@ -9,6 +10,7 @@ import useRequest from '../../hooks/use-request';
 const signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { setCurrentUser } = useContext(GlobalContext);
   const { doRequest, errors } = useRequest({
     url: 'http://localhost:8000/api/auth/signin',
     method: 'post',
@@ -29,6 +31,7 @@ const signin = () => {
     const res = await doRequest();
     if (res) {
       Cookies.set('jwt', res.token);
+      setCurrentUser(res.data.existingUser);
     }
   };
   return (

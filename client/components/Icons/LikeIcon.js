@@ -1,9 +1,23 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
+import useRequest from '../../hooks/use-request';
 
-const LikeIcon = () => {
+const LikeIcon = ({ postID }) => {
+  const [active, setActive] = useState(false);
+  const { doRequest, errors } = useRequest({
+    url: `http://localhost:8000/api/upvotes/${postID}/like`,
+    method: 'put',
+    body: {},
+  });
+
+  const onClick = async () => {
+    await doRequest();
+    setActive(!active);
+  };
+
   return (
     <Fragment>
       <svg
+        onClick={onClick}
         width='18'
         height='17'
         viewBox='0 0 18 17'
@@ -12,14 +26,14 @@ const LikeIcon = () => {
       >
         <path
           d='M1 8.17983L9 1.19062L17 8.17983'
-          stroke='#878A8C'
+          stroke={active ? '#59BAB7' : '#878A8C'}
           strokeWidth='2'
           strokeLinecap='round'
           strokeLinejoin='round'
         />
         <path
           d='M1 15.169L9 8.17982L17 15.169'
-          stroke='#878A8C'
+          stroke={active ? '#59BAB7' : '#878A8C'}
           strokeWidth='2'
           strokeLinecap='round'
           strokeLinejoin='round'
