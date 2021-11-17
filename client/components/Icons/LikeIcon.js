@@ -1,10 +1,12 @@
 import { Fragment, useState } from 'react';
+import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 
 const LikeIcon = ({ postID }) => {
   const [active, setActive] = useState(false);
   const { doRequest, errors } = useRequest({
     url: `http://localhost:8000/api/upvotes/${postID}/like`,
+    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
     method: 'put',
     body: {},
   });
@@ -39,6 +41,7 @@ const LikeIcon = ({ postID }) => {
           strokeLinejoin='round'
         />
       </svg>
+      {errors}
     </Fragment>
   );
 };

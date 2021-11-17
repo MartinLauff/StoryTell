@@ -30,6 +30,7 @@ const SideBar = () => {
 
   return (
     <div
+      onClick={close}
       className={`${BarStyles.sidebar} ${
         sidebar ? BarStyles.open : BarStyles.close
       }`}
@@ -117,7 +118,7 @@ const SideBar = () => {
         </div>
       </div>
       <Link href='/auth/signout'>
-        <a onClick={() => setSidebar(false)}>
+        <a>
           <svg
             width='18'
             height='18'
@@ -139,31 +140,31 @@ const SideBar = () => {
       </Link>
       <h3>Popular topics</h3>
       <Link href='/topics/[topicSlug]' as={'/topics/fitness'}>
-        <a onClick={close}>
+        <a>
           <img src='/fitness.jpg' alt='fitness' />
           <span>s/Fitness</span>
         </a>
       </Link>
       <Link href='/topics/[topicSlug]' as={'/topics/startups'}>
-        <a onClick={close}>
+        <a>
           <img src='/startups.jpg' alt='startups' />
           <span>s/Startups</span>
         </a>
       </Link>
       <Link href='/topics/[topicSlug]' as={'/topics/language'}>
-        <a onClick={close}>
+        <a>
           <img src='/language.jpg' alt='language' />
           <span>s/Language</span>
         </a>
       </Link>
       <Link href='/topics/[topicSlug]' as={'/topics/school'}>
-        <a onClick={close}>
+        <a>
           <img src='/school.jpg' alt='school' />
           <span>s/School</span>
         </a>
       </Link>
       <Link href='/topics/[topicSlug]' as={'/topics/traveling'}>
-        <a onClick={close}>
+        <a>
           <img src='/traveling.jpg' alt='traveling' />
           <span>s/Traveling</span>
         </a>

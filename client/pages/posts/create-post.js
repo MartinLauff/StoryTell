@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import Router from 'next/router';
 import Cookies from 'js-cookie';
@@ -14,24 +14,22 @@ const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [fileName, setFileName] = useState('(optional)');
-  const [err, setErr] = useState(null);
-  const [url, setUrl] = useState('');
 
-  useEffect(() => {
-    if (url) {
-      axios({
-        method: 'post',
-        url: 'http://localhost:8000/api/posts/',
-        data: {
-          topic,
-          title,
-          coverImage: url || '',
-          content,
-        },
-        headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
-      }).then(Router.push(`/topics/${topic.toLowerCase()}`));
-    }
-  }, [url]);
+  const doRequest = (url = '') => {
+    axios({
+      url: 'http://localhost:8000/api/posts/',
+      method: 'post',
+      data: {
+        topic,
+        title,
+        coverImage: url,
+        content,
+      },
+      headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+    })
+      .then(() => Router.push(`/topics/${topic.toLowerCase()}`))
+      .catch((err) => console.error(err));
+  };
 
   const submit = async (e) => {
     e.preventDefault();
@@ -51,7 +49,10 @@ const CreatePost = () => {
         data,
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      setUrl(res.data.url);
+
+      doRequest(res.data.url);
+    } else {
+      doRequest();
     }
   };
 
@@ -139,7 +140,6 @@ const CreatePost = () => {
           </button>
         </div>
       </form>
-      {err}
       <BottomBar />
     </div>
   );

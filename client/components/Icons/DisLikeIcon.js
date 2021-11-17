@@ -1,8 +1,18 @@
 import { Fragment, useState } from 'react';
+import Cookies from 'js-cookie';
+import useRequest from '../../hooks/use-request';
 
-const DisLikeIcon = () => {
+const DisLikeIcon = ({ postID }) => {
   const [active, setActive] = useState(false);
-  const onClick = () => {
+  const { doRequest, errors } = useRequest({
+    url: `http://localhost:8000/api/upvotes/${postID}/unlike`,
+    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+    method: 'put',
+    body: {},
+  });
+
+  const onClick = async () => {
+    await doRequest();
     setActive(!active);
   };
   return (
@@ -30,6 +40,7 @@ const DisLikeIcon = () => {
           strokeLinejoin='round'
         />
       </svg>
+      {errors}
     </Fragment>
   );
 };

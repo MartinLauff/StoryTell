@@ -23,6 +23,15 @@ const PostShow = ({ data: { post } }) => {
             <span className={showStyles.topic}>{`s/${post.topic}`}</span>
             <span>posted by</span>
             <span className={showStyles.name}>{post.postedBy.username}</span>
+            <img
+              className={showStyles.userPic}
+              src={
+                !post.postedBy.photo.startsWith('http')
+                  ? '/default.png'
+                  : post.postedBy.photo
+              }
+              alt={post.postedBy.username}
+            />
           </div>
           <div className={showStyles.postCore}>
             <h1 className={showStyles.title}>{post.title}</h1>
@@ -33,7 +42,7 @@ const PostShow = ({ data: { post } }) => {
             <div className={showStyles.showLikes}>
               <LikeIcon postID={post._id} />
               <span>{post.likes.length}</span>
-              <DisLikeIcon />
+              <DisLikeIcon postID={post._id} />
             </div>
             <div className={showStyles.comments}>
               <CommentIcon />

@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 
 const signout = () => {
-  const { setCurrentUser, currentUser } = useContext(GlobalContext);
+  const { setCurrentUser } = useContext(GlobalContext);
   const { doRequest } = useRequest({
     url: 'http://localhost:8000/api/auth/signout',
     method: 'post',

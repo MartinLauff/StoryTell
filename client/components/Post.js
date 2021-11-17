@@ -58,7 +58,10 @@ const Post = ({ post }) => {
                 Follow
               </button>
             </div>
-            <div className={postStyles.postContent}>
+            <div
+              style={post.coverImage ? { padding: '1rem 0' } : null}
+              className={postStyles.postContent}
+            >
               <h2 style={post.coverImage ? whiteColor : blackColor}>
                 {post.title}
               </h2>
@@ -66,7 +69,7 @@ const Post = ({ post }) => {
             {post.coverImage && (
               <div>
                 <p className={postStyles.text}>
-                  {post.content.slice(0, 50)}...
+                  {post.content.slice(0, 50).trim()}...
                 </p>
               </div>
             )}

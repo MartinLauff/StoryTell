@@ -16,7 +16,7 @@
   position: relative;
   margin: 1rem 0;
   width: 28rem;
-  min-height: 10rem;
+  min-height: 15rem;
   background-color: #fff;
   border-radius: 1rem;
 }
@@ -29,10 +29,7 @@
   width: 90%;
   margin: 0 auto;
   text-align: left;
-  line-height: 21px;
-}
-.postContent {
-  padding: 1rem 0;
+  line-height: 2.5rem;
 }
 .text {
   width: 90%;
