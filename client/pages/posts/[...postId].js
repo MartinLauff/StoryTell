@@ -1,9 +1,8 @@
 import TopBar from '../../components/bars/TopBar';
+import LikeSet from '../../components/Icons/LikeSet';
 import SideBar from '../../components/bars/SideBar';
 import CommentList from '../../components/CommentList';
-import LikeIcon from '../../components/Icons/LikeIcon';
 import CommentIcon from '../../components/Icons/CommentIcon';
-import DisLikeIcon from '../../components/Icons/DisLikeIcon';
 import BottomBar from '../../components/bars/BottomBar';
 import showStyles from '../../styles/Show.module.css';
 import Layer from '../../components/bars/Layer';
@@ -40,9 +39,7 @@ const PostShow = ({ data: { post } }) => {
           <img className={showStyles.image} src={post.coverImage} />
           <div className={showStyles.actions}>
             <div className={showStyles.showLikes}>
-              <LikeIcon postID={post._id} />
-              <span>{post.likes.length}</span>
-              <DisLikeIcon postID={post._id} />
+              <LikeSet likes={post.likes.length} postID={post._id} />
             </div>
             <div className={showStyles.comments}>
               <CommentIcon />

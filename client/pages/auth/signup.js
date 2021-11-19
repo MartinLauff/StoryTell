@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie';
-import { useState, useContext } from 'react';
-import { GlobalContext } from '../../context/GlobalCtx';
+import { useState } from 'react';
 import Router from 'next/router';
 import SingleButton from '../../components/SingleButton';
 import indexStyles from '../../styles/Index.module.css';
@@ -14,7 +13,6 @@ const signup = () => {
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [active, setActive] = useState(false);
-  const { setCurrentUser } = useContext(GlobalContext);
 
   const { doRequest, errors } = useRequest({
     url: 'http://localhost:8000/api/auth/signup',
@@ -41,7 +39,7 @@ const signup = () => {
 
     if (res) {
       Cookies.set('jwt', res.token);
-      setCurrentUser(res.data.existingUser);
+      localStorage.setItem('likedPosts', JSON.stringify([]));
     }
   };
 

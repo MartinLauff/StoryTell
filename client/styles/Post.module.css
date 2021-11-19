@@ -40,6 +40,7 @@
 .imagePosition {
   position: absolute;
   width: 100%;
+  z-index: 9;
 }
 .textPosition {
   position: absolute;
@@ -80,7 +81,7 @@
 }
 .postBottom {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 .postBottom div {
@@ -89,6 +90,8 @@
   justify-content: center;
 }
 .coverImage {
+  z-index: 8;
+  filter: brightness(65%);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;

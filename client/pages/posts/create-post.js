@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import generalError from '../../styles/Error.module.css';
 import axios from 'axios';
 import Router from 'next/router';
 import Cookies from 'js-cookie';
@@ -14,6 +15,13 @@ const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [fileName, setFileName] = useState('(optional)');
+  const [errors, setErrors] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setErrors(null);
+    }, 4000);
+  }, [errors]);
 
   const doRequest = (url = '') => {
     axios({
@@ -28,11 +36,23 @@ const CreatePost = () => {
       headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
     })
       .then(() => Router.push(`/topics/${topic.toLowerCase()}`))
-      .catch((err) => console.error(err));
+      .catch((err) =>
+        setErrors(
+          <div className={generalError.errorBanner}>
+            <h4>Ooops....</h4>
+            <ul style={{ listStyle: 'none' }}>
+              {err.response.data.errors.map((err) => (
+                <li key={err.message}>{err.message}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      );
   };
 
   const submit = async (e) => {
     e.preventDefault();
+    setErrors(null);
 
     if (!topic || !title || !content) {
       return;
@@ -140,6 +160,7 @@ const CreatePost = () => {
           </button>
         </div>
       </form>
+      {errors}
       <BottomBar />
     </div>
   );

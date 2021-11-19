@@ -1,15 +1,11 @@
 import Link from 'next/link';
-import { useContext } from 'react';
-import { GlobalContext } from '../context/GlobalCtx';
+import LikeSet from './Icons/LikeSet';
 import postStyles from '../styles/Post.module.css';
 import formatDistance from 'date-fns/formatDistance';
-import LikeIcon from '../components/Icons/LikeIcon';
-import DisLikeIcon from '../components/Icons/DisLikeIcon';
 import CommentIcon from '../components/Icons/CommentIcon';
 import MoreIcon from '../components/Icons/MoreIcon';
 
 const Post = ({ post }) => {
-  const { currentUser } = useContext(GlobalContext);
   const blackColor = { color: '#000' };
   const whiteColor = { color: '#fff' };
   const greyColor = { color: '#878a8c' };
@@ -76,11 +72,7 @@ const Post = ({ post }) => {
             {!post.coverImage && (
               <div className={postStyles.postBottom}>
                 <div>
-                  <LikeIcon />
-                  <span style={{ margin: '0 0.8rem', ...greyColor }}>
-                    {post.likes.length}
-                  </span>
-                  <DisLikeIcon />
+                  <LikeSet likes={post.likes.length} greyColor={greyColor} />
                 </div>
                 <div>
                   <CommentIcon />
