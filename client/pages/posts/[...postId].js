@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import useRequest from '../../hooks/use-request';
 import TopBar from '../../components/bars/TopBar';
 import LikeSet from '../../components/Icons/LikeSet';
 import SideBar from '../../components/bars/SideBar';
@@ -10,6 +12,19 @@ import buildClient from '../../api/build-client';
 import MoreIcon from '../../components/Icons/MoreIcon';
 
 const PostShow = ({ data: { post } }) => {
+  const [active, setActive] = useState(false);
+  const [comment, setComment] = useState('');
+  const { doRequest, errors } = useRequest({
+    url: `http://localhost:8000/api/comments/${post._id}`,
+    method: 'post',
+    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+    body: {
+      content: comment,
+    },
+  });
+  const sendComment = () => {
+    setActive(true);
+  };
   return (
     <div>
       <TopBar />
@@ -51,8 +66,41 @@ const PostShow = ({ data: { post } }) => {
             </div>
           </div>
         </div>
+        <div className={showStyles.createWrap}>
+          <input
+            onClick={sendComment}
+            onChange={(e) => setComment(e.target.value)}
+            className={showStyles.createComm}
+            minLength='5'
+            maxLength='30'
+            type='text'
+            placeholder='Add new comment'
+          />
+          <div
+            style={active ? null : { display: 'none' }}
+            className={showStyles.btns}
+          >
+            <button
+              className={showStyles.cancel}
+              onClick={() => setActive(false)}
+            >
+              Cancel
+            </button>
+            <button
+              style={
+                comment.length > 5
+                  ? { backgroundColor: '#ff2f2f', color: '#fff' }
+                  : { backgroundColor: '#d3d3d3', color: '#000' }
+              }
+              className={showStyles.send}
+            >
+              Post
+            </button>
+          </div>
+        </div>
         <CommentList comments={post.comments} />
       </div>
+      {errors}
       <BottomBar />
     </div>
   );

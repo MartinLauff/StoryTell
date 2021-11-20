@@ -1,4 +1,5 @@
 import { Fragment, useState, useEffect } from 'react';
+import rateLimit from 'axios-rate-limit';
 import generalError from '../../styles/Error.module.css';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -15,8 +16,13 @@ const LikeSet = ({ postID, likes, greyColor }) => {
   }, [errors]);
 
   const doRequest = async (path) => {
+    const http = rateLimit(axios.create(), {
+      maxRequests: 1,
+      perMilliseconds: 4000,
+      maxRPS: 4,
+    });
     try {
-      await axios({
+      await http({
         url: `http://localhost:8000/api/upvotes/${postID}/${path}`,
         headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
         method: 'put',
