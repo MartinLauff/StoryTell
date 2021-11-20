@@ -40,12 +40,23 @@
   color: #ff2f2f;
   border: 2px solid #ff2f2f;
 }
+.applyBtn:hover {
+  box-shadow: inset 0 0 20px rgba(255, 47, 47, 0.5),
+    0 0 20px rgba(255, 47, 47, 0.2);
+  outline-color: rgba(255, 47, 47, 0);
+  outline-offset: 15px;
+}
 .applyBtn {
-  border: 2px solid #ff2f2f;
   background-color: #ff2f2f;
   margin-left: 1rem;
   color: #fff;
   border: none;
+  /*Animation*/
+  box-shadow: inset 0 0 20px rgba(255, 47, 47, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 47, 47, 0.5);
+  outline-offset: 0px;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 .applyBtn,
 .cancelBtn {

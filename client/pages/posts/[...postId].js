@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Comment from '../../components/Comment';
+import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 import TopBar from '../../components/bars/TopBar';
 import LikeSet from '../../components/Icons/LikeSet';
@@ -13,16 +15,25 @@ import MoreIcon from '../../components/Icons/MoreIcon';
 
 const PostShow = ({ data: { post } }) => {
   const [active, setActive] = useState(false);
-  const [comment, setComment] = useState('');
+  const [content, setContent] = useState('');
+  const [comment, setComment] = useState(null);
+
   const { doRequest, errors } = useRequest({
     url: `http://localhost:8000/api/comments/${post._id}`,
     method: 'post',
     headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
     body: {
-      content: comment,
+      content,
     },
   });
-  const sendComment = () => {
+  const onSubmit = async () => {
+    const res = await doRequest();
+
+    if (res) {
+      return <Comment comment={res} />;
+    }
+  };
+  const openComment = () => {
     setActive(true);
   };
   return (
@@ -66,10 +77,10 @@ const PostShow = ({ data: { post } }) => {
             </div>
           </div>
         </div>
-        <div className={showStyles.createWrap}>
+        <form onSubmit={onSubmit} className={showStyles.createWrap}>
           <input
-            onClick={sendComment}
-            onChange={(e) => setComment(e.target.value)}
+            onClick={openComment}
+            onChange={(e) => setContent(e.target.value)}
             className={showStyles.createComm}
             minLength='5'
             maxLength='30'
@@ -87,17 +98,15 @@ const PostShow = ({ data: { post } }) => {
               Cancel
             </button>
             <button
-              style={
-                comment.length > 5
-                  ? { backgroundColor: '#ff2f2f', color: '#fff' }
-                  : { backgroundColor: '#d3d3d3', color: '#000' }
-              }
-              className={showStyles.send}
+              type='submit'
+              className={`${showStyles.send} ${
+                content.length > 5 ? showStyles.sendON : showStyles.sendOFF
+              }`}
             >
               Post
             </button>
           </div>
-        </div>
+        </form>
         <CommentList comments={post.comments} />
       </div>
       {errors}
