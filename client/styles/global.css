@@ -66,6 +66,9 @@ textarea::placeholder {
   font-family: Roboto;
   font-weight: var(--fw-super-slim);
 }
+select option {
+  color: #000;
+}
 svg:hover {
   cursor: pointer;
 }

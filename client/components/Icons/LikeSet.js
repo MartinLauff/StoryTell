@@ -42,7 +42,8 @@ const LikeSet = ({ postID, likes, greyColor }) => {
     }
   };
 
-  const doLike = async () => {
+  const doLike = async (e) => {
+    e.preventDefault();
     setActive(!active);
     let currPosts = JSON.parse(localStorage.getItem('likedPosts'));
 

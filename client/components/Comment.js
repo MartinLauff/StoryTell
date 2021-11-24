@@ -1,11 +1,37 @@
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import commentStyles from '../styles/Comment.module.css';
 import formatDistance from 'date-fns/formatDistance';
 
 const Comment = ({ comment }) => {
+  const [state, setState] = useState(null);
+  useEffect(() => {
+    if (comment.content.length > 15) {
+      const arr = comment.content.split(' ');
+      setState(
+        arr.map((content, i) => (
+          <p key={i} className={commentStyles.content}>
+            {content}
+          </p>
+        ))
+      );
+    } else {
+      setState(
+        <span className={commentStyles.content}>{comment.content}</span>
+      );
+    }
+  }, []);
   return (
     <div className={commentStyles.commentWrap}>
-      <img className={commentStyles.pic} src='/default.png' />
+      <img
+        className={commentStyles.pic}
+        src={
+          !comment.postedBy.photo.startsWith('http')
+            ? '/default.png'
+            : post.postedBy.photo
+        }
+        alt={comment.postedBy.username}
+      />
       <div>
         <div>
           <span className={commentStyles.name}>
@@ -19,9 +45,7 @@ const Comment = ({ comment }) => {
               .replace('less than', '')}
           </span>
         </div>
-        <div>
-          <span className={commentStyles.content}>{comment.content}</span>
-        </div>
+        <div>{state}</div>
       </div>
     </div>
   );

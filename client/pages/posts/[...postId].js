@@ -26,15 +26,29 @@ const PostShow = ({ data: { post } }) => {
       content,
     },
   });
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (content.length < 6) {
+      return;
+    }
+    if (content.length > 15 && !content.includes(' ')) {
+      return;
+    }
     const res = await doRequest();
 
+    setContent('');
     if (res) {
-      return <Comment comment={res} />;
+      ///POSted by missing
+      console.log(res);
+      // setComment(<Comment comment={res} />);
     }
   };
   const openComment = () => {
     setActive(true);
+  };
+  const btnCancel = () => {
+    setContent('');
+    setActive(false);
   };
   return (
     <div>
@@ -81,8 +95,9 @@ const PostShow = ({ data: { post } }) => {
           <input
             onClick={openComment}
             onChange={(e) => setContent(e.target.value)}
+            value={content}
             className={showStyles.createComm}
-            minLength='5'
+            minLength='6'
             maxLength='30'
             type='text'
             placeholder='Add new comment'
@@ -91,10 +106,7 @@ const PostShow = ({ data: { post } }) => {
             style={active ? null : { display: 'none' }}
             className={showStyles.btns}
           >
-            <button
-              className={showStyles.cancel}
-              onClick={() => setActive(false)}
-            >
+            <button className={showStyles.cancel} onClick={btnCancel}>
               Cancel
             </button>
             <button

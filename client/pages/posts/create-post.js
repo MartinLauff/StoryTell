@@ -11,10 +11,10 @@ import BottomBar from '../../components/bars/BottomBar';
 import Layer from '../../components/bars/Layer';
 
 const CreatePost = () => {
-  const [topic, setTopic] = useState('Fitness');
+  const [topic, setTopic] = useState('');
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
   const [fileName, setFileName] = useState('(optional)');
+  const [content, setContent] = useState('');
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
@@ -75,6 +75,12 @@ const CreatePost = () => {
       doRequest();
     }
   };
+  const clearFields = () => {
+    setTopic('');
+    setTitle('');
+    setFileName('(optional)');
+    setContent('');
+  };
 
   return (
     <div>
@@ -83,10 +89,14 @@ const CreatePost = () => {
       <Layer />
       <form onSubmit={submit} className={createStyles.wrap}>
         <select
+          style={topic === '' ? { color: '#a2a5b5' } : { color: '#000' }}
           className={componentStyles.textInput}
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
         >
+          <option value='' disabled defaultValue style={{ color: '#a2a5b5' }}>
+            Select a Topic
+          </option>
           <option value='Startups'>Startups</option>
           <option value='Fitness'>Fitness</option>
           <option value='Language'>Language</option>
@@ -95,6 +105,7 @@ const CreatePost = () => {
         </select>
         <input
           required
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
           minLength='8'
           maxLength='40'
@@ -137,6 +148,7 @@ const CreatePost = () => {
         </div>
         <textarea
           required
+          value={content}
           onChange={(e) => setContent(e.target.value)}
           minLength='10'
           maxLength='275'
@@ -149,10 +161,7 @@ const CreatePost = () => {
           className={componentStyles.textInput}
         />
         <div className={componentStyles.btnWrapper}>
-          <button
-            onClick={() => Router.push('/posts')}
-            className={componentStyles.cancelBtn}
-          >
+          <button onClick={clearFields} className={componentStyles.cancelBtn}>
             Cancel
           </button>
           <button type='submit' className={componentStyles.applyBtn}>
