@@ -11,7 +11,7 @@ const createComment = (0, catchAsync_1.catchAsync)(async (req, res, next) => {
     if (!content) {
         return next(new bad_request_error_1.BadRequestError('A comment must have a text'));
     }
-    const comment = await comment_1.Comment.create({
+    await comment_1.Comment.create({
         content,
         postedBy: req.user._id,
         post: post === null || post === void 0 ? void 0 : post._id,
@@ -22,7 +22,16 @@ const createComment = (0, catchAsync_1.catchAsync)(async (req, res, next) => {
         user: req.user._id,
         linkToUser: post === null || post === void 0 ? void 0 : post.postedBy,
     });
-    res.status(201).send(comment);
+    res.status(201).send({
+        content,
+        postedBy: {
+            _id: req.user._id,
+            photo: req.user.photo,
+            username: req.user.username,
+        },
+        post: post === null || post === void 0 ? void 0 : post._id,
+        createdAt: Date.now(),
+    });
 });
 exports.default = createComment;
 //# sourceMappingURL=create.js.map

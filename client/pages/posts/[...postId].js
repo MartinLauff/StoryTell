@@ -16,7 +16,7 @@ import MoreIcon from '../../components/Icons/MoreIcon';
 const PostShow = ({ data: { post } }) => {
   const [active, setActive] = useState(false);
   const [content, setContent] = useState('');
-  const [comment, setComment] = useState(null);
+  const [comments, setComment] = useState([]);
 
   const { doRequest, errors } = useRequest({
     url: `http://localhost:8000/api/comments/${post._id}`,
@@ -36,11 +36,9 @@ const PostShow = ({ data: { post } }) => {
     }
     const res = await doRequest();
 
-    setContent('');
     if (res) {
-      ///POSted by missing
-      console.log(res);
-      // setComment(<Comment comment={res} />);
+      setContent('');
+      setComment((oldState) => [...oldState, res]);
     }
   };
   const openComment = () => {
@@ -50,6 +48,9 @@ const PostShow = ({ data: { post } }) => {
     setContent('');
     setActive(false);
   };
+  const renderedComments = comments.map((res) => (
+    <Comment key={res.createdAt} comment={res} />
+  ));
   return (
     <div>
       <TopBar />
@@ -119,6 +120,7 @@ const PostShow = ({ data: { post } }) => {
             </button>
           </div>
         </form>
+        {renderedComments}
         <CommentList comments={post.comments} />
       </div>
       {errors}

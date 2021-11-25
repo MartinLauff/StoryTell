@@ -15,7 +15,7 @@ const createComment = catchAsync(
     }
 
     // CREATE COMMENT
-    const comment = await Comment.create({
+    await Comment.create({
       content,
       postedBy: req.user._id,
       post: post?._id,
@@ -29,7 +29,16 @@ const createComment = catchAsync(
     });
 
     // SEND RESPONSE
-    res.status(201).send(comment);
+    res.status(201).send({
+      content,
+      postedBy: {
+        _id: req.user._id,
+        photo: req.user.photo,
+        username: req.user.username,
+      },
+      post: post?._id,
+      createdAt: Date.now(),
+    });
   }
 );
 
