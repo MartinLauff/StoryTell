@@ -1,0 +1,13 @@
+import componentStyles from '../../styles/Components.module.css';
+import DeleteIcon from '../Icons/DeleteIcon';
+
+const DeleteOption = () => {
+  return (
+    <div className={componentStyles.bannerOption}>
+      <DeleteIcon />
+      <span className={componentStyles.bannerText}>Delete post</span>
+    </div>
+  );
+};
+
+export default DeleteOption;

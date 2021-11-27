@@ -117,7 +117,8 @@
   align-items: center;
   justify-content: space-between;
 }
-.actions span {
+.comments span,
+.showLikes span {
   color: #878a8c;
   font-size: var(--fs-small);
   font-weight: var(--fw-normal);

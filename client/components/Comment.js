@@ -6,7 +6,9 @@ import formatDistance from 'date-fns/formatDistance';
 const Comment = ({ comment }) => {
   const [state, setState] = useState(null);
   useEffect(() => {
-    if (comment.content.length > 15) {
+    //Converts comment to charArray and returns array with whitespaces only
+    let newArr = comment.content.split('').filter((el) => el === ' ');
+    if (comment.content.length > 15 && newArr.length < 2) {
       const arr = comment.content.split(' ');
       setState(
         arr.map((content, i) => (

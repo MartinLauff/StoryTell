@@ -4,19 +4,25 @@ import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 import TopBar from '../../components/bars/TopBar';
 import LikeSet from '../../components/Icons/LikeSet';
+import SaveOption from '../../components/bannerOptions/SaveOption';
+import CopyOption from '../../components/bannerOptions/CopyOption';
+import TransparentLayer from '../../components/TransparentLayer';
 import SideBar from '../../components/bars/SideBar';
 import CommentList from '../../components/CommentList';
 import CommentIcon from '../../components/Icons/CommentIcon';
 import BottomBar from '../../components/bars/BottomBar';
 import showStyles from '../../styles/Show.module.css';
+import componentStyles from '../../styles/Components.module.css';
 import Layer from '../../components/bars/Layer';
 import buildClient from '../../api/build-client';
 import MoreIcon from '../../components/Icons/MoreIcon';
 
 const PostShow = ({ data: { post } }) => {
   const [active, setActive] = useState(false);
+  const [banner, setBanner] = useState(false);
   const [content, setContent] = useState('');
   const [comments, setComment] = useState([]);
+  const [commCount, setCommCount] = useState(post.comments.length);
 
   const { doRequest, errors } = useRequest({
     url: `http://localhost:8000/api/comments/${post._id}`,
@@ -38,11 +44,9 @@ const PostShow = ({ data: { post } }) => {
 
     if (res) {
       setContent('');
-      setComment((oldState) => [...oldState, res]);
+      setCommCount((oldState) => oldState + 1);
+      setComment((oldState) => [res, ...oldState]);
     }
-  };
-  const openComment = () => {
-    setActive(true);
   };
   const btnCancel = () => {
     setContent('');
@@ -84,17 +88,31 @@ const PostShow = ({ data: { post } }) => {
             </div>
             <div className={showStyles.comments}>
               <CommentIcon />
-              <span className={showStyles.count}>{post.comments.length}</span>
+              <span className={showStyles.count}>{commCount}</span>
               <span>{post.comments.length === 1 ? 'Comment' : 'Comments'}</span>
             </div>
-            <div>
+            <div
+              onClick={() => setBanner(true)}
+              style={{ position: 'relative', padding: '1rem 0.6rem' }}
+            >
+              <div
+                style={banner ? null : { display: 'none' }}
+                className={componentStyles.moreBanner}
+              >
+                <SaveOption />
+                <CopyOption />
+              </div>
+              <div
+                onClick={() => setBanner(false)}
+                className={banner ? componentStyles.transparentLayer : null}
+              ></div>
               <MoreIcon />
             </div>
           </div>
         </div>
         <form onSubmit={onSubmit} className={showStyles.createWrap}>
           <input
-            onClick={openComment}
+            onClick={() => setActive(true)}
             onChange={(e) => setContent(e.target.value)}
             value={content}
             className={showStyles.createComm}
