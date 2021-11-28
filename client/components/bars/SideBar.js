@@ -5,10 +5,7 @@ import BarStyles from '../../styles/Bar.module.css';
 
 const SideBar = () => {
   const [toggle, setToggle] = useState(false);
-  const { sidebar, setSidebar } = useContext(GlobalContext);
-  const close = () => {
-    setSidebar(false);
-  };
+  const { sidebar, setSidebar, setRotateDots } = useContext(GlobalContext);
   const scrollStyle = `
     html::-webkit-scrollbar {
       width: 1.6rem;
@@ -27,10 +24,13 @@ const SideBar = () => {
       background: hsl(0, 0%, 43%);
     }
     `;
+  const close = () => {
+    setSidebar(false);
+    setRotateDots(false);
+  };
 
   return (
     <div
-      onClick={close}
       className={`${BarStyles.sidebar} ${
         sidebar ? BarStyles.open : BarStyles.close
       }`}
@@ -46,7 +46,7 @@ const SideBar = () => {
       </style>
       <h3>Storytell</h3>
       <Link href='/posts'>
-        <a>
+        <a onClick={close}>
           <svg
             width='21'
             height='19'
@@ -63,7 +63,7 @@ const SideBar = () => {
         </a>
       </Link>
       <Link href='/premium'>
-        <a>
+        <a onClick={close}>
           <svg
             width='22'
             height='18'
@@ -80,7 +80,7 @@ const SideBar = () => {
         </a>
       </Link>
       <Link href='/posts/create-post'>
-        <a>
+        <a onClick={close}>
           <svg
             width='19'
             height='19'
@@ -118,7 +118,7 @@ const SideBar = () => {
         </div>
       </div>
       <Link href='/auth/signout'>
-        <a>
+        <a onClick={close}>
           <svg
             width='18'
             height='18'
@@ -140,31 +140,31 @@ const SideBar = () => {
       </Link>
       <h3>Popular topics</h3>
       <Link href='/topics/[topicSlug]' as={'/topics/fitness'}>
-        <a>
+        <a onClick={close}>
           <img src='/fitness.jpg' alt='fitness' />
           <span>s/Fitness</span>
         </a>
       </Link>
       <Link href='/topics/[topicSlug]' as={'/topics/startups'}>
-        <a>
+        <a onClick={close}>
           <img src='/startups.jpg' alt='startups' />
           <span>s/Startups</span>
         </a>
       </Link>
       <Link href='/topics/[topicSlug]' as={'/topics/language'}>
-        <a>
+        <a onClick={close}>
           <img src='/language.jpg' alt='language' />
           <span>s/Language</span>
         </a>
       </Link>
       <Link href='/topics/[topicSlug]' as={'/topics/school'}>
-        <a>
+        <a onClick={close}>
           <img src='/school.jpg' alt='school' />
           <span>s/School</span>
         </a>
       </Link>
       <Link href='/topics/[topicSlug]' as={'/topics/traveling'}>
-        <a>
+        <a onClick={close}>
           <img src='/traveling.jpg' alt='traveling' />
           <span>s/Traveling</span>
         </a>

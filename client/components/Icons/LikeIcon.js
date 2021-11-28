@@ -8,11 +8,10 @@ const LikeIcon = ({ postID }) => {
     url: `http://localhost:8000/api/upvotes/${postID}/like`,
     headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
     method: 'put',
-    body: {},
   });
 
-  const onClick = async () => {
-    await doRequest();
+  const onClick = () => {
+    doRequest();
     setActive(!active);
   };
 

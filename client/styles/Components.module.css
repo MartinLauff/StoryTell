@@ -68,11 +68,12 @@
 }
 .moreBanner {
   background-color: #fff;
-  width: 19.5rem;
+  width: 16rem;
   box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   flex-direction: column;
   position: absolute;
+  right: 0;
   z-index: 10;
 }
 .moreBanner svg {
@@ -104,5 +105,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+}
+@media only screen and (min-width: 28rem) {
+  .moreBanner {
+    width: 19.5rem;
+    right: -10%;
+  }
 }

@@ -79,7 +79,7 @@
   right: 0;
   position: fixed;
   background-color: #fff;
-  z-index: 10;
+  z-index: 11;
 }
 .bottomBar {
   justify-content: space-evenly;
@@ -90,10 +90,6 @@
   left: 0;
   right: 0;
   border-top: 2px solid rgba(0, 0, 0, 0.1);
-}
-.bottomBar a:focus {
-  outline: 2px solid #33a5e7;
-  border-radius: 0.3rem;
 }
 .circle {
   width: 3.6rem;
@@ -139,10 +135,6 @@
 .arrowBar a,
 .arrowBar h2 {
   margin-left: 2rem;
-}
-.arrowBar a:focus {
-  outline: 2px solid #33a5e7;
-  border-radius: 0.3rem;
 }
 @media only screen and (min-width: 62.5rem) {
   .open {

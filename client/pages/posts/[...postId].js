@@ -6,7 +6,6 @@ import TopBar from '../../components/bars/TopBar';
 import LikeSet from '../../components/Icons/LikeSet';
 import SaveOption from '../../components/bannerOptions/SaveOption';
 import CopyOption from '../../components/bannerOptions/CopyOption';
-import TransparentLayer from '../../components/TransparentLayer';
 import SideBar from '../../components/bars/SideBar';
 import CommentList from '../../components/CommentList';
 import CommentIcon from '../../components/Icons/CommentIcon';
@@ -60,6 +59,7 @@ const PostShow = ({ data: { post } }) => {
       <TopBar />
       <SideBar />
       <Layer />
+
       <div className={showStyles.showWrap}>
         <div className={showStyles.post}>
           <div className={showStyles.postTop}>
@@ -93,22 +93,23 @@ const PostShow = ({ data: { post } }) => {
             </div>
             <div
               onClick={() => setBanner(true)}
-              style={{ position: 'relative', padding: '1rem 0.6rem' }}
+              style={{ padding: '1rem 0.6rem' }}
             >
-              <div
-                style={banner ? null : { display: 'none' }}
-                className={componentStyles.moreBanner}
-              >
-                <SaveOption />
-                <CopyOption />
-              </div>
-              <div
-                onClick={() => setBanner(false)}
-                className={banner ? componentStyles.transparentLayer : null}
-              ></div>
               <MoreIcon />
             </div>
+            <div
+              onClick={() => setBanner(false)}
+              style={banner ? null : { display: 'none' }}
+              className={componentStyles.moreBanner}
+            >
+              <SaveOption postID={post._id} />
+              <CopyOption />
+            </div>
           </div>
+          <div
+            onClick={() => setBanner(false)}
+            className={banner ? componentStyles.transparentLayer : null}
+          ></div>
         </div>
         <form onSubmit={onSubmit} className={showStyles.createWrap}>
           <input
