@@ -2,7 +2,7 @@ import Link from 'next/link';
 import SingleButton from '../components/SingleButton';
 import indexStyles from '../styles/Index.module.css';
 
-const index = () => {
+const Index = () => {
   return (
     <div className={`${indexStyles.mybackground} ${indexStyles.indexImg}`}>
       <h1 className={indexStyles.heading}>Storytell</h1>
@@ -28,4 +28,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

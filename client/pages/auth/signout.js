@@ -3,7 +3,7 @@ import Router from 'next/router';
 import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 
-const signout = () => {
+const Signout = () => {
   const { doRequest } = useRequest({
     url: 'http://localhost:8000/api/auth/signout',
     method: 'post',
@@ -28,4 +28,4 @@ const signout = () => {
 
   return <div style={style}>Signing you out...</div>;
 };
-export default signout;
+export default Signout;

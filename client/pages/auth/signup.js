@@ -7,7 +7,7 @@ import errorStyles from '../../styles/Error.module.css';
 import componenStyles from '../../styles/Components.module.css';
 import useRequest from '../../hooks/use-request';
 
-const signup = () => {
+const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -93,4 +93,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default Signup;

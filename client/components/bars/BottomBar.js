@@ -7,7 +7,7 @@ import ProfileIcon from '../Icons/ProfileIcon';
 const BottomBar = () => {
   return (
     <div className={`${BarStyles.bar} ${BarStyles.bottomBar}`}>
-      <Link href='/user/notifications'>
+      <Link href='/users/notifications'>
         <a style={{ height: '2.7rem' }}>
           <NotificationIcon />
         </a>

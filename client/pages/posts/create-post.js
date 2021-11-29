@@ -6,9 +6,7 @@ import Cookies from 'js-cookie';
 import componentStyles from '../../styles/Components.module.css';
 import createStyles from '../../styles/Create.module.css';
 import ArrowBar from '../../components/bars/ArrowBar';
-import SideBar from '../../components/bars/SideBar';
 import BottomBar from '../../components/bars/BottomBar';
-import Layer from '../../components/bars/Layer';
 
 const CreatePost = () => {
   const [topic, setTopic] = useState('');
@@ -85,8 +83,6 @@ const CreatePost = () => {
   return (
     <div>
       <ArrowBar title='Create a post' />
-      <SideBar />
-      <Layer />
       <form onSubmit={submit} className={createStyles.wrap}>
         <select
           style={topic === '' ? { color: '#a2a5b5' } : { color: '#000' }}

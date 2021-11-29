@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useState } from 'react';
 import Comment from '../../components/Comment';
 import Cookies from 'js-cookie';
@@ -63,8 +64,12 @@ const PostShow = ({ data: { post } }) => {
       <div className={showStyles.showWrap}>
         <div className={showStyles.post}>
           <div className={showStyles.postTop}>
-            <img alt={post.title} src={`/${post.slug}.jpg`} />
-            <span className={showStyles.topic}>{`s/${post.topic}`}</span>
+            <Link href='/topics/[topicSlug]' as={'/topics/fitness'}>
+              <a>
+                <img alt={post.title} src={`/${post.slug}.jpg`} />
+                <span className={showStyles.topic}>{`s/${post.topic}`}</span>
+              </a>
+            </Link>
             <span>posted by</span>
             <span className={showStyles.name}>{post.postedBy.username}</span>
             <img
