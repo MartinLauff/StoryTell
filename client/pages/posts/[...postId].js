@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-import Comment from '../../components/Comment';
+import Comment from '../../components/items/Comment';
 import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 import TopBar from '../../components/bars/TopBar';
@@ -8,7 +8,7 @@ import LikeSet from '../../components/Icons/LikeSet';
 import SaveOption from '../../components/bannerOptions/SaveOption';
 import CopyOption from '../../components/bannerOptions/CopyOption';
 import SideBar from '../../components/bars/SideBar';
-import CommentList from '../../components/CommentList';
+import CommentList from '../../components/lists/CommentList';
 import CommentIcon from '../../components/Icons/CommentIcon';
 import BottomBar from '../../components/bars/BottomBar';
 import showStyles from '../../styles/Show.module.css';
@@ -60,7 +60,6 @@ const PostShow = ({ data: { post } }) => {
       <TopBar />
       <SideBar />
       <Layer />
-
       <div className={showStyles.showWrap}>
         <div className={showStyles.post}>
           <div className={showStyles.postTop}>

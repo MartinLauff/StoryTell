@@ -2,7 +2,7 @@ import TopBar from '../../components/bars/TopBar';
 import SideBar from '../../components/bars/SideBar';
 import BottomBar from '../../components/bars/BottomBar';
 import Layer from '../../components/bars/Layer';
-import PostList from '../../components/PostList';
+import PostList from '../../components/lists/PostList';
 import buildClient from '../../api/build-client';
 
 const LatestPosts = ({ data }) => {

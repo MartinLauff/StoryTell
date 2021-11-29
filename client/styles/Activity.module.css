@@ -1,0 +1,26 @@
+.mainTitle {
+  display: flex;
+  align-items: center;
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
+.mainTitle svg {
+  margin-right: 0.5rem;
+}
+.mainTitle h2 {
+  font-size: var(--fs-mid);
+}
+.noActivities {
+  width: 90%;
+  margin: 2rem auto 0;
+  text-align: center;
+  font-size: var(--fs-small);
+}
+.activityList {
+  width: 80%;
+  margin: 1rem auto 5.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

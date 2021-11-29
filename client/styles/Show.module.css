@@ -11,6 +11,7 @@
 .postTop a {
   display: flex;
   justify-content: center;
+  text-decoration: none;
 }
 .userPic {
   position: absolute;

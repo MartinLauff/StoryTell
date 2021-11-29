@@ -25,15 +25,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/posts/[...postId]": [
+    "/users/notifications": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/posts/[...postId].js"
-    ],
-    "/topics/[topicSlug]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/topics/[topicSlug].js"
+      "static/chunks/pages/users/notifications.js"
     ]
   },
   "ampFirstPages": []
