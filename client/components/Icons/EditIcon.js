@@ -1,8 +1,6 @@
-import { Fragment } from 'react';
-
 const EditIcon = () => {
   return (
-    <Fragment>
+    <>
       <svg
         width='18'
         height='18'
@@ -19,7 +17,7 @@ const EditIcon = () => {
           fill='black'
         />
       </svg>
-    </Fragment>
+    </>
   );
 };
 

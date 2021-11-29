@@ -1,8 +1,6 @@
-import { Fragment } from 'react';
-
 const CommentIcon = () => {
   return (
-    <Fragment>
+    <>
       <svg
         width='17'
         height='17'
@@ -15,7 +13,7 @@ const CommentIcon = () => {
           fill='#878A8C'
         />
       </svg>
-    </Fragment>
+    </>
   );
 };
 

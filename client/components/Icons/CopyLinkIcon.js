@@ -1,8 +1,6 @@
-import { Fragment } from 'react';
-
 const CopyLinkIcon = () => {
   return (
-    <Fragment>
+    <>
       <svg
         width='20'
         height='21'
@@ -24,7 +22,7 @@ const CopyLinkIcon = () => {
           strokeLinejoin='round'
         />
       </svg>
-    </Fragment>
+    </>
   );
 };
 

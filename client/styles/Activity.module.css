@@ -24,3 +24,29 @@
   justify-content: center;
   align-items: center;
 }
+.imageLeft {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.3rem;
+}
+.profilePic {
+  width: 4rem;
+  height: 4rem;
+}
+.activityWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 33rem;
+  margin-bottom: 1.5rem;
+}
+.message {
+  color: #000;
+}
+.text {
+  width: 50%;
+}
+.time {
+  font-size: var(--fs-tiny);
+  color: #b9b9b9;
+}

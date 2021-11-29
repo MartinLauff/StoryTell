@@ -1,8 +1,6 @@
-import { Fragment } from 'react';
-
 const LogoIcon = () => {
   return (
-    <Fragment>
+    <>
       <svg
         style={{ marginLeft: '1rem' }}
         width='32'
@@ -34,7 +32,7 @@ const LogoIcon = () => {
           </linearGradient>
         </defs>
       </svg>
-    </Fragment>
+    </>
   );
 };
 

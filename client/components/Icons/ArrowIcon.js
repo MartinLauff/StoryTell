@@ -1,8 +1,6 @@
-import { Fragment } from 'react';
-
 const ArrowIcon = () => {
   return (
-    <Fragment>
+    <>
       <svg
         width='22'
         height='20'
@@ -25,7 +23,7 @@ const ArrowIcon = () => {
           strokeLinejoin='round'
         />
       </svg>
-    </Fragment>
+    </>
   );
 };
 

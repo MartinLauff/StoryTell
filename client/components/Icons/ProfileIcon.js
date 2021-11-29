@@ -1,8 +1,6 @@
-import { Fragment } from 'react';
-
 const ProfileIcon = () => {
   return (
-    <Fragment>
+    <>
       <svg
         width='24'
         height='24'
@@ -15,7 +13,7 @@ const ProfileIcon = () => {
           fill='black'
         />
       </svg>
-    </Fragment>
+    </>
   );
 };
 

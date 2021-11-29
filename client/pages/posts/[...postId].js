@@ -63,7 +63,10 @@ const PostShow = ({ data: { post } }) => {
       <div className={showStyles.showWrap}>
         <div className={showStyles.post}>
           <div className={showStyles.postTop}>
-            <Link href='/topics/[topicSlug]' as={'/topics/fitness'}>
+            <Link
+              href='/topics/[topicSlug]'
+              as={`/topics/${post.topic.toLowerCase()}`}
+            >
               <a>
                 <img alt={post.title} src={`/${post.slug}.jpg`} />
                 <span className={showStyles.topic}>{`s/${post.topic}`}</span>

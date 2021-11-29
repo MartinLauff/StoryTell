@@ -1,8 +1,6 @@
-import { Fragment } from 'react';
-
 const LikeIcon = () => {
   return (
-    <Fragment>
+    <>
       <svg
         width='20'
         height='6'
@@ -15,7 +13,7 @@ const LikeIcon = () => {
           fill='#878A8C'
         />
       </svg>
-    </Fragment>
+    </>
   );
 };
 

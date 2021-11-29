@@ -1,8 +1,6 @@
-import { Fragment } from 'react';
-
 const NotifitcationIcon = () => {
   return (
-    <Fragment>
+    <>
       <svg
         width='23'
         height='27'
@@ -15,7 +13,7 @@ const NotifitcationIcon = () => {
           fill='black'
         />
       </svg>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,8 +1,6 @@
-import { Fragment } from 'react';
-
 const NewPostIcon = () => {
   return (
-    <Fragment>
+    <>
       <svg
         width='30'
         height='30'
@@ -26,7 +24,7 @@ const NewPostIcon = () => {
           strokeLinejoin='round'
         />
       </svg>
-    </Fragment>
+    </>
   );
 };
 

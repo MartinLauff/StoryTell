@@ -1,8 +1,6 @@
-import { Fragment } from 'react';
-
 const DeleteIcon = () => {
   return (
-    <Fragment>
+    <>
       <svg
         width='18'
         height='19'
@@ -17,7 +15,7 @@ const DeleteIcon = () => {
           strokeWidth='2'
         />
       </svg>
-    </Fragment>
+    </>
   );
 };
 
