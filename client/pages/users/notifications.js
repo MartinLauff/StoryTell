@@ -5,6 +5,7 @@ import ActivityList from '../../components/lists/ActivityList';
 import activityStyles from '../../styles/Activity.module.css';
 
 const Notifications = ({ data }) => {
+  console.log(data.results);
   return (
     <div>
       <ArrowBar title='Notifications' />
