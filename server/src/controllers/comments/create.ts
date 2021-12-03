@@ -26,6 +26,7 @@ const createComment = catchAsync(
       type: 'commented on your post',
       user: req.user._id,
       linkToUser: post?.postedBy,
+      topic: post?.slug,
     });
 
     // SEND RESPONSE

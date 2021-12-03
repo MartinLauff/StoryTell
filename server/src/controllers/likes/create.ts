@@ -7,12 +7,8 @@ const createLike = catchAsync(async (req: Request, res: Response) => {
   try {
     const post = await Post.findById(req.params.id);
     const like = await Post.updateOne(
-      {
-        _id: post?._id,
-      },
-      {
-        $addToSet: { likes: req.user._id },
-      }
+      { _id: post?._id },
+      { $addToSet: { likes: req.user._id } }
     );
 
     await Activity.create({
@@ -20,6 +16,7 @@ const createLike = catchAsync(async (req: Request, res: Response) => {
       type: 'liked your post',
       user: req.user._id,
       linkToUser: post?.postedBy,
+      topic: post?.slug,
     });
 
     res.status(201).send(like);

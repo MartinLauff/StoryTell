@@ -6,22 +6,14 @@ import { catchAsync } from '../../errors/catchAsync';
 const follow = catchAsync(async (req: Request, res: Response) => {
   const givingFollow = await User.findByIdAndUpdate(
     req.params.id,
-    {
-      $addToSet: { followers: req.user._id },
-    },
-    {
-      new: true,
-    }
+    { $addToSet: { followers: req.user._id } },
+    { new: true }
   ).select('-password');
 
   const getttingFollow = await User.findByIdAndUpdate(
     req.user._id,
-    {
-      $addToSet: { following: req.params.id },
-    },
-    {
-      new: true,
-    }
+    { $addToSet: { following: req.params.id } },
+    { new: true }
   ).select('-password');
 
   await Activity.create({
