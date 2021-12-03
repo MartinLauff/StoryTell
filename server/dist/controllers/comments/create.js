@@ -21,6 +21,7 @@ const createComment = (0, catchAsync_1.catchAsync)(async (req, res, next) => {
         type: 'commented on your post',
         user: req.user._id,
         linkToUser: post === null || post === void 0 ? void 0 : post.postedBy,
+        topic: post === null || post === void 0 ? void 0 : post.slug,
     });
     res.status(201).send({
         content,
