@@ -6,24 +6,7 @@ import BarStyles from '../../styles/Bar.module.css';
 const SideBar = () => {
   const [toggle, setToggle] = useState(false);
   const { sidebar, setSidebar, setRotateDots } = useContext(GlobalContext);
-  const scrollStyle = `
-    html::-webkit-scrollbar {
-      width: 1.6rem;
-    }
-    html::-webkit-scrollbar-track {
-      background: hsl(0, 0%, 100%);
-      border-radius: 100vw;
-    }
-    html::-webkit-scrollbar-thumb {
-      background: hsl(0, 0%, 33%);
-      border: 0.4em solid #fff;
-      border-radius: 100vw;
-      transition: all 0.3s;
-    }
-    html::-webkit-scrollbar-thumb:hover {
-      background: hsl(0, 0%, 43%);
-    }
-    `;
+  const scrollStyle = `html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`;
   const close = () => {
     setSidebar(false);
     setRotateDots(false);

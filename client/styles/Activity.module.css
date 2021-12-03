@@ -50,3 +50,17 @@
   font-size: var(--fs-tiny);
   color: #b9b9b9;
 }
+.moreAcs {
+  height: 4rem;
+  width: 13rem;
+  border: 2rem;
+  background-color: #fff;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+  margin-bottom: 2rem;
+  color: #000;
+}
+.moreAcs:focus {
+  outline: none;
+  text-decoration: underline #000;
+}

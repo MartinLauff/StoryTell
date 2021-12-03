@@ -5,7 +5,6 @@ import ActivityList from '../../components/lists/ActivityList';
 import activityStyles from '../../styles/Activity.module.css';
 
 const Notifications = ({ data }) => {
-  console.log(data.results);
   return (
     <div>
       <ArrowBar title='Notifications' />
@@ -24,24 +23,9 @@ const Notifications = ({ data }) => {
         </svg>
         <h2>All activity</h2>
       </div>
-      <ActivityList activities={data} />
+      <ActivityList activities={data.data} />
       <style style={{ display: 'none' }}>
-        {`html::-webkit-scrollbar {
-      width: 1.6rem;
-    }
-    html::-webkit-scrollbar-track {
-      background: hsl(0, 0%, 100%);
-      border-radius: 100vw;
-    }
-    html::-webkit-scrollbar-thumb {
-      background: hsl(0, 0%, 33%);
-      border: 0.4em solid #fff;
-      border-radius: 100vw;
-      transition: all 0.3s;
-    }
-    html::-webkit-scrollbar-thumb:hover {
-      background: hsl(0, 0%, 43%);
-    }`}
+        {`html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`}
       </style>
       <BottomBar />
     </div>

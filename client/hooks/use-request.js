@@ -5,16 +5,17 @@ import generalError from '../styles/Error.module.css';
 const useRequest = ({ url, method, headers, body, onSuccess }) => {
   const [errors, setErrors] = useState(null);
 
-  const doRequest = async (props = {}) => {
+  const doRequest = async () => {
     try {
       setErrors(null);
-      const response = await axios[method](
+      const response = await axios({
+        method,
         url,
-        { ...body, ...props },
-        {
-          headers,
-        }
-      );
+        data: {
+          ...body,
+        },
+        headers,
+      });
 
       if (onSuccess) {
         onSuccess(response.data);

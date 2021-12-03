@@ -1,21 +1,63 @@
+import { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
+import useRequest from '../../hooks/use-request';
 import Activity from '../items/Activity';
 import activityStyles from '../../styles/Activity.module.css';
 
 const ActivityList = ({ activities }) => {
-  if (!activities.data || activities.data.length === 0) {
+  const [active, setActive] = useState(true);
+  const [acsData, setAcsData] = useState([]);
+  const [page, nextPage] = useState(1);
+  if (!activities || activities.length === 0) {
     return (
       <div className={activityStyles.noActivities}>
-        When a user likes your posts, comments on your posts or starts following
+        When a user likes your post, comments on your post or starts following
         you. We will get you notified here 🔥 👍 👌
       </div>
     );
   }
 
-  const renderedList = activities.data.map((activity) => (
+  const { doRequest, errors } = useRequest({
+    url: `http://localhost:8000/api/users/activities?page=${page}&limit=10`,
+    method: 'get',
+    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+  });
+
+  useEffect(() => {
+    setAcsData((oldState) => [...oldState, ...activities]);
+    nextPage((oldState) => oldState + 1);
+  }, []);
+
+  const onClick = async (e) => {
+    e.preventDefault();
+
+    const { data } = await doRequest();
+    if (data) {
+      nextPage((oldState) => oldState + 1);
+      setAcsData((oldState) => [...oldState, ...data]);
+    }
+    if (data.length < 10) {
+      setActive(false);
+    }
+  };
+
+  const renderedList = acsData.map((activity) => (
     <Activity key={activity._id} activity={activity} />
   ));
 
-  return <div className={activityStyles.activityList}>{renderedList}</div>;
+  return (
+    <div className={activityStyles.activityList}>
+      {renderedList}
+      <button
+        style={active ? null : { display: 'none' }}
+        onClick={onClick}
+        className={activityStyles.moreAcs}
+      >
+        Older Notifications
+      </button>
+      {errors}
+    </div>
+  );
 };
 
 export default ActivityList;
