@@ -1,0 +1,1 @@
+{"c":["pages/posts/[...postId]","webpack"],"r":["pages/users/[...oneUser]"],"m":["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fusers%2F%5B...oneUser%5D&absolutePagePath=C%3A%5CUsers%5CLenovo%5CDesktop%5CCodes%5Cstorytell%5Cclient%5Cpages%5Cusers%5C%5B...oneUser%5D.js!","./pages/users/[...oneUser].js"]}

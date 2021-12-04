@@ -32,6 +32,7 @@ const PostShow = ({ data: { post } }) => {
       content,
     },
   });
+  console.log(post.postedBy._id);
   const onSubmit = async (e) => {
     e.preventDefault();
     if (content.length < 6) {
@@ -70,16 +71,22 @@ const PostShow = ({ data: { post } }) => {
               </a>
             </Link>
             <span>posted by</span>
-            <span className={showStyles.name}>{post.postedBy.username}</span>
-            <img
-              className={showStyles.userPic}
-              src={
-                !post.postedBy.photo.startsWith('http')
-                  ? '/default.png'
-                  : post.postedBy.photo
-              }
-              alt={post.postedBy.username}
-            />
+            <Link href='/users/[...oneUser]' as={`/users/${post.postedBy._id}`}>
+              <a>
+                <span className={showStyles.name}>
+                  {post.postedBy.username}
+                </span>
+                <img
+                  className={showStyles.userPic}
+                  src={
+                    !post.postedBy.photo.startsWith('http')
+                      ? '/default.png'
+                      : post.postedBy.photo
+                  }
+                  alt={post.postedBy.username}
+                />
+              </a>
+            </Link>
           </div>
           <div className={showStyles.postCore}>
             <h1 className={showStyles.title}>{post.title}</h1>

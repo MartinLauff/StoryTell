@@ -8,15 +8,19 @@ import activityStyles from '../../styles/Activity.module.css';
 const Activity = ({ activity }) => {
   return (
     <div className={activityStyles.activityWrapper}>
-      <img
-        className={activityStyles.profilePic}
-        src={
-          !activity.user.photo.startsWith('http')
-            ? '/default.png'
-            : activity.user.photo
-        }
-        alt={activity.user.username}
-      />
+      <Link href='/users/[...oneUser]' as={`/users/${activity.user._id}`}>
+        <a>
+          <img
+            className={activityStyles.profilePic}
+            src={
+              !activity.user.photo.startsWith('http')
+                ? '/default.png'
+                : activity.user.photo
+            }
+            alt={activity.user.username}
+          />
+        </a>
+      </Link>
       {activity.type.startsWith('liked') ? (
         <LikeType />
       ) : activity.type.startsWith('commented') ? (
@@ -26,7 +30,12 @@ const Activity = ({ activity }) => {
       )}
       <div className={activityStyles.text}>
         <p className={activityStyles.message}>
-          The user <strong>{activity.user.username}</strong>
+          The user{' '}
+          <Link href='/users/[...oneUser]' as={`/users/${activity.user._id}`}>
+            <a style={{ textDecoration: 'none', color: '#000' }}>
+              <strong>{activity.user.username}</strong>
+            </a>
+          </Link>
           {' ' + activity.type}
         </p>
         <span className={activityStyles.time}>

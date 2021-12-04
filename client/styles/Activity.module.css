@@ -44,6 +44,9 @@
   width: 33rem;
   margin-bottom: 1.5rem;
 }
+.activityWrapper svg:hover {
+  cursor: auto;
+}
 .message {
   color: #000;
 }

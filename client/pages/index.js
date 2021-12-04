@@ -6,7 +6,7 @@ const Index = () => {
   return (
     <div className={`${indexStyles.mybackground} ${indexStyles.indexImg}`}>
       <h1 className={indexStyles.heading}>Storytell</h1>
-      <span className={indexStyles.indexSpan}>
+      <span style={{ color: '#fff' }} className={indexStyles.indexSpan}>
         A place to stay focused on your goals and get inspired
       </span>
       <Link href='/auth/signin'>
