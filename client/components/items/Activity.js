@@ -39,11 +39,19 @@ const Activity = ({ activity }) => {
       </div>
       <Link href='/posts/[...postId]' as={`/posts/${activity.post._id}`}>
         <a>
-          <img
-            className={activityStyles.imageLeft}
-            src={activity.post.coverImage}
-            alt='post photo'
-          />
+          {activity.post.coverImage ? (
+            <img
+              className={activityStyles.imageLeft}
+              src={activity.post.coverImage}
+              alt='post photo'
+            />
+          ) : (
+            <img
+              className={activityStyles.topicLeft}
+              src={`/${activity.topic}.png`}
+              alt='post photo'
+            />
+          )}
         </a>
       </Link>
     </div>

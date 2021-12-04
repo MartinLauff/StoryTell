@@ -30,10 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/posts/[...postId].js"
     ],
-    "/users/notifications": [
+    "/topics/[topicSlug]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/users/notifications.js"
+      "static/chunks/pages/topics/[topicSlug].js"
     ]
   },
   "ampFirstPages": []

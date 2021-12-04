@@ -65,7 +65,7 @@ const Post = ({ post }) => {
             {post.coverImage && (
               <div>
                 <p className={postStyles.text}>
-                  {post.content.slice(0, 50).trim()}...
+                  {post.content.slice(0, 100).trim()}...
                 </p>
               </div>
             )}

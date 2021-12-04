@@ -29,6 +29,10 @@
   height: 3.5rem;
   border-radius: 0.3rem;
 }
+.topicLeft {
+  width: 4rem;
+  height: 4rem;
+}
 .profilePic {
   width: 4rem;
   height: 4rem;
