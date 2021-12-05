@@ -16,6 +16,11 @@ const ActivityList = ({ activities }) => {
       </div>
     );
   }
+  useEffect(() => {
+    if (activities.length < 10) {
+      return setActive(false);
+    }
+  }, []);
 
   const { doRequest, errors } = useRequest({
     url: `http://localhost:8000/api/users/activities?page=${page}&limit=10`,

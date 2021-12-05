@@ -12,7 +12,10 @@ const LatestPosts = ({ data }) => {
       <SideBar />
       <Layer />
       <h2 style={{ margin: '6rem 0 0 4rem' }}>Latest posts</h2>
-      <PostList posts={data} />
+      <PostList
+        text="Let's discover new inspirations in topics tab"
+        posts={data}
+      />
       <BottomBar />
     </div>
   );
@@ -24,7 +27,7 @@ export const getServerSideProps = async (ctx) => {
 
   return {
     props: {
-      data,
+      ...data,
     },
   };
 };

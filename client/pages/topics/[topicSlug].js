@@ -18,7 +18,10 @@ const TopicPosts = ({ data, topicSlug }) => {
           <h2>{topicSlug}</h2>
         </div>
       </div>
-      <PostList posts={data} />
+      <PostList
+        text="This topic doesn't have a post yet. Let's change it!"
+        posts={data}
+      />
       <BottomBar />
     </div>
   );
@@ -31,7 +34,7 @@ export const getServerSideProps = async (ctx) => {
 
   return {
     props: {
-      data,
+      ...data,
       topicSlug,
     },
   };
