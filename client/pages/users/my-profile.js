@@ -9,6 +9,7 @@ import myProfileStyles from '../../styles/myProfile.module.css';
 const MyProfile = ({ data }) => {
   const style = {
     position: 'absolute',
+    top: '3.5%',
     right: '6%',
     transform: 'scale(1.2) rotate(90deg)',
   };
@@ -62,6 +63,9 @@ const MyProfile = ({ data }) => {
       </div>
       <PostList text='Here will be displayed your posts!' posts={data.posts} />
       <BottomBar />
+      <style style={{ display: 'none' }}>
+        {`html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`}
+      </style>
     </div>
   );
 };

@@ -7,8 +7,14 @@ const showUser = async (req: Request, res: Response, next: NextFunction) => {
     .select('-password')
     .populate({
       path: 'posts',
+      model: 'Post',
       options: {
         limit: 5,
+      },
+      populate: {
+        path: 'postedBy',
+        model: 'User',
+        select: { _id: 1, username: 1, photo: 1 },
       },
     });
 
