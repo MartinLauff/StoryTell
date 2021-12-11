@@ -1,13 +1,11 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import PostList from '../../components/lists/PostList';
 import buildClient from '../../api/build-client';
 import ArrowBar from '../../components/bars/ArrowBar';
 import BottomBar from '../../components/bars/BottomBar';
 import myProfileStyles from '../../styles/myProfile.module.css';
 
 const MyProfile = ({ data }) => {
-  const [active, setActive] = useState(false);
-  console.log(data);
   return (
     <div>
       <ArrowBar title='My profile' />
@@ -53,6 +51,7 @@ const MyProfile = ({ data }) => {
           <p className={myProfileStyles.legend}>Following</p>
         </div>
       </div>
+      <PostList posts={data.posts} />
       <BottomBar />
     </div>
   );

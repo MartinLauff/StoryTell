@@ -4,7 +4,15 @@ import { User } from '../../models/user';
 
 const myProfile = async (req: Request, res: Response, next: NextFunction) => {
   const user = await User.findById(req.user._id)
-    .populate('posts')
+    .populate({
+      path: 'posts',
+      model: 'Post',
+      populate: {
+        path: 'postedBy',
+        model: 'User',
+        select: { _id: 1, username: 1, photo: 1 },
+      },
+    })
     .select('-password');
 
   if (!user) {

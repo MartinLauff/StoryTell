@@ -50,9 +50,24 @@ const Post = ({ post }) => {
                   .replace('about', '')
                   .replace('less than', '')}
               </span>
-              <button style={whiteColor} className={postStyles.follow}>
-                Follow
-              </button>
+              <div style={{ display: 'flex', aligItems: 'center' }}>
+                <img
+                  style={{ marginRight: '0.5rem' }}
+                  src={
+                    !post.postedBy.photo.startsWith('http')
+                      ? '/default.png'
+                      : post.postedBy.photo
+                  }
+                  className={postStyles.icon}
+                  alt='profile photo'
+                />
+                <p
+                  style={post.coverImage ? whiteColor : blackColor}
+                  className={postStyles.topic}
+                >
+                  {post.postedBy.username}
+                </p>
+              </div>
             </div>
             <div
               style={post.coverImage ? { padding: '1rem 0' } : null}
