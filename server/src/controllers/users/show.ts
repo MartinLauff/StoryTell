@@ -3,7 +3,14 @@ import { NotFoundError } from '../../errors/not-found-error';
 import { User } from '../../models/user';
 
 const showUser = async (req: Request, res: Response, next: NextFunction) => {
-  const user = await User.findById(req.params.id).select('-password');
+  const user = await User.findById(req.params.id)
+    .select('-password')
+    .populate({
+      path: 'posts',
+      options: {
+        limit: 5,
+      },
+    });
 
   if (!user) {
     return next(new NotFoundError('User'));

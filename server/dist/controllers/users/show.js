@@ -3,7 +3,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const not_found_error_1 = require("../../errors/not-found-error");
 const user_1 = require("../../models/user");
 const showUser = async (req, res, next) => {
-    const user = await user_1.User.findById(req.params.id).select('-password');
+    const user = await user_1.User.findById(req.params.id)
+        .select('-password')
+        .populate({
+        path: 'posts',
+        options: {
+            limit: 5,
+        },
+    });
     if (!user) {
         return next(new not_found_error_1.NotFoundError('User'));
     }

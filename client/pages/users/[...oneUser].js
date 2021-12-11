@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Cookies from 'js-cookie';
+import useRequest from '../../hooks/use-request';
 import buildClient from '../../api/build-client';
 import PostList from '../../components/lists/PostList';
 import ArrowBar from '../../components/bars/ArrowBar';
@@ -6,10 +8,19 @@ import oneUserStyles from '../../styles/OneUser.module.css';
 
 const OneUser = ({ data }) => {
   const [active, setActive] = useState(false);
-  console.log(data);
+
+  const { doRequest, errors } = useRequest({
+    url: `http://localhost:8000/api/users/${active ? 'unfollow' : 'follow'}/${
+      data._id
+    }`,
+    method: 'put',
+    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+  });
 
   const follow = (e) => {
     e.preventDefault();
+
+    doRequest();
 
     setActive(!active);
   };
@@ -36,7 +47,7 @@ const OneUser = ({ data }) => {
                 onClick={follow}
                 className={oneUserStyles.follow}
               >
-                Follow
+                {active ? 'Following' : 'Follow'}
               </button>
               <button className={oneUserStyles.chat}>Chat</button>
             </div>
@@ -58,6 +69,7 @@ const OneUser = ({ data }) => {
         </div>
       </div>
       <PostList text="Current user doesn't have any posts" posts={data.posts} />
+      {errors}
     </div>
   );
 };
