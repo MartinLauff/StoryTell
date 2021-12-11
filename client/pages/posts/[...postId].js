@@ -32,15 +32,12 @@ const PostShow = ({ data: { post } }) => {
       content,
     },
   });
-  console.log(post.postedBy._id);
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (content.length < 6) {
+    if (content.length < 4 || content.length > 30) {
       return;
     }
-    if (content.length > 15 && !content.includes(' ')) {
-      return;
-    }
+
     const res = await doRequest();
 
     if (res) {

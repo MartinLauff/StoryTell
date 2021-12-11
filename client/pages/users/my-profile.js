@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import MoreIcon from '../../components/Icons/MoreIcon';
 import PostList from '../../components/lists/PostList';
 import buildClient from '../../api/build-client';
 import ArrowBar from '../../components/bars/ArrowBar';
@@ -6,9 +7,17 @@ import BottomBar from '../../components/bars/BottomBar';
 import myProfileStyles from '../../styles/myProfile.module.css';
 
 const MyProfile = ({ data }) => {
+  const style = {
+    position: 'absolute',
+    right: '6%',
+    transform: 'scale(1.2) rotate(90deg)',
+  };
   return (
     <div>
-      <ArrowBar title='My profile' />
+      <ArrowBar
+        extra={<MoreIcon color={'#000'} styling={style} />}
+        title='My profile'
+      />
       <div className={myProfileStyles.userTop}>
         <img
           src={!data.photo.startsWith('http') ? '/default.png' : data.photo}
@@ -51,7 +60,7 @@ const MyProfile = ({ data }) => {
           <p className={myProfileStyles.legend}>Following</p>
         </div>
       </div>
-      <PostList posts={data.posts} />
+      <PostList text='Here will be displayed your posts!' posts={data.posts} />
       <BottomBar />
     </div>
   );
