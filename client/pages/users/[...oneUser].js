@@ -30,7 +30,7 @@ const OneUser = ({ data }) => {
       <div className={oneUserStyles.wrapper}>
         <div className={oneUserStyles.userTop}>
           <img
-            src={!data.photo.startsWith('http') ? '/default.png' : data.photo}
+            src={data.photo}
             className={oneUserStyles.photo}
             alt='profile photo'
           />

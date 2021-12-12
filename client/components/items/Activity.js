@@ -12,11 +12,7 @@ const Activity = ({ activity }) => {
         <a>
           <img
             className={activityStyles.profilePic}
-            src={
-              !activity.user.photo.startsWith('http')
-                ? '/default.png'
-                : activity.user.photo
-            }
+            src={activity.user.photo}
             alt={activity.user.username}
           />
         </a>
@@ -46,23 +42,25 @@ const Activity = ({ activity }) => {
             .replace('less than', '')}
         </span>
       </div>
-      <Link href='/posts/[...postId]' as={`/posts/${activity.post._id}`}>
-        <a>
-          {activity.post.coverImage ? (
-            <img
-              className={activityStyles.imageLeft}
-              src={activity.post.coverImage}
-              alt='post photo'
-            />
-          ) : (
-            <img
-              className={activityStyles.topicLeft}
-              src={`/${activity.topic}.png`}
-              alt='post photo'
-            />
-          )}
-        </a>
-      </Link>
+      {activity.post && (
+        <Link href='/posts/[...postId]' as={`/posts/${activity.post._id}`}>
+          <a>
+            {activity.post.coverImage ? (
+              <img
+                className={activityStyles.imageLeft}
+                src={activity.post.coverImage}
+                alt='post photo'
+              />
+            ) : (
+              <img
+                className={activityStyles.topicLeft}
+                src={`/${activity.topic}.png`}
+                alt='post photo'
+              />
+            )}
+          </a>
+        </Link>
+      )}
     </div>
   );
 };

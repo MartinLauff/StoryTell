@@ -11,6 +11,7 @@ import unsave from '../controllers/users/unsave';
 import editProfile from '../controllers/users/edit-profile';
 import updatePassword from '../controllers/users/update-password';
 import activities from '../controllers/users/activities';
+import briefUser from '../controllers/users/briefUser';
 
 const router = express.Router();
 
@@ -18,6 +19,7 @@ const router = express.Router();
 router.use(protect, validateRequest);
 
 router.get('/activities', activities);
+router.get('/brief-user', briefUser);
 router.get('/my-profile', myProfile);
 router.put('/update-my-profile', editProfile);
 router.put(

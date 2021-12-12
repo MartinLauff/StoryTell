@@ -16,9 +16,18 @@ const ArrowBar = ({ extra, title }) => {
         </a>
       </Link>
       <h2>{title}</h2>
-      <div onClick={() => setBanner(true)} style={{ padding: '1rem 0.6rem' }}>
-        {extra}
-      </div>
+      {extra && (
+        <div
+          onClick={() => setBanner(true)}
+          style={{
+            padding: '1rem 0.6rem',
+            position: 'absolute',
+            right: '6%',
+          }}
+        >
+          {extra}
+        </div>
+      )}
       <div
         onClick={() => setBanner(false)}
         style={banner ? null : { display: 'none' }}

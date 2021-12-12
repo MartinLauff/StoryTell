@@ -75,11 +75,7 @@ const PostShow = ({ data: { post } }) => {
                 </span>
                 <img
                   className={showStyles.userPic}
-                  src={
-                    !post.postedBy.photo.startsWith('http')
-                      ? '/default.png'
-                      : post.postedBy.photo
-                  }
+                  src={post.postedBy.photo}
                   alt={post.postedBy.username}
                 />
               </a>

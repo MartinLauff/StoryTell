@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema<UserDoc, UserModel>({
     minLength: 2,
     maxLength: 18,
   },
-  photo: { type: String, default: 'default.png' },
+  photo: { type: String, default: '/default.png' },
   role: {
     type: String,
     enum: ['user', 'admin'],

@@ -53,11 +53,7 @@ const Post = ({ post }) => {
               <div style={{ display: 'flex', aligItems: 'center' }}>
                 <img
                   style={{ marginRight: '0.5rem' }}
-                  src={
-                    !post.postedBy.photo.startsWith('http')
-                      ? '/default.png'
-                      : post.postedBy.photo
-                  }
+                  src={post.postedBy.photo}
                   className={postStyles.icon}
                   alt='profile photo'
                 />

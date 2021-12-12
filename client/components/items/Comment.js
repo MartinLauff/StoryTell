@@ -9,11 +9,7 @@ const Comment = ({ comment }) => {
         <a>
           <img
             className={commentStyles.pic}
-            src={
-              !comment.postedBy.photo.startsWith('http')
-                ? '/default.png'
-                : post.postedBy.photo
-            }
+            src={comment.postedBy.photo}
             alt={comment.postedBy.username}
           />
         </a>
