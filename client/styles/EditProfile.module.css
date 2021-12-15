@@ -70,3 +70,19 @@
   border-radius: 5rem;
   text-align: center;
 }
+.successBar {
+  cursor: pointer;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 7rem;
+  width: 20rem;
+  border-radius: 0.5rem;
+  background-color: #14bebb;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: var(--fs-mid);
+  color: #fff;
+}

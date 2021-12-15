@@ -24,7 +24,10 @@ const useRequest = ({ url, method, headers, body, onSuccess }) => {
       return response.data;
     } catch (err) {
       setErrors(
-        <div className={generalError.errorBanner}>
+        <div
+          onClick={() => setErrors(null)}
+          className={generalError.errorBanner}
+        >
           <h4>Ooops....</h4>
           <ul style={{ listStyle: 'none' }}>
             {err.response.data.errors.map((err) => (

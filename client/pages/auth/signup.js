@@ -83,9 +83,11 @@ const Signup = () => {
           maxLength='20'
           required
         />
-        <span className={!active ? errorStyles.hide : errorStyles.errMessage}>
-          Please confirm your password
-        </span>
+        {active && (
+          <span className={errorStyles.errMessage}>
+            Provided passwords are not the same
+          </span>
+        )}
         {errors}
         <SingleButton content='Register' color='redButton' />
       </form>

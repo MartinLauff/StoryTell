@@ -11,7 +11,7 @@ const ArrowBar = ({ extra, title }) => {
   return (
     <div className={`${BarStyles.bar} ${BarStyles.arrowBar}`}>
       <Link href='/posts'>
-        <a style={{ height: '2rem' }}>
+        <a style={{ height: '2rem', marginLeft: '2rem' }}>
           <ArrowIcon />
         </a>
       </Link>
@@ -33,8 +33,16 @@ const ArrowBar = ({ extra, title }) => {
         style={banner ? null : { display: 'none' }}
         className={myProfileStyles.profileBanner}
       >
-        <SavedOption />
-        <ChangePasswordOption />
+        <Link href='/users/settings/saved-posts'>
+          <a>
+            <SavedOption />
+          </a>
+        </Link>
+        <Link href='/users/settings/update-password'>
+          <a>
+            <ChangePasswordOption />
+          </a>
+        </Link>
       </div>
       <div
         onClick={() => setBanner(false)}

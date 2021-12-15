@@ -85,6 +85,9 @@
   right: 5%;
   top: 2%;
 }
+.profileBanner a {
+  text-decoration: none;
+}
 .profileBanner div {
   cursor: pointer;
   border-radius: 5px;
