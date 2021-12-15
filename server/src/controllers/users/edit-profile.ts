@@ -3,8 +3,6 @@ import { NotFoundError } from '../../errors/not-found-error';
 import { BadRequestError } from '../../errors/bad-request-error';
 import { User } from '../../models/user';
 
-// file.filename = `user-${req.user._id}-${Date.now()}.jpeg`;
-
 const filterObj = (obj: any, ...allowedFields: string[]) => {
   const newObj: any = {};
   Object.keys(obj).forEach((el) => {
@@ -14,8 +12,6 @@ const filterObj = (obj: any, ...allowedFields: string[]) => {
 };
 
 const editProfile = async (req: Request, res: Response, next: NextFunction) => {
-  const user = await User.findById(req.user._id);
-
   if (req.body.password || req.body.currentPassword || req.body.newPassword) {
     return next(
       new BadRequestError(
@@ -24,7 +20,7 @@ const editProfile = async (req: Request, res: Response, next: NextFunction) => {
     );
   }
 
-  if (!user) {
+  if (!req.user) {
     return next(new NotFoundError('User'));
   }
 
@@ -36,7 +32,7 @@ const editProfile = async (req: Request, res: Response, next: NextFunction) => {
     'email'
   );
 
-  const updatedUser = await User.findByIdAndUpdate(user._id, filteredBody, {
+  const updatedUser = await User.findByIdAndUpdate(req.user._id, filteredBody, {
     new: true,
     runValidators: true,
   });

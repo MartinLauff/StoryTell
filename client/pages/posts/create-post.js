@@ -115,6 +115,7 @@ const CreatePost = () => {
             accept='image/*'
             type='file'
             name='image'
+            value=''
           />
           <label htmlFor='image'>Choose an image</label>
           <div className={createStyles.name}>

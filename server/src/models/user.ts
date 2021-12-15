@@ -51,6 +51,7 @@ const userSchema = new mongoose.Schema<UserDoc, UserModel>({
   },
   hobby: {
     type: String,
+    required: [true, 'Please provide a hobby'],
     default: 'Your hobby',
     trim: true,
     minLength: 2,

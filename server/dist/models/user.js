@@ -26,6 +26,7 @@ const userSchema = new mongoose_1.default.Schema({
     },
     hobby: {
         type: String,
+        required: [true, 'Please provide a hobby'],
         default: 'Your hobby',
         trim: true,
         minLength: 2,

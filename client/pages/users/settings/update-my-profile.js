@@ -1,30 +1,91 @@
-import Link from 'next/link';
 import { useState } from 'react';
+import axios from 'axios';
+import Link from 'next/link';
+import Router from 'next/router';
+import Cookies from 'js-cookie';
+import generalError from '../../../styles/Error.module.css';
 import buildClient from '../../../api/build-client';
 import editStyles from '../../../styles/EditProfile.module.css';
 import componentStyles from '../../../styles/Components.module.css';
 
 const updateMyProfile = ({ data }) => {
-  const [inputFile, setInputFile] = useState('');
-  const [profilePhoto, setProfilePhoto] = useState(data.photo);
+  const [errors, setErrors] = useState(null);
+  const [photo, setProfilePhoto] = useState(data.photo);
   const [username, setUsername] = useState(data.username);
   const [hobby, setHobby] = useState(data.hobby);
   const [email, setEmail] = useState(data.email);
 
+  const doRequest = (url = data.photo) => {
+    axios({
+      url: 'http://localhost:8000/api/users/update-my-profile',
+      method: 'put',
+      data: {
+        photo: url,
+        username,
+        hobby,
+        email,
+      },
+      headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+    })
+      .then(() => Router.push('/users/my-profile'))
+      .catch(({ response: { data } }) =>
+        setErrors(
+          <div className={generalError.errorBanner}>
+            <h4>Ooops....</h4>
+            <ul style={{ listStyle: 'none' }}>
+              {data.message.split(',').map((message) => (
+                <li key={message}>
+                  {message.replace('Validation failed:', '').split(':')[1]}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      );
+  };
+
   const handleFileInputChange = (e) => {
-    const file = e.target.files[0];
-    previewFile(file);
-    // setProfilePhoto(file);
-    // setInputFile(e.target.value);
+    previewFile(e.target.files[0]);
+    setProfilePhoto(e.target.files[0]);
   };
 
   const previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setInputFile(reader.result);
+      setProfilePhoto(reader.result);
     };
   };
+
+  const resetImg = () => {
+    setProfilePhoto(data.photo);
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!username || !hobby || !email) {
+      return;
+    }
+
+    const body = new FormData();
+    body.append('file', photo);
+    body.append('upload_preset', 'storytell');
+
+    if (photo !== data.photo) {
+      const res = await axios({
+        method: 'post',
+        url: 'https://api.cloudinary.com/v1_1/ekoeko/image/upload',
+        data: body,
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+
+      doRequest(res.data.url);
+    } else {
+      doRequest();
+    }
+  };
+
   return (
     <div>
       <div className={editStyles.bar}>
@@ -49,19 +110,36 @@ const updateMyProfile = ({ data }) => {
         </Link>
         <h2>Edit profile</h2>
       </div>
-      <form className={editStyles.wrap}>
+      <form onSubmit={onSubmit} className={editStyles.wrap}>
         <div className={editStyles.imgWrap}>
-          <img
-            className={editStyles.img}
-            src={inputFile ? inputFile : profilePhoto}
-            alt='profile picture'
-          />
+          <div style={{ position: 'relative' }}>
+            <img className={editStyles.img} src={photo} alt='profile picture' />
+            {photo !== data.photo && (
+              <div onClick={resetImg} className={editStyles.close}>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='24'
+                  height='24'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='#ff2f2f'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                >
+                  <line x1='18' y1='6' x2='6' y2='18'></line>
+                  <line x1='6' y1='6' x2='18' y2='18'></line>
+                </svg>
+              </div>
+            )}
+          </div>
           <input
             onChange={handleFileInputChange}
             id='image'
             accept='image/*'
             type='file'
             name='image'
+            value=''
           />
           <label htmlFor='image'>Choose an image</label>
         </div>
@@ -73,6 +151,8 @@ const updateMyProfile = ({ data }) => {
               onChange={(e) => setUsername(e.target.value)}
               className={componentStyles.textInput}
               type='text'
+              minLength='4'
+              maxLength='14'
             />
           </div>
           <div>
@@ -82,6 +162,8 @@ const updateMyProfile = ({ data }) => {
               onChange={(e) => setHobby(e.target.value)}
               className={componentStyles.textInput}
               type='text'
+              minLength='2'
+              maxLength='18'
             />
           </div>
           <div>
@@ -90,7 +172,7 @@ const updateMyProfile = ({ data }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className={componentStyles.textInput}
-              type='text'
+              type='email'
             />
           </div>
         </div>
@@ -98,6 +180,7 @@ const updateMyProfile = ({ data }) => {
           Save
         </button>
       </form>
+      {errors}
     </div>
   );
 };

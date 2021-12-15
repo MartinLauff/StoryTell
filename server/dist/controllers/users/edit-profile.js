@@ -12,15 +12,14 @@ const filterObj = (obj, ...allowedFields) => {
     return newObj;
 };
 const editProfile = async (req, res, next) => {
-    const user = await user_1.User.findById(req.user._id);
     if (req.body.password || req.body.currentPassword || req.body.newPassword) {
         return next(new bad_request_error_1.BadRequestError('This route is not for password updates. Please use /update-password.'));
     }
-    if (!user) {
+    if (!req.user) {
         return next(new not_found_error_1.NotFoundError('User'));
     }
     const filteredBody = filterObj(req.body, 'photo', 'username', 'hobby', 'email');
-    const updatedUser = await user_1.User.findByIdAndUpdate(user._id, filteredBody, {
+    const updatedUser = await user_1.User.findByIdAndUpdate(req.user._id, filteredBody, {
         new: true,
         runValidators: true,
     });
