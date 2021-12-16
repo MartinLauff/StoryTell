@@ -101,6 +101,9 @@
   bottom: 0;
   border-radius: 1rem;
 }
+.hide {
+  display: none;
+}
 @media only screen and (min-width: 28rem) {
   .post {
     width: 40rem;

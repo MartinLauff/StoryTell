@@ -1,3 +1,4 @@
+import { cloneElement, useState } from 'react';
 import Link from 'next/link';
 import LikeSet from '../Icons/LikeSet';
 import postStyles from '../../styles/Post.module.css';
@@ -5,7 +6,8 @@ import formatDistance from 'date-fns/formatDistance';
 import CommentIcon from '../Icons/CommentIcon';
 import MoreIcon from '../Icons/MoreIcon';
 
-const Post = ({ post }) => {
+const Post = ({ post, UnsaveOption }) => {
+  const [state, setState] = useState(true);
   const blackColor = { color: '#000' };
   const whiteColor = { color: '#fff' };
   const greyColor = { color: '#878a8c' };
@@ -13,8 +15,14 @@ const Post = ({ post }) => {
   return (
     <div
       style={!post.coverImage ? { border: '2px solid #000' } : null}
-      className={postStyles.post}
+      className={state ? postStyles.post : postStyles.hide}
     >
+      {UnsaveOption &&
+        cloneElement(UnsaveOption, {
+          postId: post._id,
+          deleteOpt: setState,
+          Xposition: post.coverImage ? true : false,
+        })}
       <Link href='/posts/[...postId]' as={`/posts/${post._id}`}>
         <a style={{ textDecoration: 'none' }}>
           <div

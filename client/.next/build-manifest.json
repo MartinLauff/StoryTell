@@ -40,15 +40,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/posts.js"
     ],
-    "/topics/[topicSlug]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/topics/[topicSlug].js"
-    ],
     "/users/my-profile": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/users/my-profile.js"
+    ],
+    "/users/settings/saved-posts": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/users/settings/saved-posts.js"
     ]
   },
   "ampFirstPages": []

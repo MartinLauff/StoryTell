@@ -5,7 +5,12 @@ const saved = async (req, res) => {
     var _a;
     const posts = await post_1.Post.find({
         _id: { $in: (_a = req.user) === null || _a === void 0 ? void 0 : _a.savedPosts },
-    });
+    })
+        .populate({
+        path: 'postedBy',
+        select: 'photo username',
+    })
+        .sort('-createdAt');
     res.status(200).send(posts);
 };
 exports.default = saved;

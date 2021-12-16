@@ -2,6 +2,7 @@ import Link from 'next/link';
 import editStyles from '../../../styles/EditProfile.module.css';
 import buildClient from '../../../api/build-client';
 import PostList from '../../../components/lists/PostList';
+import UnsaveIcon from '../../../components/Icons/UnsaveIcon';
 
 const savedPosts = ({ data }) => {
   return (
@@ -28,7 +29,7 @@ const savedPosts = ({ data }) => {
         </Link>
         <h2>Saved posts</h2>
       </div>
-      <PostList posts={data} />
+      <PostList UnsaveOption={<UnsaveIcon />} posts={data} />
       <style style={{ display: 'none' }}>
         {`html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`}
       </style>
