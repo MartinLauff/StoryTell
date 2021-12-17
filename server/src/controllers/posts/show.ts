@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
 import { NotFoundError } from '../../errors/not-found-error';
-
 import { Post } from '../../models/post';
 
 const showPost = async (req: Request, res: Response, next: NextFunction) => {
@@ -22,6 +21,7 @@ const showPost = async (req: Request, res: Response, next: NextFunction) => {
   res.status(200).send({
     data: {
       post,
+      userPosts: req.user.posts,
     },
   });
 };

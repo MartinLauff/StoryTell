@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Router from 'next/router';
 import { useState } from 'react';
 import Comment from '../../components/items/Comment';
 import Cookies from 'js-cookie';
@@ -7,6 +8,8 @@ import TopBar from '../../components/bars/TopBar';
 import LikeSet from '../../components/Icons/LikeSet';
 import SaveOption from '../../components/bannerOptions/SaveOption';
 import CopyOption from '../../components/bannerOptions/CopyOption';
+import DeleteOption from '../../components/bannerOptions/DeleteOption';
+import EditOption from '../../components/bannerOptions/EditOption';
 import SideBar from '../../components/bars/SideBar';
 import CommentList from '../../components/lists/CommentList';
 import CommentIcon from '../../components/Icons/CommentIcon';
@@ -17,7 +20,8 @@ import Layer from '../../components/bars/Layer';
 import buildClient from '../../api/build-client';
 import MoreIcon from '../../components/Icons/MoreIcon';
 
-const PostShow = ({ data: { post } }) => {
+const PostShow = ({ data: { post }, data }) => {
+  const [deleteOpt, setDeleteOpt] = useState(false);
   const [active, setActive] = useState(false);
   const [banner, setBanner] = useState(false);
   const [content, setContent] = useState('');
@@ -31,6 +35,12 @@ const PostShow = ({ data: { post } }) => {
     body: {
       content,
     },
+  });
+  const { doRequest: execRequest, errors: errs } = useRequest({
+    url: `http://localhost:8000/api/posts/${post._id}`,
+    method: 'delete',
+    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+    onSuccess: () => Router.push('/users/my-profile'),
   });
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -53,6 +63,12 @@ const PostShow = ({ data: { post } }) => {
   const renderedComments = comments.map((res) => (
     <Comment key={res.createdAt} comment={res} />
   ));
+
+  const deletePost = (e) => {
+    e.preventDefault();
+
+    execRequest();
+  };
   return (
     <div>
       <TopBar />
@@ -108,6 +124,10 @@ const PostShow = ({ data: { post } }) => {
             >
               <SaveOption postID={post._id} />
               <CopyOption />
+              {data.userPosts.includes(post._id) && <EditOption />}
+              {data.userPosts.includes(post._id) && (
+                <DeleteOption activation={setDeleteOpt} postID={post._id} />
+              )}
             </div>
           </div>
           <div
@@ -147,7 +167,30 @@ const PostShow = ({ data: { post } }) => {
         <CommentList comments={post.comments} />
       </div>
       {errors}
+      {errs}
       <BottomBar />
+      {deleteOpt && (
+        <div
+          onClick={() => setDeleteOpt(false)}
+          className={componentStyles.layer}
+        ></div>
+      )}
+      {deleteOpt && (
+        <div className={componentStyles.deleteBanner}>
+          <p>Are you sure you want to delete this post?</p>
+          <div>
+            <button
+              className={componentStyles.cancel}
+              onClick={() => setDeleteOpt(false)}
+            >
+              Cancel
+            </button>
+            <button onClick={deletePost} className={componentStyles.delete}>
+              Delete
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
