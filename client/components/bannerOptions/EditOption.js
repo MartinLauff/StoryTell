@@ -1,9 +1,12 @@
 import componentStyles from '../../styles/Components.module.css';
 import EditIcon from '../Icons/EditIcon';
 
-const EditOption = () => {
+const EditOption = ({ activation }) => {
   return (
-    <div className={componentStyles.bannerOption}>
+    <div
+      onClick={() => activation(true)}
+      className={componentStyles.bannerOption}
+    >
       <EditIcon />
       <span className={componentStyles.bannerText}>Edit post</span>
     </div>

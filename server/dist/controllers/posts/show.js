@@ -18,6 +18,7 @@ const showPost = async (req, res, next) => {
     res.status(200).send({
         data: {
             post,
+            userPosts: req.user.posts,
         },
     });
 };
