@@ -83,11 +83,15 @@ const PostShow = ({ data: { post }, data }) => {
     setPostContent(post.content);
     setEditOpt(false);
   };
-  const editPost = (e) => {
+  const editPost = async (e) => {
     e.preventDefault();
-    setEditOpt(false);
 
-    editRequest();
+    const res = await editRequest();
+    if (res) {
+      setEditOpt(false);
+    } else {
+      setPostContent(post.content);
+    }
   };
   return (
     <div>
@@ -209,7 +213,9 @@ const PostShow = ({ data: { post }, data }) => {
           </form>
         )}
         {renderedComments}
-        {!editOpt && <CommentList comments={post.comments} />}
+        {!editOpt && (
+          <CommentList userId={data.userId} comments={post.comments} />
+        )}
       </div>
       {errors}
       {errs}

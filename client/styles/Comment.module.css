@@ -17,6 +17,7 @@
   justify-content: flex-start;
   width: 28rem;
   margin: auto auto 1.5rem;
+  position: relative;
 }
 .name {
   font-weight: var(--fw-bold);
@@ -39,4 +40,7 @@
   height: 2.5rem;
   border-radius: 25rem;
   margin-right: 1.5rem;
+}
+.hide {
+  display: none;
 }

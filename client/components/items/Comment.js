@@ -1,10 +1,47 @@
+import { useState } from 'react';
 import Link from 'next/link';
+import Cookies from 'js-cookie';
+import useRequest from '../../hooks/use-request';
 import commentStyles from '../../styles/Comment.module.css';
+import componentStyles from '../../styles/Components.module.css';
 import formatDistance from 'date-fns/formatDistance';
 
-const Comment = ({ comment }) => {
+const Comment = ({ comment, userId }) => {
+  const [state, setState] = useState(true);
+
+  const { doRequest, errors } = useRequest({
+    url: `http://localhost:8000/api/comments/${comment._id}`,
+    method: 'delete',
+    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+  });
+
+  const deleteComment = (e) => {
+    e.preventDefault();
+    setState(false);
+    doRequest();
+  };
+
   return (
-    <div className={commentStyles.commentWrap}>
+    <div className={state ? commentStyles.commentWrap : commentStyles.hide}>
+      {comment.postedBy._id === userId && (
+        <div onClick={deleteComment} className={componentStyles.Xmarker}>
+          <svg
+            width='12'
+            height='12'
+            viewBox='0 0 20 20'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              d='M10 10L19 19M1 19L10 10L1 19ZM19 1L9.99828 10L19 1ZM9.99828 10L1 1L9.99828 10Z'
+              stroke='black'
+              strokeWidth='2'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            />
+          </svg>
+        </div>
+      )}
       <Link href='/users/[...oneUser]' as={`/users/${comment.postedBy._id}`}>
         <a>
           <img
@@ -40,6 +77,7 @@ const Comment = ({ comment }) => {
           </p>
         </div>
       </div>
+      {errors}
     </div>
   );
 };

@@ -22,6 +22,7 @@ const showPost = async (req: Request, res: Response, next: NextFunction) => {
     data: {
       post,
       userPosts: req.user.posts,
+      userId: req.user._id,
     },
   });
 };

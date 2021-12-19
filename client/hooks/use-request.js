@@ -26,24 +26,37 @@ const useRequest = ({ url, method, headers, body, onSuccess }) => {
       const {
         response: { data },
       } = err;
-      setErrors(
-        <div
-          onClick={() => setErrors(null)}
-          className={generalError.errorBanner}
-        >
-          <h4>Invalid parameters</h4>
-          <ul style={{ listStyle: 'none' }}>
-            {data.message.split(',').map((message) => (
-              <li key={message}>
-                {message.replace('Validation failed:', '').split(':')[1]}
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
+      if (!data.message) {
+        setErrors(
+          <div
+            onClick={() => setErrors(null)}
+            className={generalError.errorBanner}
+          >
+            <h4>Ooops....</h4>
+            <ul style={{ listStyle: 'none' }}>
+              {err.response.data.errors.map((err) => (
+                <li key={err.message}>{err.message}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      } else {
+        setErrors(
+          <div
+            onClick={() => setErrors(null)}
+            className={generalError.errorBanner}
+          >
+            <h4>Invalid parameters</h4>
+            <ul style={{ listStyle: 'none' }}>
+              {data.message.split(',').map((message) => (
+                <li key={message}>{message.split(':').pop()}</li>
+              ))}
+            </ul>
+          </div>
+        );
+      }
     }
   };
-
   return { doRequest, errors };
 };
 

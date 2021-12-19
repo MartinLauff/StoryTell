@@ -12,8 +12,9 @@ const deleteComment = catchAsync(
       return next(new NotFoundError('Comment'));
     }
 
-    if (comment.postedBy.toString() !== req.user._id.toString()) {
-      return next(new NotAuthorizedError("Can't update foreign post"));
+    //@ts-ignore
+    if (comment.postedBy._id.toString() !== req.user._id.toString()) {
+      return next(new NotAuthorizedError("Can't delete foreign comment"));
     }
 
     await Comment.deleteOne({ _id: comment._id });

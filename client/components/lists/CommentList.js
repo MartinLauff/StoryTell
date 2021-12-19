@@ -1,7 +1,7 @@
 import Comment from '../items/Comment';
 import commentStyles from '../../styles/Comment.module.css';
 
-const CommentList = ({ comments }) => {
+const CommentList = ({ comments, userId }) => {
   if (!comments || comments.length === 0) {
     return (
       <div className={commentStyles.noComments}>
@@ -11,7 +11,7 @@ const CommentList = ({ comments }) => {
   }
 
   const renderedList = comments.map((comment) => (
-    <Comment key={comment._id} comment={comment} />
+    <Comment userId={userId} key={comment._id} comment={comment} />
   ));
 
   return <div className={commentStyles.commentList}>{renderedList}</div>;

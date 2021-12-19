@@ -192,8 +192,20 @@
   box-shadow: 0 0 1em 4px rgba(0, 0, 0, 0.575);
 }
 .textArea:focus {
-  /* border: none; */
   outline: 2px solid #33a5e7;
+}
+.Xmarker {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  background-color: #ff8c00;
+  top: 0;
+  right: 0;
+  border-radius: 5rem;
+  padding: 0.6rem;
+}
+.Xmarker:hover {
+  cursor: pointer;
 }
 @media only screen and (min-width: 28rem) {
   .moreBanner {
