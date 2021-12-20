@@ -4,16 +4,16 @@ import generalError from '../../styles/Error.module.css';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const LikeSet = ({ postID, likes, greyColor }) => {
-  const [likeCount, setLikeCount] = useState(likes);
+const LikeSet = ({ postID, likes, greyColor, userId }) => {
+  const [likeCount, setLikeCount] = useState(likes.length);
   const [active, setActive] = useState(false);
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      setErrors(null);
-    }, 4000);
-  }, [errors]);
+    if (likes.includes(userId)) {
+      setActive(true);
+    }
+  }, []);
 
   const doRequest = async (path) => {
     const http = rateLimit(axios.create(), {
@@ -43,19 +43,15 @@ const LikeSet = ({ postID, likes, greyColor }) => {
 
   const doLike = async (e) => {
     e.preventDefault();
-    setActive(!active);
-    let currPosts = JSON.parse(localStorage.getItem('likedPosts'));
 
-    if (currPosts.includes(postID)) {
+    if (likes.includes(userId)) {
+      setActive(false);
       doRequest('unlike');
       setLikeCount((oldState) => oldState - 1);
-      let d = currPosts.filter((el) => el !== postID);
-      localStorage.setItem('likedPosts', JSON.stringify(d));
     } else {
+      setActive(true);
       doRequest('like');
       setLikeCount((oldState) => oldState + 1);
-      let d = [...currPosts, postID];
-      localStorage.setItem('likedPosts', JSON.stringify(d));
     }
   };
 

@@ -66,3 +66,20 @@
   font-weight: var(--fw-bold);
   color: #878a8c;
 }
+.editMyProfile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 2.5rem;
+  height: 2.7rem;
+  width: 18.7rem;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+  text-decoration: none;
+}
+.editMyProfile svg {
+  margin-right: 0.5rem;
+}

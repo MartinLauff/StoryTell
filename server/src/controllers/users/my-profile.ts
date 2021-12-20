@@ -20,7 +20,10 @@ const myProfile = async (req: Request, res: Response, next: NextFunction) => {
   }
 
   // SEND RESPONSE
-  res.status(200).send(user);
+  res.status(200).send({
+    user,
+    userId: req.user._id,
+  });
 };
 
 export default myProfile;

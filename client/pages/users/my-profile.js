@@ -22,13 +22,13 @@ const MyProfile = ({ data }) => {
       />
       <div className={myProfileStyles.userTop}>
         <img
-          src={data.photo}
+          src={data.user.photo}
           className={myProfileStyles.photo}
           alt='profile photo'
         />
         <div className={myProfileStyles.description}>
-          <h1 className={myProfileStyles.name}>{data.username}</h1>
-          <p className={myProfileStyles.hobby}>{data.hobby}</p>
+          <h1 className={myProfileStyles.name}>{data.user.username}</h1>
+          <p className={myProfileStyles.hobby}>{data.user.hobby}</p>
           <Link href='/users/settings/update-my-profile'>
             <a className={myProfileStyles.btns}>
               <svg
@@ -50,19 +50,23 @@ const MyProfile = ({ data }) => {
       </div>
       <div className={myProfileStyles.stats}>
         <div>
-          <p className={myProfileStyles.data}>{data.posts.length}</p>
+          <p className={myProfileStyles.data}>{data.user.posts.length}</p>
           <p className={myProfileStyles.legend}>Posts</p>
         </div>
         <div>
-          <p className={myProfileStyles.data}>{data.followers.length}</p>
+          <p className={myProfileStyles.data}>{data.user.followers.length}</p>
           <p className={myProfileStyles.legend}>Followers</p>
         </div>
         <div>
-          <p className={myProfileStyles.data}>{data.following.length}</p>
+          <p className={myProfileStyles.data}>{data.user.following.length}</p>
           <p className={myProfileStyles.legend}>Following</p>
         </div>
       </div>
-      <PostList text='Here will be displayed your posts!' posts={data.posts} />
+      <PostList
+        userId={data.userId}
+        text='Here will be displayed your posts!'
+        posts={data.user.posts}
+      />
       <BottomBar />
       <style style={{ display: 'none' }}>
         {`html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`}

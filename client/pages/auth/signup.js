@@ -39,7 +39,6 @@ const Signup = () => {
 
     if (res) {
       Cookies.set('jwt', res.token);
-      localStorage.setItem('likedPosts', JSON.stringify([]));
     }
   };
 

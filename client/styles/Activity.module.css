@@ -36,6 +36,7 @@
 .profilePic {
   width: 4rem;
   height: 4rem;
+  border-radius: 5rem;
 }
 .activityWrapper {
   display: flex;

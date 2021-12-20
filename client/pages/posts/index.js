@@ -14,7 +14,8 @@ const LatestPosts = ({ data }) => {
       <h2 style={{ margin: '6rem 0 0 4rem' }}>Latest posts</h2>
       <PostList
         text="Let's discover new inspirations in topics tab"
-        posts={data}
+        posts={data.posts}
+        userId={data.userId}
       />
       <BottomBar />
     </div>

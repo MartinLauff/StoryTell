@@ -20,7 +20,8 @@ const TopicPosts = ({ data, topicSlug }) => {
       </div>
       <PostList
         text="This topic doesn't have a post yet. Let's change it!"
-        posts={data}
+        posts={data.posts}
+        userId={data.userId}
       />
       <BottomBar />
     </div>

@@ -6,7 +6,7 @@ import formatDistance from 'date-fns/formatDistance';
 import CommentIcon from '../Icons/CommentIcon';
 import MoreIcon from '../Icons/MoreIcon';
 
-const Post = ({ post, UnsaveOption }) => {
+const Post = ({ post, UnsaveOption, userId }) => {
   const [state, setState] = useState(true);
   const blackColor = { color: '#000' };
   const whiteColor = { color: '#fff' };
@@ -91,7 +91,11 @@ const Post = ({ post, UnsaveOption }) => {
             {!post.coverImage && (
               <div className={postStyles.postBottom}>
                 <div>
-                  <LikeSet likes={post.likes.length} greyColor={greyColor} />
+                  <LikeSet
+                    userId={userId}
+                    likes={post.likes}
+                    greyColor={greyColor}
+                  />
                 </div>
                 <div>
                   <CommentIcon />

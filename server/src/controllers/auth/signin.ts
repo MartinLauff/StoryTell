@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { BadRequestError } from '../../errors/bad-request-error';
-
 import { Password } from './password';
 import { User } from '../../models/user';
 
@@ -47,7 +46,6 @@ const signin = async (req: Request, res: Response, next: NextFunction) => {
   existingUser.password = undefined;
 
   res.status(200).json({
-    status: 'success',
     token,
     data: {
       existingUser,

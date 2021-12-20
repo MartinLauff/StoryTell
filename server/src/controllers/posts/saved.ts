@@ -12,7 +12,10 @@ const saved = async (req: Request, res: Response) => {
     .sort('-createdAt');
 
   // SEND RESPONSE
-  res.status(200).send(posts);
+  res.status(200).send({
+    posts,
+    userId: req.user._id,
+  });
 };
 
 export default saved;

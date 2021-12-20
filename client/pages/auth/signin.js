@@ -29,7 +29,6 @@ const Signin = () => {
     const res = await doRequest();
     if (res) {
       Cookies.set('jwt', res.token);
-      localStorage.setItem('likedPosts', JSON.stringify([]));
     }
   };
   return (

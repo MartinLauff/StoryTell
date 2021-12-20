@@ -11,10 +11,9 @@ const Signout = () => {
     onSuccess: () => Router.push('/'),
   });
 
-  useEffect(async () => {
-    await doRequest();
+  useEffect(() => {
+    doRequest();
     Cookies.remove('jwt');
-    localStorage.removeItem('likedPosts');
   }, []);
 
   const style = {

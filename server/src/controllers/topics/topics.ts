@@ -14,7 +14,7 @@ const index = async (req: Request, res: Response) => {
   // SEND RESPONSE
   res.status(200).send({
     coverImage: `${req.params.slug}.jpeg`,
-    data: posts,
+    data: { posts, userId: req.user._id },
   });
 };
 

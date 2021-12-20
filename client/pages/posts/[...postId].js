@@ -146,7 +146,11 @@ const PostShow = ({ data: { post }, data }) => {
           {!editOpt && (
             <div className={showStyles.actions}>
               <div className={showStyles.showLikes}>
-                <LikeSet likes={post.likes.length} postID={post._id} />
+                <LikeSet
+                  userId={data.userId}
+                  likes={post.likes}
+                  postID={post._id}
+                />
               </div>
               <div className={showStyles.comments}>
                 <CommentIcon />
