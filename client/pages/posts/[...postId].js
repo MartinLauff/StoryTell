@@ -123,7 +123,16 @@ const PostShow = ({ data: { post }, data }) => {
           </div>
           <div className={showStyles.postCore}>
             <h1 className={showStyles.title}>{post.title}</h1>
-            {!editOpt && <p className={showStyles.content}>{postContent}</p>}
+            {!editOpt &&
+              postContent.split('\n').map((el, i) => (
+                <p
+                  style={el.length === 0 ? { height: '1rem' } : null}
+                  key={i}
+                  className={showStyles.content}
+                >
+                  {el}
+                </p>
+              ))}
             {editOpt && (
               <textarea
                 className={componentStyles.textArea}
@@ -132,7 +141,9 @@ const PostShow = ({ data: { post }, data }) => {
               />
             )}
           </div>
-          <img className={showStyles.image} src={post.coverImage} />
+          {!editOpt && (
+            <img className={showStyles.image} src={post.coverImage} />
+          )}
           {editOpt && (
             <div className={componentStyles.editWrap}>
               <button onClick={editReset} className={componentStyles.cancel}>

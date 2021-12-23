@@ -1,16 +1,23 @@
 import { cloneElement, useState } from 'react';
 import Link from 'next/link';
 import LikeSet from '../Icons/LikeSet';
+import SaveOption from '../../components/bannerOptions/SaveOption';
+import CopyOption from '../../components/bannerOptions/CopyOption';
+import DeleteOption from '../../components/bannerOptions/DeleteOption';
+import EditOption from '../../components/bannerOptions/EditOption';
 import postStyles from '../../styles/Post.module.css';
+import componentStyles from '../../styles/Components.module.css';
 import formatDistance from 'date-fns/formatDistance';
 import CommentIcon from '../Icons/CommentIcon';
 import MoreIcon from '../Icons/MoreIcon';
 
 const Post = ({ post, UnsaveOption, userId }) => {
+  const [banner, setBanner] = useState(false);
   const [state, setState] = useState(true);
   const blackColor = { color: '#000' };
   const whiteColor = { color: '#fff' };
   const greyColor = { color: '#878a8c' };
+  console.log(post);
 
   return (
     <div
@@ -98,6 +105,7 @@ const Post = ({ post, UnsaveOption, userId }) => {
                     userId={userId}
                     likes={post.likes}
                     greyColor={greyColor}
+                    postID={post._id}
                   />
                 </div>
                 <div>
@@ -132,11 +140,30 @@ const Post = ({ post, UnsaveOption, userId }) => {
             <CommentIcon />
             <span style={{ marginLeft: '0.8rem', ...greyColor }}>Comments</span>
           </div>
-          <div>
+          <div onClick={() => setBanner(true)}>
             <MoreIcon />
           </div>
+          {banner && (
+            <div
+              onClick={() => setBanner(false)}
+              className={componentStyles.moreBanner}
+            >
+              <SaveOption postID={post._id} />
+              <CopyOption />
+              {/* {data.userPosts.includes(post._id) && (
+                <EditOption activation={setEditOpt} />
+              )}
+              {data.userPosts.includes(post._id) && (
+                <DeleteOption activation={setDeleteOpt} />
+              )} */}
+            </div>
+          )}
         </div>
       )}
+      <div
+        onClick={() => setBanner(false)}
+        className={banner ? componentStyles.transparentLayer : null}
+      ></div>
     </div>
   );
 };
