@@ -11,7 +11,10 @@ const saved = async (req, res) => {
         select: 'photo username',
     })
         .sort('-createdAt');
-    res.status(200).send(posts);
+    res.status(200).send({
+        posts,
+        userId: req.user._id,
+    });
 };
 exports.default = saved;
 //# sourceMappingURL=saved.js.map

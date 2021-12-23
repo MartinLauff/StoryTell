@@ -30,7 +30,6 @@ const signin = async (req, res, next) => {
     });
     existingUser.password = undefined;
     res.status(200).json({
-        status: 'success',
         token,
         data: {
             existingUser,

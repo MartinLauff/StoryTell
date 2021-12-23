@@ -5,8 +5,8 @@
   font-size: var(--fs-small);
 }
 .postList {
-  width: 80%;
-  margin: 1rem auto 5.4rem;
+  width: 100%;
+  margin: 1rem 0 5.4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,11 +14,11 @@
 }
 .post {
   position: relative;
-  margin: 1rem 0;
-  width: 30rem;
+  margin: 0;
+  width: 100%;
   min-height: 15rem;
   background-color: #fff;
-  border-radius: 1rem;
+  border-radius: 0;
 }
 .icon {
   height: 2rem;
@@ -99,14 +99,39 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 1rem;
+  border-radius: 0;
 }
 .hide {
   display: none;
+}
+.postLink {
+  border-radius: 1rem 1rem 0 0;
+  text-decoration: none;
+  display: flex;
+}
+.anotherActions {
+  height: 5rem;
+  border: none;
+  border-radius: 0 0 1rem 1rem;
 }
 @media only screen and (min-width: 28rem) {
   .post {
     width: 40rem;
     min-height: 15rem;
+    border-radius: 1rem;
+    margin: 1rem 0;
+  }
+  .postList {
+    width: 80%;
+    margin: 1rem auto 5.4rem;
+  }
+  .coverImage {
+    border-radius: 1rem 1rem 0 0;
+  }
+  .postLink {
+    display: block;
+  }
+  .anotherActions {
+    border: 2px solid #000;
   }
 }

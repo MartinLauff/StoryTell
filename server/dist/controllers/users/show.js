@@ -20,7 +20,10 @@ const showUser = async (req, res, next) => {
     if (!user) {
         return next(new not_found_error_1.NotFoundError('User'));
     }
-    res.status(200).send(user);
+    res.status(200).send({
+        user,
+        userId: req.user._id,
+    });
 };
 exports.default = showUser;
 //# sourceMappingURL=show.js.map

@@ -17,7 +17,10 @@ const myProfile = async (req, res, next) => {
     if (!user) {
         return next(new not_found_error_1.NotFoundError('User'));
     }
-    res.status(200).send(user);
+    res.status(200).send({
+        user,
+        userId: req.user._id,
+    });
 };
 exports.default = myProfile;
 //# sourceMappingURL=my-profile.js.map

@@ -21,6 +21,12 @@ const CreatePost = () => {
     }, 4000);
   }, [errors]);
 
+  useEffect(() => {
+    if (Router.query.q) {
+      setTopic('Feedback');
+    }
+  }, []);
+
   const doRequest = (url = '') => {
     axios({
       url: 'http://localhost:8000/api/posts/',
@@ -98,6 +104,7 @@ const CreatePost = () => {
           <option value='Language'>Language</option>
           <option value='School'>School</option>
           <option value='Traveling'>Traveling</option>
+          <option value='Feedback'>Feedback</option>
         </select>
         <input
           required

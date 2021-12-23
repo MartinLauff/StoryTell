@@ -19,13 +19,7 @@ const SideBar = () => {
       }`}
     >
       <style style={{ display: 'none' }}>
-        {sidebar
-          ? `
-      body {
-        overflow: hidden;
-      }
-    `
-          : scrollStyle}
+        {sidebar ? `body {overflow: hidden;}` : scrollStyle}
       </style>
       <h3>Storytell</h3>
       <Link href='/posts'>
@@ -62,7 +56,7 @@ const SideBar = () => {
           <span>Get Storytell Pro</span>
         </a>
       </Link>
-      <Link href='/posts/create-post'>
+      <Link href={{ pathname: '/posts/create-post', query: { q: 'feedback' } }}>
         <a onClick={close}>
           <svg
             width='19'

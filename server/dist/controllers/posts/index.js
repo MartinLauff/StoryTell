@@ -13,7 +13,7 @@ const index = async (req, res) => {
         .sort('-createdAt');
     res.status(200).send({
         results: posts.length,
-        data: posts,
+        data: { posts, userId: req.user._id },
     });
 };
 exports.default = index;

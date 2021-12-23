@@ -24,7 +24,10 @@ const Post = ({ post, UnsaveOption, userId }) => {
           Xposition: post.coverImage ? true : false,
         })}
       <Link href='/posts/[...postId]' as={`/posts/${post._id}`}>
-        <a style={{ textDecoration: 'none' }}>
+        <a
+          className={postStyles.postLink}
+          style={{ textDecoration: 'none', display: 'flex' }}
+        >
           <div
             className={
               post.coverImage
@@ -118,6 +121,22 @@ const Post = ({ post, UnsaveOption, userId }) => {
           )}
         </a>
       </Link>
+      {post.coverImage && (
+        <div
+          className={`${postStyles.postBottom} ${postStyles.anotherActions}`}
+        >
+          <div>
+            <LikeSet userId={userId} likes={post.likes} greyColor={greyColor} />
+          </div>
+          <div>
+            <CommentIcon />
+            <span style={{ marginLeft: '0.8rem', ...greyColor }}>Comments</span>
+          </div>
+          <div>
+            <MoreIcon />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
