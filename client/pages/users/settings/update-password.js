@@ -111,7 +111,22 @@ const updatePassword = () => {
             Provided passwords are not the same
           </span>
         )}
-        <button type='submit' className={componentStyles.applyBtn}>
+        <button
+          type='submit'
+          className={componentStyles.applyBtn}
+          style={
+            currentPassword.length >= 8 &&
+            newPassword.length >= 8 &&
+            confirmNewPassword.length >= 8
+              ? { backgroundColor: '#ff2f2f' }
+              : {
+                  cursor: 'not-allowed',
+                  backgroundColor: '#e7e7e7',
+                  color: '#000',
+                  outline: 'none',
+                }
+          }
+        >
           Save
         </button>
       </form>

@@ -21,8 +21,9 @@ const Post = ({ post, UnsaveOption, userId }) => {
 
   return (
     <div
-      style={!post.coverImage ? { border: '2px solid #000' } : null}
-      className={state ? postStyles.post : postStyles.hide}
+      className={`${state ? postStyles.post : postStyles.hide} ${
+        !post.coverImage ? postStyles.borda : ''
+      }`}
     >
       {UnsaveOption &&
         cloneElement(UnsaveOption, {

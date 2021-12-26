@@ -114,6 +114,15 @@
   border: none;
   border-radius: 0 0 1rem 1rem;
 }
+.borda {
+  border-top: 2px solid #000;
+}
+.borda:last-child {
+  border-bottom: none;
+}
+.borda:first-child {
+  border-top: none;
+}
 @media only screen and (min-width: 28rem) {
   .post {
     width: 40rem;
@@ -132,6 +141,9 @@
     display: block;
   }
   .anotherActions {
+    border: 2px solid #000;
+  }
+  .borda {
     border: 2px solid #000;
   }
 }
