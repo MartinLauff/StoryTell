@@ -39,7 +39,7 @@ const buildClient = ({ req  })=>{
     if (true) {
         // We are on the server
         return axios__WEBPACK_IMPORTED_MODULE_0___default().create({
-            baseURL: 'https://storytell.vercel.app/',
+            baseURL: 'https://storytull.herokuapp.com/',
             headers: req.headers
         });
     } else {}
