@@ -12,9 +12,7 @@ const OneUser = ({ data }) => {
   const [followers, setFollowers] = useState(data.user.followers.length);
 
   const { doRequest, errors } = useRequest({
-    url: `http://localhost:8000/api/users/${active ? 'unfollow' : 'follow'}/${
-      data.user._id
-    }`,
+    url: `/api/users/${active ? 'unfollow' : 'follow'}/${data.user._id}`,
     method: 'put',
     headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
   });

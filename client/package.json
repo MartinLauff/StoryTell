@@ -1,9 +1,13 @@
 {
+  "homepage": "https://storytell.vercel.app/",
   "name": "client",
   "version": "1.0.0",
   "description": "Client side of StoryTell",
   "proxy": "https://api.cloudinary.com/",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

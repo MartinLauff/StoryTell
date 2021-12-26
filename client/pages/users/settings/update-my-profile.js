@@ -17,7 +17,7 @@ const updateMyProfile = ({ data }) => {
 
   const doRequest = (url = data.photo) => {
     axios({
-      url: 'http://localhost:8000/api/users/update-my-profile',
+      url: '/api/users/update-my-profile',
       method: 'put',
       data: {
         photo: url,

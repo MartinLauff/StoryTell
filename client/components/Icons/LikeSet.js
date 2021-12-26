@@ -23,7 +23,7 @@ const LikeSet = ({ postID, likes, greyColor, userId }) => {
     });
     try {
       await http({
-        url: `http://localhost:8000/api/upvotes/${postID}/${path}`,
+        url: `/api/upvotes/${postID}/${path}`,
         headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
         method: 'put',
       });

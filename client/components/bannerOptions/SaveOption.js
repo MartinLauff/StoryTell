@@ -5,7 +5,7 @@ import useRequest from '../../hooks/use-request';
 
 const SaveOption = ({ postID }) => {
   const { doRequest, errors } = useRequest({
-    url: `http://localhost:8000/api/users/save/${postID}`,
+    url: `/api/users/save/${postID}`,
     method: 'put',
     headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
   });

@@ -31,7 +31,7 @@ const PostShow = ({ data: { post }, data }) => {
   const [commCount, setCommCount] = useState(post.comments.length);
 
   const { doRequest, errors } = useRequest({
-    url: `http://localhost:8000/api/comments/${post._id}`,
+    url: `/api/comments/${post._id}`,
     method: 'post',
     headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
     body: {
@@ -39,13 +39,13 @@ const PostShow = ({ data: { post }, data }) => {
     },
   });
   const { doRequest: deleteRequest, errors: errs } = useRequest({
-    url: `http://localhost:8000/api/posts/${post._id}`,
+    url: `/api/posts/${post._id}`,
     method: 'delete',
     headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
     onSuccess: () => Router.push('/users/my-profile'),
   });
   const { doRequest: editRequest, errors: ers } = useRequest({
-    url: `http://localhost:8000/api/posts/${post._id}`,
+    url: `/api/posts/${post._id}`,
     method: 'put',
     body: {
       content: postContent,
