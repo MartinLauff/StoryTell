@@ -10,7 +10,9 @@
     "start": "node dist/index.js",
     "start-dev": "ts-node-dev --files src/index.ts",
     "test": "jest --watchAll --no-cache",
-    "test:ci": "jest"
+    "test:ci": "jest",
+    "qqq": "git add . && git commit -m \"try\" && git push origin main",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "jest": {
     "preset": "ts-jest",
