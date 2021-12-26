@@ -23,10 +23,7 @@ const useRequest = ({ url, method, headers, body, onSuccess }) => {
 
       return response.data;
     } catch (err) {
-      const {
-        response: { data },
-      } = err;
-      if (!data.message) {
+      if (!err.response.data.message) {
         setErrors(
           <div
             onClick={() => setErrors(null)}
@@ -48,8 +45,13 @@ const useRequest = ({ url, method, headers, body, onSuccess }) => {
           >
             <h4>Invalid parameters</h4>
             <ul style={{ listStyle: 'none' }}>
-              {data.message.split(',').map((message) => (
-                <li key={message}>{message.split(':').pop()}</li>
+              {err.response.data.message.split(',').map((message) => (
+                <li key={message}>
+                  {message
+                    .split(':')
+                    .pop()
+                    .replace('jwt malformed', 'You are not logged in!')}
+                </li>
               ))}
             </ul>
           </div>

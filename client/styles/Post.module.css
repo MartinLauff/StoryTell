@@ -16,7 +16,7 @@
   position: relative;
   margin: 0;
   width: 100%;
-  min-height: 15rem;
+  min-height: 17rem;
   background-color: #fff;
   border-radius: 0;
 }
@@ -34,13 +34,17 @@
 .text {
   width: 90%;
   margin: 0 auto;
-  padding: 0.8rem 0;
   font-size: var(--fs-small);
+  color: #000;
 }
 .imagePosition {
   position: absolute;
   width: 100%;
   z-index: 9;
+}
+.imagePosition p {
+  padding: 0.8rem 0;
+  color: #fff;
 }
 .textPosition {
   position: absolute;
@@ -126,7 +130,6 @@
 @media only screen and (min-width: 28rem) {
   .post {
     width: 40rem;
-    min-height: 15rem;
     border-radius: 1rem;
     margin: 1rem 0;
   }
@@ -140,10 +143,23 @@
   .postLink {
     display: block;
   }
-  .anotherActions {
+  .anotherActions,
+  .borda,
+  .borda:last-child,
+  .borda:first-child {
     border: 2px solid #000;
   }
-  .borda {
-    border: 2px solid #000;
+}
+@media only screen and (max-height: 28rem) {
+  .borda:last-child {
+    border-bottom: 2px solid #000;
+  }
+  .borda:first-child {
+    border-top: 2px solid #000;
+  }
+}
+@media only screen and (min-width: 35rem) {
+  .post {
+    width: min(70vw, 60rem);
   }
 }

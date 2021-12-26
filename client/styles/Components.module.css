@@ -115,7 +115,7 @@
   z-index: 10;
   display: flex;
   background-color: #00ffff;
-  right: -3%;
+  right: 3%;
   border-radius: 5rem;
   padding: 1rem;
 }
@@ -123,7 +123,7 @@
   top: -3%;
 }
 .imgOFF {
-  top: -12%;
+  top: -15%;
 }
 .xIcon:hover {
   cursor: pointer;
@@ -212,9 +212,23 @@
 .Not {
   cursor: not-allowed;
 }
+.marginBottom {
+  margin-bottom: 2rem;
+}
 @media only screen and (min-width: 28rem) {
   .moreBanner {
     width: 19.5rem;
     right: -10%;
+  }
+  .xIcon {
+    right: -3%;
+  }
+  .imgOFF {
+    top: -12%;
+  }
+}
+@media only screen and (min-width: 40rem) {
+  .imgON {
+    top: -2%;
   }
 }

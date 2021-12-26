@@ -42,11 +42,19 @@ const CreatePost = () => {
       .then(() => Router.push(`/topics/${topic.toLowerCase()}`))
       .catch((err) =>
         setErrors(
-          <div className={generalError.errorBanner}>
-            <h4>Ooops....</h4>
+          <div
+            onClick={() => setErrors(null)}
+            className={generalError.errorBanner}
+          >
+            <h4>Invalid parameters</h4>
             <ul style={{ listStyle: 'none' }}>
-              {err.response.data.errors.map((err) => (
-                <li key={err.message}>{err.message}</li>
+              {err.response.data.message.split(',').map((message) => (
+                <li key={message}>
+                  {message
+                    .split(':')
+                    .pop()
+                    .replace('jwt malformed', 'You are not logged in!')}
+                </li>
               ))}
             </ul>
           </div>

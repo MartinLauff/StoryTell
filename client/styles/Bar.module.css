@@ -140,6 +140,16 @@
     right: 75%;
   }
 }
+@media only screen and (max-height: 28rem) {
+  .sidebar {
+    grid-template-rows: repeat(12, 5rem);
+    overflow-y: auto;
+  }
+  .open {
+    left: 0;
+    right: 45%;
+  }
+}
 @media only screen and (min-width: 28rem) and (max-width: 62rem) {
   .sidebar a {
     width: 30rem;

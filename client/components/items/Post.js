@@ -92,13 +92,11 @@ const Post = ({ post, UnsaveOption, userId }) => {
                 {post.title}
               </h2>
             </div>
-            {post.coverImage && (
-              <div>
-                <p className={postStyles.text}>
-                  {post.content.slice(0, 100).trim()}...
-                </p>
-              </div>
-            )}
+            <div>
+              <p className={postStyles.text}>
+                {post.content.slice(0, 100).trim()}...
+              </p>
+            </div>
             {!post.coverImage && (
               <div className={postStyles.postBottom}>
                 <div>

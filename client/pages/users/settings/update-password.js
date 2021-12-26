@@ -113,7 +113,7 @@ const updatePassword = () => {
         )}
         <button
           type='submit'
-          className={componentStyles.applyBtn}
+          className={`${componentStyles.applyBtn} ${componentStyles.marginBottom}`}
           style={
             currentPassword.length >= 8 &&
             newPassword.length >= 8 &&
