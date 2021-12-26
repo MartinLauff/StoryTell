@@ -2,6 +2,7 @@ import express from 'express';
 import 'express-async-errors';
 import cookieParser from 'cookie-parser';
 import rateLimit from 'express-rate-limit';
+import path from 'path';
 // import helmet from 'helmet';
 import ExpressMongoSanitize from 'express-mongo-sanitize';
 import xss from 'xss-clean';
@@ -54,6 +55,10 @@ app.use(xss());
 
 // Compress all responses
 app.use(compression());
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client', '.next')));
+}
 
 // ROUTES
 app.use('/api/auth', authRouter);

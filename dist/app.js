@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 require("express-async-errors");
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const express_rate_limit_1 = __importDefault(require("express-rate-limit"));
+const path_1 = __importDefault(require("path"));
 const express_mongo_sanitize_1 = __importDefault(require("express-mongo-sanitize"));
 const xss_clean_1 = __importDefault(require("xss-clean"));
 const compression_1 = __importDefault(require("compression"));
@@ -39,6 +40,9 @@ app.use((0, cookie_parser_1.default)());
 app.use((0, express_mongo_sanitize_1.default)());
 app.use((0, xss_clean_1.default)());
 app.use((0, compression_1.default)());
+if (process.env.NODE_ENV === 'production') {
+    app.use(express_1.default.static(path_1.default.join(__dirname, '../client', '.next')));
+}
 app.use('/api/auth', authRoutes_1.authRouter);
 app.use('/api/posts', postRoutes_1.postRouter);
 app.use('/api/upvotes', likesRouter_1.likeRouter);
