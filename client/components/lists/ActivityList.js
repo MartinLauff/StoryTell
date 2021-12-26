@@ -8,11 +8,27 @@ const ActivityList = ({ activities }) => {
   const [active, setActive] = useState(true);
   const [acsData, setAcsData] = useState([]);
   const [page, nextPage] = useState(1);
-  if (!activities || activities.length === 0) {
+  if (activities.length === 0) {
     return (
       <div className={activityStyles.noActivities}>
         When a user likes your post, comments on your post or starts following
         you. We will get you notified here 🔥 👍 👌
+      </div>
+    );
+  }
+  if (!activities) {
+    return (
+      <div data-center='center'>
+        <div className='wave'></div>
+        <div className='wave'></div>
+        <div className='wave'></div>
+        <div className='wave'></div>
+        <div className='wave'></div>
+        <div className='wave'></div>
+        <div className='wave'></div>
+        <div className='wave'></div>
+        <div className='wave'></div>
+        <div className='wave'></div>
       </div>
     );
   }

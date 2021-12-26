@@ -17,7 +17,6 @@ const Post = ({ post, UnsaveOption, userId }) => {
   const blackColor = { color: '#000' };
   const whiteColor = { color: '#fff' };
   const greyColor = { color: '#878a8c' };
-  console.log(post);
 
   return (
     <div
