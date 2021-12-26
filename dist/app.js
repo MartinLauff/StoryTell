@@ -41,7 +41,10 @@ app.use((0, express_mongo_sanitize_1.default)());
 app.use((0, xss_clean_1.default)());
 app.use((0, compression_1.default)());
 if (process.env.NODE_ENV === 'production') {
-    app.use(express_1.default.static(path_1.default.join(__dirname, '../client', '.next')));
+    app.use(express_1.default.static(path_1.default.join(__dirname, '../client')));
+    app.get('/*', (_req, res) => {
+        res.sendFile(path_1.default.join(__dirname, '../client/.next/server/pages/index.html'));
+    });
 }
 app.use('/api/auth', authRoutes_1.authRouter);
 app.use('/api/posts', postRoutes_1.postRouter);
