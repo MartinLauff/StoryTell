@@ -6,7 +6,7 @@
   "proxy": "https://api.cloudinary.com/",
   "main": "index.js",
   "engines": {
-    "node": "14.x"
+    "node": "^14.x"
   },
   "scripts": {
     "dev": "next dev",
