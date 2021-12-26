@@ -59,7 +59,7 @@ app.use(compression());
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client')));
   app.get('/*', (_req, res) => {
-    res.sendFile(path.join(__dirname, '../client/.next/static'));
+    res.sendFile(path.join(__dirname, '../client/pages/index.js'));
   });
 }
 
