@@ -38,10 +38,6 @@ app.prepare().then(() => {
     process.exit(1);
   });
 
-  serverApp.all('*', (req, res) => {
-    return handle(req, res);
-  });
-
   _dotenv.default.config({
     path: _path.default.join(__dirname, './config.env'),
   });
@@ -128,6 +124,9 @@ app.prepare().then(() => {
   serverApp.use('/api/comments', _commentRouter.commentRouter);
   serverApp.use('/api/users', _userRouter.userRouter);
   serverApp.use('/api/topics', _topicRouter.topicRouter);
+  serverApp.all('*', (req, res) => {
+    handle(req, res);
+  });
   serverApp.all('*', async (req, _res, next) => {
     return next(new _notFoundError.NotFoundError(req.originalUrl));
   });
