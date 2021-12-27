@@ -142,7 +142,11 @@ const PostShow = ({ data: { post }, data }) => {
             )}
           </div>
           {!editOpt && (
-            <img className={showStyles.image} src={post.coverImage} />
+            <img
+              alt='cover image'
+              className={showStyles.image}
+              src={post.coverImage}
+            />
           )}
           {editOpt && (
             <div className={componentStyles.editWrap}>

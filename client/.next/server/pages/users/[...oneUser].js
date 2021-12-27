@@ -4,194 +4,6 @@ exports.id = 658;
 exports.ids = [658];
 exports.modules = {
 
-/***/ 5039:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1664);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9915);
-/* harmony import */ var _hooks_use_request__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9799);
-/* harmony import */ var _api_build_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4808);
-/* harmony import */ var _components_lists_PostList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2032);
-/* harmony import */ var _components_bars_ArrowBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4137);
-/* harmony import */ var _styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(4486);
-/* harmony import */ var _styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_components_lists_PostList__WEBPACK_IMPORTED_MODULE_5__, js_cookie__WEBPACK_IMPORTED_MODULE_2__]);
-([_components_lists_PostList__WEBPACK_IMPORTED_MODULE_5__, js_cookie__WEBPACK_IMPORTED_MODULE_2__] = __webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__);
-
-
-
-
-
-
-
-
-
-
-
-const OneUser = ({
-  data
-}) => {
-  const {
-    0: active,
-    1: setActive
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  const {
-    0: followers,
-    1: setFollowers
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(data.user.followers.length);
-  const {
-    doRequest,
-    errors
-  } = (0,_hooks_use_request__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z)({
-    url: `/api/users/${active ? 'unfollow' : 'follow'}/${data.user._id}`,
-    method: 'put',
-    headers: {
-      Authorization: 'Bearer ' + js_cookie__WEBPACK_IMPORTED_MODULE_2__["default"].get('jwt')
-    }
-  });
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (data.user.followers.includes(data.userId)) {
-      setActive(true);
-    }
-  }, []);
-
-  const follow = e => {
-    e.preventDefault();
-
-    if (active) {
-      setFollowers(oldState => oldState - 1);
-    } else {
-      setFollowers(oldState => oldState + 1);
-    }
-
-    doRequest();
-    setActive(!active);
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-    children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx(_components_bars_ArrowBar__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
-      title: "User profile"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-      className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().wrapper),
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().userTop),
-        children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("img", {
-          src: data.user.photo,
-          className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().photo),
-          alt: "profile photo"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().description),
-          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("h1", {
-            className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().name),
-            children: data.user.username
-          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("p", {
-            className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().hobby),
-            children: data.user.hobby
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().btns),
-            children: [data.user._id !== data.userId && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("button", {
-              style: active ? {
-                backgroundColor: '#000'
-              } : {
-                backgroundColor: '#FF2F2F'
-              },
-              onClick: follow,
-              className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().follow),
-              children: active ? 'Following' : 'Follow'
-            }), data.user._id !== data.userId && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("button", {
-              className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().chat),
-              children: "Chat"
-            }), data.user._id === data.userId && /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
-              href: "/users/settings/update-my-profile",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("a", {
-                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().editMyProfile),
-                children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("svg", {
-                  width: "13",
-                  height: "14",
-                  viewBox: "0 0 13 14",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg",
-                  children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("path", {
-                    d: "M0.711148 13.5768C0.612874 13.5766 0.515711 13.556 0.425836 13.5162C0.335962 13.4765 0.255343 13.4185 0.189107 13.3459C0.121672 13.2739 0.0702153 13.1885 0.0381102 13.0952C0.00600514 13.0019 -0.00602276 12.9029 0.00281499 12.8047L0.176357 10.8964L8.19327 2.88236L10.6986 5.38703L2.68386 13.4004L0.775607 13.5739C0.754178 13.5759 0.732667 13.5769 0.711148 13.5768ZM11.1987 4.88623L8.69406 2.38157L10.1964 0.879193C10.2622 0.813334 10.3403 0.761088 10.4263 0.725442C10.5123 0.689795 10.6045 0.671448 10.6976 0.671448C10.7907 0.671448 10.8828 0.689795 10.9688 0.725442C11.0548 0.761088 11.1329 0.813334 11.1987 0.879193L12.7011 2.38157C12.767 2.44735 12.8192 2.52547 12.8549 2.61146C12.8905 2.69745 12.9089 2.78963 12.9089 2.88271C12.9089 2.9758 12.8905 3.06797 12.8549 3.15396C12.8192 3.23995 12.767 3.31807 12.7011 3.38386L11.1994 4.88553L11.1987 4.88623Z",
-                    fill: "white"
-                  })
-                }), "Edit profile"]
-              })
-            })]
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().stats),
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("p", {
-            className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().data),
-            children: data.user.posts.length
-          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("p", {
-            className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().legend),
-            children: "Posts"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("p", {
-            className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().data),
-            children: followers
-          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("p", {
-            className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().legend),
-            children: "Followers"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-          children: [/*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("p", {
-            className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().data),
-            children: data.user.following.length
-          }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("p", {
-            className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().legend),
-            children: "Following"
-          })]
-        })]
-      })]
-    }), /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx(_components_lists_PostList__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
-      text: "Current user doesn't have any posts",
-      posts: data.user.posts,
-      userId: data.userId
-    }), errors, /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx("style", {
-      style: {
-        display: 'none'
-      },
-      children: `html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`
-    })]
-  });
-};
-
-const getServerSideProps = async ctx => {
-  const {
-    oneUser
-  } = ctx.query;
-  const client = (0,_api_build_client__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z)(ctx);
-  const {
-    data
-  } = await client.get(`/api/users/${oneUser}`);
-  return {
-    props: {
-      data,
-      oneUser
-    }
-  };
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OneUser);
-});
-
-/***/ }),
-
 /***/ 2604:
 /***/ ((module) => {
 
@@ -237,6 +49,211 @@ module.exports = {
 	"editMyProfile": "OneUser_editMyProfile__yOb8O"
 };
 
+
+/***/ }),
+
+/***/ 4567:
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1664);
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9915);
+/* harmony import */ var _hooks_use_request__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6471);
+/* harmony import */ var _api_build_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8775);
+/* harmony import */ var _components_lists_PostList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(5511);
+/* harmony import */ var _components_bars_ArrowBar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5109);
+/* harmony import */ var _styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(4486);
+/* harmony import */ var _styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8__);
+var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_components_lists_PostList__WEBPACK_IMPORTED_MODULE_6__, js_cookie__WEBPACK_IMPORTED_MODULE_3__]);
+([_components_lists_PostList__WEBPACK_IMPORTED_MODULE_6__, js_cookie__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__);
+
+
+
+
+
+
+
+
+
+const OneUser = ({ data  })=>{
+    const { 0: active , 1: setActive  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
+    const { 0: followers , 1: setFollowers  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(data.user.followers.length);
+    const { doRequest , errors  } = (0,_hooks_use_request__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z)({
+        url: `/api/users/${active ? 'unfollow' : 'follow'}/${data.user._id}`,
+        method: 'put',
+        headers: {
+            Authorization: 'Bearer ' + js_cookie__WEBPACK_IMPORTED_MODULE_3__["default"].get('jwt')
+        }
+    });
+    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+        if (data.user.followers.includes(data.userId)) {
+            setActive(true);
+        }
+    }, []);
+    const follow = (e)=>{
+        e.preventDefault();
+        if (active) {
+            setFollowers((oldState)=>oldState - 1
+            );
+        } else {
+            setFollowers((oldState)=>oldState + 1
+            );
+        }
+        doRequest();
+        setActive(!active);
+    };
+    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        children: [
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_bars_ArrowBar__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
+                title: "User profile"
+            }),
+            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().wrapper),
+                children: [
+                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().userTop),
+                        children: [
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
+                                src: data.user.photo,
+                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().photo),
+                                alt: "profile photo"
+                            }),
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().description),
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().name),
+                                        children: data.user.username
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().hobby),
+                                        children: data.user.hobby
+                                    }),
+                                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().btns),
+                                        children: [
+                                            data.user._id !== data.userId && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                                                style: active ? {
+                                                    backgroundColor: '#000'
+                                                } : {
+                                                    backgroundColor: '#FF2F2F'
+                                                },
+                                                onClick: follow,
+                                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().follow),
+                                                children: active ? 'Following' : 'Follow'
+                                            }),
+                                            data.user._id !== data.userId && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().chat),
+                                                children: "Chat"
+                                            }),
+                                            data.user._id === data.userId && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                                                href: "/users/settings/update-my-profile",
+                                                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
+                                                    className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().editMyProfile),
+                                                    children: [
+                                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+                                                            width: "13",
+                                                            height: "14",
+                                                            viewBox: "0 0 13 14",
+                                                            fill: "none",
+                                                            xmlns: "http://www.w3.org/2000/svg",
+                                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                                                                d: "M0.711148 13.5768C0.612874 13.5766 0.515711 13.556 0.425836 13.5162C0.335962 13.4765 0.255343 13.4185 0.189107 13.3459C0.121672 13.2739 0.0702153 13.1885 0.0381102 13.0952C0.00600514 13.0019 -0.00602276 12.9029 0.00281499 12.8047L0.176357 10.8964L8.19327 2.88236L10.6986 5.38703L2.68386 13.4004L0.775607 13.5739C0.754178 13.5759 0.732667 13.5769 0.711148 13.5768ZM11.1987 4.88623L8.69406 2.38157L10.1964 0.879193C10.2622 0.813334 10.3403 0.761088 10.4263 0.725442C10.5123 0.689795 10.6045 0.671448 10.6976 0.671448C10.7907 0.671448 10.8828 0.689795 10.9688 0.725442C11.0548 0.761088 11.1329 0.813334 11.1987 0.879193L12.7011 2.38157C12.767 2.44735 12.8192 2.52547 12.8549 2.61146C12.8905 2.69745 12.9089 2.78963 12.9089 2.88271C12.9089 2.9758 12.8905 3.06797 12.8549 3.15396C12.8192 3.23995 12.767 3.31807 12.7011 3.38386L11.1994 4.88553L11.1987 4.88623Z",
+                                                                fill: "white"
+                                                            })
+                                                        }),
+                                                        "Edit profile"
+                                                    ]
+                                                })
+                                            })
+                                        ]
+                                    })
+                                ]
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().stats),
+                        children: [
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().data),
+                                        children: data.user.posts.length
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().legend),
+                                        children: "Posts"
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().data),
+                                        children: followers
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().legend),
+                                        children: "Followers"
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                children: [
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().data),
+                                        children: data.user.following.length
+                                    }),
+                                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().legend),
+                                        children: "Following"
+                                    })
+                                ]
+                            })
+                        ]
+                    })
+                ]
+            }),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_lists_PostList__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
+                text: "Current user doesn't have any posts",
+                posts: data.user.posts,
+                userId: data.userId
+            }),
+            errors,
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("style", {
+                style: {
+                    display: 'none'
+                },
+                children: `html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`
+            })
+        ]
+    }));
+};
+const getServerSideProps = async (ctx)=>{
+    const { oneUser  } = ctx.query;
+    const client = (0,_api_build_client__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z)(ctx);
+    const { data  } = await client.get(`/api/users/${oneUser}`);
+    return {
+        props: {
+            data,
+            oneUser
+        }
+    };
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OneUser);
+
+});
 
 /***/ }),
 
@@ -399,7 +416,7 @@ module.exports = import("js-cookie");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [400,664,853,799,771,859,32,701], () => (__webpack_exec__(5039)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,313,511,109], () => (__webpack_exec__(4567)));
 module.exports = __webpack_exports__;
 
 })();

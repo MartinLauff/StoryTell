@@ -5,6 +5,25 @@ import Activity from '../items/Activity';
 import activityStyles from '../../styles/Activity.module.css';
 
 const ActivityList = ({ activities }) => {
+  const [active, setActive] = useState(true);
+  const [acsData, setAcsData] = useState([]);
+  const [page, nextPage] = useState(1);
+  const { doRequest, errors } = useRequest({
+    url: `/api/users/activities?page=${page}&limit=10`,
+    method: 'get',
+    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+  });
+  useEffect(() => {
+    if (activities.length < 10) {
+      return setActive(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    setAcsData((oldState) => [...oldState, ...activities]);
+    nextPage((oldState) => oldState + 1);
+  }, []);
+
   if (activities.length === 0) {
     return (
       <div className={activityStyles.noActivities}>
@@ -29,25 +48,6 @@ const ActivityList = ({ activities }) => {
       </div>
     );
   }
-  const [active, setActive] = useState(true);
-  const [acsData, setAcsData] = useState([]);
-  const [page, nextPage] = useState(1);
-  useEffect(() => {
-    if (activities.length < 10) {
-      return setActive(false);
-    }
-  }, []);
-
-  const { doRequest, errors } = useRequest({
-    url: `/api/users/activities?page=${page}&limit=10`,
-    method: 'get',
-    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
-  });
-
-  useEffect(() => {
-    setAcsData((oldState) => [...oldState, ...activities]);
-    nextPage((oldState) => oldState + 1);
-  }, []);
 
   const onClick = async (e) => {
     e.preventDefault();
