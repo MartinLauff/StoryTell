@@ -1,0 +1,36 @@
+.topicStripe {
+  width: 100%;
+  position: relative;
+  height: 4rem;
+  background-color: #000;
+  margin: 8rem 0 3rem;
+}
+.topicStripe div {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -40%;
+  left: 5%;
+}
+.topicStripe h2 {
+  color: #fff;
+  margin-left: 1rem;
+}
+.topicStripe h2:first-letter {
+  text-transform: uppercase;
+}
+.topicStripe img {
+  width: 7rem;
+  height: 7.2rem;
+  border-radius: 10rem;
+}
+@media only screen and (min-width: 62.5rem) {
+  .topicStripe div {
+    left: 15%;
+  }
+}
+@media only screen and (min-width: 28rem) {
+  .topicStripe {
+    background: linear-gradient(0.25turn, #000 80%, #fff);
+  }
+}

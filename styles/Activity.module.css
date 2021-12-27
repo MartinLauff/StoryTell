@@ -1,0 +1,74 @@
+.mainTitle {
+  display: flex;
+  align-items: center;
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
+.mainTitle svg {
+  margin-right: 0.5rem;
+}
+.mainTitle h2 {
+  font-size: var(--fs-mid);
+}
+.noActivities {
+  width: 90%;
+  margin: 2rem auto 0;
+  text-align: center;
+  font-size: var(--fs-small);
+}
+.activityList {
+  width: 80%;
+  margin: 1rem auto 5.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.imageLeft {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.3rem;
+}
+.topicLeft {
+  width: 4rem;
+  height: 4rem;
+}
+.profilePic {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 5rem;
+}
+.activityWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 33rem;
+  margin-bottom: 1.5rem;
+}
+.activityWrapper svg:hover {
+  cursor: auto;
+}
+.message {
+  color: #000;
+}
+.text {
+  width: 50%;
+}
+.time {
+  font-size: var(--fs-tiny);
+  color: #b9b9b9;
+}
+.moreAcs {
+  height: 4rem;
+  width: 13rem;
+  border: 2rem;
+  background-color: #fff;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+  margin-bottom: 2rem;
+  color: #000;
+}
+.moreAcs:focus {
+  outline: none;
+  text-decoration: underline #000;
+}

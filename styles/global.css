@@ -1,0 +1,125 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+:root {
+  /*Font Weight*/
+  --fw-super-slim: 300;
+  --fw-slim: 400;
+  --fw-normal: 500;
+  --fw-bold: 700;
+  /*Font Size*/
+  --fs-huge: 4.8rem;
+  --fs-large: 2.8rem;
+  --fs-big: 2.4rem;
+  --fs-mid: 1.8rem;
+  --fs-small: 1.4rem;
+  --fs-tiny: 1.2rem;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+body {
+  font-family: Roboto;
+  font-weight: var(--fw-slim);
+  line-height: 1.5;
+}
+h1 {
+  font-weight: var(--fw-normal);
+  font-size: var(--fs-huge);
+}
+h2 {
+  font-size: var(--fs-big);
+  font-weight: var(--fw-slim);
+}
+h3 {
+  font-weight: var(--fw-normal);
+  height: 2rem;
+  margin: auto;
+  font-size: var(--fs-big);
+}
+h1,
+p {
+  color: #fff;
+}
+p,
+span {
+  font-size: var(--fs-mid);
+}
+button {
+  cursor: pointer;
+}
+button:focus,
+input:focus {
+  outline: 2px solid #33a5e7;
+}
+textarea {
+  font-family: Roboto;
+  border: 2px solid #000;
+}
+textarea::placeholder {
+  font-family: Roboto;
+  font-weight: var(--fw-super-slim);
+}
+select option {
+  color: #000;
+}
+svg:hover {
+  cursor: pointer;
+}
+div[data-center='center'] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+div[data-center='center'] .wave {
+  width: 5px;
+  height: 100px;
+  background: linear-gradient(45deg, #00ffff, #fff);
+  margin: 10px;
+  animation: wave 1s linear infinite;
+  border-radius: 20px;
+}
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.wave:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.wave:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.wave:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.wave:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.wave:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.wave:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.wave:nth-child(10) {
+  animation-delay: 0.9s;
+}
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}

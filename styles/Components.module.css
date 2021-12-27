@@ -1,0 +1,234 @@
+.button {
+  width: 14rem;
+  height: 4.6rem;
+  font-size: var(--fs-mid);
+  font-weight: var(--fw-normal);
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 1rem;
+  border: none;
+}
+.whiteButton {
+  color: #000;
+  background: #fff;
+}
+.redButton {
+  color: #fff;
+  background: #ff2f2f;
+}
+.textInput {
+  border-radius: 1rem;
+  width: 29rem;
+  height: 5rem;
+  padding: 0 2rem;
+  font-size: var(--fs-small);
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
+  margin-bottom: 2rem;
+  outline: none;
+  border: none;
+}
+.textInput::placeholder {
+  color: #a2a5b5;
+}
+.btnWrapper {
+  width: 85%;
+  margin: 1rem auto 0;
+  display: flex;
+  justify-content: center;
+}
+.cancelBtn {
+  background-color: #fff;
+  color: #ff2f2f;
+  border: 2px solid #ff2f2f;
+}
+.applyBtn:hover {
+  box-shadow: inset 0 0 20px rgba(255, 47, 47, 0.5),
+    0 0 20px rgba(255, 47, 47, 0.2);
+  outline-color: rgba(255, 47, 47, 0);
+  outline-offset: 15px;
+}
+.applyBtn {
+  background-color: #ff2f2f;
+  margin-left: 1rem;
+  color: #fff;
+  border: none;
+  /*Animation*/
+  box-shadow: inset 0 0 20px rgba(255, 47, 47, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 47, 47, 0.5);
+  outline-offset: 0px;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.applyBtn,
+.cancelBtn {
+  font-size: var(--fs-mid);
+  font-weight: var(--fw-normal);
+  width: 12rem;
+  height: 4rem;
+  border-radius: 1rem;
+}
+.moreBanner {
+  background-color: #fff;
+  width: 16rem;
+  box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  z-index: 16;
+}
+.moreBanner svg {
+  margin-right: 0.8rem;
+}
+.bannerOption {
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s;
+  justify-content: center;
+  width: 100%;
+  height: 6rem;
+}
+.bannerText {
+  color: #000;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+}
+.bannerOption:focus {
+  background-color: #dadada;
+}
+.bannerOption:hover {
+  background-color: #cdcfd6a6;
+}
+.transparentLayer {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.err {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.xIcon {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  background-color: #00ffff;
+  right: 3%;
+  border-radius: 5rem;
+  padding: 1rem;
+}
+.imgON {
+  top: -3%;
+}
+.imgOFF {
+  top: -15%;
+}
+.xIcon:hover {
+  cursor: pointer;
+}
+.layer {
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.9s all;
+}
+.deleteBanner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 40;
+  background-color: #fff;
+  width: 29rem;
+  height: 12.8rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.deleteBanner p {
+  font-size: var(--fs-mid);
+  color: #000;
+  margin-bottom: 1.5rem;
+  width: 85%;
+}
+.cancel {
+  margin-right: 2rem;
+  color: #ff2f2f;
+  border: 2px solid #ff2f2f;
+  background-color: #fff;
+}
+.delete {
+  background-color: #ff2f2f;
+  border: none;
+  color: #fff;
+}
+.deleteBanner button,
+.editWrap button {
+  width: 10rem;
+  height: 3.6rem;
+  border-radius: 0.5rem;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+}
+.editWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.textArea {
+  width: 27rem;
+  height: 10rem;
+  border: none;
+  font-size: var(--fs-small);
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 1em 4px rgba(0, 0, 0, 0.575);
+}
+.textArea:focus {
+  outline: 2px solid #33a5e7;
+}
+.Xmarker {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  background-color: #ff8c00;
+  top: 0;
+  right: 0;
+  border-radius: 5rem;
+  padding: 0.6rem;
+}
+.Xmarker:hover {
+  cursor: pointer;
+}
+.Not {
+  cursor: not-allowed;
+}
+.marginBottom {
+  margin-bottom: 2rem;
+}
+@media only screen and (min-width: 28rem) {
+  .moreBanner {
+    width: 19.5rem;
+    right: -10%;
+  }
+  .xIcon {
+    right: -3%;
+  }
+  .imgOFF {
+    top: -12%;
+  }
+}
+@media only screen and (min-width: 40rem) {
+  .imgON {
+    top: -2%;
+  }
+}

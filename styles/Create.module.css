@@ -1,0 +1,70 @@
+.wrap {
+  width: 80%;
+  margin: 4rem auto 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.wrap option {
+  border-radius: 1rem;
+}
+.wrap label {
+  color: #ff2f2f;
+  font-size: var(--fs-small);
+  display: inline-block;
+  text-decoration: none;
+  border: 2px solid #ff2f2f;
+  padding: 3px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  width: 13rem;
+  height: 3rem;
+  text-align: center;
+}
+.wrap span {
+  color: #000;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-slim);
+  margin-left: 1rem;
+}
+.wrap input,
+.wrap select {
+  border: 2px solid #000;
+}
+.wrap input[type='file'] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.wrapper {
+  margin-bottom: 2rem;
+  width: 29rem;
+}
+.wrap textarea:focus,
+.wrap select:focus {
+  outline: 2px solid #33a5e7;
+}
+.delPic {
+  cursor: pointer;
+  position: absolute;
+  top: -45%;
+  right: -30%;
+}
+.hide {
+  display: none;
+}
+.name {
+  position: relative;
+  display: inline;
+}
+@media only screen and (min-width: 62.5rem) {
+  .wrap {
+    margin: 10rem auto 0;
+  }
+}
