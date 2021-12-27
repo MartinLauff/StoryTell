@@ -6,8 +6,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start -p $PORT",
+    "prestart": "next build",
+    "start": "next start",
     "lint": "next lint",
     "heroku-postbuild": "npm run build",
     "qqq": "git add . && git commit -m \"try\" && git push origin main"
