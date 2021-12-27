@@ -12,7 +12,7 @@
     "test": "jest --watchAll --no-cache",
     "test:ci": "jest",
     "qqq": "git add . && git commit -m \"try\" && git push origin main",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run prestart --prefix client"
   },
   "jest": {
     "preset": "ts-jest",
