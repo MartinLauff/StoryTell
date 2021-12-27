@@ -4,15 +4,13 @@
   "description": "Client side of StoryTell",
   "proxy": "https://api.cloudinary.com/",
   "main": "index.js",
-  "engines": {
-    "node": "^14.x"
-  },
   "scripts": {
     "dev": "next dev",
-    "prestart": "next build",
+    "build": "next build",
     "start": "next start -p $PORT",
     "lint": "next lint",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "qqq": "git add . && git commit -m \"try\" && git push origin main"
   },
   "keywords": [],
   "author": "",
