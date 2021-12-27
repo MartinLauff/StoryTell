@@ -141,7 +141,7 @@ const PostShow = ({ data: { post }, data }) => {
               />
             )}
           </div>
-          {!editOpt && (
+          {!editOpt && post.coverImage && (
             <img
               alt='cover image'
               className={showStyles.image}
