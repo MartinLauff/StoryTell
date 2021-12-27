@@ -5,7 +5,7 @@ import useRequest from '../../../hooks/use-request';
 import editStyles from '../../../styles/EditProfile.module.css';
 import componentStyles from '../../../styles/Components.module.css';
 
-const updatePassword = () => {
+const UpdatePassword = () => {
   const [active, setActive] = useState(false);
   const [success, setSuccess] = useState(false);
   const [currentPassword, setCurrentPassword] = useState('');
@@ -143,4 +143,4 @@ const updatePassword = () => {
   );
 };
 
-export default updatePassword;
+export default UpdatePassword;

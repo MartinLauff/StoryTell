@@ -5,9 +5,6 @@ import Activity from '../items/Activity';
 import activityStyles from '../../styles/Activity.module.css';
 
 const ActivityList = ({ activities }) => {
-  const [active, setActive] = useState(true);
-  const [acsData, setAcsData] = useState([]);
-  const [page, nextPage] = useState(1);
   if (activities.length === 0) {
     return (
       <div className={activityStyles.noActivities}>
@@ -32,6 +29,9 @@ const ActivityList = ({ activities }) => {
       </div>
     );
   }
+  const [active, setActive] = useState(true);
+  const [acsData, setAcsData] = useState([]);
+  const [page, nextPage] = useState(1);
   useEffect(() => {
     if (activities.length < 10) {
       return setActive(false);

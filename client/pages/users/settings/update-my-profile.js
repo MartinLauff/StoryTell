@@ -8,7 +8,7 @@ import buildClient from '../../../api/build-client';
 import editStyles from '../../../styles/EditProfile.module.css';
 import componentStyles from '../../../styles/Components.module.css';
 
-const updateMyProfile = ({ data }) => {
+const UpdateMyProfile = ({ data }) => {
   const [errors, setErrors] = useState(null);
   const [photo, setProfilePhoto] = useState(data.photo);
   const [username, setUsername] = useState(data.username);
@@ -196,4 +196,4 @@ export const getServerSideProps = async (ctx) => {
   };
 };
 
-export default updateMyProfile;
+export default UpdateMyProfile;
