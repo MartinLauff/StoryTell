@@ -59,9 +59,9 @@ app.prepare().then(() => {
     .connect(DB)
     .then(() => console.log('DB connection successful!'));
 
-  //   const port = process.env.PORT || 3000;
-  const server = serverApp.listen(3000, () => {
-    console.log(`App running on port ${3000}...`);
+  const port = process.env.PORT || 3000;
+  const server = serverApp.listen(port, () => {
+    console.log(`App running on port ${port}...`);
   });
   process.on('unhandledRejection', (err) => {
     console.log('UNHANDLED REJECTION! Shutting down...');
