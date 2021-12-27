@@ -138,7 +138,10 @@ const Post = ({ post, UnsaveOption, userId }) => {
             <CommentIcon />
             <span style={{ marginLeft: '0.8rem', ...greyColor }}>Comments</span>
           </div>
-          <div onClick={() => setBanner(true)}>
+          <div
+            style={{ padding: '1.5rem 1rem' }}
+            onClick={() => setBanner(true)}
+          >
             <MoreIcon />
           </div>
           {banner && (
