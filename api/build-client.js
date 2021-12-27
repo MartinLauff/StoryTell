@@ -6,6 +6,7 @@ const buildClient = ({ req }) => {
     return axios.create({
       baseURL: 'https://storytull.herokuapp.com/',
       headers: req.headers,
+      withCredentials: true,
     });
   } else {
     // We must be on the browser

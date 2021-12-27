@@ -15,6 +15,7 @@ const useRequest = ({ url, method, headers, body, onSuccess }) => {
           ...body,
         },
         headers,
+        withCredentials: true,
       });
 
       if (onSuccess) {
