@@ -26,6 +26,7 @@ const UpdateMyProfile = ({ data }) => {
         email,
       },
       headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+      withCredentials: true,
     })
       .then(() => Router.push('/users/my-profile'))
       .catch(({ response: { data } }) =>

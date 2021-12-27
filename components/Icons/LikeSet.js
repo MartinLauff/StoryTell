@@ -26,6 +26,7 @@ const LikeSet = ({ postID, likes, greyColor, userId }) => {
         url: `/api/upvotes/${postID}/${path}`,
         headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
         method: 'put',
+        withCredentials: true,
       });
     } catch (err) {
       setErrors(

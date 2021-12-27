@@ -38,6 +38,7 @@ const CreatePost = () => {
         content,
       },
       headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
+      withCredentials: true,
     })
       .then(() => Router.push(`/topics/${topic.toLowerCase()}`))
       .catch((err) =>
