@@ -27,7 +27,7 @@ const signup = async (req, res, next) => {
     res.cookie('jwt', token, {
         expires: new Date(Date.now() +
             Number(process.env.JWT_COOKIE_EXPIRES_IN) * 24 * 60 * 60 * 1000),
-        httpOnly: true,
+        secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
     });
     newUser.password = undefined;
     res.status(201).json({
