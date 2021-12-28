@@ -18,7 +18,7 @@ const CreatePost = () => {
   useEffect(() => {
     setTimeout(() => {
       setErrors(null);
-    }, 4000);
+    }, 8000);
   }, [errors]);
 
   useEffect(() => {

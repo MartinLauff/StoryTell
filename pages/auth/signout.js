@@ -14,7 +14,7 @@ const Signout = () => {
   useEffect(() => {
     doRequest();
     Cookies.remove('jwt');
-  });
+  }, []);
 
   const style = {
     fontSize: '4rem',
