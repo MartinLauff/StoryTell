@@ -44,10 +44,11 @@
   text-align: center;
 }
 .errWrap {
-  background: rgba(0, 0, 0, 0.85);
-  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  position: static;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  border-radius: 1rem;
 }
