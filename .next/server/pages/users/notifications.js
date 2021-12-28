@@ -40,7 +40,8 @@ const buildClient = ({ req  })=>{
         // We are on the server
         return axios__WEBPACK_IMPORTED_MODULE_0___default().create({
             baseURL: 'https://storytull.herokuapp.com/',
-            headers: req.headers
+            headers: req.headers,
+            withCredentials: true
         });
     } else {}
 };

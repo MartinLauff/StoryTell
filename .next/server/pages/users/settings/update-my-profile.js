@@ -48,7 +48,8 @@ const buildClient = ({ req  })=>{
         // We are on the server
         return axios__WEBPACK_IMPORTED_MODULE_0___default().create({
             baseURL: 'https://storytull.herokuapp.com/',
-            headers: req.headers
+            headers: req.headers,
+            withCredentials: true
         });
     } else {}
 };
@@ -114,7 +115,8 @@ const UpdateMyProfile = ({ data: data1  })=>{
             },
             headers: {
                 Authorization: 'Bearer ' + js_cookie__WEBPACK_IMPORTED_MODULE_5__["default"].get('jwt')
-            }
+            },
+            withCredentials: true
         }).then(()=>next_router__WEBPACK_IMPORTED_MODULE_4___default().push('/users/my-profile')
         ).catch(({ response: { data  }  })=>setErrors(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                 className: (_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_7___default().errorBanner),

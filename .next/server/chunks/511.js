@@ -244,6 +244,9 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                         ]
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                        style: {
+                            padding: '1.5rem 1rem'
+                        },
                         onClick: ()=>setBanner(true)
                         ,
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_MoreIcon__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {

@@ -21,7 +21,7 @@
   background-size: cover;
 }
 .heading {
-  margin: 15rem 0 1rem;
+  margin: 7.5rem 0 1rem;
 }
 .indexSpan {
   text-align: center;
@@ -37,13 +37,23 @@
   .signinImg {
     background: rgba(0, 0, 0, 0.85);
   }
-  .heading {
-    margin: 5rem 0 1rem;
+}
+@media only screen and (max-height: 20rem) {
+  .mybackground button:last-child {
+    margin-bottom: 2rem;
+  }
+  .mybackground {
+    position: static;
   }
 }
 @media only screen and (min-width: 50rem) {
   .indexImg,
   .signinImg {
     background: rgba(0, 0, 0, 0.85);
+  }
+}
+@media only screen and (min-width: 28rem) and (min-height: 28rem) {
+  .heading {
+    margin: 15rem 0 1rem;
   }
 }

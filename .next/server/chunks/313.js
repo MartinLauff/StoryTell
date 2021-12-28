@@ -17,7 +17,8 @@ const buildClient = ({ req  })=>{
         // We are on the server
         return axios__WEBPACK_IMPORTED_MODULE_0___default().create({
             baseURL: 'https://storytull.herokuapp.com/',
-            headers: req.headers
+            headers: req.headers,
+            withCredentials: true
         });
     } else {}
 };
@@ -102,7 +103,8 @@ const LikeSet = ({ postID , likes , greyColor , userId  })=>{
                 headers: {
                     Authorization: 'Bearer ' + js_cookie__WEBPACK_IMPORTED_MODULE_4__["default"].get('jwt')
                 },
-                method: 'put'
+                method: 'put',
+                withCredentials: true
             });
         } catch (err1) {
             setErrors(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {

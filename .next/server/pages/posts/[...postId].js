@@ -472,7 +472,7 @@ const PostShow = ({ data: { post  } , data  })=>{
                                     })
                                 ]
                             }),
-                            !editOpt && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
+                            !editOpt && post.coverImage && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
                                 alt: "cover image",
                                 className: (_styles_Show_module_css__WEBPACK_IMPORTED_MODULE_20___default().image),
                                 src: post.coverImage
