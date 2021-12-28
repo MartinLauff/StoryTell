@@ -3,8 +3,6 @@ import Link from 'next/link';
 import LikeSet from '../Icons/LikeSet';
 import SaveOption from '../../components/bannerOptions/SaveOption';
 import CopyOption from '../../components/bannerOptions/CopyOption';
-import DeleteOption from '../../components/bannerOptions/DeleteOption';
-import EditOption from '../../components/bannerOptions/EditOption';
 import postStyles from '../../styles/Post.module.css';
 import componentStyles from '../../styles/Components.module.css';
 import formatDistance from 'date-fns/formatDistance';
@@ -151,12 +149,6 @@ const Post = ({ post, UnsaveOption, userId }) => {
             >
               <SaveOption postID={post._id} />
               <CopyOption />
-              {/* {data.userPosts.includes(post._id) && (
-                <EditOption activation={setEditOpt} />
-              )}
-              {data.userPosts.includes(post._id) && (
-                <DeleteOption activation={setDeleteOpt} />
-              )} */}
             </div>
           )}
         </div>

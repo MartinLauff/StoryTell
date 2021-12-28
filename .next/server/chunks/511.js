@@ -46,20 +46,16 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
 /* harmony import */ var _Icons_LikeSet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9107);
 /* harmony import */ var _components_bannerOptions_SaveOption__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7417);
 /* harmony import */ var _components_bannerOptions_CopyOption__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5845);
-/* harmony import */ var _components_bannerOptions_DeleteOption__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7760);
-/* harmony import */ var _components_bannerOptions_EditOption__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8537);
-/* harmony import */ var _styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(2407);
-/* harmony import */ var _styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(6853);
-/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var date_fns_formatDistance__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(3291);
-/* harmony import */ var date_fns_formatDistance__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(date_fns_formatDistance__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _Icons_CommentIcon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(5363);
-/* harmony import */ var _Icons_MoreIcon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(1110);
+/* harmony import */ var _styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(2407);
+/* harmony import */ var _styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(6853);
+/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var date_fns_formatDistance__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(3291);
+/* harmony import */ var date_fns_formatDistance__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(date_fns_formatDistance__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _Icons_CommentIcon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5363);
+/* harmony import */ var _Icons_MoreIcon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(1110);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_components_bannerOptions_SaveOption__WEBPACK_IMPORTED_MODULE_4__, _Icons_LikeSet__WEBPACK_IMPORTED_MODULE_3__]);
 ([_components_bannerOptions_SaveOption__WEBPACK_IMPORTED_MODULE_4__, _Icons_LikeSet__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__);
-
-
 
 
 
@@ -84,7 +80,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
         color: '#878a8c'
     };
     return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: `${state ? (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().post) : (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().hide)} ${!post.coverImage ? (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().borda) : ''}`,
+        className: `${state ? (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().post) : (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().hide)} ${!post.coverImage ? (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().borda) : ''}`,
         children: [
             UnsaveOption && /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_1__.cloneElement)(UnsaveOption, {
                 postId: post._id,
@@ -95,20 +91,20 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                 href: "/posts/[...postId]",
                 as: `/posts/${post._id}`,
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
-                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().postLink),
+                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().postLink),
                     style: {
                         textDecoration: 'none',
                         display: 'flex'
                     },
                     children: [
                         /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                            className: post.coverImage ? (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().imagePosition) : (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().textPosition),
+                            className: post.coverImage ? (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().imagePosition) : (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().textPosition),
                             children: [
                                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                     style: post.coverImage ? {
                                         paddingTop: '1.5rem'
                                     } : null,
-                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().postTop),
+                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().postTop),
                                     children: [
                                         /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                             style: {
@@ -120,21 +116,21 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                                     style: {
                                                         marginRight: '0.5rem'
                                                     },
-                                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().icon),
+                                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().icon),
                                                     alt: post.title,
                                                     src: `/${post.slug}.jpg`
                                                 }),
                                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                                     style: post.coverImage ? whiteColor : blackColor,
-                                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().topic),
+                                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().topic),
                                                     children: `s/${post.topic}`
                                                 })
                                             ]
                                         }),
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                             style: post.coverImage ? whiteColor : greyColor,
-                                            className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().date),
-                                            children: date_fns_formatDistance__WEBPACK_IMPORTED_MODULE_8___default()(new Date(post.createdAt), new Date(), {
+                                            className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().date),
+                                            children: date_fns_formatDistance__WEBPACK_IMPORTED_MODULE_6___default()(new Date(post.createdAt), new Date(), {
                                                 addSuffix: true
                                             }).replace('about', '').replace('less than', '')
                                         }),
@@ -149,12 +145,12 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                                         marginRight: '0.5rem'
                                                     },
                                                     src: post.postedBy.photo,
-                                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().icon),
+                                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().icon),
                                                     alt: "profile photo"
                                                 }),
                                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
                                                     style: post.coverImage ? whiteColor : blackColor,
-                                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().topic),
+                                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().topic),
                                                     children: post.postedBy.username
                                                 })
                                             ]
@@ -165,7 +161,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                     style: post.coverImage ? {
                                         padding: '1rem 0'
                                     } : null,
-                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().postContent),
+                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().postContent),
                                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
                                         style: post.coverImage ? whiteColor : blackColor,
                                         children: post.title
@@ -173,7 +169,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                 }),
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                     children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
-                                        className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().text),
+                                        className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().text),
                                         children: [
                                             post.content.slice(0, 100).trim(),
                                             "..."
@@ -181,7 +177,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                     })
                                 }),
                                 !post.coverImage && /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().postBottom),
+                                    className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().postBottom),
                                     children: [
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_LikeSet__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
@@ -193,7 +189,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                         }),
                                         /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                             children: [
-                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_CommentIcon__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
+                                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_CommentIcon__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
                                                 }),
                                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                                     style: {
@@ -205,7 +201,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                             ]
                                         }),
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_MoreIcon__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
+                                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_MoreIcon__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, {
                                             })
                                         })
                                     ]
@@ -213,7 +209,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                             ]
                         }),
                         post.coverImage && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                            className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().coverImage),
+                            className: (_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().coverImage),
                             src: post.coverImage,
                             alt: post.title
                         })
@@ -221,7 +217,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                 })
             }),
             post.coverImage && /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: `${(_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().postBottom)} ${(_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_11___default().anotherActions)}`,
+                className: `${(_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().postBottom)} ${(_styles_Post_module_css__WEBPACK_IMPORTED_MODULE_9___default().anotherActions)}`,
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_LikeSet__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
@@ -232,7 +228,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                     }),
                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                         children: [
-                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_CommentIcon__WEBPACK_IMPORTED_MODULE_9__/* ["default"] */ .Z, {
+                            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_CommentIcon__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
                             }),
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                 style: {
@@ -249,13 +245,13 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                         },
                         onClick: ()=>setBanner(true)
                         ,
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_MoreIcon__WEBPACK_IMPORTED_MODULE_10__/* ["default"] */ .Z, {
+                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_MoreIcon__WEBPACK_IMPORTED_MODULE_8__/* ["default"] */ .Z, {
                         })
                     }),
                     banner && /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                         onClick: ()=>setBanner(false)
                         ,
-                        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_12___default().moreBanner),
+                        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_10___default().moreBanner),
                         children: [
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_bannerOptions_SaveOption__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
                                 postID: post._id
@@ -269,7 +265,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                 onClick: ()=>setBanner(false)
                 ,
-                className: banner ? (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_12___default().transparentLayer) : null
+                className: banner ? (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_10___default().transparentLayer) : null
             })
         ]
     }));

@@ -53,6 +53,130 @@ module.exports = {
 
 /***/ }),
 
+/***/ 7760:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "Z": () => (/* binding */ bannerOptions_DeleteOption)
+});
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: ./styles/Components.module.css
+var Components_module = __webpack_require__(6853);
+var Components_module_default = /*#__PURE__*/__webpack_require__.n(Components_module);
+;// CONCATENATED MODULE: ./components/Icons/DeleteIcon.js
+
+const DeleteIcon = ()=>{
+    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: /*#__PURE__*/ jsx_runtime_.jsx("svg", {
+            width: "20",
+            height: "20.75",
+            viewBox: "0 0 74 91",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg",
+            children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
+                d: "M52.6458 9.19V8.19V7.29105C52.6498 7.2983 52.6458 7.29545 52.6458 7.28H52.6383C52.6374 7.27884 52.6364 7.27762 52.6353 7.27634C52.6153 7.25274 52.5425 7.19 52.4167 7.19H51.6458H50.6458H22.3542H21.5833C21.4575 7.19 21.3847 7.25274 21.3647 7.27634C21.3636 7.27762 21.3626 7.27884 21.3617 7.28H21.3542C21.3542 7.29009 21.3525 7.2948 21.3524 7.29484C21.3524 7.29486 21.3528 7.29356 21.3542 7.29105V8.19V15.38H16.4167V7.28C16.4167 3.65489 18.8835 1 21.5833 1H52.4167C55.1165 1 57.5833 3.65489 57.5833 7.28V15.38H52.6458V9.19ZM22.3542 17.38H23.3542H50.6458H51.6458H58.5833H59.5833H70.9167C71.9207 17.38 73 18.3969 73 20.02V23.57H67.4094H66.4486L66.4102 24.53L64.0302 84.0213L64.0302 84.0217C63.8913 87.5278 61.4904 90 58.8724 90H15.1276C12.5193 90 10.1087 87.5166 9.96978 84.0215L9.96977 84.0213L7.58983 24.53L7.55142 23.57H6.59062H1V20.02C1 18.3969 2.07931 17.38 3.08333 17.38H14.4167H15.4167H22.3542ZM1.00178 23.6748C1.00177 23.6748 1.00168 23.6746 1.00154 23.6742L1.00178 23.6748ZM58.1305 83.81H59.0912L59.1297 82.85L61.4614 24.61L61.5031 23.57H60.4622H13.5378H12.4969L12.5386 24.61L14.8703 82.85L14.9088 83.81H15.8695H58.1305Z",
+                fill: "black",
+                stroke: "black",
+                strokeWidth: "3"
+            })
+        })
+    }));
+};
+/* harmony default export */ const Icons_DeleteIcon = (DeleteIcon);
+
+;// CONCATENATED MODULE: ./components/bannerOptions/DeleteOption.js
+
+
+
+const DeleteOption = ({ activation  })=>{
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        onClick: ()=>activation(true)
+        ,
+        className: (Components_module_default()).bannerOption,
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx(Icons_DeleteIcon, {
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                className: (Components_module_default()).bannerText,
+                children: "Delete post"
+            })
+        ]
+    }));
+};
+/* harmony default export */ const bannerOptions_DeleteOption = (DeleteOption);
+
+
+/***/ }),
+
+/***/ 8537:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "Z": () => (/* binding */ bannerOptions_EditOption)
+});
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: ./styles/Components.module.css
+var Components_module = __webpack_require__(6853);
+var Components_module_default = /*#__PURE__*/__webpack_require__.n(Components_module);
+;// CONCATENATED MODULE: ./components/Icons/EditIcon.js
+
+const EditIcon = ()=>{
+    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("svg", {
+            width: "18",
+            height: "18",
+            viewBox: "0 0 18 18",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg",
+            children: [
+                /*#__PURE__*/ jsx_runtime_.jsx("path", {
+                    d: "M15.156 0L17.9999 2.8439L15.8319 5.01285L12.988 2.16895L15.156 0ZM4.73975 13.2602H7.58365L14.4915 6.35233L11.6476 3.50843L4.73975 10.4163V13.2602Z",
+                    fill: "black"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("path", {
+                    d: "M15.1675 16.1041H4.88961C4.86497 16.1041 4.83937 16.1135 4.81473 16.1135C4.78344 16.1135 4.75216 16.105 4.71993 16.1041H1.89593V2.83252H8.38667L10.2826 0.936584H1.89593C0.850326 0.936584 0 1.78596 0 2.83252V16.1041C0 17.1506 0.850326 18 1.89593 18H15.1675C15.6703 18 16.1525 17.8002 16.5081 17.4447C16.8637 17.0891 17.0634 16.6069 17.0634 16.1041V7.88708L15.1675 9.78301V16.1041Z",
+                    fill: "black"
+                })
+            ]
+        })
+    }));
+};
+/* harmony default export */ const Icons_EditIcon = (EditIcon);
+
+;// CONCATENATED MODULE: ./components/bannerOptions/EditOption.js
+
+
+
+const EditOption = ({ activation  })=>{
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        onClick: ()=>activation(true)
+        ,
+        className: (Components_module_default()).bannerOption,
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx(Icons_EditIcon, {
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                className: (Components_module_default()).bannerText,
+                children: "Edit post"
+            })
+        ]
+    }));
+};
+/* harmony default export */ const bannerOptions_EditOption = (EditOption);
+
+
+/***/ }),
+
 /***/ 5119:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -782,7 +906,7 @@ module.exports = import("js-cookie");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,899,313,30], () => (__webpack_exec__(7769)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,899,241,30], () => (__webpack_exec__(7769)));
 module.exports = __webpack_exports__;
 
 })();
