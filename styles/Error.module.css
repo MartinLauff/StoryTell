@@ -54,6 +54,9 @@
   right: 0;
   border-radius: 1rem;
 }
+.errWrap button:last-child {
+  margin-bottom: 2rem;
+}
 @media only screen and (min-width: 40rem) {
   .custom500 {
     top: 50%;
