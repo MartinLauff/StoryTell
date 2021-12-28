@@ -86,3 +86,8 @@
   font-size: var(--fs-mid);
   color: #fff;
 }
+@media only screen and (max-height: 20rem) {
+  .wrap button {
+    margin-bottom: 2rem;
+  }
+}
