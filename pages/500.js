@@ -9,6 +9,9 @@ export default function Custom500() {
         <h1 className={errorStyles.h500}>
           You need to be logged in to get access
         </h1>
+        <style
+          style={{ display: 'none' }}
+        >{`body{background: rgba(0, 0, 0, 0.7);}`}</style>
         <Link href='/auth/signin'>
           <a>
             <SingleButton
