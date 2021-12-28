@@ -12,6 +12,8 @@ const Premium = () => {
     left: '50%',
     right: '0',
     transform: 'translate(-50%,-50%)',
+    color: '#000',
+    textAlign: 'center',
   };
   return (
     <div>
