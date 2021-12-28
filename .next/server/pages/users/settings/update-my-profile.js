@@ -27,7 +27,8 @@ module.exports = {
 module.exports = {
 	"errorBanner": "Error_errorBanner__EDEUS",
 	"errMessage": "Error_errMessage__EAG1J",
-	"hide": "Error_hide__LPa3Y"
+	"hide": "Error_hide__LPa3Y",
+	"custom500": "Error_custom500__Q8T4b"
 };
 
 
