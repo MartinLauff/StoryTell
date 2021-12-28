@@ -2,7 +2,6 @@ import TopBar from '../components/bars/TopBar';
 import SideBar from '../components/bars/SideBar';
 import BottomBar from '../components/bars/BottomBar';
 import Layer from '../components/bars/Layer';
-import premiumStyles from '../styles/Premium.module.css';
 
 const Premium = () => {
   const style = {
