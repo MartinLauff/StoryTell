@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { GlobalContext } from '../../context/GlobalCtx';
 import BarStyles from '../../styles/Bar.module.css';
 
 const SideBar = () => {
-  const [toggle, setToggle] = useState(false);
   const { sidebar, setSidebar, setRotateDots } = useContext(GlobalContext);
   const scrollStyle = `html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`;
   const close = () => {
@@ -87,11 +86,8 @@ const SideBar = () => {
           />
         </svg>
         <span>Dark mode</span>
-        <div
-          onClick={() => setToggle((oldState) => !oldState)}
-          className={BarStyles.toggle}
-        >
-          <div className={toggle ? BarStyles.dark : BarStyles.white}></div>
+        <div className={BarStyles.toggle}>
+          <div className={BarStyles.dark}></div>
         </div>
       </div>
       <Link href='/auth/signout'>
