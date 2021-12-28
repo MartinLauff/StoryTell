@@ -53,8 +53,8 @@
 .delPic {
   cursor: pointer;
   position: absolute;
-  top: -45%;
-  right: -30%;
+  top: -60%;
+  right: -15%;
 }
 .hide {
   display: none;
@@ -63,8 +63,11 @@
   position: relative;
   display: inline;
 }
-@media only screen and (min-width: 62.5rem) {
-  .wrap {
-    margin: 10rem auto 0;
-  }
+.postImage {
+  border-radius: 1rem;
+  max-height: 50rem;
+  width: min(40vw, 30rem);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 2rem;
 }

@@ -9,6 +9,7 @@ import ArrowBar from '../../components/bars/ArrowBar';
 import BottomBar from '../../components/bars/BottomBar';
 
 const CreatePost = () => {
+  const [postImage, setPostImage] = useState(null);
   const [topic, setTopic] = useState('');
   const [title, setTitle] = useState('');
   const [fileName, setFileName] = useState('(optional)');
@@ -63,6 +64,19 @@ const CreatePost = () => {
       );
   };
 
+  const handleFileInputChange = (e) => {
+    setFileName(e.target.files[0]);
+    previewFile(e.target.files[0]);
+  };
+
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPostImage(reader.result);
+    };
+  };
+
   const submit = async (e) => {
     e.preventDefault();
     setErrors(null);
@@ -93,6 +107,11 @@ const CreatePost = () => {
     setTitle('');
     setFileName('(optional)');
     setContent('');
+    setPostImage(null);
+  };
+  const deleteCurrentImage = () => {
+    setFileName('(optional)');
+    setPostImage(null);
   };
 
   return (
@@ -126,7 +145,7 @@ const CreatePost = () => {
         />
         <div className={createStyles.wrapper}>
           <input
-            onChange={(e) => setFileName(e.target.files[0])}
+            onChange={handleFileInputChange}
             id='image'
             accept='image/*'
             type='file'
@@ -135,9 +154,9 @@ const CreatePost = () => {
           />
           <label htmlFor='image'>Choose an image</label>
           <div className={createStyles.name}>
-            <span>{fileName.name ? fileName.name : fileName}</span>
+            <span>{fileName.name ? 'Delete current image' : '(optional)'}</span>
             <div
-              onClick={() => setFileName('(optional)')}
+              onClick={deleteCurrentImage}
               className={
                 fileName.name ? createStyles.delPic : createStyles.hide
               }
@@ -159,6 +178,13 @@ const CreatePost = () => {
             </div>
           </div>
         </div>
+        {postImage && (
+          <img
+            className={createStyles.postImage}
+            alt='choose imgae'
+            src={postImage}
+          />
+        )}
         <textarea
           required
           value={content}
