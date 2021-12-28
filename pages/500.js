@@ -11,7 +11,7 @@ export default function Custom500() {
         </h1>
         <style
           style={{ display: 'none' }}
-        >{`body{background: rgba(0, 0, 0, 0.7);}`}</style>
+        >{`body{background-color: #00DBDE;background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);}`}</style>
         <Link href='/auth/signin'>
           <a>
             <SingleButton
