@@ -9,13 +9,13 @@
   align-items: center;
 }
 .indexImg {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(0deg, #00000080, #00000080),
     url('../public/img/indexPic.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 .signinImg {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+  background: linear-gradient(0deg, #00000033, #00000033),
     url('../public/img/signinPic.jpg');
   background-repeat: no-repeat;
   background-size: cover;
