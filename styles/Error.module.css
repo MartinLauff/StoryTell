@@ -43,6 +43,8 @@
 .h500 {
   text-align: center;
   line-height: 1.2;
+  font-size: 3.5rem;
+  width: 80%;
 }
 .errWrap {
   position: static;
@@ -60,5 +62,7 @@
   }
   .h500 {
     line-height: 1.5;
+    font-size: var(--fs-huge);
+    width: 100%;
   }
 }
