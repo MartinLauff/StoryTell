@@ -13,6 +13,7 @@ const showUser = async (req, res, next) => {
             model: 'User',
             select: { _id: 1, username: 1, photo: 1 },
         },
+        options: { sort: { createdAt: -1 } },
     });
     if (!user) {
         return next(new not_found_error_1.NotFoundError('User'));

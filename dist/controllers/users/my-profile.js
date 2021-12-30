@@ -12,6 +12,7 @@ const myProfile = async (req, res, next) => {
             model: 'User',
             select: { _id: 1, username: 1, photo: 1 },
         },
+        options: { sort: { createdAt: -1 } },
     })
         .select('-password');
     if (!user) {

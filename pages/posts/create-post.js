@@ -9,6 +9,7 @@ import ArrowBar from '../../components/bars/ArrowBar';
 import BottomBar from '../../components/bars/BottomBar';
 
 const CreatePost = () => {
+  const [active, setActive] = useState(false);
   const [postImage, setPostImage] = useState(null);
   const [topic, setTopic] = useState('');
   const [title, setTitle] = useState('');
@@ -20,6 +21,9 @@ const CreatePost = () => {
     setTimeout(() => {
       setErrors(null);
     }, 8000);
+    if (!errors) {
+      setActive(false);
+    }
   }, [errors]);
 
   useEffect(() => {
@@ -84,6 +88,7 @@ const CreatePost = () => {
     if (!topic || !title || !content) {
       return;
     }
+    setActive(true);
 
     const data = new FormData();
     data.append('file', fileName);
@@ -209,6 +214,20 @@ const CreatePost = () => {
         </div>
       </form>
       {errors}
+      {active && !errors && (
+        <div className={createStyles.center}>
+          <div className={createStyles.wave}></div>
+          <div className={createStyles.wave}></div>
+          <div className={createStyles.wave}></div>
+          <div className={createStyles.wave}></div>
+          <div className={createStyles.wave}></div>
+          <div className={createStyles.wave}></div>
+          <div className={createStyles.wave}></div>
+          <div className={createStyles.wave}></div>
+          <div className={createStyles.wave}></div>
+          <div className={createStyles.wave}></div>
+        </div>
+      )}
       <BottomBar />
     </div>
   );
