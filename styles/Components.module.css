@@ -138,7 +138,7 @@
   transition: 0.9s all;
 }
 .deleteBanner {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
