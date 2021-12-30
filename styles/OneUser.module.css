@@ -23,6 +23,7 @@
   width: 8rem;
   border-radius: 10rem;
   margin-right: 2rem;
+  object-fit: cover;
 }
 .btns {
   margin-top: 1rem;

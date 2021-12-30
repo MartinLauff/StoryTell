@@ -15,6 +15,7 @@
 }
 .userPic {
   position: absolute;
+  object-fit: cover;
   top: -50%;
   right: -8%;
   width: 2.3rem;
