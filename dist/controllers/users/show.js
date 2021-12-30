@@ -8,9 +8,6 @@ const showUser = async (req, res, next) => {
         .populate({
         path: 'posts',
         model: 'Post',
-        options: {
-            limit: 5,
-        },
         populate: {
             path: 'postedBy',
             model: 'User',
