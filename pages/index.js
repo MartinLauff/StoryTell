@@ -9,19 +9,18 @@ const Index = () => {
       <span style={{ color: '#fff' }} className={indexStyles.indexSpan}>
         A place to stay focused on your goals and get inspired
       </span>
-      <Link href='/auth/signin'>
+      <Link href='/auth/login'>
         <a>
           <SingleButton
             style={{ margin: '3.5rem 0 2.5rem' }}
-            route='/signin'
-            content='Sign in'
+            content='login'
             color='whiteButton'
           />
         </a>
       </Link>
       <Link href='/auth/signup'>
         <a>
-          <SingleButton route='/signup' content='Sign up' color='redButton' />
+          <SingleButton content='Sign up' color='redButton' />
         </a>
       </Link>
     </div>

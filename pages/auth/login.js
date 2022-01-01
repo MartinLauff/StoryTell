@@ -6,7 +6,7 @@ import indexStyles from '../../styles/Index.module.css';
 import componentStyles from '../../styles/Components.module.css';
 import useRequest from '../../hooks/use-request';
 
-const Signin = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { doRequest, errors } = useRequest({
@@ -58,4 +58,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Login;
