@@ -58,6 +58,7 @@
   width: 8rem;
   margin-right: 6rem;
   border-radius: 5rem;
+  object-fit: cover;
 }
 .close {
   position: absolute;
