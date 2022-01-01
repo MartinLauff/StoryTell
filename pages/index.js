@@ -13,7 +13,7 @@ const Index = () => {
         <a>
           <SingleButton
             style={{ margin: '3.5rem 0 2.5rem' }}
-            content='login'
+            content='Login'
             color='whiteButton'
           />
         </a>
