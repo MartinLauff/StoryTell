@@ -24,7 +24,6 @@ var _topicRouter = require('./dist/routes/topicRouter');
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
-// import helmet from 'helmet';
 const dev = process.env.NODE_ENV !== 'production';
 const app = (0, _next.default)({
   dev,
@@ -37,28 +36,22 @@ app.prepare().then(() => {
     console.log(err.name, err.message);
     process.exit(1);
   });
-
   _dotenv.default.config({
     path: _path.default.join(__dirname, './config.env'),
   });
-
   if (!process.env.DATABASE) {
     throw new Error('DATABASE must be defined');
   }
-
   if (!process.env.DATABASE_PASSWORD) {
     throw new Error('DATABASE_PASSWORD must be defined');
   }
-
   const DB = process.env.DATABASE.replace(
     '<password>',
     process.env.DATABASE_PASSWORD
   );
-
   _mongoose.default
     .connect(DB)
     .then(() => console.log('DB connection successful!'));
-
   const port = process.env.PORT || 3000;
   const server = serverApp.listen(port, () => {
     console.log(`App running on port ${port}...`);
@@ -80,25 +73,16 @@ app.prepare().then(() => {
     });
   });
   serverApp.set('trust proxy', true);
-  serverApp.use(
-    (0, _cors.default)({
-      origin: 'http://localhost:3000',
-      credentials: true,
-    })
-  ); //@ts-ignore
-
+  serverApp.use((0, cors_1.default)({ credentials: true }));
   serverApp.options('*', (0, _cors.default)());
-  serverApp.use(_express.default.json()); // Set security HTTP headers
+  serverApp.use(_express.default.json());
   // serverApp.use(helmet());
-  // Limit requests from same API
-
   const limiter = (0, _expressRateLimit.default)({
     max: 100,
     windowMs: 60 * 60 * 1000,
     message: 'Too many requests from this IP, please try again in an hour.',
   });
-  serverApp.use('/api', limiter); // Body parser, reading data from body into req.body
-
+  serverApp.use('/api', limiter);
   serverApp.use(
     _express.default.json({
       limit: '10kb',
@@ -110,14 +94,10 @@ app.prepare().then(() => {
       limit: '10kb',
     })
   );
-  serverApp.use((0, _cookieParser.default)()); // Data sanitization against NoSQL query injection
-
-  serverApp.use((0, _expressMongoSanitize.default)()); // Data sanitization against XSS
-
-  serverApp.use((0, _xssClean.default)()); // Compress all responses
-
-  serverApp.use((0, _compression.default)()); // ROUTES
-
+  serverApp.use((0, _cookieParser.default)());
+  serverApp.use((0, _expressMongoSanitize.default)());
+  serverApp.use((0, _xssClean.default)());
+  serverApp.use((0, _compression.default)());
   serverApp.use('/api/auth', _authRoutes.authRouter);
   serverApp.use('/api/posts', _postRoutes.postRouter);
   serverApp.use('/api/upvotes', _likesRouter.likeRouter);
