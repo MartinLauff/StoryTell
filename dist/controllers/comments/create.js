@@ -11,17 +11,20 @@ const createComment = (0, catchAsync_1.catchAsync)(async (req, res, next) => {
     if (!content) {
         return next(new bad_request_error_1.BadRequestError('A comment must have a text'));
     }
+    if (!post) {
+        return next(new bad_request_error_1.BadRequestError('Post was deleted'));
+    }
     await comment_1.Comment.create({
         content,
         postedBy: req.user._id,
-        post: post === null || post === void 0 ? void 0 : post._id,
+        post: post._id,
     });
     await activity_1.Activity.create({
         post: req.params.id,
         type: 'commented on your post',
         user: req.user._id,
-        linkToUser: post === null || post === void 0 ? void 0 : post.postedBy,
-        topic: post === null || post === void 0 ? void 0 : post.slug,
+        linkToUser: post.postedBy,
+        topic: post.slug,
     });
     res.status(201).send({
         content,
@@ -30,7 +33,7 @@ const createComment = (0, catchAsync_1.catchAsync)(async (req, res, next) => {
             photo: req.user.photo,
             username: req.user.username,
         },
-        post: post === null || post === void 0 ? void 0 : post._id,
+        post: post._id,
         createdAt: Date.now(),
     });
 });
