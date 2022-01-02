@@ -94,6 +94,10 @@ app.prepare().then(() => {
         'script-src': ["'self'"],
         'script-src-attr': ["'none'"],
         'style-src': ["'self'", 'https:', "'unsafe-inline'"],
+        'connect-src': [
+          "'self'",
+          'https://api.cloudinary.com/v1_1/ekoeko/image/upload',
+        ],
       },
     })
   );
