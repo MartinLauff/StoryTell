@@ -78,6 +78,25 @@ app.prepare().then(() => {
   serverApp.options('*', (0, _cors.default)());
   serverApp.use(_express.default.json());
   serverApp.use((0, _helmet.default)());
+  serverApp.use(
+    _helmet.default.contentSecurityPolicy({
+      directives: {
+        'default-src': ["'self'"],
+        'base-uri': ["'self'"],
+        'font-src': ["'self'", 'https:', 'data:'],
+        'frame-ancestors': ["'self'"],
+        'img-src': [
+          "'self'",
+          'data:',
+          'http://res.cloudinary.com',
+          'https://res.cloudinary.com',
+        ],
+        'script-src': ["'self'"],
+        'script-src-attr': ["'none'"],
+        'style-src': ["'self'", 'https:', "'unsafe-inline'"],
+      },
+    })
+  );
   const limiter = (0, _expressRateLimit.default)({
     max: 100,
     windowMs: 60 * 60 * 1000,
