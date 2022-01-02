@@ -7,6 +7,7 @@ require('express-async-errors');
 var _cookieParser = _interopRequireDefault(require('cookie-parser'));
 var _expressRateLimit = _interopRequireDefault(require('express-rate-limit'));
 var _path = _interopRequireDefault(require('path'));
+var _helmet = _interopRequireDefault(require('helmet'));
 var _expressMongoSanitize = _interopRequireDefault(
   require('express-mongo-sanitize')
 );
@@ -76,7 +77,7 @@ app.prepare().then(() => {
   serverApp.use((0, _cors.default)({ credentials: true }));
   serverApp.options('*', (0, _cors.default)());
   serverApp.use(_express.default.json());
-  // serverApp.use(helmet());
+  serverApp.use((0, _helmet.default)());
   const limiter = (0, _expressRateLimit.default)({
     max: 100,
     windowMs: 60 * 60 * 1000,
