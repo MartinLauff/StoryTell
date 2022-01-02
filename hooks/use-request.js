@@ -24,7 +24,6 @@ const useRequest = ({ url, method, headers, body, onSuccess }) => {
 
       return response.data;
     } catch (err) {
-      console.log(err.response);
       if (!err.response.data.message) {
         setErrors(
           <div

@@ -55,7 +55,7 @@ const Activity = ({ activity }) => {
               <img
                 className={activityStyles.topicLeft}
                 src={`/${activity.topic}.png`}
-                alt='post photo'
+                alt='topic photo'
               />
             )}
           </a>

@@ -4,7 +4,7 @@ const buildClient = ({ req }) => {
   if (typeof window === 'undefined') {
     // We are on the server
     return axios.create({
-      baseURL: 'https://storytull.herokuapp.com/',
+      baseURL: 'https://storytell.vercel.app/',
       headers: req.headers,
       withCredentials: true,
     });
