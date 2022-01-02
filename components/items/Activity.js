@@ -45,13 +45,14 @@ const Activity = ({ activity }) => {
       {activity.post && (
         <Link href='/posts/[...postId]' as={`/posts/${activity.post._id}`}>
           <a>
-            {activity.post.coverImage ? (
+            {activity.post.coverImage && (
               <img
                 className={activityStyles.imageLeft}
                 src={activity.post.coverImage}
                 alt='post photo'
               />
-            ) : (
+            )}
+            {!activity.post.coverImage && (
               <img
                 className={activityStyles.topicLeft}
                 src={`/${activity.topic}.png`}
