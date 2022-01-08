@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Router from 'next/router';
 import { useState } from 'react';
 import Comment from '../../components/items/Comment';
-import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 import TopBar from '../../components/bars/TopBar';
 import LikeSet from '../../components/Icons/LikeSet';
@@ -33,7 +32,6 @@ const PostShow = ({ data: { post }, data }) => {
   const { doRequest, errors } = useRequest({
     url: `/api/comments/${post._id}`,
     method: 'post',
-    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
     body: {
       content,
     },
@@ -41,7 +39,6 @@ const PostShow = ({ data: { post }, data }) => {
   const { doRequest: deleteRequest, errors: errs } = useRequest({
     url: `/api/posts/${post._id}`,
     method: 'delete',
-    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
     onSuccess: () => Router.push('/users/my-profile'),
   });
   const { doRequest: editRequest, errors: ers } = useRequest({
@@ -50,7 +47,6 @@ const PostShow = ({ data: { post }, data }) => {
     body: {
       content: postContent,
     },
-    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
   });
   const onSubmit = async (e) => {
     e.preventDefault();

@@ -1,12 +1,10 @@
 import componentStyles from '../../styles/Components.module.css';
 import useRequest from '../../hooks/use-request';
-import Cookies from 'js-cookie';
 
 const UnsaveIcon = ({ postId, deleteOpt, Xposition }) => {
   const { doRequest, errors } = useRequest({
     url: `/api/users/unsave/${postId}`,
     method: 'put',
-    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
   });
 
   const onClick = (e) => {

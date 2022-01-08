@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
-import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 
 const Signout = () => {
@@ -13,7 +12,6 @@ const Signout = () => {
 
   useEffect(() => {
     doRequest();
-    Cookies.remove('jwt');
   }, []);
 
   const style = {

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import generalError from '../styles/Error.module.css';
 
-const useRequest = ({ url, method, headers, body, onSuccess }) => {
+const useRequest = ({ url, method, body, onSuccess }) => {
   const [errors, setErrors] = useState(null);
 
   const doRequest = async () => {
@@ -14,7 +14,6 @@ const useRequest = ({ url, method, headers, body, onSuccess }) => {
         data: {
           ...body,
         },
-        headers,
         withCredentials: true,
       });
 

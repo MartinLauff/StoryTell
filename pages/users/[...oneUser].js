@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 import buildClient from '../../api/build-client';
 import PostList from '../../components/lists/PostList';
@@ -14,7 +13,6 @@ const OneUser = ({ data }) => {
   const { doRequest, errors } = useRequest({
     url: `/api/users/${active ? 'unfollow' : 'follow'}/${data.user._id}`,
     method: 'put',
-    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
   });
 
   useEffect(() => {

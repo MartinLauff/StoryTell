@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import Cookies from 'js-cookie';
 import useRequest from '../../../hooks/use-request';
 import editStyles from '../../../styles/EditProfile.module.css';
 import componentStyles from '../../../styles/Components.module.css';
@@ -19,7 +18,6 @@ const UpdatePassword = () => {
       currentPassword,
       newPassword,
     },
-    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
   });
 
   const onsubmit = async (e) => {

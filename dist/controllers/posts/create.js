@@ -15,11 +15,7 @@ const createPost = async (req, res, next) => {
         postedBy: req.user._id,
         coverImage,
     });
-    await user_1.User.updateOne({
-        _id: req.user._id,
-    }, {
-        $addToSet: { posts: post._id },
-    });
+    await user_1.User.updateOne({ _id: req.user._id }, { $addToSet: { posts: post._id } });
     res.status(201).send({
         data: {
             post,

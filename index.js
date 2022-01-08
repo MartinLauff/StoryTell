@@ -74,7 +74,7 @@ app.prepare().then(() => {
     });
   });
   serverApp.set('trust proxy', true);
-  serverApp.use((0, _cors.default)({ credentials: true }));
+  serverApp.use((0, _cors.default)({ credentials: true, origin: true }));
   serverApp.options('*', (0, _cors.default)());
   serverApp.use(_express.default.json());
   serverApp.use((0, _helmet.default)());

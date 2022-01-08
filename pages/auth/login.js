@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie';
 import { useState } from 'react';
 import Router from 'next/router';
 import SingleButton from '../../components/SingleButton';
@@ -26,10 +25,7 @@ const Login = () => {
       return;
     }
 
-    const res = await doRequest();
-    if (res) {
-      Cookies.set('jwt', res.token);
-    }
+    doRequest();
   };
   return (
     <div className={`${indexStyles.mybackground} ${indexStyles.signinImg}`}>

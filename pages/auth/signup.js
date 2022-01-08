@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie';
 import { useState } from 'react';
 import Router from 'next/router';
 import SingleButton from '../../components/SingleButton';
@@ -35,11 +34,7 @@ const Signup = () => {
       return setActive(true);
     }
 
-    const res = await doRequest();
-
-    if (res) {
-      Cookies.set('jwt', res.token);
-    }
+    doRequest();
   };
 
   return (

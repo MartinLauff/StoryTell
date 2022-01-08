@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 import Activity from '../items/Activity';
 import activityStyles from '../../styles/Activity.module.css';
@@ -11,7 +10,6 @@ const ActivityList = ({ activities }) => {
   const { doRequest, errors } = useRequest({
     url: `/api/users/activities?page=${page}&limit=10`,
     method: 'get',
-    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
   });
   useEffect(() => {
     if (activities.length < 10) {

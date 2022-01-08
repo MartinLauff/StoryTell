@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import generalError from '../../styles/Error.module.css';
 import axios from 'axios';
 import Router from 'next/router';
-import Cookies from 'js-cookie';
 import componentStyles from '../../styles/Components.module.css';
 import createStyles from '../../styles/Create.module.css';
 import ArrowBar from '../../components/bars/ArrowBar';
@@ -42,7 +41,6 @@ const CreatePost = () => {
         coverImage: url,
         content,
       },
-      headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
       withCredentials: true,
     })
       .then(() => Router.push(`/topics/${topic.toLowerCase()}`))

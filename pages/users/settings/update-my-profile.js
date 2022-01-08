@@ -2,7 +2,6 @@ import { useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
-import Cookies from 'js-cookie';
 import generalError from '../../../styles/Error.module.css';
 import buildClient from '../../../api/build-client';
 import editStyles from '../../../styles/EditProfile.module.css';
@@ -25,7 +24,6 @@ const UpdateMyProfile = ({ data }) => {
         hobby,
         email,
       },
-      headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
       withCredentials: true,
     })
       .then(() => Router.push('/users/my-profile'))

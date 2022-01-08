@@ -2,7 +2,6 @@ import { Fragment, useState, useEffect } from 'react';
 import rateLimit from 'axios-rate-limit';
 import generalError from '../../styles/Error.module.css';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 
 const LikeSet = ({ postID, likes, greyColor, userId }) => {
   const [likesArr, setLikesArr] = useState(likes);
@@ -25,7 +24,6 @@ const LikeSet = ({ postID, likes, greyColor, userId }) => {
     try {
       await http({
         url: `/api/upvotes/${postID}/${path}`,
-        headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
         method: 'put',
         withCredentials: true,
       });

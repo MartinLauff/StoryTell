@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import Cookies from 'js-cookie';
 import useRequest from '../../hooks/use-request';
 import commentStyles from '../../styles/Comment.module.css';
 import componentStyles from '../../styles/Components.module.css';
@@ -12,7 +11,6 @@ const Comment = ({ comment, userId }) => {
   const { doRequest, errors } = useRequest({
     url: `/api/comments/${comment._id}`,
     method: 'delete',
-    headers: { Authorization: 'Bearer ' + Cookies.get('jwt') },
   });
 
   const deleteComment = (e) => {
