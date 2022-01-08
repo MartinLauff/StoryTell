@@ -5,6 +5,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const LikeSet = ({ postID, likes, greyColor, userId }) => {
+  const [likesArr, setLikesArr] = useState(likes);
   const [likeCount, setLikeCount] = useState(likes.length);
   const [active, setActive] = useState(false);
   const [errors, setErrors] = useState(null);
@@ -45,11 +46,13 @@ const LikeSet = ({ postID, likes, greyColor, userId }) => {
   const doLike = async (e) => {
     e.preventDefault();
 
-    if (likes.includes(userId)) {
+    if (likesArr.includes(userId)) {
+      setLikesArr((oldArr) => oldArr.filter((el) => el !== userId));
       setActive(false);
       doRequest('unlike');
       setLikeCount((oldState) => oldState - 1);
     } else {
+      setLikesArr((oldArr) => [...oldArr, userId]);
       setActive(true);
       doRequest('like');
       setLikeCount((oldState) => oldState + 1);

@@ -130,7 +130,12 @@ const Post = ({ post, UnsaveOption, userId }) => {
           className={`${postStyles.postBottom} ${postStyles.anotherActions}`}
         >
           <div>
-            <LikeSet userId={userId} likes={post.likes} greyColor={greyColor} />
+            <LikeSet
+              userId={userId}
+              likes={post.likes}
+              greyColor={greyColor}
+              postID={post._id}
+            />
           </div>
           <div>
             <CommentIcon />
