@@ -53,10 +53,9 @@ module.exports = {
 /***/ }),
 
 /***/ 4567:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps),
@@ -67,16 +66,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1664);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9915);
-/* harmony import */ var _hooks_use_request__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6471);
-/* harmony import */ var _api_build_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8775);
-/* harmony import */ var _components_lists_PostList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(5511);
-/* harmony import */ var _components_bars_ArrowBar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5109);
-/* harmony import */ var _styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(4486);
-/* harmony import */ var _styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_components_lists_PostList__WEBPACK_IMPORTED_MODULE_6__, js_cookie__WEBPACK_IMPORTED_MODULE_3__]);
-([_components_lists_PostList__WEBPACK_IMPORTED_MODULE_6__, js_cookie__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__);
-
+/* harmony import */ var _hooks_use_request__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6471);
+/* harmony import */ var _api_build_client__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8775);
+/* harmony import */ var _components_lists_PostList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5650);
+/* harmony import */ var _components_bars_ArrowBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(5109);
+/* harmony import */ var _styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4486);
+/* harmony import */ var _styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -88,12 +83,9 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_com
 const OneUser = ({ data  })=>{
     const { 0: active , 1: setActive  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     const { 0: followers , 1: setFollowers  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(data.user.followers.length);
-    const { doRequest , errors  } = (0,_hooks_use_request__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z)({
+    const { doRequest , errors  } = (0,_hooks_use_request__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z)({
         url: `/api/users/${active ? 'unfollow' : 'follow'}/${data.user._id}`,
-        method: 'put',
-        headers: {
-            Authorization: 'Bearer ' + js_cookie__WEBPACK_IMPORTED_MODULE_3__["default"].get('jwt')
-        }
+        method: 'put'
     });
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
         if (data.user.followers.includes(data.userId)) {
@@ -114,33 +106,33 @@ const OneUser = ({ data  })=>{
     };
     return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_bars_ArrowBar__WEBPACK_IMPORTED_MODULE_7__/* ["default"] */ .Z, {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_bars_ArrowBar__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
                 title: "User profile"
             }),
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().wrapper),
+                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().wrapper),
                 children: [
                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().userTop),
+                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().userTop),
                         children: [
                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
                                 src: data.user.photo,
-                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().photo),
+                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().photo),
                                 alt: "profile photo"
                             }),
                             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().description),
+                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().description),
                                 children: [
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
-                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().name),
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().name),
                                         children: data.user.username
                                     }),
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().hobby),
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().hobby),
                                         children: data.user.hobby
                                     }),
                                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().btns),
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().btns),
                                         children: [
                                             data.user._id !== data.userId && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
                                                 style: active ? {
@@ -149,17 +141,17 @@ const OneUser = ({ data  })=>{
                                                     backgroundColor: '#FF2F2F'
                                                 },
                                                 onClick: follow,
-                                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().follow),
+                                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().follow),
                                                 children: active ? 'Following' : 'Follow'
                                             }),
                                             data.user._id !== data.userId && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().chat),
+                                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().chat),
                                                 children: "Chat"
                                             }),
                                             data.user._id === data.userId && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_2__["default"], {
                                                 href: "/users/settings/update-my-profile",
                                                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
-                                                    className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().editMyProfile),
+                                                    className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().editMyProfile),
                                                     children: [
                                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
                                                             width: "13",
@@ -183,16 +175,16 @@ const OneUser = ({ data  })=>{
                         ]
                     }),
                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().stats),
+                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().stats),
                         children: [
                             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                 children: [
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().data),
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().data),
                                         children: data.user.posts.length
                                     }),
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().legend),
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().legend),
                                         children: "Posts"
                                     })
                                 ]
@@ -200,11 +192,11 @@ const OneUser = ({ data  })=>{
                             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                 children: [
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().data),
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().data),
                                         children: followers
                                     }),
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().legend),
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().legend),
                                         children: "Followers"
                                     })
                                 ]
@@ -212,11 +204,11 @@ const OneUser = ({ data  })=>{
                             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                 children: [
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().data),
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().data),
                                         children: data.user.following.length
                                     }),
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_8___default().legend),
+                                        className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().legend),
                                         children: "Following"
                                     })
                                 ]
@@ -225,7 +217,7 @@ const OneUser = ({ data  })=>{
                     })
                 ]
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_lists_PostList__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z, {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_lists_PostList__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                 text: "Current user doesn't have any posts",
                 posts: data.user.posts,
                 userId: data.userId
@@ -242,7 +234,7 @@ const OneUser = ({ data  })=>{
 };
 const getServerSideProps = async (ctx)=>{
     const { oneUser  } = ctx.query;
-    const client = (0,_api_build_client__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z)(ctx);
+    const client = (0,_api_build_client__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z)(ctx);
     const { data  } = await client.get(`/api/users/${oneUser}`);
     return {
         props: {
@@ -253,7 +245,6 @@ const getServerSideProps = async (ctx)=>{
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OneUser);
 
-});
 
 /***/ }),
 
@@ -399,14 +390,6 @@ module.exports = require("react");
 "use strict";
 module.exports = require("react/jsx-runtime");
 
-/***/ }),
-
-/***/ 9915:
-/***/ ((module) => {
-
-"use strict";
-module.exports = import("js-cookie");;
-
 /***/ })
 
 };
@@ -416,7 +399,7 @@ module.exports = import("js-cookie");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,241,511,109], () => (__webpack_exec__(4567)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,241,650,109], () => (__webpack_exec__(4567)));
 module.exports = __webpack_exports__;
 
 })();

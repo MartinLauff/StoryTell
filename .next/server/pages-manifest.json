@@ -2,7 +2,7 @@
   "/500": "pages/500.html",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/auth/signin": "pages/auth/signin.html",
+  "/auth/login": "pages/auth/login.html",
   "/auth/signout": "pages/auth/signout.html",
   "/auth/signup": "pages/auth/signup.html",
   "/": "pages/index.html",

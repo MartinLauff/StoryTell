@@ -28,6 +28,7 @@ const signin = async (req, res, next) => {
             Number(process.env.JWT_COOKIE_EXPIRES_IN) * 24 * 60 * 60 * 1000),
         secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
         sameSite: true,
+        httpOnly: true,
     });
     existingUser.password = undefined;
     res.status(200).json({

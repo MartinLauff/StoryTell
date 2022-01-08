@@ -58,7 +58,6 @@ const Layer = ()=>{
 
 
 const SideBar = ()=>{
-    const { 0: toggle , 1: setToggle  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false);
     const { sidebar , setSidebar , setRotateDots  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useContext)(_context_GlobalCtx__WEBPACK_IMPORTED_MODULE_3__/* .GlobalContext */ .k);
     const scrollStyle = `html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`;
     const close = ()=>{
@@ -165,12 +164,9 @@ const SideBar = ()=>{
                         children: "Dark mode"
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        onClick: ()=>setToggle((oldState)=>!oldState
-                            )
-                        ,
                         className: (_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_4___default().toggle),
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                            className: toggle ? (_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_4___default().dark) : (_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_4___default().white)
+                            className: (_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_4___default().dark)
                         })
                     })
                 ]

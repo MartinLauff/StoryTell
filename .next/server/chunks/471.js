@@ -10,7 +10,9 @@ module.exports = {
 	"errorBanner": "Error_errorBanner__EDEUS",
 	"errMessage": "Error_errMessage__EAG1J",
 	"hide": "Error_hide__LPa3Y",
-	"custom500": "Error_custom500__Q8T4b"
+	"custom500": "Error_custom500__Q8T4b",
+	"h500": "Error_h500__KOR9p",
+	"errWrap": "Error_errWrap__8zg74"
 };
 
 
@@ -35,7 +37,7 @@ module.exports = {
 
 
 
-const useRequest = ({ url , method , headers , body , onSuccess  })=>{
+const useRequest = ({ url , method , body , onSuccess  })=>{
     const { 0: errors , 1: setErrors  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null);
     const doRequest = async ()=>{
         try {
@@ -46,7 +48,6 @@ const useRequest = ({ url , method , headers , body , onSuccess  })=>{
                 data: {
                     ...body
                 },
-                headers,
                 withCredentials: true
             });
             if (onSuccess) {
@@ -54,7 +55,6 @@ const useRequest = ({ url , method , headers , body , onSuccess  })=>{
             }
             return response.data;
         } catch (err1) {
-            console.log(err1.response);
             if (!err1.response.data.message) {
                 setErrors(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                     onClick: ()=>setErrors(null)

@@ -28,7 +28,9 @@ module.exports = {
 	"errorBanner": "Error_errorBanner__EDEUS",
 	"errMessage": "Error_errMessage__EAG1J",
 	"hide": "Error_hide__LPa3Y",
-	"custom500": "Error_custom500__Q8T4b"
+	"custom500": "Error_custom500__Q8T4b",
+	"h500": "Error_h500__KOR9p",
+	"errWrap": "Error_errWrap__8zg74"
 };
 
 
@@ -60,10 +62,9 @@ const buildClient = ({ req  })=>{
 /***/ }),
 
 /***/ 7404:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps),
@@ -78,17 +79,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1664);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1853);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9915);
-/* harmony import */ var _styles_Error_module_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(2238);
-/* harmony import */ var _styles_Error_module_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _api_build_client__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8775);
-/* harmony import */ var _styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5694);
-/* harmony import */ var _styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6853);
-/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_9__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([js_cookie__WEBPACK_IMPORTED_MODULE_5__]);
-js_cookie__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__)[0];
-
+/* harmony import */ var _styles_Error_module_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2238);
+/* harmony import */ var _styles_Error_module_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _api_build_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8775);
+/* harmony import */ var _styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5694);
+/* harmony import */ var _styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(6853);
+/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -114,13 +111,10 @@ const UpdateMyProfile = ({ data: data1  })=>{
                 hobby,
                 email
             },
-            headers: {
-                Authorization: 'Bearer ' + js_cookie__WEBPACK_IMPORTED_MODULE_5__["default"].get('jwt')
-            },
             withCredentials: true
         }).then(()=>next_router__WEBPACK_IMPORTED_MODULE_4___default().push('/users/my-profile')
         ).catch(({ response: { data  }  })=>setErrors(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: (_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_7___default().errorBanner),
+                className: (_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_6___default().errorBanner),
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h4", {
                         children: "Ooops...."
@@ -177,7 +171,7 @@ const UpdateMyProfile = ({ data: data1  })=>{
     return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         children: [
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_8___default().bar),
+                className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_7___default().bar),
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_3__["default"], {
                         href: "/users/my-profile",
@@ -208,10 +202,10 @@ const UpdateMyProfile = ({ data: data1  })=>{
             }),
             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
                 onSubmit: onSubmit,
-                className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_8___default().wrap),
+                className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_7___default().wrap),
                 children: [
                     /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                        className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_8___default().imgWrap),
+                        className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_7___default().imgWrap),
                         children: [
                             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                 style: {
@@ -219,13 +213,13 @@ const UpdateMyProfile = ({ data: data1  })=>{
                                 },
                                 children: [
                                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                        className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_8___default().img),
+                                        className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_7___default().img),
                                         src: photo,
                                         alt: "profile picture"
                                     }),
                                     photo !== data1.photo && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                                         onClick: resetImg,
-                                        className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_8___default().close),
+                                        className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_7___default().close),
                                         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("svg", {
                                             xmlns: "http://www.w3.org/2000/svg",
                                             width: "24",
@@ -279,7 +273,7 @@ const UpdateMyProfile = ({ data: data1  })=>{
                                         value: username,
                                         onChange: (e)=>setUsername(e.target.value)
                                         ,
-                                        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_9___default().textInput),
+                                        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_8___default().textInput),
                                         type: "text",
                                         minLength: "4",
                                         maxLength: "14"
@@ -295,7 +289,7 @@ const UpdateMyProfile = ({ data: data1  })=>{
                                         value: hobby,
                                         onChange: (e)=>setHobby(e.target.value)
                                         ,
-                                        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_9___default().textInput),
+                                        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_8___default().textInput),
                                         type: "text",
                                         minLength: "2",
                                         maxLength: "18"
@@ -311,7 +305,7 @@ const UpdateMyProfile = ({ data: data1  })=>{
                                         value: email,
                                         onChange: (e)=>setEmail(e.target.value)
                                         ,
-                                        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_9___default().textInput),
+                                        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_8___default().textInput),
                                         type: "email"
                                     })
                                 ]
@@ -320,7 +314,7 @@ const UpdateMyProfile = ({ data: data1  })=>{
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
                         type: "submit",
-                        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_9___default().applyBtn),
+                        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_8___default().applyBtn),
                         children: "Save"
                     })
                 ]
@@ -330,7 +324,7 @@ const UpdateMyProfile = ({ data: data1  })=>{
     }));
 };
 const getServerSideProps = async (ctx)=>{
-    const client = (0,_api_build_client__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(ctx);
+    const client = (0,_api_build_client__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z)(ctx);
     const { data  } = await client.get('/api/users/brief-user');
     return {
         props: {
@@ -340,7 +334,6 @@ const getServerSideProps = async (ctx)=>{
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UpdateMyProfile);
 
-});
 
 /***/ }),
 
@@ -477,14 +470,6 @@ module.exports = require("react");
 
 "use strict";
 module.exports = require("react/jsx-runtime");
-
-/***/ }),
-
-/***/ 9915:
-/***/ ((module) => {
-
-"use strict";
-module.exports = import("js-cookie");;
 
 /***/ })
 

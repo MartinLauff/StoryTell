@@ -50,18 +50,31 @@ const buildClient = ({ req  })=>{
 
 /***/ }),
 
-/***/ 2051:
+/***/ 8697:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  "Z": () => (/* binding */ items_Activity)
+  "default": () => (/* binding */ notifications),
+  "getServerSideProps": () => (/* binding */ getServerSideProps)
 });
 
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: ./api/build-client.js
+var build_client = __webpack_require__(8775);
+// EXTERNAL MODULE: ./components/bars/ArrowBar.js + 3 modules
+var ArrowBar = __webpack_require__(5109);
+// EXTERNAL MODULE: ./components/bars/BottomBar.js + 3 modules
+var BottomBar = __webpack_require__(7899);
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__(6689);
+// EXTERNAL MODULE: ./hooks/use-request.js
+var use_request = __webpack_require__(6471);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1664);
 // EXTERNAL MODULE: external "date-fns/formatDistance"
@@ -201,16 +214,19 @@ const Activity = ({ activity  })=>{
             activity.post && /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
                 href: "/posts/[...postId]",
                 as: `/posts/${activity.post._id}`,
-                children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                    children: activity.post.coverImage ? /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                        className: (Activity_module_default()).imageLeft,
-                        src: activity.post.coverImage,
-                        alt: "post photo"
-                    }) : /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                        className: (Activity_module_default()).topicLeft,
-                        src: `/${activity.topic}.png`,
-                        alt: "post photo"
-                    })
+                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("a", {
+                    children: [
+                        activity.post.coverImage && /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                            className: (Activity_module_default()).imageLeft,
+                            src: activity.post.coverImage,
+                            alt: "post photo"
+                        }),
+                        !activity.post.coverImage && /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                            className: (Activity_module_default()).topicLeft,
+                            src: `/${activity.topic}.png`,
+                            alt: "topic photo"
+                        })
+                    ]
                 })
             })
         ]
@@ -218,51 +234,26 @@ const Activity = ({ activity  })=>{
 };
 /* harmony default export */ const items_Activity = (Activity);
 
-
-/***/ }),
-
-/***/ 2995:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9915);
-/* harmony import */ var _hooks_use_request__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6471);
-/* harmony import */ var _items_Activity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2051);
-/* harmony import */ var _styles_Activity_module_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2168);
-/* harmony import */ var _styles_Activity_module_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_Activity_module_css__WEBPACK_IMPORTED_MODULE_5__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([js_cookie__WEBPACK_IMPORTED_MODULE_2__]);
-js_cookie__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__)[0];
-
+;// CONCATENATED MODULE: ./components/lists/ActivityList.js
 
 
 
 
 
 const ActivityList = ({ activities  })=>{
-    const { 0: active , 1: setActive  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true);
-    const { 0: acsData , 1: setAcsData  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
-    const { 0: page , 1: nextPage  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(1);
-    const { doRequest , errors  } = (0,_hooks_use_request__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z)({
+    const { 0: active , 1: setActive  } = (0,external_react_.useState)(true);
+    const { 0: acsData , 1: setAcsData  } = (0,external_react_.useState)([]);
+    const { 0: page , 1: nextPage  } = (0,external_react_.useState)(1);
+    const { doRequest , errors  } = (0,use_request/* default */.Z)({
         url: `/api/users/activities?page=${page}&limit=10`,
-        method: 'get',
-        headers: {
-            Authorization: 'Bearer ' + js_cookie__WEBPACK_IMPORTED_MODULE_2__["default"].get('jwt')
-        }
+        method: 'get'
     });
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+    (0,external_react_.useEffect)(()=>{
         if (activities.length < 10) {
             return setActive(false);
         }
     }, []);
-    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
+    (0,external_react_.useEffect)(()=>{
         setAcsData((oldState)=>[
                 ...oldState,
                 ...activities
@@ -272,8 +263,8 @@ const ActivityList = ({ activities  })=>{
         );
     }, []);
     if (!activities || activities.length === 0) {
-        return(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-            className: (_styles_Activity_module_css__WEBPACK_IMPORTED_MODULE_5___default().noActivities),
+        return(/*#__PURE__*/ jsx_runtime_.jsx("div", {
+            className: (Activity_module_default()).noActivities,
             children: "When a user likes your post, comments on your post or starts following you. We will get you notified here 🔥 👍 👌"
         }));
     }
@@ -293,52 +284,29 @@ const ActivityList = ({ activities  })=>{
             setActive(false);
         }
     };
-    const renderedList = acsData.map((activity)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_items_Activity__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
+    const renderedList = acsData.map((activity)=>/*#__PURE__*/ jsx_runtime_.jsx(items_Activity, {
             activity: activity
         }, activity._id)
     );
-    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: (_styles_Activity_module_css__WEBPACK_IMPORTED_MODULE_5___default().activityList),
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: (Activity_module_default()).activityList,
         children: [
             renderedList,
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+            /*#__PURE__*/ jsx_runtime_.jsx("button", {
                 style: active ? null : {
                     display: 'none'
                 },
                 onClick: onClick,
-                className: (_styles_Activity_module_css__WEBPACK_IMPORTED_MODULE_5___default().moreAcs),
+                className: (Activity_module_default()).moreAcs,
                 children: "Older Notifications"
             }),
             errors
         ]
     }));
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ActivityList);
+/* harmony default export */ const lists_ActivityList = (ActivityList);
 
-});
-
-/***/ }),
-
-/***/ 6761:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _api_build_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8775);
-/* harmony import */ var _components_bars_ArrowBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5109);
-/* harmony import */ var _components_bars_BottomBar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7899);
-/* harmony import */ var _components_lists_ActivityList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2995);
-/* harmony import */ var _styles_Activity_module_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2168);
-/* harmony import */ var _styles_Activity_module_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_Activity_module_css__WEBPACK_IMPORTED_MODULE_5__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_components_lists_ActivityList__WEBPACK_IMPORTED_MODULE_4__]);
-_components_lists_ActivityList__WEBPACK_IMPORTED_MODULE_4__ = (__webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__)[0];
+;// CONCATENATED MODULE: ./pages/users/notifications.js
 
 
 
@@ -346,46 +314,46 @@ _components_lists_ActivityList__WEBPACK_IMPORTED_MODULE_4__ = (__webpack_async_d
 
 
 const Notifications = ({ data  })=>{
-    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_bars_ArrowBar__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
+            /*#__PURE__*/ jsx_runtime_.jsx(ArrowBar/* default */.Z, {
                 title: "Notifications"
             }),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: (_styles_Activity_module_css__WEBPACK_IMPORTED_MODULE_5___default().mainTitle),
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: (Activity_module_default()).mainTitle,
                 children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+                    /*#__PURE__*/ jsx_runtime_.jsx("svg", {
                         width: "15",
                         height: "23",
                         viewBox: "0 0 15 23",
                         fill: "none",
                         xmlns: "http://www.w3.org/2000/svg",
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                             d: "M11.933 0.0941074C12.0665 0.172123 12.1698 0.293469 12.226 0.438322C12.2822 0.583174 12.288 0.742971 12.2426 0.891607L9.78673 8.93811H14.3179C14.4511 8.93805 14.5814 8.97732 14.6926 9.05106C14.8039 9.12481 14.8914 9.2298 14.9441 9.35307C14.9969 9.47635 15.0128 9.61251 14.9897 9.74475C14.9666 9.877 14.9056 9.99953 14.8143 10.0972L3.90558 21.7847C3.80003 21.8979 3.65958 21.9717 3.50711 21.9941C3.35464 22.0165 3.19915 21.9861 3.06598 21.908C2.93282 21.8298 2.82982 21.7085 2.7738 21.5638C2.71777 21.419 2.712 21.2594 2.75744 21.111L5.21326 13.0631H0.682065C0.548904 13.0632 0.418642 13.0239 0.30736 12.9501C0.196077 12.8764 0.108646 12.7714 0.0558587 12.6481C0.00307159 12.5249 -0.0127604 12.3887 0.0103171 12.2565C0.0333946 12.1242 0.0943711 12.0017 0.18572 11.904L11.0944 0.216482C11.1998 0.103456 11.3401 0.0297142 11.4923 0.00724665C11.6446 -0.0152209 11.7999 0.0149072 11.933 0.0927324V0.0941074ZM2.25974 11.6881H6.13641C6.24311 11.6881 6.34832 11.7133 6.44359 11.7618C6.53885 11.8102 6.62151 11.8805 6.68492 11.9671C6.74832 12.0536 6.79069 12.154 6.80863 12.26C6.82657 12.3661 6.81958 12.4749 6.78821 12.5777L4.92282 18.6869L12.7389 10.3131H8.86359C8.75689 10.3131 8.65167 10.2879 8.55641 10.2394C8.46114 10.191 8.37848 10.1207 8.31508 10.0341C8.25168 9.94759 8.20931 9.84726 8.19137 9.7412C8.17343 9.63514 8.18042 9.52632 8.21179 9.42348L10.0772 3.31436L2.25974 11.6881Z",
                             fill: "black"
                         })
                     }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                    /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                         children: "All activity"
                     })
                 ]
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_lists_ActivityList__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
+            /*#__PURE__*/ jsx_runtime_.jsx(lists_ActivityList, {
                 activities: data.data
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("style", {
+            /*#__PURE__*/ jsx_runtime_.jsx("style", {
                 style: {
                     display: 'none'
                 },
                 children: `html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_bars_BottomBar__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+            /*#__PURE__*/ jsx_runtime_.jsx(BottomBar/* default */.Z, {
             })
         ]
     }));
 };
 const getServerSideProps = async (ctx)=>{
-    const client = (0,_api_build_client__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z)(ctx);
+    const client = (0,build_client/* default */.Z)(ctx);
     const { data  } = await client.get('/api/users/activities/');
     return {
         props: {
@@ -393,9 +361,8 @@ const getServerSideProps = async (ctx)=>{
         }
     };
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Notifications);
+/* harmony default export */ const notifications = (Notifications);
 
-});
 
 /***/ }),
 
@@ -533,14 +500,6 @@ module.exports = require("react");
 "use strict";
 module.exports = require("react/jsx-runtime");
 
-/***/ }),
-
-/***/ 9915:
-/***/ ((module) => {
-
-"use strict";
-module.exports = import("js-cookie");;
-
 /***/ })
 
 };
@@ -550,7 +509,7 @@ module.exports = import("js-cookie");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,899,109], () => (__webpack_exec__(6761)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,899,109], () => (__webpack_exec__(8697)));
 module.exports = __webpack_exports__;
 
 })();

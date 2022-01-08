@@ -20,50 +20,60 @@ module.exports = {
 
 /***/ }),
 
-/***/ 981:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ 8411:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6853);
-/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _hooks_use_request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6471);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9915);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([js_cookie__WEBPACK_IMPORTED_MODULE_2__]);
-js_cookie__WEBPACK_IMPORTED_MODULE_2__ = (__webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__)[0];
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
 
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ saved_posts),
+  "getServerSideProps": () => (/* binding */ getServerSideProps)
+});
+
+// EXTERNAL MODULE: external "react/jsx-runtime"
+var jsx_runtime_ = __webpack_require__(997);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1664);
+// EXTERNAL MODULE: ./styles/EditProfile.module.css
+var EditProfile_module = __webpack_require__(5694);
+var EditProfile_module_default = /*#__PURE__*/__webpack_require__.n(EditProfile_module);
+// EXTERNAL MODULE: ./api/build-client.js
+var build_client = __webpack_require__(8775);
+// EXTERNAL MODULE: ./components/lists/PostList.js + 1 modules
+var PostList = __webpack_require__(5650);
+// EXTERNAL MODULE: ./styles/Components.module.css
+var Components_module = __webpack_require__(6853);
+var Components_module_default = /*#__PURE__*/__webpack_require__.n(Components_module);
+// EXTERNAL MODULE: ./hooks/use-request.js
+var use_request = __webpack_require__(6471);
+;// CONCATENATED MODULE: ./components/Icons/UnsaveIcon.js
 
 
 
 const UnsaveIcon = ({ postId , deleteOpt , Xposition  })=>{
-    const { doRequest , errors  } = (0,_hooks_use_request__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z)({
+    const { doRequest , errors  } = (0,use_request/* default */.Z)({
         url: `/api/users/unsave/${postId}`,
-        method: 'put',
-        headers: {
-            Authorization: 'Bearer ' + js_cookie__WEBPACK_IMPORTED_MODULE_2__["default"].get('jwt')
-        }
+        method: 'put'
     });
     const onClick = (e)=>{
         e.preventDefault();
         doRequest();
         deleteOpt(false);
     };
-    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         onClick: onClick,
-        className: `${(_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3___default().xIcon)} ${Xposition ? (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3___default().imgON) : (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3___default().imgOFF)}`,
+        className: `${(Components_module_default()).xIcon} ${Xposition ? (Components_module_default()).imgON : (Components_module_default()).imgOFF}`,
         children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+            /*#__PURE__*/ jsx_runtime_.jsx("svg", {
                 width: "20",
                 height: "20",
                 viewBox: "0 0 20 20",
                 fill: "none",
                 xmlns: "http://www.w3.org/2000/svg",
-                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                     d: "M10 10L19 19M1 19L10 10L1 19ZM19 1L9.99828 10L19 1ZM9.99828 10L1 1L9.99828 10Z",
                     stroke: "black",
                     strokeWidth: "2",
@@ -75,32 +85,9 @@ const UnsaveIcon = ({ postId , deleteOpt , Xposition  })=>{
         ]
     }));
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UnsaveIcon);
+/* harmony default export */ const Icons_UnsaveIcon = (UnsaveIcon);
 
-});
-
-/***/ }),
-
-/***/ 4087:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1664);
-/* harmony import */ var _styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5694);
-/* harmony import */ var _styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _api_build_client__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8775);
-/* harmony import */ var _components_lists_PostList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5511);
-/* harmony import */ var _components_Icons_UnsaveIcon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(981);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_components_Icons_UnsaveIcon__WEBPACK_IMPORTED_MODULE_4__, _components_lists_PostList__WEBPACK_IMPORTED_MODULE_3__]);
-([_components_Icons_UnsaveIcon__WEBPACK_IMPORTED_MODULE_4__, _components_lists_PostList__WEBPACK_IMPORTED_MODULE_3__] = __webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__);
+;// CONCATENATED MODULE: ./pages/users/settings/saved-posts.js
 
 
 
@@ -108,24 +95,24 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_com
 
 
 const savedPosts = ({ data  })=>{
-    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         children: [
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: (_styles_EditProfile_module_css__WEBPACK_IMPORTED_MODULE_5___default().bar),
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: (EditProfile_module_default()).bar,
                 children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                    /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
                         href: "/users/my-profile",
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                        children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
                             style: {
                                 height: '2rem'
                             },
-                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("svg", {
                                 width: "20",
                                 height: "20",
                                 viewBox: "0 0 20 20",
                                 fill: "none",
                                 xmlns: "http://www.w3.org/2000/svg",
-                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                                children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                                     d: "M10 10L19 19M1 19L10 10L1 19ZM19 1L9.99828 10L19 1ZM9.99828 10L1 1L9.99828 10Z",
                                     stroke: "black",
                                     strokeWidth: "2",
@@ -135,18 +122,18 @@ const savedPosts = ({ data  })=>{
                             })
                         })
                     }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
+                    /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                         children: "Saved posts"
                     })
                 ]
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_lists_PostList__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+            /*#__PURE__*/ jsx_runtime_.jsx(PostList/* default */.Z, {
                 userId: data.userId,
-                UnsaveOption: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_Icons_UnsaveIcon__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
+                UnsaveOption: /*#__PURE__*/ jsx_runtime_.jsx(Icons_UnsaveIcon, {
                 }),
                 posts: data.posts
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("style", {
+            /*#__PURE__*/ jsx_runtime_.jsx("style", {
                 style: {
                     display: 'none'
                 },
@@ -156,7 +143,7 @@ const savedPosts = ({ data  })=>{
     }));
 };
 const getServerSideProps = async (ctx)=>{
-    const client = (0,_api_build_client__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z)(ctx);
+    const client = (0,build_client/* default */.Z)(ctx);
     const { data  } = await client.get('/api/posts/saved');
     return {
         props: {
@@ -164,9 +151,8 @@ const getServerSideProps = async (ctx)=>{
         }
     };
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (savedPosts);
+/* harmony default export */ const saved_posts = (savedPosts);
 
-});
 
 /***/ }),
 
@@ -312,14 +298,6 @@ module.exports = require("react");
 "use strict";
 module.exports = require("react/jsx-runtime");
 
-/***/ }),
-
-/***/ 9915:
-/***/ ((module) => {
-
-"use strict";
-module.exports = import("js-cookie");;
-
 /***/ })
 
 };
@@ -329,7 +307,7 @@ module.exports = import("js-cookie");;
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,241,511], () => (__webpack_exec__(4087)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,241,650], () => (__webpack_exec__(8411)));
 module.exports = __webpack_exports__;
 
 })();

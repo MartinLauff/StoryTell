@@ -57,9 +57,8 @@ const CommentIcon = ()=>{
 /***/ }),
 
 /***/ 9107:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -69,20 +68,17 @@ __webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var axios_rate_limit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2069);
 /* harmony import */ var axios_rate_limit__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios_rate_limit__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _styles_Error_module_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2238);
-/* harmony import */ var _styles_Error_module_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _styles_Error_module_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2238);
+/* harmony import */ var _styles_Error_module_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2167);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9915);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([js_cookie__WEBPACK_IMPORTED_MODULE_4__]);
-js_cookie__WEBPACK_IMPORTED_MODULE_4__ = (__webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__)[0];
-
 
 
 
 
 
 const LikeSet = ({ postID , likes , greyColor , userId  })=>{
+    const { 0: likesArr , 1: setLikesArr  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(likes);
     const { 0: likeCount , 1: setLikeCount  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(likes.length);
     const { 0: active , 1: setActive  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     const { 0: errors , 1: setErrors  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
@@ -100,15 +96,12 @@ const LikeSet = ({ postID , likes , greyColor , userId  })=>{
         try {
             await http({
                 url: `/api/upvotes/${postID}/${path}`,
-                headers: {
-                    Authorization: 'Bearer ' + js_cookie__WEBPACK_IMPORTED_MODULE_4__["default"].get('jwt')
-                },
                 method: 'put',
                 withCredentials: true
             });
         } catch (err1) {
             setErrors(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: (_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_5___default().errorBanner),
+                className: (_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_4___default().errorBanner),
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h4", {
                         children: "Ooops...."
@@ -128,12 +121,20 @@ const LikeSet = ({ postID , likes , greyColor , userId  })=>{
     };
     const doLike = async (e)=>{
         e.preventDefault();
-        if (likes.includes(userId)) {
+        if (likesArr.includes(userId)) {
+            setLikesArr((oldArr)=>oldArr.filter((el)=>el !== userId
+                )
+            );
             setActive(false);
             doRequest('unlike');
             setLikeCount((oldState)=>oldState - 1
             );
         } else {
+            setLikesArr((oldArr)=>[
+                    ...oldArr,
+                    userId
+                ]
+            );
             setActive(true);
             doRequest('like');
             setLikeCount((oldState)=>oldState + 1
@@ -179,7 +180,6 @@ const LikeSet = ({ postID , likes , greyColor , userId  })=>{
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LikeSet);
 
-});
 
 /***/ }),
 
@@ -282,45 +282,37 @@ const CopyOption = ()=>{
 /***/ }),
 
 /***/ 7417:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__) => {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6853);
-/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9915);
-/* harmony import */ var _Icons_SaveIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7960);
-/* harmony import */ var _hooks_use_request__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6471);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([js_cookie__WEBPACK_IMPORTED_MODULE_1__]);
-js_cookie__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? await __webpack_async_dependencies__ : __webpack_async_dependencies__)[0];
-
+/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6853);
+/* harmony import */ var _styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Icons_SaveIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7960);
+/* harmony import */ var _hooks_use_request__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6471);
 
 
 
 
 const SaveOption = ({ postID  })=>{
-    const { doRequest , errors  } = (0,_hooks_use_request__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z)({
+    const { doRequest , errors  } = (0,_hooks_use_request__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z)({
         url: `/api/users/save/${postID}`,
-        method: 'put',
-        headers: {
-            Authorization: 'Bearer ' + js_cookie__WEBPACK_IMPORTED_MODULE_1__["default"].get('jwt')
-        }
+        method: 'put'
     });
     const savePost = ()=>{
         doRequest();
     };
     return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         onClick: savePost,
-        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_4___default().bannerOption),
+        className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3___default().bannerOption),
         children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_SaveIcon__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Icons_SaveIcon__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
-                className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_4___default().bannerText),
+                className: (_styles_Components_module_css__WEBPACK_IMPORTED_MODULE_3___default().bannerText),
                 children: "Save"
             }),
             errors
@@ -329,7 +321,6 @@ const SaveOption = ({ postID  })=>{
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SaveOption);
 
-});
 
 /***/ })
 
