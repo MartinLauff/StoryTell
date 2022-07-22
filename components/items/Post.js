@@ -119,6 +119,7 @@ const Post = ({ post, UnsaveOption, userId }) => {
           {post.coverImage && (
             <img
               className={postStyles.coverImage}
+              loading="lazy"
               src={post.coverImage}
               alt={post.title}
             />
