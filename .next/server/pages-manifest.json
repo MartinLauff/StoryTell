@@ -1,0 +1,22 @@
+{
+  "/500": "pages/500.html",
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/auth/login": "pages/auth/login.html",
+  "/auth/signout": "pages/auth/signout.html",
+  "/auth/signup": "pages/auth/signup.html",
+  "/": "pages/index.html",
+  "/posts/[...postId]": "pages/posts/[...postId].js",
+  "/posts/create-post": "pages/posts/create-post.html",
+  "/posts": "pages/posts.js",
+  "/premium": "pages/premium.html",
+  "/topics/[topicSlug]": "pages/topics/[topicSlug].js",
+  "/users/[...oneUser]": "pages/users/[...oneUser].js",
+  "/users/my-profile": "pages/users/my-profile.js",
+  "/users/notifications": "pages/users/notifications.js",
+  "/users/settings/saved-posts": "pages/users/settings/saved-posts.js",
+  "/users/settings/update-my-profile": "pages/users/settings/update-my-profile.js",
+  "/users/settings/update-password": "pages/users/settings/update-password.html",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
+}
