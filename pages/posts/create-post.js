@@ -83,7 +83,7 @@ const CreatePost = () => {
     e.preventDefault();
     setErrors(null);
 
-    if (!topic || !title || !content) {
+    if (!topic || !title || !content || content.length < 10) {
       return;
     }
     setActive(true);
@@ -192,7 +192,6 @@ const CreatePost = () => {
           required
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          minLength='10'
           maxLength='275'
           style={{
             height: '22rem',
