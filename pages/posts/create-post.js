@@ -83,7 +83,7 @@ const CreatePost = () => {
     e.preventDefault();
     setErrors(null);
 
-    if (!topic || !title || !content || content.length < 10) {
+    if (!topic || !title || content.length < 10) {
       return;
     }
     setActive(true);
