@@ -121,7 +121,7 @@
   border-radius: 0 0 1rem 1rem;
 }
 .borda {
-  border-top: 2px solid #000;
+  border-top: 2px solid #f0f0f0;
 }
 .borda:last-child {
   border-bottom: none;
@@ -149,15 +149,16 @@
   .borda,
   .borda:last-child,
   .borda:first-child {
-    border: 2px solid #000;
+    border: 2px solid #f0f0f0;
   }
 }
 @media only screen and (max-height: 28rem) {
   .borda:last-child {
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 0.5rem;
   }
   .borda:first-child {
-    border-top: 2px solid #000;
+    border-top: 2px solid #f0f0f0;
   }
 }
 @media only screen and (min-width: 35rem) {

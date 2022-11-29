@@ -128,6 +128,7 @@ const savedPosts = ({ data  })=>{
                 ]
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(PostList/* default */.Z, {
+                text: "You haven't saved any posts yet.",
                 userId: data.userId,
                 UnsaveOption: /*#__PURE__*/ jsx_runtime_.jsx(Icons_UnsaveIcon, {
                 }),
