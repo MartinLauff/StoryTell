@@ -24,7 +24,6 @@ const LatestPosts = ({ data }) => {
 
 export const getServerSideProps = async (ctx) => {
   const client = buildClient(ctx);
-  const { res } = ctx;
   const { data } = await client.get('/api/posts/');
 
   return {
