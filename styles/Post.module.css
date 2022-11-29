@@ -121,7 +121,7 @@
   border-radius: 0 0 1rem 1rem;
 }
 .borda {
-  border-top: 2px solid #f0f0f0;
+  border-top: 2px solid #000;
 }
 .borda:last-child {
   border-bottom: none;
@@ -149,7 +149,7 @@
   .borda,
   .borda:last-child,
   .borda:first-child {
-    border: 2px solid #f0f0f0;
+    border: 2px solid #000;
   }
 }
 @media only screen and (max-height: 28rem) {
