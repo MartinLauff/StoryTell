@@ -14,7 +14,7 @@
 }
 .post {
   position: relative;
-  margin: 0;
+  margin: 0 0 0.75rem 0;
   width: 100%;
   min-height: 17rem;
   background-color: #fff;
@@ -121,7 +121,7 @@
   border-radius: 0 0 1rem 1rem;
 }
 .borda {
-  border-top: 2px solid #000;
+  border-top: 2px solid #f0f0f0;
 }
 .borda:last-child {
   border-bottom: none;
@@ -154,13 +154,10 @@
 }
 @media only screen and (max-height: 28rem) {
   .borda:last-child {
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 2px solid #000;
   }
   .borda:first-child {
-    border-top: 2px solid #f0f0f0;
-  }
-  .borda {
-    margin-bottom: 0.5rem;
+    border-top: 2px solid #000;
   }
 }
 @media only screen and (min-width: 35rem) {
