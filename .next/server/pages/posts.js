@@ -55,7 +55,6 @@ const LatestPosts = ({ data  })=>{
 };
 const getServerSideProps = async (ctx)=>{
     const client = (0,_api_build_client__WEBPACK_IMPORTED_MODULE_6__/* ["default"] */ .Z)(ctx);
-    const { res  } = ctx;
     const { data  } = await client.get('/api/posts/');
     return {
         props: {

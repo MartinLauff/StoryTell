@@ -30,6 +30,7 @@ const savedPosts = ({ data }) => {
         <h2>Saved posts</h2>
       </div>
       <PostList
+        text="You haven't saved any posts yet."
         userId={data.userId}
         UnsaveOption={<UnsaveIcon />}
         posts={data.posts}
