@@ -155,10 +155,12 @@
 @media only screen and (max-height: 28rem) {
   .borda:last-child {
     border-bottom: 2px solid #f0f0f0;
-    margin-bottom: 0.5rem;
   }
   .borda:first-child {
     border-top: 2px solid #f0f0f0;
+  }
+  .borda {
+    margin-bottom: 0.5rem;
   }
 }
 @media only screen and (min-width: 35rem) {
