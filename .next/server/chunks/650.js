@@ -24,7 +24,8 @@ module.exports = {
 	"hide": "Post_hide__OEcmp",
 	"postLink": "Post_postLink__aHNai",
 	"anotherActions": "Post_anotherActions__usE9q",
-	"borda": "Post_borda__q6rtX"
+	"borda": "Post_borda__q6rtX",
+	"margin": "Post_margin__6a_4W"
 };
 
 
@@ -90,7 +91,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
         color: '#878a8c'
     };
     return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: `${state ? (Post_module_default()).post : (Post_module_default()).hide} ${!post.coverImage ? (Post_module_default()).borda : ''}`,
+        className: `${state ? (Post_module_default()).post : (Post_module_default()).hide} ${!post.coverImage ? (Post_module_default()).borda : ''} ${!post.coverImage ? (Post_module_default()).margin : ''}`,
         children: [
             UnsaveOption && /*#__PURE__*/ (0,external_react_.cloneElement)(UnsaveOption, {
                 postId: post._id,

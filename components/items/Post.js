@@ -20,7 +20,7 @@ const Post = ({ post, UnsaveOption, userId }) => {
     <div
       className={`${state ? postStyles.post : postStyles.hide} ${
         !post.coverImage ? postStyles.borda : ''
-      }`}
+      } ${!post.coverImage ? postStyles.margin : ''}`}
     >
       {UnsaveOption &&
         cloneElement(UnsaveOption, {
@@ -119,7 +119,7 @@ const Post = ({ post, UnsaveOption, userId }) => {
           {post.coverImage && (
             <img
               className={postStyles.coverImage}
-              loading="lazy"
+              loading='lazy'
               src={post.coverImage}
               alt={post.title}
             />

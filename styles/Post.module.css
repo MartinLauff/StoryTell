@@ -14,7 +14,7 @@
 }
 .post {
   position: relative;
-  margin: 0 0 0.75rem 0;
+  margin: 0;
   width: 100%;
   min-height: 17rem;
   background-color: #fff;
@@ -129,7 +129,13 @@
 .borda:first-child {
   border-top: none;
 }
+.margin {
+  margin: 0 0 0.75rem 0;
+}
 @media only screen and (min-width: 28rem) {
+  .margin {
+    margin: 0;
+  }
   .post {
     width: 40rem;
     border-radius: 1rem;
