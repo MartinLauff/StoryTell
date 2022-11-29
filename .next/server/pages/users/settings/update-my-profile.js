@@ -50,7 +50,7 @@ const buildClient = ({ req  })=>{
     if (true) {
         // We are on the server
         return axios__WEBPACK_IMPORTED_MODULE_0___default().create({
-            baseURL: 'https://storytull.herokuapp.com/',
+            baseURL: 'https://storytell.onrender.com/',
             headers: req.headers,
             withCredentials: true
         });
