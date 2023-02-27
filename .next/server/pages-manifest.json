@@ -12,6 +12,7 @@
   "/premium": "pages/premium.html",
   "/topics/[topicSlug]": "pages/topics/[topicSlug].js",
   "/users/[...oneUser]": "pages/users/[...oneUser].js",
+  "/users/chat/[...userID]": "pages/users/chat/[...userID].js",
   "/users/my-profile": "pages/users/my-profile.js",
   "/users/notifications": "pages/users/notifications.js",
   "/users/settings/saved-posts": "pages/users/settings/saved-posts.js",

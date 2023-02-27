@@ -62,7 +62,12 @@ const OneUser = ({ data }) => {
                 </button>
               )}
               {data.user._id !== data.userId && (
-                <button className={oneUserStyles.chat}>Chat</button>
+                <Link
+                  href='/users/chat/[...userID]'
+                  as={`/users/chat/${data.user._id}`}
+                >
+                  <a className={oneUserStyles.chat}>Chat</a>
+                </Link>
               )}
               {data.user._id === data.userId && (
                 <Link href='/users/settings/update-my-profile'>

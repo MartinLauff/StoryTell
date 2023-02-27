@@ -144,9 +144,13 @@ const OneUser = ({ data  })=>{
                                                 className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().follow),
                                                 children: active ? 'Following' : 'Follow'
                                             }),
-                                            data.user._id !== data.userId && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                                                className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().chat),
-                                                children: "Chat"
+                                            data.user._id !== data.userId && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                                                href: "/users/chat/[...userID]",
+                                                as: `/users/chat/${data.user._id}`,
+                                                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
+                                                    className: (_styles_OneUser_module_css__WEBPACK_IMPORTED_MODULE_7___default().chat),
+                                                    children: "Chat"
+                                                })
                                             }),
                                             data.user._id === data.userId && /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_2__["default"], {
                                                 href: "/users/settings/update-my-profile",
@@ -399,7 +403,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,241,650,109], () => (__webpack_exec__(4567)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,241,109,650], () => (__webpack_exec__(4567)));
 module.exports = __webpack_exports__;
 
 })();
