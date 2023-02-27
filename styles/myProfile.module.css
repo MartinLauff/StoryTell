@@ -110,3 +110,10 @@
   left: 0;
   right: 0;
 }
+.barPhoto {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 10rem;
+  object-fit: cover;
+  margin-left: 1rem;
+}

@@ -19,7 +19,8 @@ module.exports = {
 	"data": "myProfile_data__YhG8l",
 	"legend": "myProfile_legend__p_R0l",
 	"profileBanner": "myProfile_profileBanner__zBFzx",
-	"transparentLayer": "myProfile_transparentLayer__o3hb_"
+	"transparentLayer": "myProfile_transparentLayer__o3hb_",
+	"barPhoto": "myProfile_barPhoto__jBbpH"
 };
 
 
