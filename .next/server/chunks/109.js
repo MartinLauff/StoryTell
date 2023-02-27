@@ -158,7 +158,7 @@ const ArrowIcon = ()=>{
 
 
 
-const ArrowBar = ({ extra , title  })=>{
+const ArrowBar = ({ extra , title , image  })=>{
     const { 0: banner , 1: setBanner  } = (0,external_react_.useState)(false);
     return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: `${(Bar_module_default()).bar} ${(Bar_module_default()).arrowBar}`,
@@ -174,7 +174,15 @@ const ArrowBar = ({ extra , title  })=>{
                     })
                 })
             }),
+            image && /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                alt: "profile image",
+                src: image,
+                className: (myProfile_module_default()).barPhoto
+            }),
             /*#__PURE__*/ jsx_runtime_.jsx("h2", {
+                style: image ? {
+                    marginLeft: '1rem'
+                } : null,
                 children: title
             }),
             extra && /*#__PURE__*/ jsx_runtime_.jsx("div", {

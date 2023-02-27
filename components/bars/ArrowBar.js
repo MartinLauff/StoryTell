@@ -6,7 +6,7 @@ import myProfileStyles from '../../styles/myProfile.module.css';
 import BarStyles from '../../styles/Bar.module.css';
 import ArrowIcon from '../Icons/ArrowIcon';
 
-const ArrowBar = ({ extra, title }) => {
+const ArrowBar = ({ extra, title, image }) => {
   const [banner, setBanner] = useState(false);
   return (
     <div className={`${BarStyles.bar} ${BarStyles.arrowBar}`}>
@@ -15,7 +15,14 @@ const ArrowBar = ({ extra, title }) => {
           <ArrowIcon />
         </a>
       </Link>
-      <h2>{title}</h2>
+      {image && (
+        <img
+          alt='profile image'
+          src={image}
+          className={myProfileStyles.barPhoto}
+        />
+      )}
+      <h2 style={image ? { marginLeft: '1rem' } : null}>{title}</h2>
       {extra && (
         <div
           onClick={() => setBanner(true)}
