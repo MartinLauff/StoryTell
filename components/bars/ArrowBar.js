@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import SavedOption from '../bannerOptions/SavedOptions';
 import ChangePasswordOption from '../bannerOptions/ChangePasswordOption';
-import myProfileStyles from '../../styles/myProfile.module.css';
+import myProfileStyles from '../../styles/MyProfile.module.css';
 import BarStyles from '../../styles/Bar.module.css';
 import ArrowIcon from '../Icons/ArrowIcon';
 

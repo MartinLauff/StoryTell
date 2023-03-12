@@ -33,7 +33,7 @@ const CreatePost = () => {
 
   const doRequest = (url = '') => {
     axios({
-      url: '/api/posts/',
+      url: 'http://localhost:8000/api/posts/',
       method: 'post',
       data: {
         topic,
@@ -83,7 +83,7 @@ const CreatePost = () => {
     e.preventDefault();
     setErrors(null);
 
-    if (!topic || !title || content.length < 10) {
+    if (!topic || !title || !content) {
       return;
     }
     setActive(true);
@@ -192,6 +192,7 @@ const CreatePost = () => {
           required
           value={content}
           onChange={(e) => setContent(e.target.value)}
+          minLength='10'
           maxLength='275'
           style={{
             height: '22rem',

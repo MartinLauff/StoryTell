@@ -8,7 +8,6 @@ const LikeSet = ({ postID, likes, greyColor, userId }) => {
   const [likeCount, setLikeCount] = useState(likes.length);
   const [active, setActive] = useState(false);
   const [errors, setErrors] = useState(null);
-
   useEffect(() => {
     if (likes.includes(userId)) {
       setActive(true);
@@ -23,7 +22,7 @@ const LikeSet = ({ postID, likes, greyColor, userId }) => {
     });
     try {
       await http({
-        url: `/api/upvotes/${postID}/${path}`,
+        url: `http://localhost:8000/api/upvotes/${postID}/${path}`,
         method: 'put',
         withCredentials: true,
       });

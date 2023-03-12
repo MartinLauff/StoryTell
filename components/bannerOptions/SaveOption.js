@@ -4,7 +4,7 @@ import useRequest from '../../hooks/use-request';
 
 const SaveOption = ({ postID }) => {
   const { doRequest, errors } = useRequest({
-    url: `/api/users/save/${postID}`,
+    url: `http://localhost:8000/api/users/save/${postID}`,
     method: 'put',
   });
   const savePost = () => {

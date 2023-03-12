@@ -41,13 +41,14 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(997);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: ./styles/Bar.module.css
 var Bar_module = __webpack_require__(2604);
 var Bar_module_default = /*#__PURE__*/__webpack_require__.n(Bar_module);
 ;// CONCATENATED MODULE: ./components/Icons/NotifitcationIcon.js
 
 const NotifitcationIcon = ()=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("svg", {
             width: "23",
             height: "27",
@@ -59,14 +60,14 @@ const NotifitcationIcon = ()=>{
                 fill: "black"
             })
         })
-    }));
+    });
 };
 /* harmony default export */ const Icons_NotifitcationIcon = (NotifitcationIcon);
 
 ;// CONCATENATED MODULE: ./components/Icons/NewPostIcon.js
 
 const NewPostIcon = ()=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("svg", {
             width: "30",
             height: "30",
@@ -96,14 +97,14 @@ const NewPostIcon = ()=>{
                 })
             ]
         })
-    }));
+    });
 };
 /* harmony default export */ const Icons_NewPostIcon = (NewPostIcon);
 
 ;// CONCATENATED MODULE: ./components/Icons/ProfileIcon.js
 
 const ProfileIcon = ()=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("svg", {
             width: "24",
             height: "24",
@@ -115,7 +116,7 @@ const ProfileIcon = ()=>{
                 fill: "black"
             })
         })
-    }));
+    });
 };
 /* harmony default export */ const Icons_ProfileIcon = (ProfileIcon);
 
@@ -127,41 +128,38 @@ const ProfileIcon = ()=>{
 
 
 const BottomBar = ()=>{
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: `${(Bar_module_default()).bar} ${(Bar_module_default()).bottomBar}`,
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                 href: "/users/notifications",
                 children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
                     style: {
-                        height: '2.7rem'
+                        height: "2.7rem"
                     },
-                    children: /*#__PURE__*/ jsx_runtime_.jsx(Icons_NotifitcationIcon, {
-                    })
+                    children: /*#__PURE__*/ jsx_runtime_.jsx(Icons_NotifitcationIcon, {})
                 })
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                 href: "/posts/create-post",
                 children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
                     style: {
-                        height: '3.0rem'
+                        height: "3.0rem"
                     },
-                    children: /*#__PURE__*/ jsx_runtime_.jsx(Icons_NewPostIcon, {
-                    })
+                    children: /*#__PURE__*/ jsx_runtime_.jsx(Icons_NewPostIcon, {})
                 })
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                 href: "/users/my-profile",
                 children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
                     style: {
-                        height: '2.4rem'
+                        height: "2.4rem"
                     },
-                    children: /*#__PURE__*/ jsx_runtime_.jsx(Icons_ProfileIcon, {
-                    })
+                    children: /*#__PURE__*/ jsx_runtime_.jsx(Icons_ProfileIcon, {})
                 })
             })
         ]
-    }));
+    });
 };
 /* harmony default export */ const bars_BottomBar = (BottomBar);
 

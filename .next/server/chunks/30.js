@@ -26,12 +26,12 @@ const Layer = ()=>{
         setSidebar(false);
         setRotateDots(false);
     };
-    return(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
             onClick: layerOff,
             className: `${sidebar ? (_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_3___default().layer) : (_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_3___default().hide)}`
         })
-    }));
+    });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Layer);
 
@@ -47,6 +47,7 @@ const Layer = ()=>{
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1664);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6689);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _context_GlobalCtx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3211);
@@ -59,24 +60,17 @@ const Layer = ()=>{
 
 const SideBar = ()=>{
     const { sidebar , setSidebar , setRotateDots  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useContext)(_context_GlobalCtx__WEBPACK_IMPORTED_MODULE_3__/* .GlobalContext */ .k);
-    const scrollStyle = `html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`;
     const close = ()=>{
         setSidebar(false);
         setRotateDots(false);
     };
-    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: `${(_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_4___default().sidebar)} ${sidebar ? (_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_4___default().open) : (_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_4___default().close)}`,
         children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("style", {
-                style: {
-                    display: 'none'
-                },
-                children: sidebar ? `body {overflow: hidden;}` : scrollStyle
-            }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
                 children: "Storytell"
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                 href: "/posts",
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                     onClick: close,
@@ -98,7 +92,7 @@ const SideBar = ()=>{
                     ]
                 })
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                 href: "/premium",
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                     onClick: close,
@@ -120,11 +114,11 @@ const SideBar = ()=>{
                     ]
                 })
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                 href: {
-                    pathname: '/posts/create-post',
+                    pathname: "/posts/create-post",
                     query: {
-                        q: 'feedback'
+                        q: "feedback"
                     }
                 },
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
@@ -147,31 +141,30 @@ const SideBar = ()=>{
                     ]
                 })
             }),
-            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                children: [
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
-                        width: "18",
-                        height: "18",
-                        viewBox: "0 0 18 18",
-                        fill: "none",
-                        xmlns: "http://www.w3.org/2000/svg",
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
-                            d: "M9 0C7.21997 0 5.47991 0.527841 3.99987 1.51677C2.51983 2.50571 1.36628 3.91131 0.685088 5.55585C0.00389951 7.20038 -0.17433 9.00998 0.172937 10.7558C0.520203 12.5016 1.37737 14.1053 2.63604 15.364C3.89472 16.6226 5.49836 17.4798 7.24419 17.8271C8.99002 18.1743 10.7996 17.9961 12.4442 17.3149C14.0887 16.6337 15.4943 15.4802 16.4832 14.0001C17.4722 12.5201 18 10.78 18 9C18 8.54 17.96 8.08 17.9 7.64C17.4003 8.34066 16.7401 8.91146 15.9746 9.30465C15.2091 9.69784 14.3606 9.90198 13.5 9.9C12.3552 9.90003 11.24 9.53643 10.3152 8.86166C9.39041 8.18688 8.70385 7.23581 8.35454 6.14561C8.00523 5.05541 8.01123 3.88243 8.37167 2.79586C8.73211 1.70928 9.42836 0.765281 10.36 0.0999999C9.92 0.0399999 9.46 0 9 0Z",
-                            fill: "black"
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
+                href: "/users/chat",
+                children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
+                    onClick: close,
+                    children: [
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("svg", {
+                            width: "20",
+                            height: "22",
+                            viewBox: "0 0 20 22",
+                            fill: "none",
+                            xmlns: "http://www.w3.org/2000/svg",
+                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("path", {
+                                d: "M4.27273 6.14286H14.9091M4.27273 9.57143H11.6364M4.27273 1H15.7273C16.5953 1 17.4277 1.36122 18.0414 2.00421C18.6552 2.64719 19 3.51926 19 4.42857V11.2857C19 12.195 18.6552 13.0671 18.0414 13.7101C17.4277 14.3531 16.5953 14.7143 15.7273 14.7143H5.90909L1 19V4.42857C1 3.51926 1.3448 2.64719 1.95856 2.00421C2.57232 1.36122 3.40475 1 4.27273 1Z",
+                                stroke: "black",
+                                strokeWidth: "2"
+                            })
+                        }),
+                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
+                            children: "Chats"
                         })
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
-                        children: "Dark mode"
-                    }),
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        className: (_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_4___default().toggle),
-                        children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                            className: (_styles_Bar_module_css__WEBPACK_IMPORTED_MODULE_4___default().dark)
-                        })
-                    })
-                ]
+                    ]
+                })
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                 href: "/auth/signout",
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                     onClick: close,
@@ -195,7 +188,7 @@ const SideBar = ()=>{
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                             style: {
-                                color: '#FF4040'
+                                color: "#FF4040"
                             },
                             children: "Log out"
                         })
@@ -205,9 +198,9 @@ const SideBar = ()=>{
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h3", {
                 children: "Popular topics"
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                 href: "/topics/[topicSlug]",
-                as: '/topics/fitness',
+                as: "/topics/fitness",
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                     onClick: close,
                     children: [
@@ -221,9 +214,9 @@ const SideBar = ()=>{
                     ]
                 })
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                 href: "/topics/[topicSlug]",
-                as: '/topics/startups',
+                as: "/topics/startups",
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                     onClick: close,
                     children: [
@@ -237,9 +230,9 @@ const SideBar = ()=>{
                     ]
                 })
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                 href: "/topics/[topicSlug]",
-                as: '/topics/language',
+                as: "/topics/language",
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                     onClick: close,
                     children: [
@@ -253,9 +246,9 @@ const SideBar = ()=>{
                     ]
                 })
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                 href: "/topics/[topicSlug]",
-                as: '/topics/school',
+                as: "/topics/school",
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                     onClick: close,
                     children: [
@@ -269,9 +262,9 @@ const SideBar = ()=>{
                     ]
                 })
             }),
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(next_link__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                 href: "/topics/[topicSlug]",
-                as: '/topics/traveling',
+                as: "/topics/traveling",
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                     onClick: close,
                     children: [
@@ -286,7 +279,7 @@ const SideBar = ()=>{
                 })
             })
         ]
-    }));
+    });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SideBar);
 
@@ -306,6 +299,7 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(997);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(6689);
 // EXTERNAL MODULE: ./context/GlobalCtx.js
@@ -316,10 +310,10 @@ var Bar_module_default = /*#__PURE__*/__webpack_require__.n(Bar_module);
 ;// CONCATENATED MODULE: ./components/Icons/LogoIcon.js
 
 const LogoIcon = ()=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("svg", {
             style: {
-                marginLeft: '1rem'
+                marginLeft: "1rem"
             },
             width: "32",
             height: "32",
@@ -360,7 +354,7 @@ const LogoIcon = ()=>{
                 })
             ]
         })
-    }));
+    });
 };
 /* harmony default export */ const Icons_LogoIcon = (LogoIcon);
 
@@ -377,17 +371,16 @@ const TopBar = ()=>{
         setRotateDots(true);
         setSidebar(true);
     };
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: `${(Bar_module_default()).bar} ${(Bar_module_default()).topBar}`,
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                 href: "/posts",
                 children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
                     style: {
-                        height: '3.2rem'
+                        height: "3.2rem"
                     },
-                    children: /*#__PURE__*/ jsx_runtime_.jsx(Icons_LogoIcon, {
-                    })
+                    children: /*#__PURE__*/ jsx_runtime_.jsx(Icons_LogoIcon, {})
                 })
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("h2", {
@@ -395,23 +388,19 @@ const TopBar = ()=>{
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
                 onClick: onClick,
-                className: `${(Bar_module_default()).circle} ${rotateDots ? (Bar_module_default()).circleRotate : ''}`,
+                className: `${(Bar_module_default()).circle} ${rotateDots ? (Bar_module_default()).circleRotate : ""}`,
                 children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                     className: (Bar_module_default()).groupDots,
                     children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        })
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {}),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {}),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {}),
+                        /*#__PURE__*/ jsx_runtime_.jsx("div", {})
                     ]
                 })
             })
         ]
-    }));
+    });
 };
 /* harmony default export */ const bars_TopBar = (TopBar);
 
@@ -422,8 +411,8 @@ const TopBar = ()=>{
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "k": () => (/* binding */ GlobalContext),
-/* harmony export */   "R": () => (/* binding */ GlobalProvider)
+/* harmony export */   "R": () => (/* binding */ GlobalProvider),
+/* harmony export */   "k": () => (/* binding */ GlobalContext)
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
@@ -437,7 +426,7 @@ const GlobalProvider = ({ children  })=>{
     const { 0: rotateDots , 1: setRotateDots  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     const { 0: delOpt , 1: setDelOpt  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
     const { 0: editOpt , 1: setEditOpt  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null);
-    return(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(GlobalContext.Provider, {
+    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(GlobalContext.Provider, {
         value: {
             sidebar,
             setSidebar,
@@ -449,7 +438,7 @@ const GlobalProvider = ({ children  })=>{
             setEditOpt
         },
         children: children
-    }));
+    });
 };
 
 

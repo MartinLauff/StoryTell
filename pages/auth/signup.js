@@ -14,7 +14,7 @@ const Signup = () => {
   const [active, setActive] = useState(false);
 
   const { doRequest, errors } = useRequest({
-    url: '/api/auth/signup',
+    url: 'http://localhost:8000/api/auth/signup',
     method: 'post',
     body: {
       username,

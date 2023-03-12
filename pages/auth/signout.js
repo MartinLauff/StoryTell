@@ -4,7 +4,7 @@ import useRequest from '../../hooks/use-request';
 
 const Signout = () => {
   const { doRequest } = useRequest({
-    url: '/api/auth/signout',
+    url: 'http://localhost:8000/api/auth/signout',
     method: 'post',
     body: {},
     onSuccess: () => Router.push('/'),
@@ -12,7 +12,7 @@ const Signout = () => {
 
   useEffect(() => {
     doRequest();
-  }, []);
+  });
 
   const style = {
     fontSize: '4rem',

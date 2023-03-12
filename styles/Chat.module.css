@@ -8,14 +8,12 @@
 }
 .wrap {
   width: 80%;
-  margin: 0 auto;
+  margin: 7rem auto 0;
 }
 .wrapper {
   display: flex;
-  flex-flow: column wrap-reverse; /*<----*/
   align-content: flex-start;
   margin-top: 1rem;
-  margin-bottom: 6rem;
 }
 .submit {
   width: 5rem;
@@ -64,16 +62,86 @@
 }
 .message {
   width: fit-content;
-  color: #fff;
+  color: #333;
   display: block;
   margin: 0.725rem 0;
   padding: 0.2rem 1rem;
-  background-color: #fd4141;
+  background-color: #efefef;
   border-radius: 2rem;
   font-size: var(--fs-small);
 }
-@media only screen and (max-width: 40rem) {
-  .wrapper {
-    margin-bottom: 7rem;
+.noFollowing {
+  width: 90%;
+  margin: 7rem auto 0;
+  text-align: center;
+  font-size: var(--fs-small);
+}
+.photo {
+  height: 4rem;
+  width: 4rem;
+  border-radius: 10rem;
+  object-fit: cover;
+  margin-left: 1rem;
+}
+.user {
+  color: #000;
+  margin: 0 1rem;
+}
+.link {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  text-decoration: none;
+  width: 100%;
+}
+.link:focus {
+  background-color: #dadada;
+  border-radius: 1rem;
+}
+.userList {
+  width: 80%;
+  margin: 7rem auto 0;
+}
+.inputWrap {
+  display: flex;
+}
+.textInput {
+  border-radius: 1rem;
+  width: 24rem;
+  height: 3rem;
+  padding: 0 2rem;
+  font-size: var(--fs-small);
+  filter: drop-shadow(0px 2px 4px #00000040);
+  margin: 2rem auto;
+  outline: none;
+  border: none;
+}
+.textInput::placeholder {
+  color: #a2a5b5;
+}
+.wrapperlastchild {
+  margin-bottom: 7rem;
+}
+.arrowBar {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  height: 5.4rem;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  top: 0;
+}
+@media only screen and (min-width: 30rem) {
+  .userList {
+    width: 50%;
+  }
+  .link {
+    width: 45%;
+  }
+  .textInput {
+    width: 29rem;
+    height: 5rem;
   }
 }

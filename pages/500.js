@@ -6,14 +6,14 @@ export default function Custom500() {
   return (
     <div className={errorStyles.errWrap}>
       <div className={errorStyles.custom500}>
-        <h1 className={errorStyles.h500}>You are not logged in!</h1>
-        <style
-          style={{ display: 'none' }}
-        >{`body{background-color: #00DBDE;background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);}`}</style>
-        <Link href='/auth/login'>
+        <h1 className={errorStyles.h500}>
+          You need to be logged in to get access
+        </h1>
+        <Link href='/auth/signin'>
           <a>
             <SingleButton
               style={{ margin: '3.5rem 0 2.5rem' }}
+              route='/signin'
               content='Sign in'
               color='whiteButton'
             />
@@ -21,7 +21,7 @@ export default function Custom500() {
         </Link>
         <Link href='/auth/signup'>
           <a>
-            <SingleButton content='Sign up' color='redButton' />
+            <SingleButton route='/signup' content='Sign up' color='redButton' />
           </a>
         </Link>
       </div>

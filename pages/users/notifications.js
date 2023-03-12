@@ -24,9 +24,6 @@ const Notifications = ({ data }) => {
         <h2>All activity</h2>
       </div>
       <ActivityList activities={data.data} />
-      <style style={{ display: 'none' }}>
-        {`html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`}
-      </style>
       <BottomBar />
     </div>
   );

@@ -5,7 +5,6 @@ import BarStyles from '../../styles/Bar.module.css';
 
 const SideBar = () => {
   const { sidebar, setSidebar, setRotateDots } = useContext(GlobalContext);
-  const scrollStyle = `html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`;
   const close = () => {
     setSidebar(false);
     setRotateDots(false);
@@ -17,9 +16,6 @@ const SideBar = () => {
         sidebar ? BarStyles.open : BarStyles.close
       }`}
     >
-      <style style={{ display: 'none' }}>
-        {sidebar ? `body {overflow: hidden;}` : scrollStyle}
-      </style>
       <h3>Storytell</h3>
       <Link href='/posts'>
         <a onClick={close}>
@@ -72,24 +68,24 @@ const SideBar = () => {
           <span>Send feedback</span>
         </a>
       </Link>
-      <div>
-        <svg
-          width='18'
-          height='18'
-          viewBox='0 0 18 18'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <path
-            d='M9 0C7.21997 0 5.47991 0.527841 3.99987 1.51677C2.51983 2.50571 1.36628 3.91131 0.685088 5.55585C0.00389951 7.20038 -0.17433 9.00998 0.172937 10.7558C0.520203 12.5016 1.37737 14.1053 2.63604 15.364C3.89472 16.6226 5.49836 17.4798 7.24419 17.8271C8.99002 18.1743 10.7996 17.9961 12.4442 17.3149C14.0887 16.6337 15.4943 15.4802 16.4832 14.0001C17.4722 12.5201 18 10.78 18 9C18 8.54 17.96 8.08 17.9 7.64C17.4003 8.34066 16.7401 8.91146 15.9746 9.30465C15.2091 9.69784 14.3606 9.90198 13.5 9.9C12.3552 9.90003 11.24 9.53643 10.3152 8.86166C9.39041 8.18688 8.70385 7.23581 8.35454 6.14561C8.00523 5.05541 8.01123 3.88243 8.37167 2.79586C8.73211 1.70928 9.42836 0.765281 10.36 0.0999999C9.92 0.0399999 9.46 0 9 0Z'
-            fill='black'
-          />
-        </svg>
-        <span>Dark mode</span>
-        <div className={BarStyles.toggle}>
-          <div className={BarStyles.dark}></div>
-        </div>
-      </div>
+      <Link href='/users/chat'>
+        <a onClick={close}>
+          <svg
+            width='20'
+            height='22'
+            viewBox='0 0 20 22'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              d='M4.27273 6.14286H14.9091M4.27273 9.57143H11.6364M4.27273 1H15.7273C16.5953 1 17.4277 1.36122 18.0414 2.00421C18.6552 2.64719 19 3.51926 19 4.42857V11.2857C19 12.195 18.6552 13.0671 18.0414 13.7101C17.4277 14.3531 16.5953 14.7143 15.7273 14.7143H5.90909L1 19V4.42857C1 3.51926 1.3448 2.64719 1.95856 2.00421C2.57232 1.36122 3.40475 1 4.27273 1Z'
+              stroke='black'
+              strokeWidth='2'
+            />
+          </svg>
+          <span>Chats</span>
+        </a>
+      </Link>
       <Link href='/auth/signout'>
         <a onClick={close}>
           <svg

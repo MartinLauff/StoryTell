@@ -4,7 +4,7 @@ import PostList from '../../components/lists/PostList';
 import buildClient from '../../api/build-client';
 import ArrowBar from '../../components/bars/ArrowBar';
 import BottomBar from '../../components/bars/BottomBar';
-import myProfileStyles from '../../styles/myProfile.module.css';
+import myProfileStyles from '../../styles/MyProfile.module.css';
 
 const MyProfile = ({ data }) => {
   return (
@@ -68,9 +68,6 @@ const MyProfile = ({ data }) => {
         posts={data.user.posts}
       />
       <BottomBar />
-      <style style={{ display: 'none' }}>
-        {`html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`}
-      </style>
     </div>
   );
 };

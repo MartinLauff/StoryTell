@@ -37,6 +37,7 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(997);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: ./styles/EditProfile.module.css
 var EditProfile_module = __webpack_require__(5694);
 var EditProfile_module_default = /*#__PURE__*/__webpack_require__.n(EditProfile_module);
@@ -55,15 +56,15 @@ var use_request = __webpack_require__(6471);
 
 const UnsaveIcon = ({ postId , deleteOpt , Xposition  })=>{
     const { doRequest , errors  } = (0,use_request/* default */.Z)({
-        url: `/api/users/unsave/${postId}`,
-        method: 'put'
+        url: `http://localhost:8000/api/users/unsave/${postId}`,
+        method: "put"
     });
     const onClick = (e)=>{
         e.preventDefault();
         doRequest();
         deleteOpt(false);
     };
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         onClick: onClick,
         className: `${(Components_module_default()).xIcon} ${Xposition ? (Components_module_default()).imgON : (Components_module_default()).imgOFF}`,
         children: [
@@ -83,7 +84,7 @@ const UnsaveIcon = ({ postId , deleteOpt , Xposition  })=>{
             }),
             errors
         ]
-    }));
+    });
 };
 /* harmony default export */ const Icons_UnsaveIcon = (UnsaveIcon);
 
@@ -95,16 +96,16 @@ const UnsaveIcon = ({ postId , deleteOpt , Xposition  })=>{
 
 
 const savedPosts = ({ data  })=>{
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         children: [
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: (EditProfile_module_default()).bar,
                 children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                    /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                         href: "/users/my-profile",
                         children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
                             style: {
-                                height: '2rem'
+                                height: "2rem"
                             },
                             children: /*#__PURE__*/ jsx_runtime_.jsx("svg", {
                                 width: "20",
@@ -128,24 +129,16 @@ const savedPosts = ({ data  })=>{
                 ]
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(PostList/* default */.Z, {
-                text: "You haven't saved any posts yet.",
                 userId: data.userId,
-                UnsaveOption: /*#__PURE__*/ jsx_runtime_.jsx(Icons_UnsaveIcon, {
-                }),
+                UnsaveOption: /*#__PURE__*/ jsx_runtime_.jsx(Icons_UnsaveIcon, {}),
                 posts: data.posts
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("style", {
-                style: {
-                    display: 'none'
-                },
-                children: `html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`
             })
         ]
-    }));
+    });
 };
 const getServerSideProps = async (ctx)=>{
     const client = (0,build_client/* default */.Z)(ctx);
-    const { data  } = await client.get('/api/posts/saved');
+    const { data  } = await client.get("/api/posts/saved");
     return {
         props: {
             data
@@ -181,11 +174,19 @@ module.exports = require("date-fns/formatDistance");
 
 /***/ }),
 
-/***/ 562:
+/***/ 3280:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("next/dist/server/denormalize-page-path.js");
+module.exports = require("next/dist/shared/lib/app-router-context.js");
+
+/***/ }),
+
+/***/ 2796:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
 
@@ -197,11 +198,27 @@ module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 
 /***/ }),
 
+/***/ 8524:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/is-plain-object.js");
+
+/***/ }),
+
 /***/ 8020:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/mitt.js");
+
+/***/ }),
+
+/***/ 4406:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.js");
 
 /***/ }),
 
@@ -213,6 +230,38 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 
 /***/ }),
 
+/***/ 1751:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
+
+/***/ }),
+
+/***/ 299:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 3938:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
+
+/***/ }),
+
 /***/ 9565:
 /***/ ((module) => {
 
@@ -221,11 +270,19 @@ module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-
 
 /***/ }),
 
-/***/ 4365:
+/***/ 5789:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("next/dist/shared/lib/router/utils/get-middleware-regex.js");
+module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 1897:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/is-bot.js");
 
 /***/ }),
 
@@ -237,6 +294,14 @@ module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 
 /***/ }),
 
+/***/ 8854:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
+
+/***/ }),
+
 /***/ 1292:
 /***/ ((module) => {
 
@@ -245,11 +310,27 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.j
 
 /***/ }),
 
+/***/ 4567:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix.js");
+
+/***/ }),
+
 /***/ 979:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
+
+/***/ }),
+
+/***/ 3297:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slash.js");
 
 /***/ }),
 
@@ -308,7 +389,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,241,650], () => (__webpack_exec__(8411)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,664,853,471,119,909,650], () => (__webpack_exec__(8411)));
 module.exports = __webpack_exports__;
 
 })();

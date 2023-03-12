@@ -30,14 +30,10 @@ const savedPosts = ({ data }) => {
         <h2>Saved posts</h2>
       </div>
       <PostList
-        text="You haven't saved any posts yet."
         userId={data.userId}
         UnsaveOption={<UnsaveIcon />}
         posts={data.posts}
       />
-      <style style={{ display: 'none' }}>
-        {`html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`}
-      </style>
     </div>
   );
 };

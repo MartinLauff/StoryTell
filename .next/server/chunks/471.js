@@ -54,11 +54,10 @@ const useRequest = ({ url , method , body , onSuccess  })=>{
                 onSuccess(response.data);
             }
             return response.data;
-        } catch (err1) {
-            if (!err1.response.data.message) {
+        } catch (err) {
+            if (!err.response.data.message) {
                 setErrors(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                    onClick: ()=>setErrors(null)
-                    ,
+                    onClick: ()=>setErrors(null),
                     className: (_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_3___default().errorBanner),
                     children: [
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h4", {
@@ -66,19 +65,17 @@ const useRequest = ({ url , method , body , onSuccess  })=>{
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                             style: {
-                                listStyle: 'none'
+                                listStyle: "none"
                             },
-                            children: err1.response.data.errors.map((err)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                            children: err.response.data.errors.map((err)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                                     children: err.message
-                                }, err.message)
-                            )
+                                }, err.message))
                         })
                     ]
                 }));
             } else {
                 setErrors(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                    onClick: ()=>setErrors(null)
-                    ,
+                    onClick: ()=>setErrors(null),
                     className: (_styles_Error_module_css__WEBPACK_IMPORTED_MODULE_3___default().errorBanner),
                     children: [
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h4", {
@@ -86,12 +83,11 @@ const useRequest = ({ url , method , body , onSuccess  })=>{
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
                             style: {
-                                listStyle: 'none'
+                                listStyle: "none"
                             },
-                            children: err1.response.data.message.split(',').map((message)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
-                                    children: message.split(':').pop().replace('jwt malformed', 'You are not logged in!')
-                                }, message)
-                            )
+                            children: err.response.data.message.split(",").map((message)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                                    children: message.split(":").pop().replace("jwt malformed", "You are not logged in!")
+                                }, message))
                         })
                     ]
                 }));

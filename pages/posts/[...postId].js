@@ -30,19 +30,19 @@ const PostShow = ({ data: { post }, data }) => {
   const [commCount, setCommCount] = useState(post.comments.length);
 
   const { doRequest, errors } = useRequest({
-    url: `/api/comments/${post._id}`,
+    url: `http://localhost:8000/api/comments/${post._id}`,
     method: 'post',
     body: {
       content,
     },
   });
   const { doRequest: deleteRequest, errors: errs } = useRequest({
-    url: `/api/posts/${post._id}`,
+    url: `http://localhost:8000/api/posts/${post._id}`,
     method: 'delete',
     onSuccess: () => Router.push('/users/my-profile'),
   });
   const { doRequest: editRequest, errors: ers } = useRequest({
-    url: `/api/posts/${post._id}`,
+    url: `http://localhost:8000/api/posts/${post._id}`,
     method: 'put',
     body: {
       content: postContent,

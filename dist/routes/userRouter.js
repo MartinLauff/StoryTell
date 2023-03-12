@@ -18,9 +18,11 @@ const edit_profile_1 = __importDefault(require("../controllers/users/edit-profil
 const update_password_1 = __importDefault(require("../controllers/users/update-password"));
 const activities_1 = __importDefault(require("../controllers/users/activities"));
 const briefUser_1 = __importDefault(require("../controllers/users/briefUser"));
+const followers_1 = __importDefault(require("../controllers/users/followers"));
 const router = express_1.default.Router();
 exports.userRouter = router;
 router.use(protect_1.protect, validate_request_1.validateRequest);
+router.get('/chats', followers_1.default);
 router.get('/activities', activities_1.default);
 router.get('/brief-user', briefUser_1.default);
 router.get('/my-profile', my_profile_1.default);

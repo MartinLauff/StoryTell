@@ -2,25 +2,25 @@ exports.id = 109;
 exports.ids = [109];
 exports.modules = {
 
-/***/ 5092:
+/***/ 1820:
 /***/ ((module) => {
 
 // Exports
 module.exports = {
-	"userTop": "myProfile_userTop__gm_bs",
-	"wrapper": "myProfile_wrapper__gYSSc",
-	"name": "myProfile_name__IswCm",
-	"hobby": "myProfile_hobby__d_mIQ",
-	"photo": "myProfile_photo__gpL3m",
-	"btns": "myProfile_btns__4e7ju",
-	"chat": "myProfile_chat__BD0wE",
-	"follow": "myProfile_follow__0GELl",
-	"stats": "myProfile_stats__vJB__",
-	"data": "myProfile_data__YhG8l",
-	"legend": "myProfile_legend__p_R0l",
-	"profileBanner": "myProfile_profileBanner__zBFzx",
-	"transparentLayer": "myProfile_transparentLayer__o3hb_",
-	"barPhoto": "myProfile_barPhoto__jBbpH"
+	"userTop": "MyProfile_userTop__CKGiC",
+	"wrapper": "MyProfile_wrapper___lx1N",
+	"name": "MyProfile_name__z_zu6",
+	"hobby": "MyProfile_hobby__KCUj1",
+	"photo": "MyProfile_photo__MJFr0",
+	"btns": "MyProfile_btns__4hT4i",
+	"chat": "MyProfile_chat__gUv65",
+	"follow": "MyProfile_follow__4lNTH",
+	"stats": "MyProfile_stats__Qin7o",
+	"data": "MyProfile_data___6wsH",
+	"legend": "MyProfile_legend__wUbxI",
+	"profileBanner": "MyProfile_profileBanner__eLkyB",
+	"transparentLayer": "MyProfile_transparentLayer__TLgGu",
+	"barPhoto": "MyProfile_barPhoto__CBAmv"
 };
 
 
@@ -40,6 +40,7 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(997);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(6689);
 // EXTERNAL MODULE: ./styles/Components.module.css
@@ -52,17 +53,16 @@ var SaveIcon = __webpack_require__(7960);
 
 
 const SavedOption = ()=>{
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: (Components_module_default()).bannerOption,
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(SaveIcon/* default */.Z, {
-            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(SaveIcon/* default */.Z, {}),
             /*#__PURE__*/ jsx_runtime_.jsx("span", {
                 className: (Components_module_default()).bannerText,
                 children: "Saved posts"
             })
         ]
-    }));
+    });
 };
 /* harmony default export */ const SavedOptions = (SavedOption);
 
@@ -70,7 +70,7 @@ const SavedOption = ()=>{
 
 
 const ChangePassword = ()=>{
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: (Components_module_default()).bannerOption,
         children: [
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("svg", {
@@ -109,20 +109,20 @@ const ChangePassword = ()=>{
                 children: "Change password"
             })
         ]
-    }));
+    });
 };
 /* harmony default export */ const ChangePasswordOption = (ChangePassword);
 
-// EXTERNAL MODULE: ./styles/myProfile.module.css
-var myProfile_module = __webpack_require__(5092);
-var myProfile_module_default = /*#__PURE__*/__webpack_require__.n(myProfile_module);
+// EXTERNAL MODULE: ./styles/MyProfile.module.css
+var MyProfile_module = __webpack_require__(1820);
+var MyProfile_module_default = /*#__PURE__*/__webpack_require__.n(MyProfile_module);
 // EXTERNAL MODULE: ./styles/Bar.module.css
 var Bar_module = __webpack_require__(2604);
 var Bar_module_default = /*#__PURE__*/__webpack_require__.n(Bar_module);
 ;// CONCATENATED MODULE: ./components/Icons/ArrowIcon.js
 
 const ArrowIcon = ()=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("svg", {
             width: "22",
             height: "20",
@@ -146,7 +146,7 @@ const ArrowIcon = ()=>{
                 })
             ]
         })
-    }));
+    });
 };
 /* harmony default export */ const Icons_ArrowIcon = (ArrowIcon);
 
@@ -161,72 +161,66 @@ const ArrowIcon = ()=>{
 
 const ArrowBar = ({ extra , title , image  })=>{
     const { 0: banner , 1: setBanner  } = (0,external_react_.useState)(false);
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: `${(Bar_module_default()).bar} ${(Bar_module_default()).arrowBar}`,
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                 href: "/posts",
                 children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
                     style: {
-                        height: '2rem',
-                        marginLeft: '2rem'
+                        height: "2rem",
+                        marginLeft: "2rem"
                     },
-                    children: /*#__PURE__*/ jsx_runtime_.jsx(Icons_ArrowIcon, {
-                    })
+                    children: /*#__PURE__*/ jsx_runtime_.jsx(Icons_ArrowIcon, {})
                 })
             }),
             image && /*#__PURE__*/ jsx_runtime_.jsx("img", {
                 alt: "profile image",
                 src: image,
-                className: (myProfile_module_default()).barPhoto
+                className: (MyProfile_module_default()).barPhoto
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("h2", {
                 style: image ? {
-                    marginLeft: '1rem'
+                    marginLeft: "1rem"
                 } : null,
                 children: title
             }),
             extra && /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                onClick: ()=>setBanner(true)
-                ,
+                onClick: ()=>setBanner(true),
                 style: {
-                    padding: '1rem 0.6rem',
-                    position: 'absolute',
-                    right: '6%'
+                    padding: "1rem 0.6rem",
+                    position: "absolute",
+                    right: "6%"
                 },
                 children: extra
             }),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                onClick: ()=>setBanner(false)
-                ,
+                onClick: ()=>setBanner(false),
                 style: banner ? null : {
-                    display: 'none'
+                    display: "none"
                 },
-                className: (myProfile_module_default()).profileBanner,
+                className: (MyProfile_module_default()).profileBanner,
                 children: [
-                    /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                    /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                         href: "/users/settings/saved-posts",
                         children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(SavedOptions, {
-                            })
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(SavedOptions, {})
                         })
                     }),
-                    /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                    /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                         href: "/users/settings/update-password",
                         children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
-                            children: /*#__PURE__*/ jsx_runtime_.jsx(ChangePasswordOption, {
-                            })
+                            children: /*#__PURE__*/ jsx_runtime_.jsx(ChangePasswordOption, {})
                         })
                     })
                 ]
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                onClick: ()=>setBanner(false)
-                ,
-                className: banner ? (myProfile_module_default()).transparentLayer : null
+                onClick: ()=>setBanner(false),
+                className: banner ? (MyProfile_module_default()).transparentLayer : null
             })
         ]
-    }));
+    });
 };
 /* harmony default export */ const bars_ArrowBar = (ArrowBar);
 

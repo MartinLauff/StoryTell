@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { GlobalProvider } from '../context/GlobalCtx';
+import { SocketProvider } from '../context/SocketCtx';
 import '../styles/global.css';
 
 const AppComponent = ({ Component, pageProps }) => {
@@ -26,7 +27,9 @@ const AppComponent = ({ Component, pageProps }) => {
         <link rel='shortcut icon' href='/Group.png' />
       </Head>
       <GlobalProvider>
-        <Component {...pageProps} />
+        <SocketProvider>
+          <Component {...pageProps} />
+        </SocketProvider>
       </GlobalProvider>
     </div>
   );

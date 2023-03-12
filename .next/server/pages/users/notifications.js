@@ -25,31 +25,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ 8775:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Z": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2167);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-const buildClient = ({ req  })=>{
-    if (true) {
-        // We are on the server
-        return axios__WEBPACK_IMPORTED_MODULE_0___default().create({
-            baseURL: 'https://storytell.onrender.com/',
-            headers: req.headers,
-            withCredentials: true
-        });
-    } else {}
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (buildClient);
-
-
-/***/ }),
-
 /***/ 8697:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -77,13 +52,14 @@ var external_react_ = __webpack_require__(6689);
 var use_request = __webpack_require__(6471);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: external "date-fns/formatDistance"
 var formatDistance_ = __webpack_require__(3291);
 var formatDistance_default = /*#__PURE__*/__webpack_require__.n(formatDistance_);
 ;// CONCATENATED MODULE: ./components/Icons/activity/LikeType.js
 
 const LikeType = ()=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("svg", {
             width: "18",
             height: "17",
@@ -107,14 +83,14 @@ const LikeType = ()=>{
                 })
             ]
         })
-    }));
+    });
 };
 /* harmony default export */ const activity_LikeType = (LikeType);
 
 ;// CONCATENATED MODULE: ./components/Icons/activity/CommentType.js
 
 const CommentType = ()=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("svg", {
             width: "16",
             height: "18",
@@ -126,14 +102,14 @@ const CommentType = ()=>{
                 fill: "#878A8C"
             })
         })
-    }));
+    });
 };
 /* harmony default export */ const activity_CommentType = (CommentType);
 
 ;// CONCATENATED MODULE: ./components/Icons/activity/FollowType.js
 
 const FollowType = ()=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
+    return /*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
         children: /*#__PURE__*/ jsx_runtime_.jsx("svg", {
             width: "20",
             height: "18",
@@ -145,7 +121,7 @@ const FollowType = ()=>{
                 fill: "#FF2F2F"
             })
         })
-    }));
+    });
 };
 /* harmony default export */ const activity_FollowType = (FollowType);
 
@@ -161,10 +137,10 @@ var Activity_module_default = /*#__PURE__*/__webpack_require__.n(Activity_module
 
 
 const Activity = ({ activity  })=>{
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: (Activity_module_default()).activityWrapper,
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                 href: "/users/[...oneUser]",
                 as: `/users/${activity.user._id}`,
                 children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
@@ -175,10 +151,7 @@ const Activity = ({ activity  })=>{
                     })
                 })
             }),
-            activity.type.startsWith('liked') ? /*#__PURE__*/ jsx_runtime_.jsx(activity_LikeType, {
-            }) : activity.type.startsWith('commented') ? /*#__PURE__*/ jsx_runtime_.jsx(activity_CommentType, {
-            }) : /*#__PURE__*/ jsx_runtime_.jsx(activity_FollowType, {
-            }),
+            activity.type.startsWith("liked") ? /*#__PURE__*/ jsx_runtime_.jsx(activity_LikeType, {}) : activity.type.startsWith("commented") ? /*#__PURE__*/ jsx_runtime_.jsx(activity_CommentType, {}) : /*#__PURE__*/ jsx_runtime_.jsx(activity_FollowType, {}),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: (Activity_module_default()).text,
                 children: [
@@ -186,51 +159,48 @@ const Activity = ({ activity  })=>{
                         className: (Activity_module_default()).message,
                         children: [
                             "The user",
-                            ' ',
-                            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                            " ",
+                            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                                 href: "/users/[...oneUser]",
                                 as: `/users/${activity.user._id}`,
                                 children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
                                     style: {
-                                        textDecoration: 'none',
-                                        color: '#000'
+                                        textDecoration: "none",
+                                        color: "#000"
                                     },
                                     children: /*#__PURE__*/ jsx_runtime_.jsx("strong", {
                                         children: activity.user.username
                                     })
                                 })
                             }),
-                            ' ' + activity.type
+                            " " + activity.type
                         ]
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("span", {
                         className: (Activity_module_default()).time,
                         children: formatDistance_default()(new Date(activity.createdAt), new Date(), {
                             addSuffix: true
-                        }).replace('about', '').replace('less than', '')
+                        }).replace("about", "").replace("less than", "")
                     })
                 ]
             }),
-            activity.post && /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+            activity.post && /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                 href: "/posts/[...postId]",
                 as: `/posts/${activity.post._id}`,
-                children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("a", {
-                    children: [
-                        activity.post.coverImage && /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                            className: (Activity_module_default()).imageLeft,
-                            src: activity.post.coverImage,
-                            alt: "post photo"
-                        }),
-                        !activity.post.coverImage && /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                            className: (Activity_module_default()).topicLeft,
-                            src: `/${activity.topic}.png`,
-                            alt: "topic photo"
-                        })
-                    ]
+                children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                    children: activity.post.coverImage ? /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                        className: (Activity_module_default()).imageLeft,
+                        src: activity.post.coverImage,
+                        alt: "post photo"
+                    }) : /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                        className: (Activity_module_default()).topicLeft,
+                        src: `/${activity.topic}.png`,
+                        alt: "post photo"
+                    })
                 })
             })
         ]
-    }));
+    });
 };
 /* harmony default export */ const items_Activity = (Activity);
 
@@ -245,8 +215,8 @@ const ActivityList = ({ activities  })=>{
     const { 0: acsData , 1: setAcsData  } = (0,external_react_.useState)([]);
     const { 0: page , 1: nextPage  } = (0,external_react_.useState)(1);
     const { doRequest , errors  } = (0,use_request/* default */.Z)({
-        url: `/api/users/activities?page=${page}&limit=10`,
-        method: 'get'
+        url: `http://localhost:8000/api/users/activities?page=${page}&limit=10`,
+        method: "get"
     });
     (0,external_react_.useEffect)(()=>{
         if (activities.length < 10) {
@@ -257,28 +227,61 @@ const ActivityList = ({ activities  })=>{
         setAcsData((oldState)=>[
                 ...oldState,
                 ...activities
-            ]
-        );
-        nextPage((oldState)=>oldState + 1
-        );
+            ]);
+        nextPage((oldState)=>oldState + 1);
     }, []);
-    if (!activities || activities.length === 0) {
-        return(/*#__PURE__*/ jsx_runtime_.jsx("div", {
+    if (activities.length === 0) {
+        return /*#__PURE__*/ jsx_runtime_.jsx("div", {
             className: (Activity_module_default()).noActivities,
-            children: "When a user likes your post, comments on your post or starts following you. We will get you notified here 🔥 👍 👌"
-        }));
+            children: "When a user likes your post, comments on your post or starts following you. We will get you notified here \uD83D\uDD25 \uD83D\uDC4D \uD83D\uDC4C"
+        });
+    }
+    if (!activities) {
+        return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+            "data-center": "center",
+            children: [
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                })
+            ]
+        });
     }
     const onClick = async (e)=>{
         e.preventDefault();
         const { data  } = await doRequest();
         if (data) {
-            nextPage((oldState)=>oldState + 1
-            );
+            nextPage((oldState)=>oldState + 1);
             setAcsData((oldState)=>[
                     ...oldState,
                     ...data
-                ]
-            );
+                ]);
         }
         if (data.length < 10) {
             setActive(false);
@@ -286,15 +289,14 @@ const ActivityList = ({ activities  })=>{
     };
     const renderedList = acsData.map((activity)=>/*#__PURE__*/ jsx_runtime_.jsx(items_Activity, {
             activity: activity
-        }, activity._id)
-    );
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        }, activity._id));
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: (Activity_module_default()).activityList,
         children: [
             renderedList,
             /*#__PURE__*/ jsx_runtime_.jsx("button", {
                 style: active ? null : {
-                    display: 'none'
+                    display: "none"
                 },
                 onClick: onClick,
                 className: (Activity_module_default()).moreAcs,
@@ -302,7 +304,7 @@ const ActivityList = ({ activities  })=>{
             }),
             errors
         ]
-    }));
+    });
 };
 /* harmony default export */ const lists_ActivityList = (ActivityList);
 
@@ -314,7 +316,7 @@ const ActivityList = ({ activities  })=>{
 
 
 const Notifications = ({ data  })=>{
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(ArrowBar/* default */.Z, {
                 title: "Notifications"
@@ -341,20 +343,13 @@ const Notifications = ({ data  })=>{
             /*#__PURE__*/ jsx_runtime_.jsx(lists_ActivityList, {
                 activities: data.data
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx("style", {
-                style: {
-                    display: 'none'
-                },
-                children: `html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(BottomBar/* default */.Z, {
-            })
+            /*#__PURE__*/ jsx_runtime_.jsx(BottomBar/* default */.Z, {})
         ]
-    }));
+    });
 };
 const getServerSideProps = async (ctx)=>{
     const client = (0,build_client/* default */.Z)(ctx);
-    const { data  } = await client.get('/api/users/activities/');
+    const { data  } = await client.get("/api/users/activities/");
     return {
         props: {
             data
@@ -382,11 +377,19 @@ module.exports = require("date-fns/formatDistance");
 
 /***/ }),
 
-/***/ 562:
+/***/ 3280:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("next/dist/server/denormalize-page-path.js");
+module.exports = require("next/dist/shared/lib/app-router-context.js");
+
+/***/ }),
+
+/***/ 2796:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
 
@@ -398,11 +401,27 @@ module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 
 /***/ }),
 
+/***/ 8524:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/is-plain-object.js");
+
+/***/ }),
+
 /***/ 8020:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/mitt.js");
+
+/***/ }),
+
+/***/ 4406:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.js");
 
 /***/ }),
 
@@ -414,6 +433,38 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 
 /***/ }),
 
+/***/ 1751:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
+
+/***/ }),
+
+/***/ 299:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 3938:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
+
+/***/ }),
+
 /***/ 9565:
 /***/ ((module) => {
 
@@ -422,11 +473,19 @@ module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-
 
 /***/ }),
 
-/***/ 4365:
+/***/ 5789:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("next/dist/shared/lib/router/utils/get-middleware-regex.js");
+module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 1897:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/is-bot.js");
 
 /***/ }),
 
@@ -438,6 +497,14 @@ module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 
 /***/ }),
 
+/***/ 8854:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
+
+/***/ }),
+
 /***/ 1292:
 /***/ ((module) => {
 
@@ -446,11 +513,27 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.j
 
 /***/ }),
 
+/***/ 4567:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix.js");
+
+/***/ }),
+
 /***/ 979:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
+
+/***/ }),
+
+/***/ 3297:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slash.js");
 
 /***/ }),
 
@@ -509,7 +592,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,899,109], () => (__webpack_exec__(8697)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,664,853,471,899,119,109], () => (__webpack_exec__(8697)));
 module.exports = __webpack_exports__;
 
 })();

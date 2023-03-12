@@ -11,7 +11,9 @@ const OneUser = ({ data }) => {
   const [followers, setFollowers] = useState(data.user.followers.length);
 
   const { doRequest, errors } = useRequest({
-    url: `/api/users/${active ? 'unfollow' : 'follow'}/${data.user._id}`,
+    url: `http://localhost:8000/api/users/${active ? 'unfollow' : 'follow'}/${
+      data.user._id
+    }`,
     method: 'put',
   });
 
@@ -112,9 +114,6 @@ const OneUser = ({ data }) => {
         userId={data.userId}
       />
       {errors}
-      <style style={{ display: 'none' }}>
-        {`html::-webkit-scrollbar{width:1.6rem}html::-webkit-scrollbar-track{background:#fff;border-radius:100vw}html::-webkit-scrollbar-thumb{background:#545454;border:.4em solid #fff;border-radius:100vw;transition:all .3s}html::-webkit-scrollbar-thumb:hover{background:#6d6d6d}`}
-      </style>
     </div>
   );
 };

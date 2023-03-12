@@ -121,7 +121,7 @@
   border-radius: 0 0 1rem 1rem;
 }
 .borda {
-  border-top: 2px solid #f0f0f0;
+  border-top: 2px solid #000;
 }
 .borda:last-child {
   border-bottom: none;
@@ -129,13 +129,7 @@
 .borda:first-child {
   border-top: none;
 }
-.margin {
-  margin: 0 0 0.75rem 0;
-}
 @media only screen and (min-width: 28rem) {
-  .margin {
-    margin: 0;
-  }
   .post {
     width: 40rem;
     border-radius: 1rem;

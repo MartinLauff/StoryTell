@@ -41,7 +41,7 @@
   width: 20rem;
 }
 .bar {
-  border-bottom: 2px solid #0000001a;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   height: 5.4rem;
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  border-top: 2px solid #0000001a;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
 }
 .circle {
   width: 3.6rem;
@@ -129,11 +129,19 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #00000080;
+  background-color: rgba(0, 0, 0, 0.5);
   transition: 0.9s all;
 }
 .arrowBar h2 {
   margin-left: 2rem;
+}
+.arrowBar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  background: #fff;
 }
 @media only screen and (min-width: 62.5rem) {
   .open {

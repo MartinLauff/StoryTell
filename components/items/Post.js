@@ -3,6 +3,8 @@ import Link from 'next/link';
 import LikeSet from '../Icons/LikeSet';
 import SaveOption from '../../components/bannerOptions/SaveOption';
 import CopyOption from '../../components/bannerOptions/CopyOption';
+import DeleteOption from '../../components/bannerOptions/DeleteOption';
+import EditOption from '../../components/bannerOptions/EditOption';
 import postStyles from '../../styles/Post.module.css';
 import componentStyles from '../../styles/Components.module.css';
 import formatDistance from 'date-fns/formatDistance';
@@ -15,12 +17,11 @@ const Post = ({ post, UnsaveOption, userId }) => {
   const blackColor = { color: '#000' };
   const whiteColor = { color: '#fff' };
   const greyColor = { color: '#878a8c' };
-
   return (
     <div
       className={`${state ? postStyles.post : postStyles.hide} ${
         !post.coverImage ? postStyles.borda : ''
-      } ${!post.coverImage ? postStyles.margin : ''}`}
+      }`}
     >
       {UnsaveOption &&
         cloneElement(UnsaveOption, {
@@ -119,7 +120,6 @@ const Post = ({ post, UnsaveOption, userId }) => {
           {post.coverImage && (
             <img
               className={postStyles.coverImage}
-              loading='lazy'
               src={post.coverImage}
               alt={post.title}
             />
@@ -142,10 +142,7 @@ const Post = ({ post, UnsaveOption, userId }) => {
             <CommentIcon />
             <span style={{ marginLeft: '0.8rem', ...greyColor }}>Comments</span>
           </div>
-          <div
-            style={{ padding: '1.5rem 1rem' }}
-            onClick={() => setBanner(true)}
-          >
+          <div onClick={() => setBanner(true)}>
             <MoreIcon />
           </div>
           {banner && (
@@ -155,6 +152,12 @@ const Post = ({ post, UnsaveOption, userId }) => {
             >
               <SaveOption postID={post._id} />
               <CopyOption />
+              {/* {data.userPosts.includes(post._id) && (
+                <EditOption activation={setEditOpt} />
+              )}
+              {data.userPosts.includes(post._id) && (
+                <DeleteOption activation={setDeleteOpt} />
+              )} */}
             </div>
           )}
         </div>

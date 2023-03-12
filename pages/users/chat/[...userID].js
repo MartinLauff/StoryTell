@@ -1,29 +1,59 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
+import ArrowBar from '../../../components/bars/ArrowBar';
+import { SocketContext } from '../../../context/SocketCtx';
 import buildClient from '../../../api/build-client';
 import chatStyles from '../../../styles/Chat.module.css';
-import ArrowBar from '../../../components/bars/ArrowBar';
 
 const UserID = ({ data }) => {
   const [text, setText] = useState('');
   const [list, setList] = useState([]);
+  const messagesEndRef = useRef();
+  const socket = useContext(SocketContext);
+
+  useEffect(() => {
+    socket.emit('connect-user', data.userId, data.user._id);
+    socket.on('receive-message', (message) => {
+      setList((oldState) => [...oldState, message]);
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    });
+  }, [socket]);
 
   const submit = (e) => {
     e.preventDefault();
     if (text.length >= 1) {
-      setList((oldState) => [...oldState, text]);
+      socket.emit('send-message', {
+        senderID: data.userId,
+        receiverID: data.user._id,
+        text,
+      });
       setText('');
     }
   };
   const renderedList = list.map((el, i) => (
-    <p className={chatStyles.message} key={i}>
-      {el}
-    </p>
+    <div
+      key={i}
+      style={
+        data.userId === el.senderID ? { flexFlow: 'column wrap-reverse' } : null
+      }
+      className={chatStyles.wrapper}
+    >
+      <p
+        style={
+          data.userId === el.senderID ? { backgroundColor: '#c5c5c5' } : null
+        }
+        className={chatStyles.message}
+        key={i}
+      >
+        {el.text}
+      </p>
+    </div>
   ));
   return (
     <div>
       <ArrowBar image={data.user.photo} title={data.user.username} />
       <div className={chatStyles.wrap}>
-        <div className={chatStyles.wrapper}>{renderedList}</div>
+        {renderedList}
+        <div className={chatStyles.wrapperlastchild} ref={messagesEndRef}></div>
       </div>
       <div className={chatStyles.formWrap}>
         <form onSubmit={submit} className={chatStyles.chatForm}>
@@ -58,7 +88,6 @@ export const getServerSideProps = async (ctx) => {
   return {
     props: {
       data,
-      userID,
     },
   };
 };

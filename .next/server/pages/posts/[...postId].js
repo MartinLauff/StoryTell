@@ -53,7 +53,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 9274:
+/***/ 9878:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -70,6 +70,7 @@ __webpack_require__.d(__webpack_exports__, {
 var jsx_runtime_ = __webpack_require__(997);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: external "next/router"
 var router_ = __webpack_require__(1853);
 var router_default = /*#__PURE__*/__webpack_require__.n(router_);
@@ -97,15 +98,15 @@ var formatDistance_default = /*#__PURE__*/__webpack_require__.n(formatDistance_)
 const Comment = ({ comment , userId  })=>{
     const { 0: state , 1: setState  } = (0,external_react_.useState)(true);
     const { doRequest , errors  } = (0,use_request/* default */.Z)({
-        url: `/api/comments/${comment._id}`,
-        method: 'delete'
+        url: `http://localhost:8000/api/comments/${comment._id}`,
+        method: "delete"
     });
     const deleteComment = (e)=>{
         e.preventDefault();
         setState(false);
         doRequest();
     };
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         className: state ? (Comment_module_default()).commentWrap : (Comment_module_default()).hide,
         children: [
             comment.postedBy._id === userId && /*#__PURE__*/ jsx_runtime_.jsx("div", {
@@ -126,7 +127,7 @@ const Comment = ({ comment , userId  })=>{
                     })
                 })
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                 href: "/users/[...oneUser]",
                 as: `/users/${comment.postedBy._id}`,
                 children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
@@ -141,12 +142,12 @@ const Comment = ({ comment , userId  })=>{
                 children: [
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                                 href: "/users/[...oneUser]",
                                 as: `/users/${comment.postedBy._id}`,
                                 children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
                                     style: {
-                                        textDecoration: 'none'
+                                        textDecoration: "none"
                                     },
                                     children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
                                         className: (Comment_module_default()).name,
@@ -158,7 +159,7 @@ const Comment = ({ comment , userId  })=>{
                                 className: (Comment_module_default()).time,
                                 children: formatDistance_default()(new Date(comment.createdAt), new Date(), {
                                     addSuffix: true
-                                }).replace('about', '').replace('less than', '')
+                                }).replace("about", "").replace("less than", "")
                             })
                         ]
                     }),
@@ -166,7 +167,7 @@ const Comment = ({ comment , userId  })=>{
                         children: /*#__PURE__*/ jsx_runtime_.jsx("p", {
                             className: (Comment_module_default()).content,
                             style: {
-                                color: '#000'
+                                color: "#000"
                             },
                             children: comment.content
                         })
@@ -175,7 +176,7 @@ const Comment = ({ comment , userId  })=>{
             }),
             errors
         ]
-    }));
+    });
 };
 /* harmony default export */ const items_Comment = (Comment);
 
@@ -187,94 +188,10 @@ var LikeSet = __webpack_require__(9107);
 var SaveOption = __webpack_require__(7417);
 // EXTERNAL MODULE: ./components/bannerOptions/CopyOption.js + 1 modules
 var CopyOption = __webpack_require__(5845);
-;// CONCATENATED MODULE: ./components/Icons/DeleteIcon.js
-
-const DeleteIcon = ()=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-        children: /*#__PURE__*/ jsx_runtime_.jsx("svg", {
-            width: "20",
-            height: "20.75",
-            viewBox: "0 0 74 91",
-            fill: "none",
-            xmlns: "http://www.w3.org/2000/svg",
-            children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
-                d: "M52.6458 9.19V8.19V7.29105C52.6498 7.2983 52.6458 7.29545 52.6458 7.28H52.6383C52.6374 7.27884 52.6364 7.27762 52.6353 7.27634C52.6153 7.25274 52.5425 7.19 52.4167 7.19H51.6458H50.6458H22.3542H21.5833C21.4575 7.19 21.3847 7.25274 21.3647 7.27634C21.3636 7.27762 21.3626 7.27884 21.3617 7.28H21.3542C21.3542 7.29009 21.3525 7.2948 21.3524 7.29484C21.3524 7.29486 21.3528 7.29356 21.3542 7.29105V8.19V15.38H16.4167V7.28C16.4167 3.65489 18.8835 1 21.5833 1H52.4167C55.1165 1 57.5833 3.65489 57.5833 7.28V15.38H52.6458V9.19ZM22.3542 17.38H23.3542H50.6458H51.6458H58.5833H59.5833H70.9167C71.9207 17.38 73 18.3969 73 20.02V23.57H67.4094H66.4486L66.4102 24.53L64.0302 84.0213L64.0302 84.0217C63.8913 87.5278 61.4904 90 58.8724 90H15.1276C12.5193 90 10.1087 87.5166 9.96978 84.0215L9.96977 84.0213L7.58983 24.53L7.55142 23.57H6.59062H1V20.02C1 18.3969 2.07931 17.38 3.08333 17.38H14.4167H15.4167H22.3542ZM1.00178 23.6748C1.00177 23.6748 1.00168 23.6746 1.00154 23.6742L1.00178 23.6748ZM58.1305 83.81H59.0912L59.1297 82.85L61.4614 24.61L61.5031 23.57H60.4622H13.5378H12.4969L12.5386 24.61L14.8703 82.85L14.9088 83.81H15.8695H58.1305Z",
-                fill: "black",
-                stroke: "black",
-                strokeWidth: "3"
-            })
-        })
-    }));
-};
-/* harmony default export */ const Icons_DeleteIcon = (DeleteIcon);
-
-;// CONCATENATED MODULE: ./components/bannerOptions/DeleteOption.js
-
-
-
-const DeleteOption = ({ activation  })=>{
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        onClick: ()=>activation(true)
-        ,
-        className: (Components_module_default()).bannerOption,
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(Icons_DeleteIcon, {
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                className: (Components_module_default()).bannerText,
-                children: "Delete post"
-            })
-        ]
-    }));
-};
-/* harmony default export */ const bannerOptions_DeleteOption = (DeleteOption);
-
-;// CONCATENATED MODULE: ./components/Icons/EditIcon.js
-
-const EditIcon = ()=>{
-    return(/*#__PURE__*/ jsx_runtime_.jsx(jsx_runtime_.Fragment, {
-        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("svg", {
-            width: "18",
-            height: "18",
-            viewBox: "0 0 18 18",
-            fill: "none",
-            xmlns: "http://www.w3.org/2000/svg",
-            children: [
-                /*#__PURE__*/ jsx_runtime_.jsx("path", {
-                    d: "M15.156 0L17.9999 2.8439L15.8319 5.01285L12.988 2.16895L15.156 0ZM4.73975 13.2602H7.58365L14.4915 6.35233L11.6476 3.50843L4.73975 10.4163V13.2602Z",
-                    fill: "black"
-                }),
-                /*#__PURE__*/ jsx_runtime_.jsx("path", {
-                    d: "M15.1675 16.1041H4.88961C4.86497 16.1041 4.83937 16.1135 4.81473 16.1135C4.78344 16.1135 4.75216 16.105 4.71993 16.1041H1.89593V2.83252H8.38667L10.2826 0.936584H1.89593C0.850326 0.936584 0 1.78596 0 2.83252V16.1041C0 17.1506 0.850326 18 1.89593 18H15.1675C15.6703 18 16.1525 17.8002 16.5081 17.4447C16.8637 17.0891 17.0634 16.6069 17.0634 16.1041V7.88708L15.1675 9.78301V16.1041Z",
-                    fill: "black"
-                })
-            ]
-        })
-    }));
-};
-/* harmony default export */ const Icons_EditIcon = (EditIcon);
-
-;// CONCATENATED MODULE: ./components/bannerOptions/EditOption.js
-
-
-
-const EditOption = ({ activation  })=>{
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        onClick: ()=>activation(true)
-        ,
-        className: (Components_module_default()).bannerOption,
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(Icons_EditIcon, {
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                className: (Components_module_default()).bannerText,
-                children: "Edit post"
-            })
-        ]
-    }));
-};
-/* harmony default export */ const bannerOptions_EditOption = (EditOption);
-
+// EXTERNAL MODULE: ./components/bannerOptions/DeleteOption.js + 1 modules
+var DeleteOption = __webpack_require__(7760);
+// EXTERNAL MODULE: ./components/bannerOptions/EditOption.js + 1 modules
+var EditOption = __webpack_require__(8537);
 // EXTERNAL MODULE: ./components/bars/SideBar.js
 var SideBar = __webpack_require__(8328);
 ;// CONCATENATED MODULE: ./components/lists/CommentList.js
@@ -282,21 +199,57 @@ var SideBar = __webpack_require__(8328);
 
 
 const CommentList = ({ comments , userId  })=>{
-    if (!comments || comments.length === 0) {
-        return(/*#__PURE__*/ jsx_runtime_.jsx("div", {
+    if (comments.length === 0) {
+        return /*#__PURE__*/ jsx_runtime_.jsx("div", {
             className: (Comment_module_default()).noComments,
             children: "Be the first one to comment this post!"
-        }));
+        });
+    }
+    if (!comments) {
+        return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+            "data-center": "center",
+            children: [
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                })
+            ]
+        });
     }
     const renderedList = comments.map((comment)=>/*#__PURE__*/ jsx_runtime_.jsx(items_Comment, {
             userId: userId,
             comment: comment
-        }, comment._id)
-    );
-    return(/*#__PURE__*/ jsx_runtime_.jsx("div", {
+        }, comment._id));
+    return /*#__PURE__*/ jsx_runtime_.jsx("div", {
         className: (Comment_module_default()).commentList,
         children: renderedList
-    }));
+    });
 };
 /* harmony default export */ const lists_CommentList = (CommentList);
 
@@ -341,24 +294,24 @@ const PostShow = ({ data: { post  } , data  })=>{
     const { 0: active , 1: setActive  } = (0,external_react_.useState)(false);
     const { 0: banner , 1: setBanner  } = (0,external_react_.useState)(false);
     const { 0: postContent , 1: setPostContent  } = (0,external_react_.useState)(post.content);
-    const { 0: content , 1: setContent  } = (0,external_react_.useState)('');
+    const { 0: content , 1: setContent  } = (0,external_react_.useState)("");
     const { 0: comments , 1: setComment  } = (0,external_react_.useState)([]);
     const { 0: commCount , 1: setCommCount  } = (0,external_react_.useState)(post.comments.length);
     const { doRequest , errors  } = (0,use_request/* default */.Z)({
-        url: `/api/comments/${post._id}`,
-        method: 'post',
+        url: `http://localhost:8000/api/comments/${post._id}`,
+        method: "post",
         body: {
             content
         }
     });
     const { doRequest: deleteRequest , errors: errs  } = (0,use_request/* default */.Z)({
-        url: `/api/posts/${post._id}`,
-        method: 'delete',
-        onSuccess: ()=>router_default().push('/users/my-profile')
+        url: `http://localhost:8000/api/posts/${post._id}`,
+        method: "delete",
+        onSuccess: ()=>router_default().push("/users/my-profile")
     });
     const { doRequest: editRequest , errors: ers  } = (0,use_request/* default */.Z)({
-        url: `/api/posts/${post._id}`,
-        method: 'put',
+        url: `http://localhost:8000/api/posts/${post._id}`,
+        method: "put",
         body: {
             content: postContent
         }
@@ -370,24 +323,21 @@ const PostShow = ({ data: { post  } , data  })=>{
         }
         const res = await doRequest();
         if (res) {
-            setContent('');
-            setCommCount((oldState)=>oldState + 1
-            );
+            setContent("");
+            setCommCount((oldState)=>oldState + 1);
             setComment((oldState)=>[
                     res,
                     ...oldState
-                ]
-            );
+                ]);
         }
     };
     const btnCancel = ()=>{
-        setContent('');
+        setContent("");
         setActive(false);
     };
     const renderedComments = comments.map((res)=>/*#__PURE__*/ jsx_runtime_.jsx(items_Comment, {
             comment: res
-        }, res.createdAt)
-    );
+        }, res.createdAt));
     const deletePost = (e)=>{
         e.preventDefault();
         deleteRequest();
@@ -405,14 +355,11 @@ const PostShow = ({ data: { post  } , data  })=>{
             setPostContent(post.content);
         }
     };
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(TopBar/* default */.Z, {
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(SideBar/* default */.Z, {
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(Layer/* default */.Z, {
-            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(TopBar/* default */.Z, {}),
+            /*#__PURE__*/ jsx_runtime_.jsx(SideBar/* default */.Z, {}),
+            /*#__PURE__*/ jsx_runtime_.jsx(Layer/* default */.Z, {}),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                 className: (Show_module_default()).showWrap,
                 children: [
@@ -422,7 +369,7 @@ const PostShow = ({ data: { post  } , data  })=>{
                             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                 className: (Show_module_default()).postTop,
                                 children: [
-                                    /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                                    /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                                         href: "/topics/[topicSlug]",
                                         as: `/topics/${post.slug}`,
                                         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("a", {
@@ -441,7 +388,7 @@ const PostShow = ({ data: { post  } , data  })=>{
                                     /*#__PURE__*/ jsx_runtime_.jsx("span", {
                                         children: "posted by"
                                     }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                                    /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                                         href: "/users/[...oneUser]",
                                         as: `/users/${post.postedBy._id}`,
                                         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("a", {
@@ -467,18 +414,16 @@ const PostShow = ({ data: { post  } , data  })=>{
                                         className: (Show_module_default()).title,
                                         children: post.title
                                     }),
-                                    !editOpt && postContent.split('\n').map((el, i)=>/*#__PURE__*/ jsx_runtime_.jsx("p", {
+                                    !editOpt && postContent.split("\n").map((el, i)=>/*#__PURE__*/ jsx_runtime_.jsx("p", {
                                             style: el.length === 0 ? {
-                                                height: '1rem'
+                                                height: "1rem"
                                             } : null,
                                             className: (Show_module_default()).content,
                                             children: el
-                                        }, i)
-                                    ),
+                                        }, i)),
                                     editOpt && /*#__PURE__*/ jsx_runtime_.jsx("textarea", {
                                         className: (Components_module_default()).textArea,
-                                        onChange: (e)=>setPostContent(e.target.value)
-                                        ,
+                                        onChange: (e)=>setPostContent(e.target.value),
                                         value: postContent
                                     })
                                 ]
@@ -517,43 +462,38 @@ const PostShow = ({ data: { post  } , data  })=>{
                                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                         className: (Show_module_default()).comments,
                                         children: [
-                                            /*#__PURE__*/ jsx_runtime_.jsx(CommentIcon/* default */.Z, {
-                                            }),
+                                            /*#__PURE__*/ jsx_runtime_.jsx(CommentIcon/* default */.Z, {}),
                                             /*#__PURE__*/ jsx_runtime_.jsx("span", {
                                                 className: (Show_module_default()).count,
                                                 children: commCount
                                             }),
                                             /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                                children: post.comments.length === 1 ? 'Comment' : 'Comments'
+                                                children: post.comments.length === 1 ? "Comment" : "Comments"
                                             })
                                         ]
                                     }),
                                     /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                        onClick: ()=>setBanner(true)
-                                        ,
+                                        onClick: ()=>setBanner(true),
                                         style: {
-                                            padding: '1rem 0.6rem'
+                                            padding: "1rem 0.6rem"
                                         },
-                                        children: /*#__PURE__*/ jsx_runtime_.jsx(MoreIcon/* default */.Z, {
-                                        })
+                                        children: /*#__PURE__*/ jsx_runtime_.jsx(MoreIcon/* default */.Z, {})
                                     }),
                                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                        onClick: ()=>setBanner(false)
-                                        ,
+                                        onClick: ()=>setBanner(false),
                                         style: banner ? null : {
-                                            display: 'none'
+                                            display: "none"
                                         },
                                         className: (Components_module_default()).moreBanner,
                                         children: [
                                             /*#__PURE__*/ jsx_runtime_.jsx(SaveOption/* default */.Z, {
                                                 postID: post._id
                                             }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx(CopyOption/* default */.Z, {
-                                            }),
-                                            data.userPosts.includes(post._id) && /*#__PURE__*/ jsx_runtime_.jsx(bannerOptions_EditOption, {
+                                            /*#__PURE__*/ jsx_runtime_.jsx(CopyOption/* default */.Z, {}),
+                                            data.userPosts.includes(post._id) && /*#__PURE__*/ jsx_runtime_.jsx(EditOption/* default */.Z, {
                                                 activation: setEditOpt
                                             }),
-                                            data.userPosts.includes(post._id) && /*#__PURE__*/ jsx_runtime_.jsx(bannerOptions_DeleteOption, {
+                                            data.userPosts.includes(post._id) && /*#__PURE__*/ jsx_runtime_.jsx(DeleteOption/* default */.Z, {
                                                 activation: setDeleteOpt
                                             })
                                         ]
@@ -561,8 +501,7 @@ const PostShow = ({ data: { post  } , data  })=>{
                                 ]
                             }),
                             /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                onClick: ()=>setBanner(false)
-                                ,
+                                onClick: ()=>setBanner(false),
                                 className: banner ? (Components_module_default()).transparentLayer : null
                             })
                         ]
@@ -572,10 +511,8 @@ const PostShow = ({ data: { post  } , data  })=>{
                         className: (Show_module_default()).createWrap,
                         children: [
                             /*#__PURE__*/ jsx_runtime_.jsx("input", {
-                                onClick: ()=>setActive(true)
-                                ,
-                                onChange: (e)=>setContent(e.target.value)
-                                ,
+                                onClick: ()=>setActive(true),
+                                onChange: (e)=>setContent(e.target.value),
                                 value: content,
                                 className: (Show_module_default()).createComm,
                                 minLength: "6",
@@ -585,7 +522,7 @@ const PostShow = ({ data: { post  } , data  })=>{
                             }),
                             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                 style: active ? null : {
-                                    display: 'none'
+                                    display: "none"
                                 },
                                 className: (Show_module_default()).btns,
                                 children: [
@@ -613,11 +550,9 @@ const PostShow = ({ data: { post  } , data  })=>{
             errors,
             errs,
             ers,
-            /*#__PURE__*/ jsx_runtime_.jsx(BottomBar/* default */.Z, {
-            }),
+            /*#__PURE__*/ jsx_runtime_.jsx(BottomBar/* default */.Z, {}),
             deleteOpt && /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                onClick: ()=>setDeleteOpt(false)
-                ,
+                onClick: ()=>setDeleteOpt(false),
                 className: (Components_module_default()).layer
             }),
             deleteOpt && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
@@ -630,8 +565,7 @@ const PostShow = ({ data: { post  } , data  })=>{
                         children: [
                             /*#__PURE__*/ jsx_runtime_.jsx("button", {
                                 className: (Components_module_default()).cancel,
-                                onClick: ()=>setDeleteOpt(false)
-                                ,
+                                onClick: ()=>setDeleteOpt(false),
                                 children: "Cancel"
                             }),
                             /*#__PURE__*/ jsx_runtime_.jsx("button", {
@@ -644,7 +578,7 @@ const PostShow = ({ data: { post  } , data  })=>{
                 ]
             })
         ]
-    }));
+    });
 };
 const getServerSideProps = async (ctx)=>{
     const { postId  } = ctx.query;
@@ -686,11 +620,19 @@ module.exports = require("date-fns/formatDistance");
 
 /***/ }),
 
-/***/ 562:
+/***/ 3280:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("next/dist/server/denormalize-page-path.js");
+module.exports = require("next/dist/shared/lib/app-router-context.js");
+
+/***/ }),
+
+/***/ 2796:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
 
@@ -702,11 +644,27 @@ module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 
 /***/ }),
 
+/***/ 8524:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/is-plain-object.js");
+
+/***/ }),
+
 /***/ 8020:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/mitt.js");
+
+/***/ }),
+
+/***/ 4406:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/page-path/denormalize-page-path.js");
 
 /***/ }),
 
@@ -718,6 +676,38 @@ module.exports = require("next/dist/shared/lib/router-context.js");
 
 /***/ }),
 
+/***/ 1751:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix.js");
+
+/***/ }),
+
+/***/ 6220:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/compare-states.js");
+
+/***/ }),
+
+/***/ 299:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/format-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 3938:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/format-url.js");
+
+/***/ }),
+
 /***/ 9565:
 /***/ ((module) => {
 
@@ -726,11 +716,19 @@ module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-
 
 /***/ }),
 
-/***/ 4365:
+/***/ 5789:
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("next/dist/shared/lib/router/utils/get-middleware-regex.js");
+module.exports = require("next/dist/shared/lib/router/utils/get-next-pathname-info.js");
+
+/***/ }),
+
+/***/ 1897:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/is-bot.js");
 
 /***/ }),
 
@@ -742,6 +740,14 @@ module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 
 /***/ }),
 
+/***/ 8854:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/parse-path.js");
+
+/***/ }),
+
 /***/ 1292:
 /***/ ((module) => {
 
@@ -750,11 +756,27 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.j
 
 /***/ }),
 
+/***/ 4567:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix.js");
+
+/***/ }),
+
 /***/ 979:
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
+
+/***/ }),
+
+/***/ 3297:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slash.js");
 
 /***/ }),
 
@@ -821,7 +843,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,853,471,960,899,241,30], () => (__webpack_exec__(9274)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,664,853,471,899,119,909,30], () => (__webpack_exec__(9878)));
 module.exports = __webpack_exports__;
 
 })();

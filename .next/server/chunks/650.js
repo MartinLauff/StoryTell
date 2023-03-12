@@ -24,8 +24,7 @@ module.exports = {
 	"hide": "Post_hide__OEcmp",
 	"postLink": "Post_postLink__aHNai",
 	"anotherActions": "Post_anotherActions__usE9q",
-	"borda": "Post_borda__q6rtX",
-	"margin": "Post_margin__6a_4W"
+	"borda": "Post_borda__q6rtX"
 };
 
 
@@ -47,12 +46,17 @@ var jsx_runtime_ = __webpack_require__(997);
 var external_react_ = __webpack_require__(6689);
 // EXTERNAL MODULE: ./node_modules/next/link.js
 var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: ./components/Icons/LikeSet.js
 var LikeSet = __webpack_require__(9107);
 // EXTERNAL MODULE: ./components/bannerOptions/SaveOption.js
 var SaveOption = __webpack_require__(7417);
 // EXTERNAL MODULE: ./components/bannerOptions/CopyOption.js + 1 modules
 var CopyOption = __webpack_require__(5845);
+// EXTERNAL MODULE: ./components/bannerOptions/DeleteOption.js + 1 modules
+var DeleteOption = __webpack_require__(7760);
+// EXTERNAL MODULE: ./components/bannerOptions/EditOption.js + 1 modules
+var EditOption = __webpack_require__(8537);
 // EXTERNAL MODULE: ./styles/Post.module.css
 var Post_module = __webpack_require__(2407);
 var Post_module_default = /*#__PURE__*/__webpack_require__.n(Post_module);
@@ -78,34 +82,36 @@ var MoreIcon = __webpack_require__(1110);
 
 
 
+
+
 const Post = ({ post , UnsaveOption , userId  })=>{
     const { 0: banner , 1: setBanner  } = (0,external_react_.useState)(false);
     const { 0: state , 1: setState  } = (0,external_react_.useState)(true);
     const blackColor = {
-        color: '#000'
+        color: "#000"
     };
     const whiteColor = {
-        color: '#fff'
+        color: "#fff"
     };
     const greyColor = {
-        color: '#878a8c'
+        color: "#878a8c"
     };
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: `${state ? (Post_module_default()).post : (Post_module_default()).hide} ${!post.coverImage ? (Post_module_default()).borda : ''} ${!post.coverImage ? (Post_module_default()).margin : ''}`,
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: `${state ? (Post_module_default()).post : (Post_module_default()).hide} ${!post.coverImage ? (Post_module_default()).borda : ""}`,
         children: [
             UnsaveOption && /*#__PURE__*/ (0,external_react_.cloneElement)(UnsaveOption, {
                 postId: post._id,
                 deleteOpt: setState,
                 Xposition: post.coverImage ? true : false
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
                 href: "/posts/[...postId]",
                 as: `/posts/${post._id}`,
                 children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("a", {
                     className: (Post_module_default()).postLink,
                     style: {
-                        textDecoration: 'none',
-                        display: 'flex'
+                        textDecoration: "none",
+                        display: "flex"
                     },
                     children: [
                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
@@ -113,19 +119,19 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                             children: [
                                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                     style: post.coverImage ? {
-                                        paddingTop: '1.5rem'
+                                        paddingTop: "1.5rem"
                                     } : null,
                                     className: (Post_module_default()).postTop,
                                     children: [
                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                             style: {
-                                                display: 'flex',
-                                                aligItems: 'center'
+                                                display: "flex",
+                                                aligItems: "center"
                                             },
                                             children: [
                                                 /*#__PURE__*/ jsx_runtime_.jsx("img", {
                                                     style: {
-                                                        marginRight: '0.5rem'
+                                                        marginRight: "0.5rem"
                                                     },
                                                     className: (Post_module_default()).icon,
                                                     alt: post.title,
@@ -143,17 +149,17 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                             className: (Post_module_default()).date,
                                             children: formatDistance_default()(new Date(post.createdAt), new Date(), {
                                                 addSuffix: true
-                                            }).replace('about', '').replace('less than', '')
+                                            }).replace("about", "").replace("less than", "")
                                         }),
                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                             style: {
-                                                display: 'flex',
-                                                aligItems: 'center'
+                                                display: "flex",
+                                                aligItems: "center"
                                             },
                                             children: [
                                                 /*#__PURE__*/ jsx_runtime_.jsx("img", {
                                                     style: {
-                                                        marginRight: '0.5rem'
+                                                        marginRight: "0.5rem"
                                                     },
                                                     src: post.postedBy.photo,
                                                     className: (Post_module_default()).icon,
@@ -170,7 +176,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                 }),
                                 /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                     style: post.coverImage ? {
-                                        padding: '1rem 0'
+                                        padding: "1rem 0"
                                     } : null,
                                     className: (Post_module_default()).postContent,
                                     children: /*#__PURE__*/ jsx_runtime_.jsx("h2", {
@@ -200,11 +206,10 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                         }),
                                         /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                             children: [
-                                                /*#__PURE__*/ jsx_runtime_.jsx(CommentIcon/* default */.Z, {
-                                                }),
+                                                /*#__PURE__*/ jsx_runtime_.jsx(CommentIcon/* default */.Z, {}),
                                                 /*#__PURE__*/ jsx_runtime_.jsx("span", {
                                                     style: {
-                                                        marginLeft: '0.8rem',
+                                                        marginLeft: "0.8rem",
                                                         ...greyColor
                                                     },
                                                     children: "Comments"
@@ -212,8 +217,7 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                                             ]
                                         }),
                                         /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                                            children: /*#__PURE__*/ jsx_runtime_.jsx(MoreIcon/* default */.Z, {
-                                            })
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx(MoreIcon/* default */.Z, {})
                                         })
                                     ]
                                 })
@@ -221,7 +225,6 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                         }),
                         post.coverImage && /*#__PURE__*/ jsx_runtime_.jsx("img", {
                             className: (Post_module_default()).coverImage,
-                            loading: "lazy",
                             src: post.coverImage,
                             alt: post.title
                         })
@@ -241,11 +244,10 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                     }),
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx(CommentIcon/* default */.Z, {
-                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx(CommentIcon/* default */.Z, {}),
                             /*#__PURE__*/ jsx_runtime_.jsx("span", {
                                 style: {
-                                    marginLeft: '0.8rem',
+                                    marginLeft: "0.8rem",
                                     ...greyColor
                                 },
                                 children: "Comments"
@@ -253,35 +255,27 @@ const Post = ({ post , UnsaveOption , userId  })=>{
                         ]
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        style: {
-                            padding: '1.5rem 1rem'
-                        },
-                        onClick: ()=>setBanner(true)
-                        ,
-                        children: /*#__PURE__*/ jsx_runtime_.jsx(MoreIcon/* default */.Z, {
-                        })
+                        onClick: ()=>setBanner(true),
+                        children: /*#__PURE__*/ jsx_runtime_.jsx(MoreIcon/* default */.Z, {})
                     }),
                     banner && /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                        onClick: ()=>setBanner(false)
-                        ,
+                        onClick: ()=>setBanner(false),
                         className: (Components_module_default()).moreBanner,
                         children: [
                             /*#__PURE__*/ jsx_runtime_.jsx(SaveOption/* default */.Z, {
                                 postID: post._id
                             }),
-                            /*#__PURE__*/ jsx_runtime_.jsx(CopyOption/* default */.Z, {
-                            })
+                            /*#__PURE__*/ jsx_runtime_.jsx(CopyOption/* default */.Z, {})
                         ]
                     })
                 ]
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                onClick: ()=>setBanner(false)
-                ,
+                onClick: ()=>setBanner(false),
                 className: banner ? (Components_module_default()).transparentLayer : null
             })
         ]
-    }));
+    });
 };
 /* harmony default export */ const items_Post = (Post);
 
@@ -290,22 +284,58 @@ const Post = ({ post , UnsaveOption , userId  })=>{
 
 
 const PostList = ({ posts , text , UnsaveOption , userId  })=>{
-    if (!posts || posts.length === 0) {
-        return(/*#__PURE__*/ jsx_runtime_.jsx("div", {
+    if (posts.length === 0) {
+        return /*#__PURE__*/ jsx_runtime_.jsx("div", {
             className: (Post_module_default()).noPosts,
             children: text
-        }));
+        });
+    }
+    if (!posts) {
+        return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+            "data-center": "center",
+            children: [
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: "wave"
+                })
+            ]
+        });
     }
     const renderedList = posts.map((post)=>/*#__PURE__*/ jsx_runtime_.jsx(items_Post, {
             userId: userId,
             UnsaveOption: UnsaveOption,
             post: post
-        }, post._id)
-    );
-    return(/*#__PURE__*/ jsx_runtime_.jsx("div", {
+        }, post._id));
+    return /*#__PURE__*/ jsx_runtime_.jsx("div", {
         className: (Post_module_default()).postList,
         children: renderedList
-    }));
+    });
 };
 /* harmony default export */ const lists_PostList = (PostList);
 
