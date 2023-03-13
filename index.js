@@ -155,14 +155,14 @@ var mongoose_1 = __importDefault(require('mongoose'));
 var http_1 = require('http');
 var socket_io_1 = require('socket.io');
 var dotenv_1 = __importDefault(require('dotenv'));
-var error_handler_1 = require('./middleware/error-handler');
-var not_found_error_1 = require('./errors/not-found-error');
-var authRoutes_1 = require('./routes/authRoutes');
-var postRoutes_1 = require('./routes/postRoutes');
-var commentRouter_1 = require('./routes/commentRouter');
-var likesRouter_1 = require('./routes/likesRouter');
-var userRouter_1 = require('./routes/userRouter');
-var topicRouter_1 = require('./routes/topicRouter');
+var error_handler_1 = require('./dist/middleware/error-handler');
+var not_found_error_1 = require('./dist/errors/not-found-error');
+var authRoutes_1 = require('./dist/routes/authRoutes');
+var postRoutes_1 = require('./dist/routes/postRoutes');
+var commentRouter_1 = require('./dist/routes/commentRouter');
+var likesRouter_1 = require('./dist/routes/likesRouter');
+var userRouter_1 = require('./dist/routes/userRouter');
+var topicRouter_1 = require('./dist/routes/topicRouter');
 const dev = 'production' !== process.env.NODE_ENV,
   app = (0, next_1.default)({
     dev,
