@@ -230,10 +230,6 @@ app.prepare().then(() => {
     e.use((0, express_mongo_sanitize_1.default)()),
     e.use((0, xss_clean_1.default)()),
     e.use((0, compression_1.default)()),
-    'production' === process.env.NODE_ENV &&
-      e.get('/*', function (e, t) {
-        t.sendFile(path_1.default.join(__dirname, '../_next'));
-      }),
     e.use('/api/auth', authRoutes_1.authRouter),
     e.use('/api/posts', postRoutes_1.postRouter),
     e.use('/api/upvotes', likesRouter_1.likeRouter),
