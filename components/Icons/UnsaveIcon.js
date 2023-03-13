@@ -3,7 +3,7 @@ import useRequest from '../../hooks/use-request';
 
 const UnsaveIcon = ({ postId, deleteOpt, Xposition }) => {
   const { doRequest, errors } = useRequest({
-    url: `http://localhost:8000/api/users/unsave/${postId}`,
+    url: `/api/users/unsave/${postId}`,
     method: 'put',
   });
 

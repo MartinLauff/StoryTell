@@ -71,7 +71,7 @@ const LikeSet = ({ postID , likes , greyColor , userId  })=>{
         });
         try {
             await http({
-                url: `http://localhost:8000/api/upvotes/${postID}/${path}`,
+                url: `/api/upvotes/${postID}/${path}`,
                 method: "put",
                 withCredentials: true
             });
@@ -385,7 +385,7 @@ const EditOption = ({ activation  })=>{
 
 const SaveOption = ({ postID  })=>{
     const { doRequest , errors  } = (0,_hooks_use_request__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z)({
-        url: `http://localhost:8000/api/users/save/${postID}`,
+        url: `/api/users/save/${postID}`,
         method: "put"
     });
     const savePost = ()=>{

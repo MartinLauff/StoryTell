@@ -9,7 +9,7 @@ const Signin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { doRequest, errors } = useRequest({
-    url: 'http://localhost:8000/api/auth/signin',
+    url: '/api/auth/signin',
     method: 'post',
     body: {
       email,

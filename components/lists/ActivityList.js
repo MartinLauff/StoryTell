@@ -8,7 +8,7 @@ const ActivityList = ({ activities }) => {
   const [acsData, setAcsData] = useState([]);
   const [page, nextPage] = useState(1);
   const { doRequest, errors } = useRequest({
-    url: `http://localhost:8000/api/users/activities?page=${page}&limit=10`,
+    url: `/api/users/activities?page=${page}&limit=10`,
     method: 'get',
   });
   useEffect(() => {

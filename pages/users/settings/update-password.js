@@ -12,7 +12,7 @@ const UpdatePassword = () => {
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
 
   const { doRequest, errors } = useRequest({
-    url: 'http://localhost:8000/api/users/update-password',
+    url: '/api/users/update-password',
     method: 'put',
     body: {
       currentPassword,

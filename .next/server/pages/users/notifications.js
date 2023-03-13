@@ -215,7 +215,7 @@ const ActivityList = ({ activities  })=>{
     const { 0: acsData , 1: setAcsData  } = (0,external_react_.useState)([]);
     const { 0: page , 1: nextPage  } = (0,external_react_.useState)(1);
     const { doRequest , errors  } = (0,use_request/* default */.Z)({
-        url: `http://localhost:8000/api/users/activities?page=${page}&limit=10`,
+        url: `/api/users/activities?page=${page}&limit=10`,
         method: "get"
     });
     (0,external_react_.useEffect)(()=>{

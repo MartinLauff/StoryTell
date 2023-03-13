@@ -56,7 +56,7 @@ var use_request = __webpack_require__(6471);
 
 const UnsaveIcon = ({ postId , deleteOpt , Xposition  })=>{
     const { doRequest , errors  } = (0,use_request/* default */.Z)({
-        url: `http://localhost:8000/api/users/unsave/${postId}`,
+        url: `/api/users/unsave/${postId}`,
         method: "put"
     });
     const onClick = (e)=>{

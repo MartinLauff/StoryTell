@@ -85,7 +85,7 @@ const OneUser = ({ data  })=>{
     const { 0: active , 1: setActive  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);
     const { 0: followers , 1: setFollowers  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(data.user.followers.length);
     const { doRequest , errors  } = (0,_hooks_use_request__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z)({
-        url: `http://localhost:8000/api/users/${active ? "unfollow" : "follow"}/${data.user._id}`,
+        url: `/api/users/${active ? "unfollow" : "follow"}/${data.user._id}`,
         method: "put"
     });
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{

@@ -104,7 +104,7 @@ const UpdateMyProfile = ({ data  })=>{
     const { 0: email , 1: setEmail  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(data.email);
     const doRequest = (url = data.photo)=>{
         axios__WEBPACK_IMPORTED_MODULE_2___default()({
-            url: "http://localhost:8000/api/users/update-my-profile",
+            url: "/api/users/update-my-profile",
             method: "put",
             data: {
                 photo: url,

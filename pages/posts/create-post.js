@@ -33,7 +33,7 @@ const CreatePost = () => {
 
   const doRequest = (url = '') => {
     axios({
-      url: 'http://localhost:8000/api/posts/',
+      url: '/api/posts/',
       method: 'post',
       data: {
         topic,

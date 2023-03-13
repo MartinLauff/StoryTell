@@ -98,7 +98,7 @@ var formatDistance_default = /*#__PURE__*/__webpack_require__.n(formatDistance_)
 const Comment = ({ comment , userId  })=>{
     const { 0: state , 1: setState  } = (0,external_react_.useState)(true);
     const { doRequest , errors  } = (0,use_request/* default */.Z)({
-        url: `http://localhost:8000/api/comments/${comment._id}`,
+        url: `/api/comments/${comment._id}`,
         method: "delete"
     });
     const deleteComment = (e)=>{
@@ -298,19 +298,19 @@ const PostShow = ({ data: { post  } , data  })=>{
     const { 0: comments , 1: setComment  } = (0,external_react_.useState)([]);
     const { 0: commCount , 1: setCommCount  } = (0,external_react_.useState)(post.comments.length);
     const { doRequest , errors  } = (0,use_request/* default */.Z)({
-        url: `http://localhost:8000/api/comments/${post._id}`,
+        url: `/api/comments/${post._id}`,
         method: "post",
         body: {
             content
         }
     });
     const { doRequest: deleteRequest , errors: errs  } = (0,use_request/* default */.Z)({
-        url: `http://localhost:8000/api/posts/${post._id}`,
+        url: `/api/posts/${post._id}`,
         method: "delete",
         onSuccess: ()=>router_default().push("/users/my-profile")
     });
     const { doRequest: editRequest , errors: ers  } = (0,use_request/* default */.Z)({
-        url: `http://localhost:8000/api/posts/${post._id}`,
+        url: `/api/posts/${post._id}`,
         method: "put",
         body: {
             content: postContent

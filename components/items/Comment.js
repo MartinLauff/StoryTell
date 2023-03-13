@@ -9,7 +9,7 @@ const Comment = ({ comment, userId }) => {
   const [state, setState] = useState(true);
 
   const { doRequest, errors } = useRequest({
-    url: `http://localhost:8000/api/comments/${comment._id}`,
+    url: `/api/comments/${comment._id}`,
     method: 'delete',
   });
 
