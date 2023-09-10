@@ -4,7 +4,7 @@ StoryTell is a social media platform where you can connect with ambitious people
 The user interface was designed primarily for mobile users, whereas desktop users were not forgotten.
 
 <img src="https://github.com/MartinLauff/StoryTell/assets/72349751/6a720819-dde7-43f4-b424-e828e9a56dd7" width="200">
-![Screenshot_20230910-141148](https://github.com/MartinLauff/StoryTell/assets/72349751/c6ade243-5962-43a2-93fe-d56771f03fcd)
+<img src="https://github.com/MartinLauff/StoryTell/assets/72349751/c6ade243-5962-43a2-93fe-d56771f03fcd" width="200">
 
-## Laptop view
+## Laptop View
 <img src="https://github.com/MartinLauff/StoryTell/assets/72349751/6479c6b2-3e39-42c6-bd55-e979f76279ad" width="800">
