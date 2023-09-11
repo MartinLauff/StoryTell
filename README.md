@@ -10,9 +10,9 @@ The user interface was designed primarily for mobile users, whereas desktop user
 ### Laptop View
 <img src="https://github.com/MartinLauff/StoryTell/assets/72349751/6479c6b2-3e39-42c6-bd55-e979f76279ad" width="800">
 
-## Special features
+## Extraordinary features
 
-This platform has the necessary tools for your smooth ride. When you need to know what kind of activities have been happening in your posts, hit the bell icon to find out. The notification system will keep you updated when it comes to new followers, likes or comments. Another feature which is powerful when socializing is instant messaging.
+This platform has the necessary tools for staying up-to-date. When you need to know what kind of activities have been happening in your posts, hit the bell icon to find out. The notification system will keep you updated when it comes to new followers, likes or comments. Another essential feature you can try out is instant messaging.
 
 <img src="https://github.com/MartinLauff/StoryTell/assets/72349751/929f2b82-28e3-41c8-b1de-5302c157a147" width="270">
 <img src="https://github.com/MartinLauff/StoryTell/assets/72349751/8c2a58c0-c0ae-49d3-bc08-500061f20223" width="270">
